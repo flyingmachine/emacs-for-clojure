@@ -6,11 +6,11 @@
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
 
-;; Uncomment this and play with the values in order to set Emacs's
-;; the width and height whenever Emacs will have whenever you start it
-;; (setq initial-frame-alist '((top . 0) (left . 0)
-;;                               (width . 187) (height . 77)))
+;; Uncomment the lines below by removing semicolons and play with the
+;; values in order to set the width (in characters wide) and height
+;; (in lines high) Emacs will have whenever you start it
 
+;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 20) (height . 20)))
 
 ;; Place downloaded elisp files in this directory. You'll then be able
 ;; to load them.
