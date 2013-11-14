@@ -16,8 +16,7 @@
                       clojure-mode
                       clojure-test-mode
                       nrepl
-                      auto-complete
-                      ac-nrepl)
+                      )
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
