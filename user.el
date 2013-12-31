@@ -40,20 +40,7 @@
 ;; Flyspell often slows down editing so it's turned off
 (remove-hook 'text-mode-hook 'turn-on-flyspell)
 
-;; Clojure
-(add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
-(setq nrepl-history-file "~/.emacs.d/nrepl-history")
-(setq nrepl-popup-stacktraces t)
-(setq nrepl-popup-stacktraces-in-repl t)
-(add-hook 'nrepl-connected-hook
-          (defun pnh-clojure-mode-eldoc-hook ()
-            (add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
-            (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
-            (nrepl-enable-on-existing-clojure-buffers)))
-(add-hook 'nrepl-mode-hook 'subword-mode)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'nrepl-mode))
-(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(load "~/.emacs.d/vendor/clojure")
 
 ;; hippie expand - don't try to complete with file names
 (setq hippie-expand-try-functions-list (delete 'try-complete-file-name hippie-expand-try-functions-list))

@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads nil "starter-kit-lisp" "starter-kit-lisp.el" (21031
-;;;;;;  23288 0 0))
+;;;### (autoloads nil "starter-kit-lisp" "starter-kit-lisp.el" (20184
+;;;;;;  56040))
 ;;; Generated autoloads from starter-kit-lisp.el
 
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
@@ -37,8 +37,8 @@ Face used to dim parentheses." :group (quote starter-kit-faces))
 
 ;;;***
 
-;;;### (autoloads nil nil ("starter-kit-lisp-pkg.el") (21031 23288
-;;;;;;  270704 0))
+;;;### (autoloads nil nil ("starter-kit-lisp-pkg.el") (20184 56040
+;;;;;;  964735))
 
 ;;;***
 
