@@ -9,4 +9,3 @@
   (package-refresh-contents))
 
 (load "~/.emacs.d/user.el")
-
