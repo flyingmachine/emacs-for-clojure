@@ -1,0 +1,60 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("hermes"
+ (filename . "~/projects/web_sites/hermes/server/src/hermes/server/components.clj")
+ (front-context-string . "(ns hermes.serve")
+ (rear-context-string)
+ (position . 1))
+("cocktails"
+ (filename . "~/projects/web_sites/cocktails/server/src/cocktails/core.clj")
+ (front-context-string . "(ns cocktails.co")
+ (rear-context-string)
+ (position . 1))
+("gromit"
+ (filename . "~/projects/web_sites/gromit/server/src/gromit/server.clj")
+ (front-context-string . "(ns gromit.serve")
+ (rear-context-string)
+ (position . 1))
+("magepunch"
+ (filename . "~/projects/web_sites/magepunch/engine/src/magepunch/engine/move.clj")
+ (front-context-string . "#!/usr/bin/env b")
+ (rear-context-string)
+ (position . 1))
+("wallace"
+ (filename . "~/projects/web_sites/wallace/server/src/wallace/server/components.clj")
+ (front-context-string . "\n      wrap-mult")
+ (rear-context-string . "ap-nested-params")
+ (position . 860))
+("rabble"
+ (filename . "~/projects/web_sites/rabble/src/rabble/ring_app.clj")
+ (front-context-string . "(ns rabble.ring-")
+ (rear-context-string)
+ (position . 1))
+("wj"
+ (filename . "~/projects/web_sites/weatherjerk/server/src/weatherjerk/server.clj")
+ (front-context-string . "(ns weatherjerk.")
+ (rear-context-string)
+ (position . 1))
+("projects.org"
+ (filename . "~/Dropbox/org-life/projects.org")
+ (front-context-string . "* Grateful Place")
+ (rear-context-string)
+ (position . 1))
+("brave-clojure-web"
+ (filename . "~/projects/web_sites/brave-clojure-web/content/")
+ (front-context-string . ".DS_Store\n  -rw-")
+ (rear-context-string . "48 Sep  5 16:02 ")
+ (position . 270))
+("gp2"
+ (filename . "~/projects/web_sites/gp2/server/src/gratefulplace/server.clj")
+ (front-context-string . "(ns gratefulplac")
+ (rear-context-string)
+ (position . 1))
+("athens"
+ (filename . "~/projects/web_sites/athens/server/src/athens/server.clj")
+ (front-context-string . "(ns athens")
+ (rear-context-string)
+ (position . 1))
+)
