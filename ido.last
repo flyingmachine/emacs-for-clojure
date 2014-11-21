@@ -1,0 +1,332 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/admin/" . ".git/")
+ ("/Users/danielhigginbotham/projects/web_sites/wallace/server/" . "config/")
+ ("/Users/danielhigginbotham/projects/web_sites/wallace/config/" . "deploy/")
+ ("/Users/danielhigginbotham/projects/web_sites/wallace/" . "server/")
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/ahold/" . ".git/")
+ ("/Users/danielhigginbotham/projects/web_sites/yesand-content/app/views/" . "pages/")
+ ("/Users/danielhigginbotham/projects/web_sites/yesand-content/app/" . "views/")
+ ("/Users/danielhigginbotham/projects/web_sites/yesand-content/" . "app/")
+ ("/Users/danielhigginbotham/projects/web_sites/yesand/config/" . "initializers/")
+ ("/Users/danielhigginbotham/projects/web_sites/brave-clojure-web/code/" . "read-and-eval/")
+ ("/Users/danielhigginbotham/projects/web_sites/brave-clojure-web/" . "bredesign/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/test/hermes/" . "db/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/test/" . "hermes/")
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/server/src/gromit/" . "lib/")
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/server/src/" . "gromit/")
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/server/" . "src/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/src/queries/" . "select/")
+ ("/Users/danielhigginbotham/Dropbox/projects/clojure for the brave and true nostarch/submissions/" . "alchemy/")
+ ("/Users/danielhigginbotham/Dropbox/projects/clojure for the brave and true nostarch/" . "submissions/")
+ ("/Users/danielhigginbotham/Dropbox/projects/" . "clojure for the brave and true nostarch/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/" . "server/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes-admin/db/" . "migrate/")
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/chemical2/" . "controllers/")
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/chemical/" . "controllers/")
+ ("/Users/danielhigginbotham/projects/web_sites/gp2/infrastructure/ansible/" . "group_vars/")
+ ("/Users/danielhigginbotham/projects/web_sites/gp2/infrastructure/" . "ansible/")
+ ("/Users/danielhigginbotham/projects/web_sites/gp2/" . "infrastructure/")
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/" . "admin/")
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/" . "projects/")
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/" . "repo/")
+ ("/Users/danielhigginbotham/.dotfiles/" . "git/")
+ ("/Users/danielhigginbotham/projects/web_sites/nanoc-blog/content/assets/" . "images/")
+ ("/Users/danielhigginbotham/projects/web_sites/nanoc-blog/content/" . "programming/")
+ ("/Users/danielhigginbotham/projects/web_sites/nanoc-blog/" . "lib/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes-admin/app/helpers/" . "active_admin/")
+ ("/Users/danielhigginbotham/projects/web_sites/tasks/app/models/" . "concerns/")
+ ("/Users/danielhigginbotham/projects/web_sites/tasks/app/" . "models/")
+ ("/Users/danielhigginbotham/projects/web_sites/tasks/" . "db/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes-admin/app/models/" . "concerns/")
+ ("/Users/danielhigginbotham/.emacs.d/elpa/" . "enh-ruby-mode-20140616.1718/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes-admin/app/" . "models/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes-admin/" . "db/")
+ ("/Users/danielhigginbotham/projects/" . "web_sites/")
+ ("/Applications/" . "Adium.app/")
+ ("/" . "Applications/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/" . "migrations/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/src/hermes/" . "db/")
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/src/" . "queries/")
+ ("/Users/danielhigginbotham/projects/web_sites/" . "gromit/")
+ ("/Users/danielhigginbotham/Dropbox/" . "projects/")
+ ("/Users/danielhigginbotham/.emacs.d/" . "customizations/")
+ ("/Users/danielhigginbotham/" . "projects/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/danielhigginbotham/projects/web_sites/hermes/server/migrations/"
+ "/Users/danielhigginbotham/projects/web_sites/hermes/server/src/hermes/db/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/admin/.git/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/test-application/.git/"
+ "/Users/danielhigginbotham/projects/web_sites/hermes/server/src/queries/select/"
+ "/Users/danielhigginbotham/projects/web_sites/hermes/server/test/hermes/db/"
+ "/Users/danielhigginbotham/projects/web_sites/wallace/server/config/"
+ "/Users/danielhigginbotham/projects/web_sites/hermes/server/src/queries/insert/"
+ "/Users/danielhigginbotham/projects/web_sites/hermes/server/src/hermes/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/server/src/gromit/"
+ "/Users/danielhigginbotham/projects/web_sites/hermes/server/src/hermes/proxy/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/value-focus/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/banking/.git/"
+ "/Users/danielhigginbotham/.dotfiles/git/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/server/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/server/config/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/global-foundries/.git/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/value-focus/.git/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/willis/.git/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/ahold/.git/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/overstock/.git/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/switz/.git/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/NDM/.git/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/DEMO/.git/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/DEMO/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/server/src/gromit/lib/"
+ "/Users/danielhigginbotham/projects/web_sites/brave-clojure-web/bredesign/"
+ "/Users/danielhigginbotham/projects/web_sites/yesand-content/app/views/pages/"
+ "/Users/danielhigginbotham/.tmuxinator/"
+ "/Users/danielhigginbotham/.dotfiles/zsh/"
+ "/Users/danielhigginbotham/"
+ "/Users/danielhigginbotham/.dotfiles/bin/"
+ "/Users/danielhigginbotham/.dotfiles/"
+ "/Users/danielhigginbotham/.dotfiles/script/"
+ "/Users/danielhigginbotham/.dotfiles/ruby/"
+ "/Users/danielhigginbotham/projects/web_sites/yesand/config/"
+ "/Users/danielhigginbotham/projects/web_sites/yesand/config/initializers/"
+ "/Users/danielhigginbotham/mongodb/"
+ "/Users/danielhigginbotham/.dotfiles/mongo/"
+ "/Users/danielhigginbotham/projects/web_sites/yesand/"
+ "/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/ahold/"
+ "/Users/danielhigginbotham/projects/web_sites/tasks/db/"
+ "/Users/danielhigginbotham/projects/web_sites/hermes-admin/db/"
+ "/Users/danielhigginbotham/projects/web_sites/hermes/server/resources/fixtures/"
+ "/Users/danielhigginbotham/projects/web_sites/brave-clojure-web/code/read-and-eval/"
+ "/Users/danielhigginbotham/projects/web_sites/hermes/"
+ "/Users/danielhigginbotham/projects/web_sites/hermes-admin/app/models/"
+ "/Users/danielhigginbotham/.ssh/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "everything.up.sql"
+ "fixtures.clj"
+ "config"
+ "FETCH_HEAD"
+ "everything.down.sql"
+ "route.sql"
+ "endpoint.sql"
+ "user.sql"
+ "queries_test.clj"
+ "tasks.clj"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/admin/.git/" (21606 22048 0 0) "refs/" "packed-refs" "ORIG_HEAD" "objects/" "logs/" "info/" "index" "hooks/" "HEAD" "FETCH_HEAD" "description" "config" "branches/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/admin/" (21606 22037 0 0) "views/" "vendor/" "styles/" "scripts/" "README.md" "project.yml" "package.json" "node_modules/" "index.html" "images/" "Gruntfile.js" "fonts/" "fixtures/" "bower.json" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/test-application/.git/" (21604 61674 0 0) "refs/" "packed-refs" "ORIG_HEAD" "objects/" "logs/" "info/" "index" "hooks/" "HEAD" "FETCH_HEAD" "description" "config" "COMMIT_EDITMSG" "branches/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/test-application/" (21604 61594 0 0) "test5" "test4" "test3" "test2" "test" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/migrations/" (21597 15748 0 0) "everything.up.sql" "everything.down.sql" ".gitkeep" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/src/hermes/" (21606 13111 0 0) "utils.clj" "server/" "proxy/" "mock_app.clj" "middleware/" "db/" "config.clj" "app.clj" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/test/hermes/db/" (21602 32846 0 0) "spec_test.clj" "queries_test.clj" "fixtures_test.clj" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/wallace/server/config/" (21510 4771 0 0) "config-production" "config-npn" "config-devutility" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/wallace/server/" (21558 45091 0 0) "wrapper/" "wallace.init" "test/" "target/" "src/" "resources/" "project.clj" "lib/" "doc/" "dev/" "config/" ".lein-env" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/wallace/config/deploy/" (21401 54218 0 0) "production.rb" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/wallace/config/" (21401 54218 0 0) "deploy/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/wallace/" (21557 35532 0 0) "test-build.sh" "server/" "README.md" "npm-debug.log" "html-app/" "generators/" "config/" "Capfile" ".gitignore" ".git/" ".ackrc" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/src/queries/" (21540 9774 0 0) "select/" "insert/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/resources/fixtures/" (21602 33842 0 0) "fixtures.edn" "end-points.edn" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/server/" (21605 4932 0 0) "wrapper/" "test/" "target/" "src/" "resources/" "public/" "project.clj" "gromit.init" "doc/" "config/" ".lein-repl-history" ".lein-env" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/" (21591 44330 0 0) "server/" "README.md" "large-download-test" "examples/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/" (21602 32753 0 0) "test/" "target/" "src/" "resources/" "project.clj" "migrations/" "dev/" ".projectile" ".nrepl-port" ".gitignore" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/src/" (21540 9774 0 0) "queries/" "hermes/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/src/hermes/db/" (21602 32772 0 0) "tasks.clj" "spec.clj" "queries.clj" "fixtures.clj" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/src/hermes/proxy/" (21529 53048 0 0) "translation.clj" "handler.clj" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/src/hermes/server/" (21540 9774 0 0) "ring_app.clj" "components.clj" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/value-focus/" (21604 63926 0 0) "views/" "vendor/" "styles/" "scripts/" "project.yml" "package.json" "index.html" "Gruntfile.js" "assets/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/banking/.git/" (21604 53102 0 0) "refs/" "packed-refs" "ORIG_HEAD" "objects/" "logs/" "info/" "index" "hooks/" "HEAD" "FETCH_HEAD" "description" "config" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/banking/" (21586 17340 0 0) "white-glove-calls.html" "todo/" "templates/" "styles/" "stripes-demo.html" "sparkline.html" "scripts/" "scatter_on.png" "scatter_off.png" "project.yml" "plan.html" "overall-performance.html" "onboarding.pdf" "monthly-plan.html" "listen.png" "lib/" "lead-conversion.html" "indroductory.pdf" "help-my-team.html" "fixtures/" "conversion_badges.html" "controllers/" "completing-daily-activities.html" "coach_weekly.png" "coach_monthly.png" "CIBC_logo.png" "CIBC.css" "building-my-pipeline.html" "building-my-book-of-clients.html" "building-my-book-of-clients-per-person.html" "big-picture.html" "bar_on.png" "bar_off.png" "achieving-higher-quality-calls.html" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/" (21604 61245 0 0) "src/" "Public/" "projects/" "Pictures/" "Music/" "Movies/" "mongodb/" "Library/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "bin/" "Applications/" ".zshrc-e" ".zshrc" ".zsh_history" ".zsh-update" ".zcompdump-Daniel’s MacBook Pro-5.0.2" ".zcompdump" ".vimrc" ".viminfo" ".Trash/" ".tmuxinator/" ".tmux.conf" ".subversion/" ".ssh/" ".ruby-version" ".rubies/" ".oh-my-zsh/" ".m2/" ".lein/" ".irbrc" ".irb_history" ".hughlogin" ".hgignore_global" ".gnupg/" ".gitignore" ".gitconfig" ".git-completion.bash" ".gemrc" ".gem/" ".emacs.d/" ".DS_Store" ".dropbox/" ".dotfiles/" ".cups/" ".CFUserTextEncoding" ".bashrc" ".bash_profile" ".bash_history" ".adobe/" ".ackrc" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/" (21604 56068 0 0) "willis/" "value-focus/" "test-application/" "switz/" "social-graph/" "shared/" "RED/" "PVI/" "overstock/" "nysp/" "NDM/" "nationwide/" "moscow/" "mide/" "ibu/" "hhc/" "hantest/" "global-foundries/" "ford2/" "ford/" "DTV/" "digital-survey/" "dev-playground/" "desjardins/" "DEMO/" "cibc-2/" "cibc/" "chemical2/" "chemical/" "ccm/" "canvas-intro/" "ca/" "bekaert/" "banking/" "aleris/" "ahold2/" "ahold/" "admin/" "aa/" "../" "./")
+
+ ("/Users/danielhigginbotham/.dotfiles/git/" (21600 57676 0 0) "gitignore.symlink" "gitconfig.symlink" "completion.zsh" "aliases.zsh" "../" "./")
+
+ ("/Users/danielhigginbotham/.dotfiles/" (21591 44849 0 0) "zsh/" "xcode/" "vim/" "tmux/" "system/" "static/" "sonos/" "script/" "ruby/" "README.md" "osx/" "oracle/" "mongo/" "LICENSE.md" "java/" "homebrew/" "heroku/" "git/" "functions/" "clojure/" "bin/" "bash/" "android/" "ackrc.symlink" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/" (21158 19630 0 0) "web_sites/" "apple/" "android/" ".DS_Store" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/server/config/" (21514 1311 0 0) "lein-env-production" "lein-env-npn" "lein-env-devutility" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/global-foundries/.git/" (21604 54309 0 0) "refs/" "packed-refs" "objects/" "logs/" "info/" "index" "hooks/" "HEAD" "description" "config" "branches/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/global-foundries/" (21604 54077 0 0) "views/" "vendor/" "styles/" "scripts/" "project.yml" "package.json" "node_modules/" "index.html" "images/" "Gruntfile.js" "fonts/" "fixtures/" "bower.json" "404.html" ".jshintrc" ".git/" ".bowerrc" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/value-focus/.git/" (21604 54220 0 0) "refs/" "packed-refs" "objects/" "logs/" "info/" "index" "hooks/" "HEAD" "description" "config" "branches/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/willis/.git/" (21604 54192 0 0) "refs/" "packed-refs" "objects/" "logs/" "info/" "index" "hooks/" "HEAD" "description" "config" "branches/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/willis/" (21604 54063 0 0) "willis.css" "project.yml" "logo.jpg" "logo.gif" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/overstock/.git/" (21604 54149 0 0) "refs/" "packed-refs" "objects/" "logs/" "info/" "index" "hooks/" "HEAD" "description" "config" "branches/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/ahold/.git/" (21604 54079 0 0) "refs/" "packed-refs" "ORIG_HEAD" "objects/" "logs/" "info/" "index" "hooks/" "HEAD" "FETCH_HEAD" "description" "config" "branches/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/overstock/" (21604 54062 0 0) "views/" "vendor/" "styles/" "scripts/" "README.md" "project.yml" "index.html" "fixtures/" ".jshintrc" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/" (21604 52695 0 0) "track-remote" "shared/" "repop.sh" "README.md" "projects/" "move.sh" "docs/" "create-branch" ".jshintrc" ".gitignore" ".gitattributes" ".git/" ".editorconfig" ".DS_Store" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/switz/.git/" (21604 52560 0 0) "refs/" "packed-refs" "ORIG_HEAD" "objects/" "logs/" "info/" "index" "hooks/" "HEAD" "FETCH_HEAD" "description" "config" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/switz/" (21586 17329 0 0) "templates/" "styles/" "scripts/" "quad-bars.html" "project.yml" "permanent_positions.html" "onboard_table.html" "key_positions.html" "fixtures/" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/NDM/.git/" (21604 52394 0 0) "refs/" "packed-refs" "ORIG_HEAD" "objects/" "logs/" "info/" "index" "hooks/" "HEAD" "FETCH_HEAD" "description" "config" "branches/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/NDM/" (21603 54062 0 0) "views/" "vendor/" "styles/" "scripts/" "project.yml" "package.json" "index.html" "images/" "Gruntfile.js" "fixtures/" ".idea/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/ahold/" (21604 51046 0 0) "views/" "vendor/" "unshared/" "styles/" "scripts/" "project.yml" "index.html" "images/" "fonts/" "fixtures/" ".jshintrc" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/DEMO/.git/" (21604 51949 0 0) "refs/" "packed-refs" "ORIG_HEAD" "objects/" "logs/" "info/" "index" "hooks/" "HEAD" "FETCH_HEAD" "description" "config" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/DEMO/" (21586 17261 0 0) "templates/" "services/" "project.yml" "navigation.html" "main.css" "lib/" "images/" "funnel.html" "function.html" "fixtures/" "dashboard.html" "controllers/" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/server/src/gromit/lib/" (21604 49865 0 0) "substitutions.clj" "repo.clj" "mime.clj" "blob.clj" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/brave-clojure-web/bredesign/" (21576 9470 0 0) "source/" "Gemfile.lock" "Gemfile" "config.rb" ".gitignore" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/yesand-content/" (21604 45770 0 0) "public/" "log/" "icon.png" "Gemfile.lock" "Gemfile" "data/" "config.ru" "config/" "app/" ".sass-cache/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/yesand-content/config/" (21604 45701 0 0) "translations.yml" "site.yml" "deploy.yml" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/yesand-content/data/" (21604 45012 0 0) "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/yesand-content/app/views/pages/" (21604 45023 0 0) "index.liquid" "404.liquid" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/yesand-content/app/views/" (21604 45012 0 0) "snippets/" "pages/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/yesand-content/app/content_types/" (21604 45012 0 0) "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/yesand-content/app/" (21604 45012 0 0) "views/" "content_types/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/" (21604 45012 0 0) "yesand-content/" "yesand/" "whoops/" "weekly-algorithm-challenge/" "webutils/" "webstack/" "weatherjerk-heroku/" "weatherjerk/" "walrustables/" "wallace/" "vms/" "vim-powerline/" "vagrants/" "usability_feedback/" "txdot/" "toward-community/" "textmate_projects/" "tasks/" "tapir/" "strophejs/" "standupbuddy/" "social_stream/" "slg/" "skeuos-server/" "site-bootstrapper/" "sfa c/" "seneca-seed/" "sedawk/" "rubygems/" "rails-templates/" "rabble/" "project-euler/" "profiles/" "preston/" "portfolio-explorer/" "playtest/" "play/" "penny-black/" "pegthing/" "pdf.js/" "patbook/" "ox-odth/" "ox-mdx/" "orglab/" "onesies/" "on-lisp-clojure/" "omniture_rails3/" "omniture-rails/" "odlabserver/" "nonbeginners/" "nicu/" "newsletter-appdev/" "neo4j-dev-bootstrap/" "ncscripts/" "nanoc-blog/" "nakc-tech-hunt/" "nagus/" "muninpoc/" "mrti/" "minimax-tictactoe/" "mcwordy/" "mckinsey/" "matrix/" "make-a-clojure-baby/" "magewars-deckbuilder/" "magepunch/" "lodash-training/" "lispy/" "liberator-unbound/" "liberator-templates/" "liberator/" "leiningen/" "lein-investigation/" "lein-datomic/" "learn-d3/" "lassie/" "jubilee/" "jsfeedback/" "insurance-workshop/" "hutch-client/" "http-kit/" "hoplon-demos/" "holsten/" "hobbitvgiant/" "higml/" "hermes-admin/" "hermes/" "haskellfun/" "happycarpools.com/" "hamsterbeast/" "gromit/" "gratefulplace/" "gp2/" "generator-growbag/" "friend/" "font-dna-angular/" "font-dna/" "fms/" "flyingmachinestudios.com/" "flyingma/" "emailegg/" "emacs-clojure/" "emacs-cheat-sheets/" "doctemplate/" "distribute/" "devise/" "deployingrails/" "day-of-datomic/" "datomic-junk/" "datomic-fun/" "d3charts/" "convert-blog/" "constantawesome/" "compojure/" "compile-clojure/" "cocktails/" "clojure-noob/" "clean-up-your-mess/" "chrome-extension/" "checklisthub/" "cartographer/" "capistrano-comx/" "cap-test/" "canvas/" "c/" "brave-clojure-web/" "audit_rails/" "athens-deploy/" "athens/" "art-of-prolog/" "arenaverse/" "ahold/" "afterpink/" ".lein-env" ".DS_Store" "../" "./")
+
+ ("/Users/danielhigginbotham/.tmuxinator/" (21604 44058 0 0) "yes.yml" "wj.yml" "wal.yml" "tasks.yml" "rab.yml" "ol.yml" "nicu.yml" "mw.yml" "mp.yml" "mcw.yml" "herm.yml" "hera.yml" "grom.yml" "gp2.yml" "ct.yml" "comp.yml" "can.yml" "bc.yml" "ath.yml" "../" "./")
+
+ ("/Users/danielhigginbotham/.dotfiles/zsh/" (21604 44007 0 0) "zshrc.symlink" "window.zsh" "mine.zsh-theme" "fpath.zsh" "config.zsh" "completion.zsh" "aliases.zsh" "../" "./")
+
+ ("/Users/danielhigginbotham/.dotfiles/bin/" (21591 44493 0 0) "todo" "subl" "set-defaults" "search" "res" "mustacheme" "movieme" "headers" "gitio" "git-wtf" "git-up" "git-unpushed-stat" "git-unpushed" "git-undo" "git-track" "git-rank-contributors" "git-promote" "git-nuke" "git-delete-local-merged" "git-credit" "git-copy-branch-name" "git-amend" "git-all" "e" "dot" "cloudapp" "../" "./")
+
+ ("/Users/danielhigginbotham/.dotfiles/script/" (21591 44845 0 0) "install" "bootstrap" "../" "./")
+
+ ("/Users/danielhigginbotham/.dotfiles/ruby/" (21604 43728 0 0) "rvm.zsh" "ruby-version.symlink" "rbenv.zsh" "paths.zsh" "irbrc.symlink" "install.sh" "gemrc.symlink" "completion.zsh" "aliases.zsh" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/yesand/config/" (21604 43493 0 0) "routes.rb" "mongoid.yml" "locales/" "initializers/" "environments/" "environment.rb" "boot.rb" "application.rb" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/yesand/config/initializers/" (21604 43359 0 0) "wrap_parameters.rb" "session_store.rb" "secret_token.rb" "mime_types.rb" "locomotive.rb" "inflections.rb" "dragonfly.rb" "devise.rb" "carrierwave.rb" "backtrace_silencers.rb" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/yesand/" (21604 3668 0 0) "vendor/" "tmp/" "script/" "README.rdoc" "Rakefile" "public/" "log/" "lib/" "Gemfile.lock" "Gemfile" "doc/" "db/" "config.ru" "config/" "app/" ".gitignore" "../" "./")
+
+ ("/Users/danielhigginbotham/mongodb/" (21604 43059 0 0) "../" "./")
+
+ ("/Users/danielhigginbotham/.dotfiles/mongo/" (21591 44843 0 0) "aliases.zsh" "../" "./")
+
+ ("/Users/danielhigginbotham/Dropbox/" (21603 27441 0 0) "wedding/" "tomorrow-night-bright.terminal" "TICKETS_1of1.pdf" "shares/" "Screenshots/" "resources/" "Public/" "projects/" "presentations/" "Photos/" "org-life/" "mckinsey/" "Matt Higginbotham CV2.docx" "Matt Higginbotham CV.docx" "Mage Wars Rulebook for Web v2.0.pdf" "jess stuff/" "Icon
+" "housing/" "goofy/" "farnum/" "docs/" "Configuring Lotus Notes Client for Mac-DRAFT2.pdf" "clojure-for-the-brave-and-true/" "apps/" ".DS_Store" ".dropbox.cache/" ".dropbox" "../" "./")
+
+ ("/Users/danielhigginbotham/Dropbox/org-life/" (21604 3723 0 0) "writing-process.md" "work/" "tricks.org" "projects.org_archive" "projects.org" "mckinsey/" "matt.org" "learning/" "how-to-read.org" "dot-file-thoughts.org" "debug-journal.org" "datomic-presentation.org" "clojure-conj-2013/" "clojure-bridge-notes.org" "braveclojure/" "books.org" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/server/src/gromit/controllers/" (21585 15947 0 0) "shared.clj" "repo.clj" "blobs.clj" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/tasks/db/" (21576 1340 0 0) "seeds.rb" "schema.rb" "migrate/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/resources/" (21538 47036 0 0) "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/brave-clojure-web/code/read-and-eval/" (21598 17566 0 0) "read.clj" "examples.clj" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/brave-clojure-web/code/" (21529 60528 0 0) "writing-macros/" "read-and-eval/" "namespaces/" "java/" "functional-programming/" "core-functions-in-depth/" "concurrency/" "5/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/brave-clojure-web/" (21582 19207 0 0) "tmp/" "Rules" "README.md" "output/" "odt/" "notes/" "lib/" "layouts/" "Guardfile" "Gemfile.lock" "Gemfile" "crash.log" "convert.sh" "content/" "config.yaml" "compass/" "code/" "bredesign/" ".sass-cache/" ".lein-env" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/server/src/gromit/" (21403 3343 0 0) "utils.clj" "server.clj" "middleware/" "lib/" "core.clj" "controllers/" "config.clj" "app.clj" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/server/src/" (21271 12720 0 0) "gromit/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/test/" (21527 3321 0 0) "hermes/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/test/hermes/" (21540 12191 0 0) "proxy/" "db/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/src/queries/select/" (21597 9146 0 0) "user.sql" "route.sql" "endpoint.sql" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes/server/src/queries/insert/" (21540 9774 0 0) "all.sql" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes-admin/db/migrate/" (21597 2389 0 0) "20141106210106_initial.rb" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes-admin/app/models/" (21597 3414 0 0) "user.rb" "tenant.rb" "service.rb" "route.rb" "role.rb" "permission.rb" "endpoint.rb" "display.rb" "concerns/" "application.rb" ".keep" "../" "./")
+
+ ("/Users/danielhigginbotham/.ssh/" (21595 42061 0 0) "known_hosts" "id_rsa.pub" "id_rsa" "config" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes-admin/db/" (21595 57945 0 0) "seeds.rb" "schema.rb" "migrate/" "../" "./")
+
+ ("/Users/danielhigginbotham/Dropbox/projects/clojure for the brave and true nostarch/submissions/alchemy/" (21596 15818 0 0) "revision.md" "alchemy-notes.org" "7-read-and-eval.odt" "6-read-and-eval-Q.odt" "6-read-and-eval-Q-revision.odt" ".~lock.6-read-and-eval-Q-revision.odt#" "../" "./")
+
+ ("/Users/danielhigginbotham/Dropbox/projects/clojure for the brave and true nostarch/submissions/" (21592 6505 0 0) "writing-macros/" "using emacs with clojure/" "organization/" "java/" "getting started/" "functional programming/" "do things/" "core functions in depth/" "concurrency/" "basic emacs/" "alchemy/" ".DS_Store" "../" "./")
+
+ ("/Users/danielhigginbotham/Dropbox/projects/clojure for the brave and true nostarch/" (21593 25456 0 0) "submissions/" "sales/" "read-eval.graffle" "read-eval-2.graffle" "jvm.graffle" "illustrations/" "doodles/" "core-functions.graffle" "book.odt" "author packet/" "assets/" "../" "./")
+
+ ("/Users/danielhigginbotham/Dropbox/projects/" (21593 19215 0 0) "staticchat/" "solr/" "rails3/" "provisioning-profile.developerprofile" "oracle/" "open hercules/" "omgsmackdown/" "my own business/" "mongo/" "mckinsey/" "learngrowdo/" "iphone resources/" "how to understand a system.oo3/" "gratitude/" "foreman/" "emailsfrommom/" "documentation/" "design/" "control time/" "cocktails/" "clojurebridge/" "clojure for the brave and true nostarch/" "blog/" "be telepathic/" "asciidoc build/" "aikicommunity/" ".DS_Store" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/hermes-admin/config/" (21565 23717 0 0) "secrets.yml" "routes.rb" "locales/" "initializers/" "environments/" "environment.rb" "database.yml" "boot.rb" "application.rb" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/nanoc-blog/" (21595 55459 0 0) "tmp/" "static/" "Rules" "README" "Rakefile" "output/" "lib/" "layouts/" "Gemfile.lock" "Gemfile" "crash.log" "content/" "config.yaml" "compass/" ".sass-cache/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/nanoc-blog/content/programming/" (21595 55358 0 0) "writing-better-documentation.textile" "whoops-dci-refactoring.textile" "tmux-in-5-minutes.md" "three-dev-tools.md" "the-unofficial-guide-to-rich-hickeys-brain.md" "tech-lead-lessons-learned.md" "rubyprofhelper-ruby-prof-boilerplate.textile" "refactoring-to-datamappers-in-clojure.textile" "rails-prototypal-attributes.textile" "new-chapter-java.md" "new-chapter-concurrency.md" "minimax.textile" "lein-trampoline.md" "how-clojure-babies-are-made-what-leiningen-is.md" "how-clojure-babies-are-made-the-java-cycle.md" "how-clojure-babies-are-made-lein-run.md" "higml.textile" "global-noir-routes.textile" "foreman-released.md" "foreman-paper-prototypes.md" "follow-your-followers-using-ruby.textile" "first-noir-app-notes.textile" "dissecting-omgsmackdown.textile" "dissecting-gratefulplace.textile" "datomic-for-five-year-olds.md" "clojurers-to-follow.md" "clojure-packages.md" "chunky-iterator.textile" "chunky-bacon-lisp.textile" "building-a-forum-with-clojure-datomic-angular.md" "book-deal.md" "announcing-palmist.textile" "aikidoka-prevents-namespace-collisions.textile" "a-taste-of-the-lambda-calculus.md" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/chemical/controllers/" (21595 42089 0 0) "map.js" "barchart.js" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/chemical2/controllers/" (21595 42089 0 0) "map.js" "barchart.js" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/chemical/" (21595 42089 0 0) "Vitesse.otf" "Vitesse-Light.otf" "templates/" "services/" "project.yml" "map.html" "main.css" "Interstate-Light.ttf" "Interstate-Bold.ttf" "images/" "fixtures/" "controllers/" "barchart.html" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gp2/infrastructure/ansible/group_vars/" (21180 60477 0 0) "database" "app" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gp2/infrastructure/ansible/" (21180 57900 0 0) "vendor/" "provision.yml" "prod" "group_vars/" "files/" "dev" "deploy.yml" "demo" ".lein-env" ".DS_Store" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gp2/infrastructure/" (21049 40669 0 0) "Vagrantfile" "ansible/" ".vagrant/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gp2/" (21177 41040 0 0) "target/" "server/" "README.md" "infrastructure/" "html-app/" "deploy.sh" "build.sh" "assets/" ".lein-env" ".gitignore" ".gitattributes" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/repo/projects/chemical2/" (21586 17344 0 0) "Vitesse.otf" "Vitesse-Light.otf" "templates/" "services/" "project.yml" "map.html" "main.css" "Interstate-Light.ttf" "Interstate-Bold.ttf" "images/" "fixtures/" "controllers/" "barchart.html" ".git/" "../" "./")
+
+ ("/Users/danielhigginbotham/projects/web_sites/gromit/" (21514 1329 0 0) "TAGS" "server/" "repo/" "README.md" "log/" "html-app/" "Gemfile.lock" "Gemfile" "Capfile" ".lein-env" ".gitignore" ".git/" ".DS_Store" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
