@@ -3176,7 +3176,7 @@
 			    (0)))
 			  "evil textobjects based on indentation" single])
  (evil-escape .
-	      [(1 4)
+	      [(1 5 1)
 	       ((emacs
 		 (24))
 		(evil
@@ -3330,7 +3330,7 @@
 	  (0 8 0)))
 	"Emacs Python Development Environment" tar])
  (elpakit .
-	  [(2 0 3)
+	  [(2 0 4)
 	   ((dash
 	     (2 9 0))
 	    (shadchen
