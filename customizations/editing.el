@@ -43,10 +43,6 @@
                                                "backups"))))
 (setq auto-save-default nil)
 
-;; yasnippet
-;; http://www.emacswiki.org/emacs/Yasnippet
-(require 'yasnippet)
-(yas-global-mode 1)
 
 ;; comments
 (defun toggle-comment-on-line ()
