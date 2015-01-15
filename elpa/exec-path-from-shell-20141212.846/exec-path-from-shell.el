@@ -5,7 +5,8 @@
 ;; Author: Steve Purcell <steve@sanityinc.com>
 ;; Keywords: environment
 ;; URL: https://github.com/purcell/exec-path-from-shell
-;; Version: DEV
+;; Version: 20141212.846
+;; X-Original-Version: DEV
 
 ;; This file is not part of GNU Emacs.
 
@@ -100,6 +101,7 @@
 (defcustom exec-path-from-shell-arguments
   (list (exec-path-from-shell--login-arg (getenv "SHELL")) "-i")
   "Additional arguments to pass to the shell.
+
 The default value denotes an interactive login shell."
   :type '(repeat (string :tag "Shell argument"))
   :group 'exec-path-from-shell)
@@ -115,10 +117,13 @@ The default value denotes an interactive login shell."
 
 (defun exec-path-from-shell-printf (str &optional args)
   "Return the result of printing STR in the user's shell.
+
 Executes $SHELL as interactive login shell.
+
 STR is inserted literally in a single-quoted argument to printf,
 and may therefore contain backslashed escape sequences understood
 by printf.
+
 ARGS is an optional list of args which will be inserted by printf
 in place of any % placeholders in STR.  ARGS are not automatically
 shell-escaped, so they may contain $ etc."
@@ -147,6 +152,7 @@ shell-escaped, so they may contain $ etc."
 
 (defun exec-path-from-shell-getenvs (names)
   "Get the environment variables with NAMES from the user's shell.
+
 Execute $SHELL according to `exec-path-from-shell-arguments'.
 The result is a list of (NAME . VALUE) pairs."
   (let* ((dollar-names (mapcar (lambda (n) (format "${%s-}" n)) names))
@@ -163,6 +169,7 @@ The result is a list of (NAME . VALUE) pairs."
 
 (defun exec-path-from-shell-getenv (name)
   "Get the environment variable NAME from the user's shell.
+
 Execute $SHELL as interactive login shell, have it output the
 variable of NAME and return this output as string."
   (cdr (assoc name (exec-path-from-shell-getenvs (list name)))))
@@ -179,6 +186,7 @@ variables such as `exec-path'."
 ;;;###autoload
 (defun exec-path-from-shell-copy-envs (names)
   "Set the environment variables with NAMES from the user's shell.
+
 As a special case, if the variable is $PATH, then `exec-path' and
 `eshell-path-env' are also set appropriately.  The result is an alist,
 as described by `exec-path-from-shell-getenvs'."
@@ -189,6 +197,7 @@ as described by `exec-path-from-shell-getenvs'."
 ;;;###autoload
 (defun exec-path-from-shell-copy-env (name)
   "Set the environment variable $NAME from the user's shell.
+
 As a special case, if the variable is $PATH, then `exec-path' and
 `eshell-path-env' are also set appropriately.  Return the value
 of the environment variable."
@@ -198,6 +207,7 @@ of the environment variable."
 ;;;###autoload
 (defun exec-path-from-shell-initialize ()
   "Initialize environment from the user's shell.
+
 The values of all the environment variables named in
 `exec-path-from-shell-variables' are set from the corresponding
 values used in the user's shell."
