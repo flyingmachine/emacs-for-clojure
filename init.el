@@ -47,7 +47,7 @@
     cider
 
     ;; allow ido usage in as many contexts as possible. see
-    ;; customizations/better-defaults.el line 47 for a description
+    ;; customizations/navigation.el line 23 for a description
     ;; of ido
     ido-ubiquitous
 
