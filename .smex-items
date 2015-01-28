@@ -1,16 +1,23 @@
 
 ;; ----- smex-history -----
 (
- cd
- 5x5
- arp
- dbx
- dig
- erc
- ert
+ rainbow-delimiters-mode
+ multiple-cursors-mode
+ rainbow-mode
+ clojure-mode
+ battery
+ package-initialize
+ package-install
 )
 
 ;; ----- smex-data -----
 (
- 
+ (package-initialize . 3)
+ (package-build-all . 2)
+ (package-install . 2)
+ (rainbow-mode . 2)
+ (rainbow-delimiters-mode . 6)
+ (battery . 1)
+ (clojure-mode . 1)
+ (multiple-cursors-mode . 3)
 )
