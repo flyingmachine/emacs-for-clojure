@@ -1,3 +1,5 @@
+###(now with rainbow brackets!)
+
 # this is a Clojure-friendly emacs config
 
 If you're new to emacs, check out
