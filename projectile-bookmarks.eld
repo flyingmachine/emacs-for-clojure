@@ -1,1 +1,1 @@
-("~/projects/droid/clojuroid/" "~/.emacs.d/")
+("~/projects/web-clj/" "~/projects/clj/arduino-sandbox/" "~/projects/clj/serial-port/" "~/projects/droid/clojuroid/" "~/.emacs.d/")

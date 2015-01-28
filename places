@@ -1,7 +1,7 @@
 ;;; -*- coding: utf-8 -*-
-(("/Users/treeherder/projects/droid/clojuroid/project.clj" . 546)
- ("/Users/treeherder/.emacs.d/.cask/24.4.1/elpa/rainbow-mode-0.10/rainbow-mode-autoloads.el" . 544)
+(("/Users/treeherder/projects/droid/clojuroid/src/clojure/org/stuff/clojuroid/main.clj" . 272)
+ ("/Users/treeherder/projects/droid/clojuroid/project.clj" . 852)
+ ("/Users/treeherder/projects/clj/serial-port/project.clj" . 177)
  ("/Applications/Emacs.app/Contents/Resources/etc/THE-GNU-PROJECT" . 1512)
  ("/Users/treeherder/projects/droid/clojuroid/.gitignore" . 2)
- ("/Users/treeherder/projects/droid/clojuroid/src/clojure/org/stuff/clojuroid/main.clj" . 272)
  ("/Users/treeherder/.emacs.d/.gitignore" . 20))

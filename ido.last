@@ -2,31 +2,41 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/treeherder/projects/clj/" . "serial-port/")
  ("/Users/treeherder/" . "projects/")
  ("/Users/treeherder/projects/droid/clojuroid/src/clojure/org/stuff/" . "clojuroid/")
  ("/Users/treeherder/projects/droid/clojuroid/src/clojure/org/" . "stuff/")
  ("/Users/treeherder/projects/droid/clojuroid/src/clojure/" . "org/")
  ("/Users/treeherder/projects/droid/clojuroid/src/" . "clojure/")
  ("/Users/treeherder/projects/droid/clojuroid/" . "src/")
- ("/Users/treeherder/projects/" . "accelerometer/")
+ ("/Users/treeherder/projects/" . "clj/")
  ("/Users/treeherder/projects/droid/" . "clojuroid/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
- "/Users/treeherder/projects/droid/clojuroid/"
+ "/Users/treeherder/projects/clj/serial-port/"
  "/Users/treeherder/projects/droid/clojuroid/src/clojure/org/stuff/clojuroid/"
+ "/Users/treeherder/projects/droid/clojuroid/"
 )
 
 ;; ----- ido-work-file-list -----
 (
  "project.clj"
- ".gitignore"
  "main.clj"
+ ".gitignore"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/treeherder/projects/clj/serial-port/" (21635 49444 0 0) "test/" "src/" "README.md" "project.clj" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/treeherder/projects/clj/" (21662 24797 0 0) "web/" "tut/" "suckbot.clj" "simple-sample/" "serial-test/" "serial-port/" "robots/" "bot.clj" "arduino-sandbox/" ".DS_Store" "../" "./")
+
+ ("/Users/treeherder/projects/web-clj/" (21664 54880 0 0) "target/" "src/" "resources/" "README.md" "project.clj" "externs/" ".lein-repl-history" ".gitignore" "../" "./")
+
+ ("/Users/treeherder/" (21704 42120 0 0) "Things/" "testerer/" "test_project/" "test/" "sketchbook/" "safe-h2o/" "RXTX/" "Public/" "projects/" "printrun/" "Pictures/" "opt/" "om-tut/" "nltk_data/" "Music/" "Movies/" "matplotlib/" "libusb/" "Library/" "libfreenect/" "kijani/" "eventbrite-client-py/" "Downloads/" "Documents/" "Desktop/" "clodiuno/" "bin/" "Arduino/" "Applications/" "ADXL345_Eval/" "a01/" ".Xauthority" ".vimrc" ".viminfo" ".vim_runtime/" ".vim_mru_files" ".vim/" ".Trash/" ".subversion/" ".ssh/" ".serverauth.38475" ".rnd" ".pronsolerc~bak" ".pronsolerc" ".profile~" ".profile" ".pip/" ".mongorc.js" ".matplotlib/" ".m2/" ".lein/" ".irssi/" ".gitconfig" ".emacs.forest.d/" ".emacs.d.good/" ".emacs.d/" ".emacs.brave.d/" ".DS_Store" ".dbshell" ".config/" ".CFUserTextEncoding" ".cache/" ".bash_profile" ".bash_history" ".android/" "../" "./")
+
  ("/Users/treeherder/projects/droid/clojuroid/" (21704 41179 0 0) "target/" "src/" "res/" "project.clj" "LICENSE" "assets/" "AndroidManifest.template.xml" ".gitignore" "#project.clj#" "../" "./")
 
  ("/Users/treeherder/.android/" (21700 49818 0 0) "sites-settings.cfg" "repositories.cfg" "debug.keystore" "cache/" "avd/" "androidwin.cfg" "adbkey.pub" "adbkey" "adb_usb.ini" "../" "./")
@@ -40,8 +50,6 @@
  ("/Applications/Emacs.app/Contents/Resources/" (21573 44959 0 0) "var/" "site-lisp/" "man/" "lisp/" "info/" "etc/" "English.lproj/" "Emacs.icns" "document.icns" "Credits.html" "../" "./")
 
  ("/Applications/Emacs.app/Contents/Resources/etc/" (21573 44957 0 0) "yow.lines" "WHY-FREE" "tutorials/" "TODO" "themes/" "THE-GNU-PROJECT" "TERMS" "srecode/" "spook.lines" "ses-example.ses" "schema/" "rgb.txt" "refcards/" "README" "publicsuffix.txt" "ps-prin1.ps" "ps-prin0.ps" "PROBLEMS" "package-keyring.gpg" "ORG-NEWS" "org/" "ORDERS" "NXML-NEWS" "nxml/" "NEXTSTEP" "NEWS.23" "NEWS.22" "NEWS.21" "NEWS.20" "NEWS.19" "NEWS.18" "NEWS.1-17" "NEWS" "MORE.STUFF" "MH-E-NEWS" "MACHINES" "LINUX-GNU" "JOKES" "images/" "HELLO" "grep.txt" "gnus-tut.txt" "GNUS-NEWS" "gnus/" "GNU" "future-bug" "FTP" "forms/" "ETAGS.README" "ETAGS.EBNF" "ERC-NEWS" "enriched.txt" "emacs.icon" "emacs.desktop" "emacs.appdata.xml" "emacs-buffer.gdb" "edt-user.el" "e/" "DOC" "DISTRIB" "DEVEL.HUMOR" "DEBUG" "COPYING" "CONTRIBUTE" "compilation.txt" "charsets/" "CENSORSHIP" "CALC-NEWS" "AUTHORS" "../" "./")
-
- ("/Users/treeherder/" (21704 40800 0 0) "Things/" "testerer/" "test_project/" "test/" "sketchbook/" "safe-h2o/" "RXTX/" "Public/" "projects/" "printrun/" "Pictures/" "opt/" "om-tut/" "nltk_data/" "Music/" "Movies/" "matplotlib/" "libusb/" "Library/" "libfreenect/" "kijani/" "eventbrite-client-py/" "Downloads/" "Documents/" "Desktop/" "clodiuno/" "bin/" "Arduino/" "Applications/" "ADXL345_Eval/" "a01/" ".Xauthority" ".vimrc" ".viminfo" ".vim_runtime/" ".vim_mru_files" ".vim/" ".Trash/" ".subversion/" ".ssh/" ".serverauth.38475" ".rnd" ".pronsolerc~bak" ".pronsolerc" ".profile~" ".profile" ".pip/" ".mongorc.js" ".matplotlib/" ".m2/" ".lein/" ".irssi/" ".gitconfig" ".emacs.forest.d/" ".emacs.d.good/" ".emacs.d/" ".emacs.brave.d/" ".DS_Store" ".dbshell" ".config/" ".CFUserTextEncoding" ".cache/" ".bash_profile" ".bash_history" ".android/" "../" "./")
 
  ("/Users/treeherder/.emacs.d/" (21704 40852 0 0) "var/" "themes/" "README.md" "projectile-bookmarks.eld" "places" "init.el.old" "init.el.new" "init.el" "ido.last" "elpa/" "customizations/" "Cask" "backups/" "auto-save-list/" ".smex-items" ".recentf" ".gitignore" ".git/" ".cask/" "../" "./")
 
