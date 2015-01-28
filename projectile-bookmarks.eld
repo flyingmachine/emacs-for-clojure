@@ -1,1 +1,1 @@
-("~/.emacs.d/")
+("~/projects/droid/clojuroid/" "~/.emacs.d/")
