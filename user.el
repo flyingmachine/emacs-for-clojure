@@ -10,7 +10,7 @@
 ;; values in order to set the width (in characters wide) and height
 ;; (in lines high) Emacs will have whenever you start it
 
-;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 20) (height . 20)))
+;;(setq initial-frame-alist '((top . 0) (left . 0) (width . 180) (height . 120)))
 
 
 ;; Place downloaded elisp files in this directory. You'll then be able
@@ -47,6 +47,58 @@
 (setq hippie-expand-try-functions-list (delete 'try-complete-file-name-partially hippie-expand-try-functions-list))
 
 (setq ido-use-filename-at-point nil)
+
+;; clojure auto-complete
+(require 'ac-cider)
+(defun clojure-auto-complete ()
+  (interactive)
+  (let ((ac-sources
+         `(ac-source-nrepl-ns
+           ac-source-nrepl-vars
+           ac-source-nrepl-ns-classes
+           ac-source-nrepl-all-classes
+           ac-source-nrepl-java-methods
+           ac-source-nrepl-static-methods
+           ,@ac-sources)))
+    (auto-complete)))
+
+(defun my-clojure-hook ()
+  (auto-complete-mode 1)
+  (define-key clojure-mode-map
+      (kbd "β") 'clojure-auto-complete)
+  )
+
+(defun my-replace-symbol ()
+  (dolist (mode '(clojure-mode clojurescript-mode cider-mode))
+    (eval-after-load mode
+      (font-lock-add-keywords
+       mode '(
+             ("(\\(fn\\)[\[[:space:]]"  ; anon funcs 1
+             (0 (progn (compose-region (match-beginning 1)
+                                       (match-end 1) "λ")
+                       nil)))
+             ("\\(#\\)("                ; anon funcs 2
+             (0 (progn (compose-region (match-beginning 1)
+                                       (match-end 1) "λ")
+                       nil)))
+             )
+       )
+      )
+    )
+  )
+
+(require 'rainbow-delimiters)
+
+
+(add-hook 'clojure-mode-hook 'my-clojure-hook)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'after-init-hook 'my-replace-symbol)
+;;; clojure auto-complete finished
+
+;;(global-rainbow-delimeters-mode)
+;;; display “lambda” as “λ”
+;;(global-prettify-symbols-mode 1)
 
 ;; Save here instead of littering current directory with emacs backup files
 (setq backup-directory-alist `(("." . "~/.saves")))
