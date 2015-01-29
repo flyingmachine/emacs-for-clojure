@@ -11,5 +11,15 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+;;add dependecies here, download them if none-exists
+(defvar my-packages '(better-defaults
+                      projectile
+                      clojure-mode
+                      cider
+                      ac-nrepl))
+
+(dolist (p my-packages)
+  (unless (package-installed-p p)
+    (package-install p)))
 
 (load "~/.emacs.d/user.el")

@@ -51,6 +51,7 @@
 ;; clojure auto-complete
 (require 'ac-cider)
 
+;; replace (fn[]()) and #(%) form of functions to lambda
 (defun my-replace-symbol ()
   (dolist (mode '(clojure-mode clojurescript-mode cider-mode))
     (eval-after-load mode
@@ -67,18 +68,13 @@
         )))))
 
 
-;(require 'rainbow-delimiters )
+
 (global-rainbow-delimiters-mode)
+;;(global-prettify-symbols-mode 1)
 
 (add-hook 'clojure-mode-hook 'my-clojure-hook)
-;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'after-init-hook 'my-replace-symbol)
-;;; clojure auto-complete finished
-
-;;(global-rainbow-delimeters-mode)
-;;; display “lambda” as “λ”
-;;(global-prettify-symbols-mode 1)
 
 ;; Auto complete
 (require 'auto-complete-config)
