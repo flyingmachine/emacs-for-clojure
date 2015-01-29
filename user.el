@@ -35,7 +35,7 @@
 (add-to-list 'load-path "~/.emacs.d/themes")
 ;; Uncomment this to increase font size
 ;; (set-face-attribute 'default nil :height 140)
-(load-theme 'tomorrow-night-bright t)
+(load-theme 'zenburn t)
 
 ;; Flyspell often slows down editing so it's turned off
 (remove-hook 'text-mode-hook 'turn-on-flyspell)
@@ -43,30 +43,13 @@
 (load "~/.emacs.d/vendor/clojure")
 
 ;; hippie expand - don't try to complete with file names
-(setq hippie-expand-try-functions-list (delete 'try-complete-file-name hippie-expand-try-functions-list))
-(setq hippie-expand-try-functions-list (delete 'try-complete-file-name-partially hippie-expand-try-functions-list))
+;;(setq hippie-expand-try-functions-list (delete 'try-complete-file-name hippie-expand-try-functions-list))
+;;(setq hippie-expand-try-functions-list (delete 'try-complete-file-name-partially hippie-expand-try-functions-list))
 
 (setq ido-use-filename-at-point nil)
 
 ;; clojure auto-complete
 (require 'ac-cider)
-(defun clojure-auto-complete ()
-  (interactive)
-  (let ((ac-sources
-         `(ac-source-nrepl-ns
-           ac-source-nrepl-vars
-           ac-source-nrepl-ns-classes
-           ac-source-nrepl-all-classes
-           ac-source-nrepl-java-methods
-           ac-source-nrepl-static-methods
-           ,@ac-sources)))
-    (auto-complete)))
-
-(defun my-clojure-hook ()
-  (auto-complete-mode 1)
-  (define-key clojure-mode-map
-      (kbd "β") 'clojure-auto-complete)
-  )
 
 (defun my-replace-symbol ()
   (dolist (mode '(clojure-mode clojurescript-mode cider-mode))
@@ -81,17 +64,14 @@
              (0 (progn (compose-region (match-beginning 1)
                                        (match-end 1) "λ")
                        nil)))
-             )
-       )
-      )
-    )
-  )
+        )))))
 
-(require 'rainbow-delimiters)
 
+;(require 'rainbow-delimiters )
+(global-rainbow-delimiters-mode)
 
 (add-hook 'clojure-mode-hook 'my-clojure-hook)
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'after-init-hook 'my-replace-symbol)
 ;;; clojure auto-complete finished
@@ -99,6 +79,32 @@
 ;;(global-rainbow-delimeters-mode)
 ;;; display “lambda” as “λ”
 ;;(global-prettify-symbols-mode 1)
+
+;; Auto complete
+(require 'auto-complete-config)
+;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(setq ac-delay 0.0)
+;(setq ac-use-quick-help t)
+(setq ac-quick-help-delay 0.5)
+;(setq ac-use-fuzzy 1)
+;(setq ac-auto-start 1)
+;(setq ac-auto-show-menu 1)
+(ac-config-default)
+
+;; ac-nrepl
+(require 'ac-nrepl)
+(add-hook 'cider-mode-hook 'ac-nrepl-setup)
+(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
+(add-to-list 'ac-modes 'cider-mode)
+(add-to-list 'ac-modes 'cider-repl-mode)
+
+
+(defun set-auto-complete-as-completion-at-point-function ()
+  (setq completion-at-point-functions '(auto-complete)))
+
+(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(add-hook 'cider-repl-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 ;; Save here instead of littering current directory with emacs backup files
 (setq backup-directory-alist `(("." . "~/.saves")))
