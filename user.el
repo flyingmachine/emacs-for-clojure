@@ -43,8 +43,8 @@
 (load "~/.emacs.d/vendor/clojure")
 
 ;; hippie expand - don't try to complete with file names
-;;(setq hippie-expand-try-functions-list (delete 'try-complete-file-name hippie-expand-try-functions-list))
-;;(setq hippie-expand-try-functions-list (delete 'try-complete-file-name-partially hippie-expand-try-functions-list))
+(setq hippie-expand-try-functions-list (delete 'try-complete-file-name hippie-expand-try-functions-list))
+(setq hippie-expand-try-functions-list (delete 'try-complete-file-name-partially hippie-expand-try-functions-list))
 
 (setq ido-use-filename-at-point nil)
 
