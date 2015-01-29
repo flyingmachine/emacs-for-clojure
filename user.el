@@ -70,6 +70,9 @@
 
 
 (global-rainbow-delimiters-mode)
+(projectile-global-mode)
+(setq projectile-indexing-method 'native)
+;;(setq projectile-enable-caching t)
 ;;(global-prettify-symbols-mode 1)
 
 (add-hook 'clojure-mode-hook 'my-clojure-hook)
@@ -94,6 +97,14 @@
 (add-to-list 'ac-modes 'cider-mode)
 (add-to-list 'ac-modes 'cider-repl-mode)
 
+;;ido enhencement from flx
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
 
 (defun set-auto-complete-as-completion-at-point-function ()
   (setq completion-at-point-functions '(auto-complete)))

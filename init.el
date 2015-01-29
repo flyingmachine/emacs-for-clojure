@@ -16,7 +16,8 @@
                       projectile
                       clojure-mode
                       cider
-                      ac-nrepl))
+                      ac-nrepl
+                      projectile))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
