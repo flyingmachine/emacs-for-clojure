@@ -82,12 +82,12 @@
 ;; Auto complete
 (require 'auto-complete-config)
 ;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(setq ac-delay 0.0)
-;(setq ac-use-quick-help t)
+(setq ac-delay 0.2)
+(setq ac-use-quick-help t)
 (setq ac-quick-help-delay 0.5)
-;(setq ac-use-fuzzy 1)
-;(setq ac-auto-start 1)
-;(setq ac-auto-show-menu 1)
+(setq ac-use-fuzzy 1)
+(setq ac-auto-start 1)
+(setq ac-auto-show-menu 1)
 (ac-config-default)
 
 ;; ac-nrepl
