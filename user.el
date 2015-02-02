@@ -65,9 +65,20 @@
              (0 (progn (compose-region (match-beginning 1)
                                        (match-end 1) "λ")
                        nil)))
-        )))))
+             )))))
 
-
+;;send code to repl
+(defun cider-eval-expression-at-point-in-repl ()
+  (interactive)
+  (let ((form (cider-sexp-at-point)))
+    ;; Strip excess whitespace
+    (while (string-match "\\`\s+\\|\n+\\'" form)
+      (setq form (replace-match "" t t form)))
+    (set-buffer (cider-find-or-create-repl-buffer))
+    (goto-char (point-max))
+    (insert form)
+    (cider-repl-return)))
+(global-set-key (kbd "C-`") 'cider-eval-expression-at-point-in-repl)
 
 (global-rainbow-delimiters-mode)
 (projectile-global-mode)
