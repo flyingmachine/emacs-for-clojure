@@ -1,8 +1,13 @@
+(source "tromey" "http://tromey.com/elpa/")
 (source gnu)
+(source marmalade)
 (source melpa)
 
 (depends-on "bind-key")
 (depends-on "cask")
+(depends-on "cider-decompile")
+(depends-on "cider-profile")
+(depends-on "cider-spy")
 (depends-on "dash")
 (depends-on "drag-stuff")
 (depends-on "exec-path-from-shell")

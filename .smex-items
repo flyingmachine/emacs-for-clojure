@@ -1,23 +1,27 @@
 
 ;; ----- smex-history -----
 (
+ cider-connect
+ cider-mode
+ package-install
+ python-mode
+ recover-session
  rainbow-delimiters-mode
  multiple-cursors-mode
- rainbow-mode
- clojure-mode
- battery
- package-initialize
- package-install
 )
 
 ;; ----- smex-data -----
 (
  (package-initialize . 3)
  (package-build-all . 2)
- (package-install . 2)
+ (package-install . 6)
  (rainbow-mode . 2)
- (rainbow-delimiters-mode . 6)
+ (rainbow-delimiters-mode . 8)
  (battery . 1)
  (clojure-mode . 1)
  (multiple-cursors-mode . 3)
+ (recover-session . 1)
+ (python-mode . 1)
+ (cider-mode . 6)
+ (cider-connect . 1)
 )
