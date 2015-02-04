@@ -2,6 +2,7 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/root/rockit_access/" . "test_materials/")
  ("/Users/treeherder/projects/droid/events/src/clojure/org/stuff/" . "events/")
  ("/Users/treeherder/projects/droid/events/src/clojure/org/" . "stuff/")
  ("/Users/treeherder/projects/droid/events/src/clojure/" . "org/")
@@ -32,6 +33,7 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "/root/rockit_access/"
  "/Users/treeherder/projects/rockit/rockit_access/"
  "/Users/treeherder/projects/droid/events/src/clojure/org/stuff/events/"
  "/Users/treeherder/.lein/"
@@ -47,10 +49,10 @@
 
 ;; ----- ido-work-file-list -----
 (
- "eb_api_handler.py"
- "eb_api_handler.pyc"
  "test.py"
  "engine.py"
+ "eb_api_handler.py"
+ "eb_api_handler.pyc"
  "main.clj"
  "repl-history"
  "profiles.clj"
@@ -61,6 +63,12 @@
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/root/rockit_access/" (21713 42223 397587 0) "eb_api_handler.pyc" "a_secret.py" "test_materials/" "eb_api_handler.py" "./" "engine.py" "secret.pyc" "README.md" "secret.py" ".gitignore" "test.py" "../" "engine.pyc" ".git/" "notes.txt" "#test.py#")
+
+ ("/root/" (21713 41015 349587 2000) ".bashrc" ".aptitude/" ".cask/" ".ssh/" ".nano_history" "./" ".gnupg/" ".Xauthority" "build/" ".profile" ".bash_history" "rockit_access/" ".emacs.d/" "../" "eventbrite-client-py/" "pycurl/" ".dbshell" ".pip/")
+
+ ("/root/rockit_access/test_materials/" (21711 18663 932063 319000) "./" "code" "../" "dumpfile" "upload.doc")
+
  ("/Users/treeherder/projects/rockit/rockit_access/" (21712 26534 0 0) "test_materials/" "test.py" "secret.pyc" "secret.py" "README.md" "notes.txt" "engine.pyc" "engine.py" "eb_api_handler.pyc" "eb_api_handler.py" "a_secret.py" ".gitignore" ".git/" ".DS_Store" "#test.py#" "../" "./")
 
  ("/Users/treeherder/projects/droid/events/src/clojure/org/stuff/events/" (21711 16391 0 0) "main.clj" "../" "./")

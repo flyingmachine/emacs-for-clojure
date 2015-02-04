@@ -1,7 +1,7 @@
 ;;;;
 ;; Packages
 ;;;;
-(require 'cask "/usr/local/Cellar/cask/0.7.2/cask.el")
+(require 'cask "/root/.cask/cask.el")
 (cask-initialize)
 ;; Define package repositories
 (require 'package)
