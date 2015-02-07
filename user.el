@@ -37,6 +37,7 @@
 ;; (set-face-attribute 'default nil :height 140)
 (load-theme 'zenburn t)
 
+
 ;; Flyspell often slows down editing so it's turned off
 (remove-hook 'text-mode-hook 'turn-on-flyspell)
 
@@ -86,7 +87,7 @@
 ;;(setq projectile-enable-caching t)
 ;;(global-prettify-symbols-mode 1)
 
-(add-hook 'clojure-mode-hook 'my-clojure-hook)
+;;(add-hook 'clojure-mode-hook 'my-clojure-hook)
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'after-init-hook 'my-replace-symbol)
 
