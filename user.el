@@ -118,6 +118,9 @@
 (setq ido-enable-flex-matching t)
 (setq ido-use-faces nil)
 
+;;remove Flyspell check
+(remove-hook 'text-mode-hook 'turn-on-flyspell)
+
 (defun set-auto-complete-as-completion-at-point-function ()
   (setq completion-at-point-functions '(auto-complete)))
 
