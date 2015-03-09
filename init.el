@@ -65,7 +65,7 @@
     rainbow-mode
     ;; edit html tags like sexps
     tagedit
-    js-2mode
+    js2-mode
     ;; git integration
     magit))
 
@@ -135,9 +135,6 @@
 ;; Langauage-specific
 (load "setup-clojure.el")
 (load "setup-js.el")
-
-;; cider is fucked up
-(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 
 ;; Disable annoying UI
  (setq inhibit-splash-screen t)
