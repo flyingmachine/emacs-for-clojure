@@ -9,6 +9,7 @@ The Emacs version must be 24.0+.
 
 ## Common Lisp repl
 1. run into repl: M-x slime
+2. exit repl: (exit)
 
 ## Clojure repl
 1. run into repl: M-x cider-jack-in, M-x cider-connect
