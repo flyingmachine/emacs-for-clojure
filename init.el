@@ -129,4 +129,5 @@
 
 ;; Langauage-specific
 (load "setup-clojure.el")
+(load "setup-slime.el")
 (load "setup-js.el")
