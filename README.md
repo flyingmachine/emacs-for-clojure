@@ -7,6 +7,9 @@ The Emacs version must be 24.0+.
 2. git clone it as ~/.emacs.d
 3. done!
 
+## Common Lisp repl
+1. run into repl: M-x slime
+
 ## Clojure repl
 1. run into repl: M-x cider-jack-in, M-x cider-connect
 2. exit repl: M-x cider-quit
