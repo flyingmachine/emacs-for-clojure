@@ -834,7 +834,7 @@
 	    (0 8 17)))
 	  "a blog engine with elnode" single])
  (skewer-mode .
-	      [(1 6 0)
+	      [(1 6 2)
 	       ((simple-httpd
 		 (1 4 0))
 		(js2-mode
@@ -857,7 +857,7 @@
 		   [(0 3)
 		    nil "Simplified Mode Line for Emacs 24" single])
  (simple-httpd .
-	       [(1 4 5)
+	       [(1 4 6)
 		((cl-lib
 		  (0 3)))
 		"pure elisp HTTP server" single])
@@ -895,7 +895,7 @@
 	   [(1 4)
 	    nil "pattern matching for elisp" single])
  (shackle .
-	  [(0 2 1)
+	  [(0 6 0)
 	   ((cl-lib
 	     (0 5)))
 	   "Enforce rules for popups" single])
@@ -1178,7 +1178,7 @@
 	       [(1 1)
 		nil "Python Pyvirtualenv support" single])
  (pyvenv .
-	 [(1 4)
+	 [(1 7)
 	  nil "Python virtual environment interface" single])
  (python-pylint .
 		[(1 1)
@@ -1348,11 +1348,9 @@
 			 [(3 4 2 1)
 			  nil "pkg-info: Dummy package for unit tests" single])
  (pkg-info .
-	   [(0 5)
-	    ((dash
-	      (1 6 0))
-	     (epl
-	      (0 4)))
+	   [(0 6)
+	    ((epl
+	      (0 8)))
 	    "Information about packages" single])
  (pivotal-tracker .
 		  [(1 2 0)
@@ -1364,7 +1362,7 @@
 	   [(0 0 1)
 	    nil "get stuff from pinboard" single])
  (picpocket .
-	    [(10)
+	    [(14)
 	     nil "Image viewer" single])
  (pickup .
 	 [(0 0 3)
@@ -1390,8 +1388,10 @@
      [(0 12)
       nil "Emacs Lisp interface to the PostgreSQL RDBMS" single])
  (perspective .
-	      [(1 10)
-	       nil "switch between named \"perspectives\" of the editor" single])
+	      [(1 12)
+	       ((cl-lib
+		 (0 5)))
+	       "switch between named \"perspectives\" of the editor" single])
  (persistent-soft .
 		  [(0 8 8)
 		   ((pcache
@@ -1531,6 +1531,11 @@
  (otp .
       [(1 0)
        nil "a one-time password creator" single])
+ (osx-trash .
+	    [(0 1 1)
+	     ((emacs
+	       (24 1)))
+	     "System trash for OS X" tar])
  (osx-pseudo-daemon .
 		    [(1 0)
 		     nil "Daemon mode that plays nice with OSX." single])
@@ -1548,7 +1553,7 @@
 	     [(0 0 8)
 	      nil "export html and meta data used by static blog like nikola from org file" tar])
  (org2jekyll .
-	     [(0 1 4)
+	     [(0 1 5)
 	      ((dash
 		(2 10 0))
 	       (dash-functional
@@ -1566,7 +1571,7 @@
 	      (1 6 8)))
 	    "Blog from Org mode to wordpress" tar])
  (org-trello .
-	     [(0 6 9 3)
+	     [(0 6 9 6)
 	      ((request-deferred
 		(0 2 0))
 	       (deferred
@@ -1621,7 +1626,7 @@
 	       (6 1)))
 	     "basic support for magit links" single])
  (org-journal .
-	      [(1 7 2)
+	      [(1 8 1)
 	       nil "a simple org-mode based journaling mode" single])
  (org-gnome .
 	    [(0 1)
@@ -2739,7 +2744,7 @@
 	   [(1 6)
 	    nil "goto last change" single])
  (gotham-theme .
-	       [(1 0)
+	       [(1 1 2)
 		nil "A very dark Emacs color theme." single])
  (gopher .
 	 [(0 0 2)
@@ -2898,7 +2903,7 @@
 	[(0 1)
 	 nil "Fuzzy Matching" single])
  (furl .
-       [(0 0 2)
+       [(0 0 3)
 	nil "Friendly URL retrieval" single])
  (fullscreen-mode .
 		  [(0 0 1)
@@ -2929,7 +2934,7 @@
 	 [(0 1 3)
 	  nil "Send text to http://fpaste.org" single])
  (form-feed .
-	    [(0 1 5)
+	    [(0 1 8)
 	     nil "Display ^L glyphs as horizontal lines" single])
  (fooddice .
 	   [(0 1)
@@ -2942,7 +2947,7 @@
 		(0 2 3)))
 	      "Utility functions for working with fonts" single])
  (fold-this .
-	    [(0 1 0)
+	    [(0 3 0)
 	     nil "Just fold this region please" single])
  (fold-dwim-org .
 		[(0 5)
@@ -3106,7 +3111,7 @@
 			(0 15)))
 		      "A flycheck checker for Haskell using hdevtools" single])
  (flycheck-haskell .
-		   [(0 6)
+		   [(0 7)
 		    ((flycheck
 		      (0 22))
 		     (haskell-mode
@@ -3183,7 +3188,7 @@
 	    [(0)
 	     nil "Resize a frame.  In particular, fit a frame to its buffers." single])
  (firestarter .
-	      [(0 0 2)
+	      [(0 1 4)
 	       nil "Execute (shell) commands on save" single])
  (fiplr .
 	[(0 1 3)
@@ -3254,7 +3259,7 @@
        (2 2 0)))
      "Modern API for working with files and directories" single])
  (eyebrowse .
-	    [(0 3 2)
+	    [(0 4 5)
 	     ((dash
 	       (2 7 0)))
 	     "Easy window config switching" single])
@@ -3395,7 +3400,7 @@
 	      [(1 1 2)
 	       nil "An E-prime checking mode for Emacs" single])
  (epl .
-      [(0 7)
+      [(0 8)
        ((cl-lib
 	 (0 3)))
        "Emacs Package Library" single])
@@ -3444,7 +3449,7 @@
 	   [(1 4 6)
 	    nil "Screen for Emacsen" single])
  (elpy .
-       [(1 7 1)
+       [(1 8 0)
 	((company
 	  (0 8 2))
 	 (find-file-in-project
@@ -3771,8 +3776,14 @@
        [(2 10 0)
 	nil "A modern list library for Emacs" single])
  (dart-mode .
-	    [(0 11)
-	     nil "Major mode for editing Dart files" single])
+	    [(0 13)
+	     ((cl-lib
+	       (0 5))
+	      (dash
+	       (2 10 0))
+	      (flycheck
+	       (0 24)))
+	     "Major mode for editing Dart files" single])
  (d-mode .
 	 [(2 0 4)
 	  nil "D Programming Language mode for (X)Emacs" tar])
@@ -3812,7 +3823,7 @@
 	 [(0 1 1)
 	  nil "Table component for Emacs Lisp" single])
  (csharp-mode .
-	      [(0 8 9)
+	      [(0 8 10)
 	       nil "C# mode derived mode" tar])
  (cryptol-mode .
 	       [(0 1 0)
@@ -4088,7 +4099,7 @@
 	 [(0 1 0)
 	  nil "eldoc mode for clojure" single])
  (clj-refactor .
-	       [(0 13 0)
+	       [(1 0 5)
 		((s
 		  (1 8 0))
 		 (dash
@@ -4096,11 +4107,11 @@
 		 (yasnippet
 		  (0 6 1))
 		 (paredit
-		  (22))
+		  (24))
 		 (multiple-cursors
 		  (1 2 2))
 		 (cider
-		  (0 6 0)))
+		  (0 8 1)))
 		"A collection of clojure refactoring functions" single])
  (clj-mode .
 	   [(0 9)
@@ -4190,7 +4201,7 @@
 	      [(1 0 2)
 	       nil "Clickable text defined by regular expression" single])
  (buttercup .
-	    [(1 0)
+	    [(1 1)
 	     nil "Behavior-Driven Emacs Lisp Testing" tar])
  (butler .
 	 [(0 2 0)
@@ -4387,10 +4398,10 @@
 		  (1 11 5)))
 		"Space align various Clojure forms" single])
  (alchemist .
-	    [(0 13 0)
+	    [(0 16 1)
 	     ((emacs
 	       (24)))
-	     "Elixir tooling integration into emacs" tar])
+	     "Elixir tooling integration into Emacs" tar])
  (ahg .
       [(0 99)
        nil "Alberto's Emacs interface for Mercurial (Hg)" single])
@@ -4440,13 +4451,6 @@
 	      (auto-complete
 	       (1 4)))
 	     "Auto-complete backend for geiser" tar])
- (ac-cider-compliment .
-		      [(0 1 0)
-		       ((cider
-			 (0 5 0))
-			(auto-complete
-			 (1 4)))
-		       "auto-complete sources for Clojure using" single])
  (ac-cider .
 	   [(0 2 0)
 	    ((cider
