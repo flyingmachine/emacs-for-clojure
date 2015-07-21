@@ -22,7 +22,6 @@
   (defun install-missing-packages ()
     (let ((missing-packages (cl-remove-if
 			     #'package-installed-p packages-list)))
-      (message "%s" "####")
       (when missing-packages
 	(message "Installing %d missing package(s)"
 		 (length missing-packages))
