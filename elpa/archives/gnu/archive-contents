@@ -37,7 +37,7 @@
 		 nil "Indent and dedent Lisp code, automatically adjust close parens" tar
 		 ((:url . "http://elpa.gnu.org/packages/adjust-parens.html"))])
  (aggressive-indent .
-		    [(1 0 2)
+		    [(1 1)
 		     ((emacs
 		       (24 1))
 		      (names
@@ -48,7 +48,7 @@
 		     ((:url . "http://github.com/Malabarba/aggressive-indent-mode")
 		      (:keywords "indent" "lisp" "maint" "tools"))])
  (ahungry-theme .
-		[(1 0 6)
+		[(1 0 9)
 		 ((emacs
 		   (24)))
 		 "Ahungry color theme for Emacs.  Make sure to (load-theme 'ahungry)." tar
@@ -79,7 +79,7 @@
 		 ((:keywords "extensions")
 		  (:url . "http://www.dr-qubit.org/emacs.php"))])
  (avy .
-      [(0 2 1)
+      [(0 3 0)
        ((emacs
 	 (24 1))
 	(cl-lib
@@ -88,7 +88,7 @@
        ((:keywords "point" "location")
 	(:url . "https://github.com/abo-abo/avy"))])
  (bug-hunter .
-	     [(0 2)
+	     [(0 5)
 	      ((seq
 		(1 3))
 	       (cl-lib
@@ -133,7 +133,7 @@
 	   ((:keywords "abbrev" "convenience" "matching")
 	    (:url . "http://company-mode.github.io/"))])
  (company-statistics .
-		     [(0 1 1)
+		     [(0 2 1)
 		      ((emacs
 			(24 3))
 		       (company
@@ -142,9 +142,9 @@
 		      ((:keywords "abbrev" "convenience" "matching")
 		       (:url . "https://github.com/company-mode/company-statistics"))])
  (context-coloring .
-		   [(6 3 0)
+		   [(7 0 0)
 		    ((emacs
-		      (24))
+		      (24 3))
 		     (js2-mode
 		      (20150126)))
 		    "Highlight by scope" single
@@ -156,7 +156,7 @@
 	 ((:url . "http://elpa.gnu.org/packages/crisp.html")
 	  (:keywords "emulations" "brief" "crisp"))])
  (csv-mode .
-	   [(1 4)
+	   [(1 5)
 	    nil "Major mode for editing comma/char separated values" single
 	    ((:url . "http://centaur.maths.qmul.ac.uk/Emacs/")
 	     (:keywords "convenience"))])
@@ -271,7 +271,7 @@
 	   ((:url . "http://elpa.gnu.org/packages/flylisp.html")
 	    (:keywords))])
  (ggtags .
-	 [(0 8 9)
+	 [(0 8 10)
 	  ((emacs
 	    (24))
 	   (cl-lib
@@ -334,7 +334,7 @@
 	       ((:url . "http://elpa.gnu.org/packages/jgraph-mode.html")
 		(:keywords "tex" "wp"))])
  (js2-mode .
-	   [(20150202)
+	   [(20150713)
 	    ((emacs
 	      (24 1))
 	     (cl-lib
@@ -347,8 +347,13 @@
 	 nil "jump to previous insertion points" single
 	 ((:url . "http://elpa.gnu.org/packages/jumpc.html")
 	  (:keywords))])
+ (landmark .
+	   [(1 0)
+	    nil "Neural-network robot that learns landmarks" single
+	    ((:url . "http://elpa.gnu.org/packages/landmark.html")
+	     (:keywords "games" "neural network" "adaptive search" "chemotaxis"))])
  (let-alist .
-	    [(1 0 3)
+	    [(1 0 4)
 	     nil "Easily let-bind values of an assoc-list by their names" single
 	     ((:url . "http://elpa.gnu.org/packages/let-alist.html")
 	      (:keywords "extensions" "lisp"))])
@@ -409,7 +414,7 @@
 	((:keywords "hypermedia")
 	 (:url . "http://mwolson.org/projects/EmacsMuse.html"))])
  (names .
-	[(20150115 1)
+	[(20150618 0)
 	 ((emacs
 	   (24 1))
 	  (cl-lib
@@ -447,7 +452,7 @@
 	    ((:url . "http://elpa.gnu.org/packages/omn-mode.html")
 	     (:keywords))])
  (org .
-      [(20150601)
+      [(20150720)
        nil "Outline-based notes management and organizer" tar nil])
  (osc .
       [(0 1)
@@ -459,6 +464,11 @@
 	   nil "Predictive abbreviation expansion" single
 	   ((:url . "http://elpa.gnu.org/packages/pabbrev.html")
 	    (:keywords))])
+ (pinentry .
+	   [(0 1)
+	    nil "GnuPG Pinentry server implementation" single
+	    ((:url . "http://elpa.gnu.org/packages/pinentry.html")
+	     (:keywords "gnupg"))])
  (poker .
 	[(0 1)
 	 nil "Texas hold'em poker" single
@@ -495,7 +505,7 @@
 		  ((:url . "http://elpa.gnu.org/packages/scroll-restore.html")
 		   (:keywords "scrolling"))])
  (seq .
-      [(1 7)
+      [(1 8)
        nil "Sequence manipulation functions" single
        ((:url . "http://elpa.gnu.org/packages/seq.html")
 	(:keywords "sequences"))])
@@ -519,6 +529,13 @@
 	   nil "Implementation of Sokoban for Emacs." tar
 	   ((:keywords "games")
 	    (:url . "http://elpa.gnu.org/packages/sokoban.html"))])
+ (sotlisp .
+	  [(1 1)
+	   ((emacs
+	     (24 1)))
+	   "Write lisp at the speed of thought." single
+	   ((:url . "https://github.com/Malabarba/speed-of-thought-lisp")
+	    (:keywords "convenience" "lisp"))])
  (spinner .
 	  [(1 3 1)
 	   nil "Add spinners and progress-bars to the mode-line for ongoing operations" single
@@ -541,7 +558,7 @@
 	     ((:url . "http://elpa.gnu.org/packages/svg-clock.html")
 	      (:keywords "demo" "svg" "clock"))])
  (swiper .
-	 [(0 4 1)
+	 [(0 5 1)
 	  ((emacs
 	    (24 1)))
 	  "Isearch with an overview. Oh, man!" tar
@@ -619,7 +636,7 @@
 	      ((:keywords "http" "server" "network")
 	       (:url . "https://github.com/eschulte/emacs-web-server"))])
  (websocket .
-	    [(1 4)
+	    [(1 5)
 	     nil "Emacs WebSocket client and server" tar
 	     ((:keywords "communication" "websocket" "server")
 	      (:url . "http://elpa.gnu.org/packages/websocket.html"))])
@@ -656,4 +673,9 @@
 	    [(0 8 0)
 	     nil "Yet another snippet extension for Emacs." tar
 	     ((:keywords "convenience" "emulation")
-	      (:url . "http://github.com/capitaomorte/yasnippet"))]))
+	      (:url . "http://github.com/capitaomorte/yasnippet"))])
+ (ztree .
+	[(1 0 2)
+	 nil "Text mode directory tree" tar
+	 ((:keywords "files" "tools")
+	  (:url . "https://github.com/fourier/ztree"))]))
