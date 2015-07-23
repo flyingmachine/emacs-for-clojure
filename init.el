@@ -19,7 +19,8 @@
       ido-ubiquitous
       smex
       projectile
-      rainbow-delimiters)
+      rainbow-delimiters
+      magit)
     "List of packages needs to be installed at launch")
 
   (require 'package)
