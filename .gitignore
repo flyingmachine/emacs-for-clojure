@@ -11,4 +11,6 @@ eshell
 backups/
 tramp
 tutorial/
+viperelpa/
+elpa/
 viper
