@@ -10,9 +10,16 @@
   (setq package-archives 
 	'(("gnu" . "http://elpa.gnu.org/packages/")
 	  ("melpa-stable" . "http://stable.melpa.org/packages/")))
+
   ;; Guarantee all packages are installed on start
   (defconst packages-list
-    '(paredit)
+    '(paredit
+      clojure-mode
+      cider
+      ido-ubiquitous
+      smex
+      projectile
+      rainbow-delimiters)
     "List of packages needs to be installed at launch")
 
   (require 'package)
@@ -21,6 +28,9 @@
   (dolist (p packages-list)
     (when (not (package-installed-p p))
       (message "Installing the missing %s package" p)
-      (package-install p))))
+      (package-install p)))
+  
+  (if (eq system-type 'darwin)
+    (add-to-list 'packages-list 'exec-path-from-shell)))
 
 
