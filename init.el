@@ -13,13 +13,14 @@
 
   ;; Guarantee all packages are installed on start
   (defconst packages-list
-    '(paredit
+    '(exec-path-from-shell
+      paredit
       clojure-mode
       cider
       ido-ubiquitous
       smex
       projectile
-      rainbow-delimiters
+      ;rainbow-delimiters
       magit)
     "List of packages needs to be installed at launch")
 
@@ -30,8 +31,12 @@
     (when (not (package-installed-p p))
       (message "Installing the missing %s package" p)
       (package-install p)))
-  
+
   (if (eq system-type 'darwin)
-    (add-to-list 'packages-list 'exec-path-from-shell)))
+      (when (memq window-system '(mac ns))
+	(exec-path-from-shell-initialize))))
+
+
+
 
 
