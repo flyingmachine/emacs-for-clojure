@@ -37,7 +37,8 @@
     (exec-path-from-shell-initialize))
   
   (load "navigation.el")
-  (load "editing.el"))
+  (load "editing.el")
+  (load "elisp-editing.el"))
 
 
 	
