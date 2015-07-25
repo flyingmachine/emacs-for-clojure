@@ -33,20 +33,12 @@
   (set-frame-size-via-resolution)
   (desktop-save-mode 1))
 
-
-;; increase font size for better readability
-;;(set-face-attribute 'default nil :height 140)
-
-;; Uncomment the lines below by removing semicolons and play with the
-;; values in order to set the width (in characters wide) and height
-;; (in lines high) Emacs will have whenever you start it
-;;(setq initial-frame-alist '((top . 0) (left . 0) (width . 80) (height . 53)))
-
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
       x-select-enable-clipboard t
 
       ;; I'm actually not sure what this does but it's recommended?
+      ;; http://emacswiki.org/emacs/CopyAndPaste
       x-select-enable-primary t
 
       ;; Save clipboard strings into kill ring before replacing them.

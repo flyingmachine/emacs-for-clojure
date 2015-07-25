@@ -1,8 +1,9 @@
-;; Define comment macro
 (defmacro comment (&rest body) nil)
 
 (add-to-list 'load-path "~/.emacs.d/config")
+
 (load "ui.el")
+
 
 ;; Define package repositories
 (when (and (>= emacs-major-version 24) (>= emacs-minor-version 4))
@@ -19,7 +20,8 @@
       ido-ubiquitous
       smex
       projectile
-      ;rainbow-delimiters
+      rainbow-delimiters
+      tagedit
       magit)
     "List of packages needs to be installed at launch")
 
@@ -32,6 +34,11 @@
       (package-install p)))
 
   (when (eq system-type 'darwin)
-    (exec-path-from-shell-initialize)))
+    (exec-path-from-shell-initialize))
+  
+  (load "navigation.el")
+  (load "editing.el"))
+
+
 	
 
