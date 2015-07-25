@@ -2,7 +2,6 @@
 (defmacro comment (&rest body) nil)
 
 (add-to-list 'load-path "~/.emacs.d/config")
-
 (load "ui.el")
 
 ;; Define package repositories
@@ -32,11 +31,7 @@
       (message "Installing the missing %s package" p)
       (package-install p)))
 
-  (if (eq system-type 'darwin)
-      (when (memq window-system '(mac ns))
-	(exec-path-from-shell-initialize))))
-
-
-
-
+  (when (eq system-type 'darwin)
+    (exec-path-from-shell-initialize)))
+	
 
