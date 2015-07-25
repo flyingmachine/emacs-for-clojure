@@ -10,11 +10,6 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-(when (display-graphic-p)
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-  (add-to-list 'load-path "~/.emacs.d/themes")
-  (load-theme 'tomorrow-night-bright t))
-
 (defun set-frame-size-via-resolution ()
   (interactive)
   (if (display-graphic-p)
@@ -30,9 +25,14 @@
 		     (cons 'height (/ (- (x-display-pixel-height) 200)
 				      (frame-char-height)))))))
 
+
 (when (display-graphic-p)
-  (set-frame-size-via-resolution))
-	  
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+  (add-to-list 'load-path "~/.emacs.d/themes")
+  (load-theme 'tomorrow-night-bright t)
+  (set-frame-size-via-resolution)
+  (desktop-save-mode 1))
+
 
 ;; increase font size for better readability
 ;;(set-face-attribute 'default nil :height 140)
