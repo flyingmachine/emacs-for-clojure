@@ -15,13 +15,32 @@
   (add-to-list 'load-path "~/.emacs.d/themes")
   (load-theme 'tomorrow-night-bright t))
 
+(defun set-frame-size-via-resolution ()
+  (interactive)
+  (if (display-graphic-p)
+      (progn
+	(if (> (x-display-pixel-width) 1280)
+	    (progn
+	      (add-to-list 'default-frame-alist (cons 'width 120))
+	      (set-face-attribute 'default nil :height 140))
+	    (progn
+	      (add-to-list 'default-frame-alist (cons 'width 80))
+	      (set-face-attribute 'default nil :height 120)))
+	(add-to-list 'default-frame-alist
+		     (cons 'height (/ (- (x-display-pixel-height) 200)
+				      (frame-char-height)))))))
+
+(when (display-graphic-p)
+  (set-frame-size-via-resolution))
+	  
+
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 140)
+;;(set-face-attribute 'default nil :height 140)
 
 ;; Uncomment the lines below by removing semicolons and play with the
 ;; values in order to set the width (in characters wide) and height
 ;; (in lines high) Emacs will have whenever you start it
-(setq initial-frame-alist '((top . 0) (left . 0) (width . 80) (height . 53)))
+;;(setq initial-frame-alist '((top . 0) (left . 0) (width . 80) (height . 53)))
 
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
