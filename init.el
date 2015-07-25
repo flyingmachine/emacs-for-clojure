@@ -16,6 +16,7 @@
     '(exec-path-from-shell
       paredit
       clojure-mode
+      clojure-mode-extra-font-locking
       cider
       ido-ubiquitous
       smex
@@ -38,8 +39,6 @@
   
   (load "navigation.el")
   (load "editing.el")
-  (load "elisp-editing.el"))
-
-
-	
-
+  (load "elisp-editing.el")
+  (load "setup-clojure.el")
+  (load "misc.el"))
