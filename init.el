@@ -48,4 +48,4 @@
                           "editing.el"
                           "elisp-editing.el"
                           "setup-clojure.el"
-                          "Misc.el")))
+                          "misc.el")))
