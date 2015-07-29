@@ -1,16 +1,16 @@
 (defmacro comment (&rest body) nil)
-(defun compile-to-elc (files)
+(defun compile-and-load-elc (files)
   (dolist (f files)
     (let* ((from (concat (getenv "HOME") "/.emacs.d/config/" f))
-           (to (replace-regexp-in-string "\.el" "\.elc" from)))
+           (to (replace-regexp-in-string "\.el$" "\.elc" from)))
       (when (or (not (file-exists-p to))
                 (file-newer-than-file-p from to)
                 (equal (nth 4 (file-attributes from)) '(list 0 0)))
         (setq compiled (byte-compile-file from)))
       (load to))))
 
-(add-to-list 'load-path "~/.emacs.d/config")
-(compile-to-elc '("ui.el"))
+;; (add-to-list 'load-path "~/.emacs.d/config")
+(compile-and-load-elc '("ui.el"))
 
 ;; Define package repositories
 (when (and (>= emacs-major-version 24) (>= emacs-minor-version 4))
@@ -44,15 +44,8 @@
   (when (eq system-type 'darwin)
     (exec-path-from-shell-initialize))
   
-  (compile-to-elc '("navigation.el"
-                    "editing.el"
-                    "elisp-editing.el"
-                    "setup-clojure.el"
-                    "misc.el"))
-  ;;(load "navigation.el")
-  ;;(load "editing.el")
-  ;;(load "elisp-editing.el")
-  ;;(load "setup-clojure.el")
-  ;;(load "misc.el")
-
-  )
+  (compile-and-load-elc '("navigation.el"
+                          "editing.el"
+                          "elisp-editing.el"
+                          "setup-clojure.el"
+                          "Misc.el")))
