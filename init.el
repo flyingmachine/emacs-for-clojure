@@ -36,10 +36,17 @@
   (require 'package)
   (package-initialize)
 
-  (dolist (p packages-list)
-    (when (not (package-installed-p p))
-      (message "Installing the missing %s package" p)
-      (package-install p)))
+  (let ((not-installed-packages
+	 (delete t (mapcar #'(lambda (p)
+			      (if (package-installed-p p) t p))
+			   packages-list))))
+    (when not-installed-packages
+      (progn
+        (package-refresh-contents)
+        (message "#Installing the missing %d packages: %s"
+                 (length not-installed-packages) not-installed-packages)
+        (mapcar #'(lambda (i) (package-install i))
+                not-installed-packages))))
 
   (when (eq system-type 'darwin)
     (exec-path-from-shell-initialize))
