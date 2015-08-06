@@ -19,7 +19,7 @@
 	  ("melpa-stable" . "http://stable.melpa.org/packages/")))
 
   ;; Guarantee all packages are installed on start
-  (defconst packages-list
+  (defconst installed-packages
     '(exec-path-from-shell
       paredit
       clojure-mode
@@ -39,7 +39,7 @@
   (let ((not-installed-packages
 	 (delete t (mapcar #'(lambda (p)
 			      (if (package-installed-p p) t p))
-			   packages-list))))
+			   installed-packages))))
     (when not-installed-packages
       (progn
         (package-refresh-contents)

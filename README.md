@@ -24,8 +24,8 @@ But on OSX it works great. This branch will check the package managements
 and then descided how to install or load the apropos.
 
 ### Features
-1. compile and load the config/ eclisp files at startup;
-2. customized the awesome theme;
+1. compile and load the config & elisp files at startup;
+2. customized the awesome themes;
 
 
 ## Thanks
