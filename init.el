@@ -1,4 +1,7 @@
 (defmacro comment (&rest body) nil)
+
+(defconst loading-start-time (current-time))
+
 (defun compile-and-load-elc (files subdir)
   (let ((d (concat "~/.emacs.d/" subdir)))
     (dolist (f files)
@@ -61,3 +64,7 @@
                           "elisp-editing.el"
                           "setup-clojure.el"
                           "misc.el") "config/"))
+
+(let ((elapsed (float-time (time-subtract (current-time)
+                                          loading-start-time))))
+  (message "#Loading init.el ... done (%.3fs)" elapsed))
