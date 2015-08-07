@@ -13,25 +13,29 @@
 (compile-and-load-elc '("ui.el"))
 
 ;; Define package repositories
-(when (and (>= emacs-major-version 24) (>= emacs-minor-version 4))
+(when (>= emacs-major-version 24)
   (setq package-archives 
 	'(("gnu" . "http://elpa.gnu.org/packages/")
 	  ("melpa-stable" . "http://stable.melpa.org/packages/")))
 
   ;; Guarantee all packages are installed on start
   (defconst installed-packages
-    '(exec-path-from-shell
-      paredit
-      clojure-mode
-      clojure-mode-extra-font-locking
-      cider
-      ido-ubiquitous
-      smex
-      projectile
-      rainbow-delimiters
-      tagedit
-      magit)
-    "List of packages needs to be installed at launch")
+    (delete nil
+            (list
+             'exec-path-from-shell
+             'paredit
+             'clojure-mode
+             'clojure-mode-extra-font-locking
+             'cider
+             'ido-ubiquitous
+             'smex
+             'projectile
+             'rainbow-delimiters
+             'tagedit
+             (if (>= emacs-minor-version 4)
+                 ;; magit requires the emacs-24.4 package
+                 'magit nil)
+             )))
 
   (require 'package)
   (package-initialize)

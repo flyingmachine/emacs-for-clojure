@@ -1,11 +1,10 @@
 (menu-bar-mode -1)
 
-(when (fboundp 'global-line-mode)
+(when (fboundp 'global-linum-mode)
   (global-linum-mode))
 
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
-
 
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
@@ -15,8 +14,8 @@
   (if (display-graphic-p)
       (progn
 	(if (> (x-display-pixel-width) 1280)
-	    (progn
-	      (add-to-list 'default-frame-alist (cons 'width 120))
+	    (let ((w (/ (x-display-pixel-width) 16)))
+	      (add-to-list 'default-frame-alist (cons 'width w))
 	      (set-face-attribute 'default nil :height 140))
 	    (progn
 	      (add-to-list 'default-frame-alist (cons 'width 80))
