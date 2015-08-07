@@ -1,16 +1,17 @@
 (defmacro comment (&rest body) nil)
-(defun compile-and-load-elc (files)
-  (dolist (f files)
-    (let* ((from (concat (getenv "HOME") "/.emacs.d/config/" f))
-           (to (replace-regexp-in-string "\.el$" "\.elc" from)))
-      (when (or (not (file-exists-p to))
-                (file-newer-than-file-p from to)
-                (equal (nth 4 (file-attributes from)) '(list 0 0)))
-        (setq compiled (byte-compile-file from)))
-      (load to))))
+(defun compile-and-load-elc (files subdir)
+  (let ((d (concat "~/.emacs.d/" subdir)))
+    (dolist (f files)
+      (let* ((from (concat d f))
+             (to (replace-regexp-in-string "\.el$" "\.elc" from)))
+        (when (or (not (file-exists-p to))
+                  (file-newer-than-file-p from to)
+                  (equal (nth 4 (file-attributes from)) '(list 0 0)))
+          (setq compiled (byte-compile-file from)))
+        (load to)))))
 
 ;; (add-to-list 'load-path "~/.emacs.d/config")
-(compile-and-load-elc '("ui.el"))
+(compile-and-load-elc '("ui.el") "config/")
 
 ;; Define package repositories
 (when (>= emacs-major-version 24)
@@ -59,4 +60,4 @@
                           "editing.el"
                           "elisp-editing.el"
                           "setup-clojure.el"
-                          "misc.el")))
+                          "misc.el") "config/"))

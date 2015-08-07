@@ -1,4 +1,7 @@
-(menu-bar-mode -1)
+;; UI related configurations.
+
+(when (fboundp 'menu-bar-mode)
+  (menu-bar-mode -1))
 
 (when (fboundp 'global-linum-mode)
   (global-linum-mode))
@@ -54,7 +57,8 @@
       mouse-yank-at-point t)
 
 ;; No cursor blinking, it's distracting
-(blink-cursor-mode 0)
+(when (fboundp 'blink-cursor-mode)
+  (blink-cursor-mode 0))
 
 ;; full path in title bar
 (setq-default frame-title-format "%b (%f)")

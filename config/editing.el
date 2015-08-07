@@ -1,4 +1,4 @@
-;; Customizations relating to editing a buffer.
+;; Editing buffer that related to configurations.
 
 ;; Key binding to use "hippie expand" for text autocompletion
 ;; http://www.emacswiki.org/emacs/HippieExpand
