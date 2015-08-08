@@ -13,7 +13,6 @@
           (setq compiled (byte-compile-file from)))
         (load to)))))
 
-;; (add-to-list 'load-path "~/.emacs.d/config")
 (compile-and-load-elc '("ui.el") "config/")
 
 ;; Define package repositories
