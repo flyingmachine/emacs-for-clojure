@@ -1,33 +1,28 @@
-Emacs for the dialets of Lisp
+Emacs for Everyday Use
 =======
-The Emacs version must be 24.0+.
+I'm a newbie with Emacs, it's awesome if I can [Learn Emacs in less then Ten Years](http://edward.oconnor.cx/2009/07/learn-emacs-in-ten-years). So, I decided to start from Level One not the Level Zero after read Emacs' tutorial (M-x tutoril). Emacs is the most powerful editor on the world there is no **one of**, it's programmable, elegant and **self-documenting**, so you can start from Level Zero if you had time may be less than 10 years to read and try Emacs.
 
-## How to use
-1. backup your original .emacs.d directory to other place or rename it;
-2. git clone it as ~/.emacs.d
-3. done!
+After falling in love with [Clojure](http://clojure.org/), I know it's the time to make Emacs being a part of my body and mind, not just open a file, navigating, editing, and save it. The Level One of mine start from [this is a Clojure-friendly emacs config](https://github.com/flyingmachine/emacs-for-clojure), I'd not found [A reasonalbe Emacs config](https://github.com/purcell/emacs.d) before [this is a Clojure-friendly emacs config](https://github.com/flyingmachine/emacs-for-clojure). 
 
-### Common Lisp repl
-1. run into repl: M-x slime
-2. exit repl: (exit)
+But for everyday use, the adaptive Emacs which I need is more stable, more smaller and more flexible which can be run on anywhere where Emacs can be run. Now, let's start from the Level Two.
 
-### Clojure repl
-1. run into repl: M-x cider-jack-in, M-x cider-connect
-2. exit repl: M-x cider-quit
+## Requirements
+* Emacs installation, the version 24+ is more suitable;
+* Any keyboard, not mouse;
 
-### Magit for git is buildin
-M-x magit-* what's your want
+## Installation
+Just one thing you need to do, clone it(just <4MiB) to your HOME directory:
+```shell
+git clone https://github.com/junjiemars/.emacs.d.git
+```
+Then start Emacs and wait self-installing packages, if you had an Emacs 24+ 
 
-## On Mac OSX
-Just checkout the osx branch, on Linux/Windows which had not been tested. 
-But on OSX it works great. This branch will check the package managements 
-and then descided how to install or load the apropos.
+## Where
+* Linux, whatever GUI or Terminal;
+* OSX, whatever GUI or Terminal;
+* Windows, just GUI
 
-### Features
-1. compile and load the config & elisp files at startup;
-2. customized the awesome themes;
+## What
+* Lisp, ...
+* Emacs can do
 
-
-## Thanks
-1. It's based on the greate job of flyingmachine to see [emacs-for-clojure](https://github.com/flyingmachine/emacs-for-clojure.git)
-2. [emacs tutorial](http://www.braveclojure.com/basic-emacs/)

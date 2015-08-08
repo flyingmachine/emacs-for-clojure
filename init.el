@@ -55,8 +55,9 @@
         (mapcar #'(lambda (i) (package-install i))
                 not-installed-packages))))
 
-  (when (eq system-type 'darwin)
-    (exec-path-from-shell-initialize))
+  ;; OS special settings
+  (cond ((eq system-type 'darwin)
+         (exec-path-from-shell-initialize)))
   
   (compile-and-load-elc '("navigation.el"
                           "editing.el"
