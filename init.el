@@ -1,8 +1,12 @@
-(defmacro comment (&rest body) nil)
+(defmacro comment (&rest body)
+  "Ignores body, yields nil"
+  nil)
 
-(defconst loading-start-time (current-time))
+(defconst loading-start-time
+  (current-time) "The start time at loading init.el")
 
-(defun compile-and-load-elc (files subdir)
+(defun compile-and-load-elisp-files (files subdir)
+  "Compile and load the elisp files under the subdir"
   (let ((d (concat "~/.emacs.d/" subdir)))
     (dolist (f files)
       (let* ((from (concat d f))
@@ -13,7 +17,7 @@
           (setq compiled (byte-compile-file from)))
         (load to)))))
 
-(compile-and-load-elc '("ui.el") "config/")
+(compile-and-load-elisp-files '("ui.el") "config/")
 
 ;; Define package repositories
 (when (>= emacs-major-version 24)
@@ -59,7 +63,7 @@
   (cond ((eq system-type 'darwin)
          (exec-path-from-shell-initialize)))
   
-  (compile-and-load-elc '("navigation.el"
+  (compile-and-load-elisp-files '("navigation.el"
                           "editing.el"
                           "elisp-editing.el"
                           "setup-clojure.el"
