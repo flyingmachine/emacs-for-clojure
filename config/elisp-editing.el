@@ -10,7 +10,9 @@
                                          (local-set-key (kbd "RET")
                                                         (lambda () (interactive)
                                                           (eval-print-last-sexp)
-                                                          (newline)))))))
+                                                          (newline)))
+                                         (local-set-key (kbd "TAB")
+                                                        #'complete-symbol)))))
 
 (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
 (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
