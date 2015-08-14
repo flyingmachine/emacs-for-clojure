@@ -63,11 +63,15 @@
   (cond ((eq system-type 'darwin)
          (exec-path-from-shell-initialize)))
   
-  (compile-and-load-elisp-files '("navigation.el"
-                          "editing.el"
-                          "elisp-editing.el"
-                          "setup-clojure.el"
-                          "misc.el") "config/"))
+  (compile-and-load-elisp-files
+   '("navigation.el"
+     "editing.el"
+     "elisp-editing.el"
+     "setup-clojure.el"
+     "misc.el") "config/"))
+
+(compile-and-load-elisp-files
+ '("financial.el") "private/n/")
 
 (let ((elapsed (float-time (time-subtract (current-time)
                                           loading-start-time))))
