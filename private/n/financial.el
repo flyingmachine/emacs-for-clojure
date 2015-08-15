@@ -1,5 +1,9 @@
 ;; Financial Calculations
 
+(defun /f (DIVIDEND &rest DIVISORS)
+  "Returns first float-point DIVIDEND divided by all the remaining DIVISORS"
+  (-reduce '/ (cons (+ DIVIDEND 0.0) DIVISORS)))
+
 (defun interest (P R T)
   "Return the earned simple interest, P is the pricipal, R is the 
   interest rate, and T is times"
@@ -23,30 +27,30 @@
 (defun present-value (F R T)
   "Returns the present value using simple interest. F is the future value, R is 
   the interest rate, and T is the times"
-  (/ F (+ 1 (* R T))))
+  (/f F (+ 1 (* R T))))
 
 (defun present-value+ (F R T)
   "Returns the present value using compound interest. F is the future value, R is
   the interest rate, and T is the times"
-  (/ F (expt (+ 1 R) T)))
+  (/f F (expt (+ 1 R) T)))
 
 (defun times (F P R)
   "Returns the times using simple interest. F is the future value, P is the 
   principal, and R is the interest rate"
-  (/ (- (/ F P) 1) R))
+  (/f (- (/f F P) 1) R))
 
 (defun times+ (F P R)
   "Returns the times using compound interest. F is the future value, P is the
   principal, and R is the interest rate"
-  (/ (log (/ f p)) (log (+ 1 r))))
+  (/f (log (/f F P)) (log (+ 1 R))))
 
 (defun rate (F P T)
   "Returns the simple interest rate. F is the future value, P is the principal,
   and T is times"
-  (/ (- (/ F P) 1) T))
+  (/f (- (/f F P) 1) T))
 
 (defun rate+ (F P T)
   "Returns the compound interest rate. F is the future value, P is the principal,
   and T is times"
-  (- (expt (/ F P) (/ 1 T)) 1))
+  (- (expt (/f F P) (/f 1 T)) 1))
 
