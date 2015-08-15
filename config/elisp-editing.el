@@ -3,9 +3,16 @@
 (autoload 'enable-paredit-mode
   "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 
+(defun enable-eldoc-mode ()
+  "After Emacs 24.4 `turn-on-eldoc-mode is obsoleted, use `eldoc-mode indeed."
+  (if (and (>= emacs-major-version 24)
+           (>= emacs-minor-version 4))
+    '(eldoc-mode)
+    '(turn-on-eldoc-mode)))
+
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (paredit-mode)
-                                  (turn-on-eldoc-mode)
+                                  (enable-eldoc-mode)
                                   (cond ((string= "*scratch*" (buffer-name))
                                          (local-set-key (kbd "RET")
                                                         (lambda () (interactive)
@@ -22,5 +29,5 @@
 
 ;; eldoc-mode shows documentation in the minibuffer when writing code
 ;; http://www.emacswiki.org/emacs/ElDoc
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'emacs-lisp-mode-hook #'enable-eldoc-mode)
+(add-hook 'ielm-mode-hook #'enable-eldoc-mode)
