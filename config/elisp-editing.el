@@ -30,11 +30,12 @@
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 
-;; TODO: It's not work in *scheme* via run-scheme
-(comment
- (setq inferior-lisp-program (shell-command-to-string "which scheme"))
- (setq slime-contribs '(slime-fancy))
- (add-hook 'scheme-mode-hook (lambda ()
-                               (paredit-mode)
-                               (funcall (enable-eldoc-mode)))))
+(add-hook 'scheme-mode-hook (lambda ()
+                              (paredit-mode)
+                              (funcall (enable-eldoc-mode))))
+
+(add-hook 'inferior-scheme-mode-hook (lambda ()
+                                       (paredit-mode)
+                                       (funcall (enable-eldoc-mode))))
+
 

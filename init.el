@@ -31,7 +31,6 @@
             (list
              'exec-path-from-shell
              'paredit
-             ;;'slime
              'clojure-mode
              'clojure-mode-extra-font-locking
              'cider
