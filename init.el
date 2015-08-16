@@ -64,6 +64,7 @@
          (exec-path-from-shell-initialize)))
   
   (compile-and-load-elisp-files
+   ;; compile and load basic elisp files
    '("navigation.el"
      "editing.el"
      "elisp-editing.el"
@@ -71,6 +72,7 @@
      "misc.el") "config/"))
 
 (compile-and-load-elisp-files
+ ;; compile and load non-package-required elisp files
  '("financial.el") "private/n/")
 
 (let ((elapsed (float-time (time-subtract (current-time)
