@@ -11,7 +11,7 @@
 ;; More at http://www.emacswiki.org/emacs/ParEdit
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
-                                  (paredit-mode)
+                                  (enable-paredit-mode)
                                   (funcall (enable-eldoc-mode))
                                   (cond ((string= "*scratch*" (buffer-name))
                                          (local-set-key (kbd "RET")
@@ -24,18 +24,18 @@
 (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
 
 (add-hook 'ielm-mode-hook (lambda ()
-                            (paredit-mode)
+                            (enable-paredit-mode)
                             (funcall (enable-eldoc-mode))))
 
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 
 (add-hook 'scheme-mode-hook (lambda ()
-                              (paredit-mode)
+                              (enable-paredit-mode)
                               (funcall (enable-eldoc-mode))))
 
 (add-hook 'inferior-scheme-mode-hook (lambda ()
-                                       (paredit-mode)
+                                       (enable-paredit-mode)
                                        (funcall (enable-eldoc-mode))))
 
 
