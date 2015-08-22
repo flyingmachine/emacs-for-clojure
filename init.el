@@ -61,7 +61,10 @@
 
   ;; OS special settings
   (cond ((eq system-type 'darwin)
-         (exec-path-from-shell-initialize)))
+         (exec-path-from-shell-initialize)
+         (compile-and-load-elisp-files
+          '("gud.el") ;; lldb
+          "config/")))
   
   (compile-and-load-elisp-files
    ;; compile and load basic elisp files
