@@ -21,3 +21,4 @@ viper
 *.elc
 src
 url
+session.*
