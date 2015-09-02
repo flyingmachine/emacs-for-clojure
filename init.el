@@ -3,8 +3,7 @@
   nil)
 
 (defmacro time (expr)
-  "Evaluates expr and prints the time it took. Returns the value of
-  expr."
+  "Evaluates expr and prints the time it took. Returns the value of expr"
   `(let ((start (current-time))
          (return ,expr))
      (print (format "Elapsed %f secs."
@@ -22,8 +21,7 @@
       (let* ((from (concat d f))
              (to (replace-regexp-in-string "\.el$" "\.elc" from)))
         (when (or (not (file-exists-p to))
-                  (file-newer-than-file-p from to)
-                  (equal (nth 4 (file-attributes from)) '(list 0 0)))
+                  (file-newer-than-file-p from to))
           (setq compiled (byte-compile-file from)))
         (load to)))))
 
