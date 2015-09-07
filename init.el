@@ -71,7 +71,11 @@
   (cond ((eq system-type 'darwin)
          (exec-path-from-shell-initialize)
          (compile-and-load-elisp-files
-          '("gud-lldb-patch.el") "config/")))
+          '("gud-lldb-patch.el") "config/"))
+	((eq system-type 'gnu/linux)
+	 (when (zerop (shell-command "which lldb"))
+           (compile-and-load-elisp-files
+            '("gud-lldb-patch.el") "config/"))))
   
   (compile-and-load-elisp-files
    ;; compile and load basic elisp files
