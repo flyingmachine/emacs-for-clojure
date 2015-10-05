@@ -19,7 +19,8 @@
   (let ((d (concat "~/.emacs.d/" subdir)))
     (dolist (f files)
       (let* ((from (concat d f))
-             (to (replace-regexp-in-string "\.el$" "\.elc" from)))
+             (to (replace-regexp-in-string
+                  "\.el$" "\.elc" from)))
         (when (or (not (file-exists-p to))
                   (file-newer-than-file-p from to))
           (setq compiled (byte-compile-file from)))
@@ -50,6 +51,8 @@
              (if (>= emacs-minor-version 4)
                  ;; magit requires the emacs-24.4 package
                  'magit nil)
+             (if (eq system-type 'darwin)
+                 'osx-dictionary 'bing-dict)
              )))
 
   (require 'package)
@@ -63,7 +66,8 @@
       (progn
         (package-refresh-contents)
         (message "#Installing the missing %d packages: %s"
-                 (length not-installed-packages) not-installed-packages)
+                 (length not-installed-packages)
+                 not-installed-packages)
         (mapcar #'(lambda (i) (package-install i))
                 not-installed-packages))))
 
