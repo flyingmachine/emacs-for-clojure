@@ -51,8 +51,10 @@
              (if (>= emacs-minor-version 4)
                  ;; magit requires the emacs-24.4 package
                  'magit nil)
-             (if (eq system-type 'darwin)
-                 'osx-dictionary 'bing-dict)
+             (when (eq system-type 'darwin)
+               'osx-dictionary)
+             (when (eq system-type 'darwin)
+               'bing-dict)
              )))
 
   (require 'package)
