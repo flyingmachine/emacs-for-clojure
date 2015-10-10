@@ -4,8 +4,10 @@
 ;; a matter of preference and may require some fiddling to match your
 ;; preferences
 
-;; Turn off the menu bar at the top of each frame because it's distracting
-(menu-bar-mode -1)
+;; Turn off the menu bar at the top of each frame because it's distracting,
+;; unless it's on Mac where the single menu bar is always present but with
+;; -1 will not include the mode-specific menu entries.
+(if (not (eq system-type 'darwin)) (menu-bar-mode -1))
 
 ;; Show line numbers
 (global-linum-mode)
