@@ -52,7 +52,12 @@
 (global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
 ;; yay rainbows!
-(global-rainbow-delimiters-mode t)
+(if (fboundp 'rainbow-delimiters-mode-enable)
+    (if (or (> emacs-major-version 24)
+            (and (eq emacs-major-version 24) (>= emacs-minor-version 1)))
+        (add-hook 'prog-mode-hook 'rainbow-delimiters-mode-enable)
+      (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode-enable))
+  (global-rainbow-delimiters-mode))
 
 ;; use 2 spaces for tabs
 (defun die-tabs ()
