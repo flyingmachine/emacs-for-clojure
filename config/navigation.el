@@ -58,4 +58,25 @@
 (global-set-key (kbd "M-x") 'smex)
 
 ;; projectile everywhere!
-(projectile-global-mode)
+(when (package-installed-p 'projectile)
+  (defun projectile-project-root ()
+    "Retrieves the root directory of a project if available.
+    The current directory is assumed to be the project's root otherwise."
+    (let ((dir default-directory))
+      (or (--reduce-from
+           (or acc
+               (let* ((cache-key (format "%s-%s" it dir))
+                      (cache-value (gethash cache-key projectile-project-root-cache)))
+                 (if cache-value
+                     (if (eq cache-value 'no-project-root)
+                         nil
+                       cache-value)
+                   (let ((value (funcall it (file-truename dir))))
+                     (puthash cache-key (or value 'no-project-root) projectile-project-root-cache)
+                     value))))
+           nil
+           projectile-project-root-files-functions)
+          (if projectile-require-project-root
+              (error "You're not in a project")
+            default-directory))))
+  (projectile-global-mode))
