@@ -49,4 +49,8 @@
             (enable-paredit-mode)
             (funcall (enable-eldoc-mode))))
 
+(add-hook 'geiser-repl-mode-hook
+          (lambda ()
+            (enable-paredit-mode)))
+
 
