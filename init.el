@@ -45,18 +45,15 @@
              'cider
              'ido-ubiquitous
              'smex
-             'projectile
+             ;;'projectile
              'rainbow-delimiters
              'tagedit
              'php-mode
              'geiser
-             (if (>= emacs-minor-version 4)
+             (when (>= emacs-minor-version 4)
                  ;; magit requires the emacs-24.4 package
                  'magit nil)
-             (when (eq system-type 'darwin)
-               'osx-dictionary)
-             (when (eq system-type 'darwin)
-               'bing-dict)
+             'bing-dict
              )))
 
   (require 'package)
