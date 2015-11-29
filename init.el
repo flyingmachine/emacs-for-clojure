@@ -49,7 +49,7 @@
              'rainbow-delimiters
              'tagedit
              'php-mode
-             'geiser
+             ;;'geiser
              (when (>= emacs-minor-version 4)
                  ;; magit requires the emacs-24.4 package
                  'magit nil)
