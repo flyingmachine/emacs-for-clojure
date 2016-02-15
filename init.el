@@ -45,12 +45,8 @@
              'cider
              'ido-ubiquitous
              'smex
-             ;;'projectile
              'rainbow-delimiters
              'tagedit
-             'php-mode
-             'geiser
-             ;;'elpy
              (when (>= emacs-minor-version 4)
                  ;; magit requires the emacs-24.4 package
                  'magit)
