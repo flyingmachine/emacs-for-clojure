@@ -50,6 +50,7 @@
              'tagedit
              'php-mode
              'geiser
+             ;;'elpy
              (when (>= emacs-minor-version 4)
                  ;; magit requires the emacs-24.4 package
                  'magit)
@@ -94,6 +95,8 @@
  ;; compile and load non-package-required elisp files
  '("financial.el") "private/n/")
 
-(let ((elapsed (float-time (time-subtract (current-time)
-                                          loading-start-time))))
+(let ((elapsed (float-time
+                (time-subtract (current-time)
+                               loading-start-time))))
   (message "#Loading init.el ... done (%.3fs)" elapsed))
+(put 'upcase-region 'disabled nil)

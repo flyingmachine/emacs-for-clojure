@@ -21,11 +21,13 @@
 	      (add-to-list 'default-frame-alist (cons 'width w))
 	      (set-face-attribute 'default nil :height 140))
 	    (progn
-	      (add-to-list 'default-frame-alist (cons 'width 80))
+	      (add-to-list 'default-frame-alist
+                           (cons 'width 80))
 	      (set-face-attribute 'default nil :height 120)))
 	(add-to-list 'default-frame-alist
-		     (cons 'height (/ (- (x-display-pixel-height) 200)
-				      (frame-char-height)))))))
+		     (cons 'height
+                           (/ (- (x-display-pixel-height) 200)
+                              (frame-char-height)))))))
 
 
 (when (display-graphic-p)

@@ -14,7 +14,8 @@
 
 ;; Turn on recent file mode so that you can more easily switch to
 ;; recently edited files when you first start emacs
-(setq recentf-save-file (concat user-emacs-directory ".recentf"))
+(setq recentf-save-file
+      (concat user-emacs-directory ".recentf"))
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-items 40)
@@ -53,7 +54,8 @@
 ;; Enhances M-x to allow easier execution of commands. Provides
 ;; a filterable list of possible commands in the minibuffer
 ;; http://www.emacswiki.org/emacs/Smex
-(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+(setq smex-save-file
+      (concat user-emacs-directory ".smex-items"))
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 
@@ -62,18 +64,25 @@
  (when (package-installed-p 'projectile)
    (defun projectile-project-root ()
      "Retrieves the root directory of a project if available.
-    The current directory is assumed to be the project's root otherwise."
+      The current directory is assumed to be the project's 
+      root otherwise."
      (let ((dir default-directory))
        (or (--reduce-from
             (or acc
                 (let* ((cache-key (format "%s-%s" it dir))
-                       (cache-value (gethash cache-key projectile-project-root-cache)))
+                       (cache-value
+                        (gethash
+                         cache-key
+                         projectile-project-root-cache)))
                   (if cache-value
                       (if (eq cache-value 'no-project-root)
                           nil
                         cache-value)
-                    (let ((value (funcall it (file-truename dir))))
-                      (puthash cache-key (or value 'no-project-root) projectile-project-root-cache)
+                    (let ((value
+                           (funcall it (file-truename dir))))
+                      (puthash cache-key
+                               (or value 'no-project-root)
+                               projectile-project-root-cache)
                       value))))
             nil
             projectile-project-root-files-functions)

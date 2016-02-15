@@ -23,8 +23,9 @@
                                   #'complete-symbol)))))
 
 (cond
- ((eq system-type 'gnu/linux) (add-hook 'minibuffer-setup-hook
-                                        #'enable-paredit-mode t))
+ ((eq system-type 'gnu/linux)
+  (add-hook 'minibuffer-setup-hook
+            #'enable-paredit-mode t))
  (t (add-hook 'eval-expression-minibuffer-setup-hook
               #'enable-paredit-mode)))
 
@@ -49,8 +50,5 @@
             (enable-paredit-mode)
             (funcall (enable-eldoc-mode))))
 
-(add-hook 'geiser-repl-mode-hook
-          (lambda ()
-            (enable-paredit-mode)))
 
 
