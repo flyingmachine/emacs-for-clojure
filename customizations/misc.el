@@ -10,6 +10,3 @@
 
 ;; Go straight to scratch buffer on startup
 (setq inhibit-startup-message t)
-
-;; Use Emacs server
-(server-start)
