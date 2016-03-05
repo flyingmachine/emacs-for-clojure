@@ -1,15 +1,16 @@
-Provides a Clojure IDE and REPL for Emacs, built on top of nREPL.
+Provides a Clojure interactive development environment for Emacs, built on
+top of nREPL.
 
 Installation:
 
-Available as a package in marmalade-repo.org and melpa.milkbox.net.
+Available as a package in melpa.org and stable.melpa.org
 
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+             '("melpa" . "https://melpa.org/packages/"))
 
 or
 
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 M-x package-install cider
