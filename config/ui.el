@@ -16,10 +16,11 @@
   (interactive)
   (if (display-graphic-p)
       (progn
-        (let* ((w (x-display-pixel-width))
-               (w? (> w 1280))
-               (w1 (/ w (* (if w? 3 2) (frame-char-width))))
-               (h1 (if w? 112 96)))
+        (let* ((w (/ (x-display-pixel-width) (* 2 (frame-char-width))))
+               (w? (>= w 90))
+               (w1 (if w? 90 80))
+               (h? (> (x-display-pixel-width) 1280))
+               (h1 (if h? 112 96)))
           (add-to-list 'default-frame-alist (cons 'width w1))
           (set-face-attribute 'default nil :height h1))
 
