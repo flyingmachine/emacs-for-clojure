@@ -15,7 +15,8 @@
 ;; syntax hilighting for midje
 (add-hook 'clojure-mode-hook
           (lambda ()
-            (setq inferior-lisp-program "lein repl")
+            (when (boundp 'inferior-lisp-program)
+              (setq inferior-lisp-program "lein repl"))
             (font-lock-add-keywords
              nil
              '(("(\\(facts?\\)"
@@ -34,17 +35,22 @@
 (add-hook 'cider-repl-mode-hook #'eldoc-mode)
 
 ;; go right to the REPL buffer when it's finished connecting
-(setq cider-repl-pop-to-buffer-on-connect t)
+(when (boundp 'cider-repl-pop-to-buffer-on-connect)
+  (setq cider-repl-pop-to-buffer-on-connect t))
 
 ;; When there's a cider error, show its buffer and switch to it
-(setq cider-show-error-buffer t)
-(setq cider-auto-select-error-buffer t)
+(when (boundp 'cider-show-error-buffer)
+  (setq cider-show-error-buffer t))
+(when (boundp 'cider-auto-select-error-buffer)
+  (setq cider-auto-select-error-buffer t))
 
 ;; Where to store the cider history.
-(setq cider-repl-history-file "~/.emacs.d/cider-history")
+(when (boundp 'cider-repl-history-file)
+  (setq cider-repl-history-file "~/.emacs.d/cider-history"))
 
 ;; Wrap when navigating history.
-(setq cider-repl-wrap-history t)
+(when (boundp 'cider-repl-wrap-history)
+  (setq cider-repl-wrap-history t))
 
 ;; enable paredit in your REPL
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
@@ -60,20 +66,26 @@
 ;; these help me out with the way I usually develop web apps
 (defun cider-start-http-server ()
   (interactive)
-  (cider-load-current-buffer)
-  (let ((ns (cider-current-ns)))
-    (cider-repl-set-ns ns)
-    (cider-interactive-eval (format "(println '(def server (%s/start))) (println 'server)" ns))
-    (cider-interactive-eval (format "(def server (%s/start)) (println server)" ns))))
+  (when (fboundp 'cider-load-current-buffer)
+    (cider-load-current-buffer))
+  (when (fboundp 'cider-current-ns)
+    (let ((ns (cider-current-ns)))
+      (when (fboundp 'cider-repl-set-ns)
+        (cider-repl-set-ns ns))
+      (when (fboundp 'cider-interactive-eval)
+        (cider-interactive-eval (format "(println '(def server (%s/start))) (println 'server)" ns))
+        (cider-interactive-eval (format "(def server (%s/start)) (println server)" ns))))))
 
 
 (defun cider-refresh ()
   (interactive)
-  (cider-interactive-eval (format "(user/reset)")))
+  (when (fboundp 'cider-interactive-eval)
+    (cider-interactive-eval (format "(user/reset)"))))
 
 (defun cider-user-ns ()
   (interactive)
-  (cider-repl-set-ns "user"))
+  (when (fboundp 'cider-repl-set-ns)
+    (cider-repl-set-ns "user")))
 
 (eval-after-load 'cider
   '(progn

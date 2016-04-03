@@ -66,8 +66,9 @@
 ;; fix weird os x kill error
 (defun ns-get-pasteboard ()
   "Returns the value of the pasteboard, or nil for unsupported formats."
-  (condition-case nil
-      (ns-get-selection-internal 'CLIPBOARD)
-    (quit nil)))
+  (when (fboundp 'ns-get-selection-internal)
+    (condition-case nil
+        (ns-get-selection-internal 'CLIPBOARD)
+      (quit nil))))
 
 (setq electric-indent-mode nil)

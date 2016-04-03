@@ -2,7 +2,7 @@
 
 (defun /. (DIVIDEND &rest DIVISORS)
   "Returns first float-point DIVIDEND divided by all the remaining DIVISORS"
-  (-reduce '/ (cons (+ DIVIDEND 0.0) DIVISORS)))
+  (cl-reduce '/ (cons (+ DIVIDEND 0.0) DIVISORS)))
 
 (defun rate/365 (R &optional annual?)
   "Returns daily rate of R when the &optional annual? is true, others returns R"
@@ -71,4 +71,3 @@
   and T is times"
   (let ((R  (- (expt (/. F P) (/. 1 T)) 1)))
     (rate*365 R annual?)))
-
