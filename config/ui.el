@@ -12,6 +12,9 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
+(when (eq system-type 'windows-nt)
+    (set-default-font "Consolas-12"))
+
 (defun set-frame-size-via-resolution ()
   (interactive)
   (progn
@@ -33,7 +36,7 @@
     (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
     (add-to-list 'load-path "~/.emacs.d/themes")
     (load-theme 'tomorrow-night-bright t)
-    (set-frame-size-via-resolution)
+    ;(set-frame-size-via-resolution)
     ;; don't pop up font menu
     (global-set-key (kbd "s-t") '(lambda () (interactive)))
     (desktop-save-mode 1))
