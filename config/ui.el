@@ -12,8 +12,9 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-(when (eq system-type 'windows-nt)
-    (set-default-font "Consolas-12"))
+(cond
+  ((eq system-type 'windows-nt) (set-frame-font "Consolas-12"))
+  ((eq system-type 'darwin) (set-frame-font "Monaco-13")))
 
 (defun set-frame-size-via-resolution ()
   (interactive)
