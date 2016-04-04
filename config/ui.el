@@ -16,22 +16,6 @@
   ((eq system-type 'windows-nt) (set-frame-font "Consolas-12"))
   ((eq system-type 'darwin) (set-frame-font "Monaco-13")))
 
-(defun set-frame-size-via-resolution ()
-  (interactive)
-  (progn
-    (let* ((w (/ (x-display-pixel-width) (* 2 (frame-char-width))))
-           (w? (>= w 90))
-           (w1 (if w? 90 80))
-           (h? (> (x-display-pixel-width) 1280))
-           (h1 (if h? 112 96)))
-      (add-to-list 'default-frame-alist (cons 'width w1))
-      (set-face-attribute 'default nil :height h1))
-
-    (let* ((h (/ (x-display-pixel-height) (frame-char-height)))
-           (h1 (if (>= h 48) 48 24)))
-      (add-to-list 'default-frame-alist (cons 'height h1)))))
-
-
 (if (display-graphic-p)
   (progn
     (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
