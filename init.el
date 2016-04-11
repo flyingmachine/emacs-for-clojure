@@ -85,6 +85,7 @@
      "editing.el"
      "elisp-editing.el"
      "setup-clojure.el"
+     "setup-python.el"
      "misc.el") "config/"))
 
 (compile-and-load-elisp-files

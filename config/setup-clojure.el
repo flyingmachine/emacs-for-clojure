@@ -73,8 +73,10 @@
       (when (fboundp 'cider-repl-set-ns)
         (cider-repl-set-ns ns))
       (when (fboundp 'cider-interactive-eval)
-        (cider-interactive-eval (format "(println '(def server (%s/start))) (println 'server)" ns))
-        (cider-interactive-eval (format "(def server (%s/start)) (println server)" ns))))))
+        (cider-interactive-eval
+         (format "(println '(def server (%s/start))) (println 'server)" ns))
+        (cider-interactive-eval
+         (format "(def server (%s/start)) (println server)" ns))))))
 
 
 (defun cider-refresh ()
