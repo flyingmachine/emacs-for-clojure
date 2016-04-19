@@ -3,6 +3,69 @@
 If you're new to emacs, check out
 [this introductory tutorial](http://www.braveclojure.com/basic-emacs/)!
 
+## WARNING
+
+This project uses an outdated version of
+[CIDER](https://github.com/clojure-emacs/cider), the package that
+provides much of the functionality for Clojure development. If you run
+into issues, try upgrading (instructions below).
+
+Why not just update this package to use the latest CIDER, you ask?
+This project uses CIDER 0.8.1 so that
+[Clojure for the Brave and True](http://www.braveclojure.com/basic-emacs/)
+readers are less likely to get confused as they use Emacs for the
+first time.
+
+## Installing
+
+1. Close Emacs.
+2. Delete `~/.emacs` or `~/.emacs.d` if they exist. (Windows users, your
+   emacs files will probably live in
+   `C:\Users\your_user_name\AppData\Roaming\`. So, for example, you
+   would delete `C:\Users\jason\AppData\Roaming\.emacs.d`.) This is
+   where Emacs looks for configuration files, and deleting these files
+   and directories will ensure that you start with a clean slate.
+3. Download the Emacs
+   [configuration zip file](https://github.com/flyingmachine/emacs-for-clojure/archive/book1.zip)
+   and unzip it. Its contents should be a folder,
+   `emacs-for-clojure-book1`. Run `mv path/to/emacs-for-clojure-book1
+   ~/.emacs.d`.
+4. Create the file `~/.lein/profiles.clj` (Windows users, this is
+   probably `C:\Users\your_user_name\.lein\profiles.clj`) and add this
+   line to it:
+
+```clojure
+{:user {:plugins [[cider/cider-nrepl "0.8.1"]]}} 
+```
+
+Then open Emacs.
+
+## Upgrading
+
+Before upgrading, ensure that your `.emacs.d` directory is under
+version control so that you can always revert to a known good state.
+
+To upgrade:
+
+1. Edit `.emacs.d/init.el`, adding these lines after line 12:
+
+   ```elisp
+   (add-to-list 'package-archives
+                '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+   
+   (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+   ```
+
+2. Close Emacs.
+3. Run `rm -Rf .emacs.d/elpa/cider-*`
+4. Open Emacs. You'll probably see some errors and your theme won't
+   load. That's ok.
+5. In Emacs, run `M-x package-refresh contents`.
+6. In Emacs, run `M-x package-install cider`.
+7. Close and re-open Emacs.
+
+That should install the latest version. Enjoy!
+
 ## Organization
 
 I've tried to separate everything logically and document the purpose
