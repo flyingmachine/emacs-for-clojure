@@ -63,6 +63,7 @@ To upgrade:
 5. In Emacs, run `M-x package-refresh contents`.
 6. In Emacs, run `M-x package-install cider`.
 7. Close and re-open Emacs.
+8. Open `.lein/profiles.clj` and remove `[cider/cider-nrepl "0.8.1"]` from it.
 
 That should install the latest version. Enjoy!
 
