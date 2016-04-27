@@ -14,13 +14,14 @@
 
 (cond
   ((eq system-type 'windows-nt) (set-frame-font "Consolas-12"))
-  ((eq system-type 'darwin) (set-frame-font "Monaco-13")))
+  ((eq system-type 'darwin) (set-frame-font "Monaco-13"))
+  ((eq system-type 'gnu/linux) (set-frame-font "DejaVu Sans Mono-12")))
 
 (if (display-graphic-p)
   (progn
     (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
     (add-to-list 'load-path "~/.emacs.d/themes")
-    (load-theme 'tomorrow-night-bright t)
+    (load-theme 'tomorrow-night-eighties t)
     ;(set-frame-size-via-resolution)
     ;; don't pop up font menu
     (global-set-key (kbd "s-t") '(lambda () (interactive)))
