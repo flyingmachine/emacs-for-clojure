@@ -69,9 +69,11 @@
         (mapcar #'(lambda (i) (package-install i))
                 not-installed-packages))))
 
+  (when (package-installed-p 'exec-path-from-shell)
+    (exec-path-from-shell-initialize))
+
   ;; OS special settings
   (cond ((eq system-type 'darwin)
-         (exec-path-from-shell-initialize)
          (compile-and-load-elisp-files
           '("gud-lldb-patch.el") "config/"))
 	((eq system-type 'gnu/linux)
