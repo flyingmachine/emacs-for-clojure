@@ -47,7 +47,8 @@
              'smex
              'rainbow-delimiters
              'tagedit
-             (when (>= emacs-minor-version 4)
+             (when (>= 24.4 (+ emacs-major-version
+                               (* 0.1 emacs-minor-version)))
                  ;; magit requires the emacs-24.4 package
                  'magit)
              'bing-dict
