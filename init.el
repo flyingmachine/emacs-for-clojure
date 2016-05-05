@@ -70,17 +70,23 @@
         (mapcar #'(lambda (i) (package-install i))
                 not-installed-packages))))
 
-  (when (package-installed-p 'exec-path-from-shell)
-    (exec-path-from-shell-initialize))
+  (defun init-exec-path-from-shell ()
+    "Initialize the installed package exec-path-from-shell"
+    (when (package-installed-p 'exec-path-from-shell)
+      (exec-path-from-shell-initialize)))  
 
-  ;; OS special settings
+   ;; OS special settings
   (cond ((eq system-type 'darwin)
-         (compile-and-load-elisp-files
-          '("gud-lldb-patch.el") "config/"))
-	((eq system-type 'gnu/linux)
-	 (when (zerop (shell-command "which lldb"))
+         (progn 
+           (init-exec-path-from-shell)
            (compile-and-load-elisp-files
-            '("gud-lldb-patch.el") "config/"))))
+             '("gud-lldb-patch.el") "config/")))
+	((eq system-type 'gnu/linux)
+	 (progn 
+           (init-exec-path-from-shell)
+           (when (zerop (shell-command "which lldb"))
+             (compile-and-load-elisp-files
+               '("gud-lldb-patch.el") "config/")))))
   
   (compile-and-load-elisp-files
    ;; compile and load basic elisp files
