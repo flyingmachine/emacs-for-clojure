@@ -86,7 +86,12 @@
            (init-exec-path-from-shell)
            (when (zerop (shell-command "which lldb"))
              (compile-and-load-elisp-files
-               '("gud-lldb-patch.el") "config/")))))
+               '("gud-lldb-patch.el") "config/"))))
+        ((eq system-type 'windows-nt)
+         (progn
+           (let ((git-bash "c:/program files/git/git-bash.exe"))
+             (when (file-exists-p git-bash)
+               (setenv "SHELL" git-bash))))))
   
   (compile-and-load-elisp-files
    ;; compile and load basic elisp files
