@@ -7,16 +7,16 @@
 
 ;; This is useful for working with camel-case tokens, like names of
 ;; Java classes (e.g. JavaClassName)
-(add-hook 'clojure-mode-hook 'subword-mode)
-
-;; A little more syntax highlighting
-(require 'clojure-mode-extra-font-locking)
+(add-hook 'clojure-mode-hook #'subword-mode)
+(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 
 ;; syntax hilighting for midje
+(require 'clojure-mode-extra-font-locking)
 (add-hook 'clojure-mode-hook
           (lambda ()
             (when (boundp 'inferior-lisp-program)
-              (setq inferior-lisp-program "lein repl"))
+              (setq inferior-lisp-program "boot repl"))
             (font-lock-add-keywords
              nil
              '(("(\\(facts?\\)"
@@ -58,9 +58,7 @@
 ;; Use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
-
+(add-to-list 'magic-mode-alist '(".* boot" . clojure-mode))
 
 ;; key bindings
 ;; these help me out with the way I usually develop web apps

@@ -43,6 +43,7 @@
              'clojure-mode
              'clojure-mode-extra-font-locking
              'cider
+             'aggressive-indent
              'ido-ubiquitous
              'smex
              'rainbow-delimiters
