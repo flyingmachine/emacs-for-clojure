@@ -83,7 +83,9 @@
            (compile-and-load-elisp-files
              '("gud-lldb-patch.el") "config/")))
 	((eq system-type 'gnu/linux)
-	 (progn 
+	 (progn
+           (when (not (getenv "SHELL"))
+             (setenv "SHELL" "/bin/bash"))
            (init-exec-path-from-shell)
            (when (zerop (shell-command "which lldb"))
              (compile-and-load-elisp-files
