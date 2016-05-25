@@ -5,6 +5,10 @@
 (setq-default sh-basic-offset 2)
 (setq-default sh-indentation 2)
 
+;; c/c++
+(setq-default c-basic-offset 2)
+(setq-default c-indentation 2)
+
 ;; No need for ~ files when editing
 (setq create-lockfiles nil)
 
