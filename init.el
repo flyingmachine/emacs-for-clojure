@@ -76,26 +76,6 @@
     (when (package-installed-p 'exec-path-from-shell)
       (exec-path-from-shell-initialize)))  
 
-   ;; OS special settings
-  (cond ((eq system-type 'darwin)
-         (progn 
-           (init-exec-path-from-shell)
-           (compile-and-load-elisp-files
-             '("gud-lldb-patch.el") "config/")))
-	((eq system-type 'gnu/linux)
-	 (progn
-           (when (not (getenv "SHELL"))
-             (setenv "SHELL" "/bin/bash"))
-           (init-exec-path-from-shell)
-           (when (zerop (shell-command "which lldb"))
-             (compile-and-load-elisp-files
-               '("gud-lldb-patch.el") "config/"))))
-        ((eq system-type 'windows-nt)
-         (progn
-           (let ((git-bash "c:/program files/git/git-bash.exe"))
-             (when (file-exists-p git-bash)
-               (setenv "SHELL" git-bash))))))
-  
   (compile-and-load-elisp-files
    ;; compile and load basic elisp files
    '("navigation.el"
@@ -103,6 +83,7 @@
      "elisp-editing.el"
      "setup-clojure.el"
      "setup-python.el"
+     "setup-shell.el"
      "misc.el") "config/"))
 
 (compile-and-load-elisp-files
