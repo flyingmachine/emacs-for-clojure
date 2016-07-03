@@ -2,12 +2,12 @@
 ;; Shell
 ;;;;
 
-;; Enable paredit for Clojure
+;; Enable paredit for Shell script
 (add-hook 'shell-mode-hook 'enable-paredit-mode)
 
 ;; OS special settings
 (cond ((eq system-type 'darwin)
-       (progn 
+       (progn
          (init-exec-path-from-shell)
          (compile-and-load-elisp-files
           '("gud-lldb-patch.el") "config/")))
