@@ -20,7 +20,17 @@
            (compile-and-load-elisp-files
             '("gud-lldb-patch.el") "config/"))))
       ((eq system-type 'windows-nt)
-       (progn
-         (let ((git-bash "c:/program files/git/git-bash.exe"))
-           (when (file-exists-p git-bash)
-             (setenv "SHELL" git-bash))))))
+       (let* ((win-bash
+               "C:/Program Files/Git/usr/bin/bash.exe")
+              (win-bash-path (file-name-directory win-bash)))
+         ;; no better solution for bash on Windows
+         (when (file-exists-p win-bash)
+           (when (not (file-exists-p "~/.emacs_bash"))
+             (copy-file "~/.emacs.d/config/.emacs_bash" "~/.emacs_bash"))
+           (setenv "PATH" (concat win-bash-path (getenv "PATH")))
+           (setq shell-file-name "bash")
+           (setenv "SHELL" shell-file-name)
+           (when (boundp 'explicit-shell-file-name)
+             (setq explicit-shell-file-name shell-file-name))
+           (add-hook
+            'comint-output-filter-function 'comint-strip-ctrl-m)))))
