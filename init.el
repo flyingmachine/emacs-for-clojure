@@ -88,7 +88,8 @@
 
 (compile-and-load-elisp-files
  ;; compile and load non-package-required elisp files
- '("financial.el") "private/n/")
+ '("financial.el"
+   "utils.el") "private/n/")
 
 (let ((elapsed (float-time
                 (time-subtract (current-time)
