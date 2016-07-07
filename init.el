@@ -46,6 +46,7 @@
               'exec-path-from-shell
               'ido-ubiquitous
               'lfe-mode
+              'markdown-mode
               'paredit
               'rainbow-delimiters
               'smex
