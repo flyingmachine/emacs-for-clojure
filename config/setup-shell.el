@@ -25,8 +25,9 @@
               (win-bash-path (file-name-directory win-bash)))
          ;; no better solution for bash on Windows
          (when (file-exists-p win-bash)
-           (when (not (file-exists-p "~/.emacs_bash"))
-             (copy-file "~/.emacs.d/config/.emacs_bash" "~/.emacs_bash"))
+           (unless (file-exists-p "~/.emacs_bash")
+             (copy-file "~/.emacs.d/config/.emacs_bash"
+                        "~/.emacs_bash"))
            (setenv "PATH" (concat win-bash-path (getenv "PATH")))
            (setq shell-file-name "bash")
            (setenv "SHELL" shell-file-name)
