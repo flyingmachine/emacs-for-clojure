@@ -38,21 +38,22 @@
   (defconst installed-packages
     (delete nil
             (list
-             'exec-path-from-shell
-             'paredit
-             'clojure-mode
-             'clojure-mode-extra-font-locking
-             'cider
-             'aggressive-indent
-             'ido-ubiquitous
-             'smex
-             'rainbow-delimiters
-             'tagedit
-             (when (<= 24.4 (+ emacs-major-version
-                               (* 0.1 emacs-minor-version)))
+              'aggressive-indent
+              'bing-dict
+              'cider
+              'clojure-mode
+              'clojure-mode-extra-font-locking
+              'exec-path-from-shell
+              'ido-ubiquitous
+              'lfe-mode
+              'paredit
+              'rainbow-delimiters
+              'smex
+              'tagedit
+             (when (<= 24.4
+                       (+ emacs-major-version (* 0.1 emacs-minor-version)))
                  ;; magit requires the emacs-24.4 package
                  'magit)
-             'bing-dict
              )))
 
   (require 'package)
@@ -78,13 +79,14 @@
 
   (compile-and-load-elisp-files
    ;; compile and load basic elisp files
-   '("navigation.el"
-     "editing.el"
+   '("editing.el"
      "elisp-editing.el"
+     "misc.el"
+     "navigation.el"
      "setup-clojure.el"
+     "setup-lfe.el"
      "setup-python.el"
-     "setup-shell.el"
-     "misc.el") "config/"))
+     "setup-shell.el") "config/"))
 
 (compile-and-load-elisp-files
  ;; compile and load non-package-required elisp files
