@@ -28,66 +28,72 @@
 
 (compile-and-load-elisp-files '("ui.el") "config/")
 
-;; Define package repositories
-(when (>= emacs-major-version 24)
-  (setq package-archives 
-	'(("gnu" . "http://elpa.gnu.org/packages/")
-	  ("melpa-stable" . "http://stable.melpa.org/packages/")))
+(defmacro support-package-p (&rest body)
+  `(when (>= emacs-major-version 24)
+     (progn ,@body)))
 
-  ;; Guarantee all packages are installed on start
-  (defconst installed-packages
-    (delete nil
-            (list
-              'aggressive-indent
-              'bing-dict
-              'cider
-              'clojure-mode
-              'clojure-mode-extra-font-locking
-              'exec-path-from-shell
-              'ido-ubiquitous
-              'lfe-mode
-              'markdown-mode
-              'paredit
-              'rainbow-delimiters
-              'smex
-              'tagedit
-             (when (<= 24.4
-                       (+ emacs-major-version (* 0.1 emacs-minor-version)))
-                 ;; magit requires the emacs-24.4 package
-                 'magit)
-             )))
+(defmacro support-platform-p (os &rest body)
+  `(when (eq system-type os)
+     (progn ,@body)))
 
-  (require 'package)
-  (package-initialize)
+(message "before enter support-package-p")
 
-  (let ((not-installed-packages
-	 (delete t (mapcar #'(lambda (p)
-			      (if (package-installed-p p) t p))
-			   installed-packages))))
-    (when not-installed-packages
-      (progn
-        (package-refresh-contents)
-        (message "#Installing the missing %d packages: %s"
-                 (length not-installed-packages)
-                 not-installed-packages)
-        (mapcar #'(lambda (i) (package-install i))
-                not-installed-packages))))
+(support-package-p
+ (message "enter support-package-p")
+ ;; Define package repositories
+ (setq package-archives 
+       '(("gnu" . "http://elpa.gnu.org/packages/")
+         ("melpa-stable" . "http://stable.melpa.org/packages/")))
+ ;; Guarantee all packages are installed on start
+ (defconst installed-packages
+   (delete nil
+           (list
+            'aggressive-indent
+            'bing-dict
+            'cider
+            'clojure-mode
+            'clojure-mode-extra-font-locking
+            'exec-path-from-shell
+            'ido-ubiquitous
+            'lfe-mode
+            'markdown-mode
+            'paredit
+            'rainbow-delimiters
+            'smex
+            'tagedit
+            (when (<= 24.4
+                      (+ emacs-major-version (* 0.1 emacs-minor-version)))
+              ;; magit requires the emacs-24.4 package
+              'magit))))
+   
+ (require 'package)
+ (package-initialize)
 
-  (defun init-exec-path-from-shell ()
-    "Initialize the installed package exec-path-from-shell"
-    (when (package-installed-p 'exec-path-from-shell)
-      (exec-path-from-shell-initialize)))  
+ (let ((not-installed-packages
+        (delete t (mapcar #'(lambda (p) (if (package-installed-p p) t p))
+                          installed-packages))))
+   (when not-installed-packages
+     (package-refresh-contents)
+     (message "#Installing the missing %d packages: %s"
+              (length not-installed-packages)
+              not-installed-packages)
+     (mapcar #'(lambda (i) (package-install i))
+             not-installed-packages)))
 
-  (compile-and-load-elisp-files
-   ;; compile and load basic elisp files
-   '("editing.el"
-     "elisp-editing.el"
-     "misc.el"
-     "navigation.el"
-     "setup-clojure.el"
-     "setup-lfe.el"
-     "setup-python.el"
-     "setup-shell.el") "config/"))
+ (message "exiting support-package-p"))
+;; ^ end of support-package-p
+(message "end of support-package-p call")
+
+(compile-and-load-elisp-files
+ ;; compile and load basic elisp files
+ '("editing.el"
+   "elisp-editing.el"
+   "misc.el"
+   "navigation.el"
+   "setup-clojure.el"
+   "setup-lfe.el"
+   "setup-python.el"
+   "setup-shell.el") "config/")
 
 (compile-and-load-elisp-files
  ;; compile and load non-package-required elisp files
