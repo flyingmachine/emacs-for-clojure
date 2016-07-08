@@ -26,8 +26,6 @@
           (setq compiled (byte-compile-file from)))
         (load to)))))
 
-(compile-and-load-elisp-files '("ui.el") "config/")
-
 (defmacro package-supported-p (&rest body)
   `(when (>= emacs-major-version 24)
      (progn ,@body)))
@@ -36,6 +34,9 @@
   `(when (eq system-type ,os)
      (progn ,@body)))
 
+(compile-and-load-elisp-files '("ui.el") "config/")
+
+;; Start loading ...
 (package-supported-p
  ;; Define package repositories
  (setq package-archives 
@@ -58,8 +59,7 @@
             'rainbow-delimiters
             'smex
             'tagedit
-            (when (<= 24.4
-                      (+ emacs-major-version (* 0.1 emacs-minor-version)))
+            (when (<= 24.4 (string-to-number emacs-version))
               ;; magit requires the emacs-24.4 package
               'magit))))
    
