@@ -28,18 +28,15 @@
 
 (compile-and-load-elisp-files '("ui.el") "config/")
 
-(defmacro support-package-p (&rest body)
+(defmacro package-supported-p (&rest body)
   `(when (>= emacs-major-version 24)
      (progn ,@body)))
 
-(defmacro support-platform-p (os &rest body)
-  `(when (eq system-type os)
+(defmacro plateform-supported-p (os &rest body)
+  `(when (eq system-type ,os)
      (progn ,@body)))
 
-(message "before enter support-package-p")
-
-(support-package-p
- (message "enter support-package-p")
+(package-supported-p
  ;; Define package repositories
  (setq package-archives 
        '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -80,28 +77,28 @@
      (mapcar #'(lambda (i) (package-install i))
              not-installed-packages)))
 
- (message "exiting support-package-p"))
-;; ^ end of support-package-p
-(message "end of support-package-p call")
 
-(compile-and-load-elisp-files
- ;; compile and load basic elisp files
- '("editing.el"
-   "elisp-editing.el"
-   "misc.el"
-   "navigation.el"
-   "setup-clojure.el"
-   "setup-lfe.el"
-   "setup-python.el"
-   "setup-shell.el") "config/")
+  (compile-and-load-elisp-files
+   ;; compile and load basic elisp files
+   '("editing.el"
+     "elisp-editing.el"
+     "misc.el"
+     "navigation.el"
+     "setup-clojure.el"
+     "setup-lfe.el"
+     "setup-python.el"
+     "setup-shell.el") "config/"))
+ ;; ^ end of support-package-p
 
 (compile-and-load-elisp-files
  ;; compile and load non-package-required elisp files
  '("financial.el"
    "utils.el") "private/n/")
 
+;; After loaded ...
 (let ((elapsed (float-time
                 (time-subtract (current-time)
                                loading-start-time))))
   (message "#Loading init.el ... done (%.3fs)" elapsed))
+
 (put 'upcase-region 'disabled nil)
