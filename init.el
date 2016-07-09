@@ -1,9 +1,9 @@
 (defmacro comment (&rest body)
-  "Ignores body, yields nil"
+  "Ignores body, yields nil."
   nil)
 
 (defmacro time (expr)
-  "Evaluates expr and prints the time it took. Returns the value of expr"
+  "Evaluates expr and prints the time it took. Returns the value of expr."
   `(let ((start (current-time))
          (return ,expr))
      (print (format "Elapsed %f secs."
@@ -15,7 +15,7 @@
   (current-time) "The start time at loading init.el")
 
 (defun compile-and-load-elisp-files (files subdir)
-  "Compile and load the elisp files under the subdir"
+  "Compile and load the elisp files under the subdir."
   (let ((d (concat "~/.emacs.d/" subdir)))
     (dolist (f files)
       (let* ((from (concat d f))
@@ -27,22 +27,25 @@
         (load to)))))
 
 (defmacro package-supported-p (&rest body)
+  "Run body code if the Emacs supports package."
   `(when (>= emacs-major-version 24)
      (progn ,@body)))
 
 (defmacro plateform-supported-p (os &rest body)
+  "Run body code if the Emacs on specified OS plateform."
   `(when (eq system-type ,os)
      (progn ,@body)))
 
+;; First to load UI part
 (compile-and-load-elisp-files '("ui.el") "config/")
 
 ;; Start loading ...
 (package-supported-p
- ;; Define package repositories
+ ;; define package repositories
  (setq package-archives 
        '(("gnu" . "http://elpa.gnu.org/packages/")
          ("melpa-stable" . "http://stable.melpa.org/packages/")))
- ;; Guarantee all packages are installed on start
+ ;; guarantee all packages are installed on start
  (defconst installed-packages
    (delete nil
            (list
