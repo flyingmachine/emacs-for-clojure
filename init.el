@@ -54,6 +54,7 @@
             'cider
             'clojure-mode
             'clojure-mode-extra-font-locking
+            'erlang
             'exec-path-from-shell
             'ido-ubiquitous
             'lfe-mode
