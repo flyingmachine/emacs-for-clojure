@@ -18,14 +18,14 @@
   ((eq system-type 'gnu/linux) (set-frame-font "DejaVu Sans Mono-12")))
 
 (if (display-graphic-p)
-  (progn
-    (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-    (add-to-list 'load-path "~/.emacs.d/themes")
-    (load-theme 'tomorrow-night-eighties t)
-    ;(set-frame-size-via-resolution)
-    ;; don't pop up font menu
-    (global-set-key (kbd "s-t") '(lambda () (interactive)))
-    (desktop-save-mode 1))
+    (let ((themes-dir "~/.emacs.d/themes"))
+      (add-to-list 'custom-theme-load-path themes-dir)
+      (add-to-list 'load-path themes-dir)
+      (load-theme 'tomorrow-night-eighties t)
+      ;(set-frame-size-via-resolution)
+      ;; don't pop up font menu
+      (global-set-key (kbd "s-t") '(lambda () (interactive)))
+      (desktop-save-mode 1))
   (progn
     (when (boundp 'linum-format)
       (setq linum-format "%d "))
