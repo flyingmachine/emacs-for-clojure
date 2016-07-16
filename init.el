@@ -54,6 +54,8 @@
             'cider
             'clojure-mode
             'clojure-mode-extra-font-locking
+            'docker
+            'dockerfile-mode
             'erlang
             'exec-path-from-shell
             'ido-ubiquitous
