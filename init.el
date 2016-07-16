@@ -7,8 +7,8 @@
   `(let ((start (current-time))
          (return ,expr))
      (print (format "Elapsed %f secs."
-                    (float-time (time-subtract (current-time)
-                                               start))))
+                    (float-time
+                     (time-subtract (current-time) start))))
      return))
 
 (defconst loading-start-time
@@ -102,9 +102,9 @@
    "utils.el") "private/n/")
 
 ;; After loaded ...
-(let ((elapsed (float-time
-                (time-subtract (current-time)
-                               loading-start-time))))
+(let ((elapsed
+       (float-time
+        (time-subtract (current-time) loading-start-time))))
   (message "#Loading init.el ... done (%.3fs)" elapsed))
 
 (put 'upcase-region 'disabled nil)
