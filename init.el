@@ -91,13 +91,17 @@
 
   (compile-and-load-elisp-files
    ;; compile and load basic elisp files
-   '("elisp-editing.el"
-     "misc.el"
-     "navigation.el"
-     "setup-clojure.el"
-     "setup-lfe.el"
-     "setup-python.el"
-     "setup-shell.el") "config/"))
+   (delete nil
+	   (list
+	    "elisp-editing.el"
+	    "misc.el"
+	    "navigation.el"
+	    (when (zerop (shell-command "type -p java"))
+	      "setup-clojure.el")
+	    (when (zerop (shell-command "type -p erl"))
+	      "setup-lfe.el")
+	    "setup-python.el"
+	    "setup-shell.el")) "config/"))
  ;; ^ end of support-package-p
 
 

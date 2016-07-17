@@ -18,6 +18,7 @@ viper
 .emacs.desktop
 .emacs.desktop.lock
 *#
+*~
 *.elc
 src
 url
