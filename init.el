@@ -68,7 +68,7 @@
                                       'clojure-mode
                                       'clojure-mode-extra-font-locking))
                               l1))
-                  (l3 (append (when (zerop (shell-command "-type -p erl"))
+                  (l3 (append (when (zerop (shell-command "type -p erl"))
                                 (list 'erlang
                                       'lfe-mode))
                               l2)))
