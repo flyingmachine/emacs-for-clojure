@@ -86,8 +86,7 @@
 
   (compile-and-load-elisp-files
    ;; compile and load basic elisp files
-   '("editing.el"
-     "elisp-editing.el"
+   '("elisp-editing.el"
      "misc.el"
      "navigation.el"
      "setup-clojure.el"
@@ -96,8 +95,13 @@
      "setup-shell.el") "config/"))
  ;; ^ end of support-package-p
 
+
 (compile-and-load-elisp-files
  ;; compile and load non-package-required elisp files
+ '("editing.el") "config/")
+
+(compile-and-load-elisp-files
+ ;; compile and load private non-package-required elisp files
  '("financial.el"
    "utils.el") "private/n/")
 
@@ -108,3 +112,4 @@
   (message "#Loading init.el ... done (%.3fs)" elapsed))
 
 (put 'upcase-region 'disabled nil)
+

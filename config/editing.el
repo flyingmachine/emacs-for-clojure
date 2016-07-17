@@ -1,4 +1,7 @@
+;;
 ;; Editing buffer that related to configurations.
+;;
+
 
 ;; Key binding to use "hippie expand" for text autocompletion
 ;; http://www.emacswiki.org/emacs/HippieExpand
@@ -15,8 +18,10 @@
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
 
-;; Highlight current line
+;; Current line highlight and background #3e4446
 (global-hl-line-mode 1)
+(unless (display-graphic-p)
+  (set-face-background 'hl-line "#393939"))
 
 ;; Interactive search key bindings. By default, C-s runs
 ;; isearch-forward, so this swaps the bindings.
@@ -34,13 +39,13 @@
 (require 'saveplace)
 (setq-default save-place t)
 ;; keep track of saved places in ~/.emacs.d/places
-(setq save-place-file (concat user-emacs-directory "places"))
+(setq save-place-file (concat "~/.emacs.d" "places"))
 
 ;; Emacs can automatically create backup files. This tells Emacs to
 ;; put all backups in ~/.emacs.d/backups. More info:
 ;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Backup-Files.html
 (setq backup-directory-alist
-      `(("." . ,(concat user-emacs-directory "backups"))))
+      `(("." . ,(concat "~/.emacs.d" "backups"))))
 (setq auto-save-default nil)
 
 
@@ -71,4 +76,8 @@
         (ns-get-selection-internal 'CLIPBOARD)
       (quit nil))))
 
-(setq electric-indent-mode nil)
+;; Disable electric indent mode 
+(when (boundp 'electric-indent-mode)
+  (setq electric-indent-mode nil))
+
+
