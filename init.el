@@ -48,26 +48,29 @@
  ;; guarantee all packages are installed on start
  (defconst installed-packages
    (delete nil
-           (list
-            'aggressive-indent
-            'bing-dict
-            'cider
-            'clojure-mode
-            'clojure-mode-extra-font-locking
-            'docker
-            'dockerfile-mode
-            'erlang
-            'exec-path-from-shell
-            'ido-ubiquitous
-            'lfe-mode
-            'markdown-mode
-            'paredit
-            'rainbow-delimiters
-            'smex
-            'tagedit
-            (when (<= 24.4 (string-to-number emacs-version))
-              ;; magit requires the emacs-24.4 package
-              'magit))))
+           (let* ((l1 (list
+                       'aggressive-indent
+                       'bing-dict
+                       'docker
+                       'dockerfile-mode
+                       'erlang
+                       'exec-path-from-shell
+                       'ido-ubiquitous
+                       'lfe-mode
+                       'markdown-mode
+                       (when (<= 24.4 (string-to-number emacs-version))
+                         ;; magit requires the emacs-24.4 package
+                         'magit)
+                       'paredit
+                       'rainbow-delimiters
+                       'smex
+                       'tagedit))
+                  (l2 (append (when (zerop (shell-command "type -p java"))
+                                (list 'cider
+                                      'clojure-mode
+                                      'clojure-mode-extra-font-locking))
+                              l1)))
+             l2)))
    
  (require 'package)
  (package-initialize)
