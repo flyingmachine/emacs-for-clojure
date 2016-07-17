@@ -36,6 +36,13 @@
   `(when (eq system-type ,os)
      (progn ,@body)))
 
+(defmacro bin-exists-p (b)
+  "Returns true if b exists in env."
+  `(zerop (shell-command (concat "type -p " ,b " 2>&1 >/dev/null"))))
+
+(defconst has-java (bin-exists-p "java"))
+(defconst has-erlang (bin-exists-p "erl"))
+
 ;; First to load UI part
 (compile-and-load-elisp-files '("ui.el") "config/")
 
@@ -63,12 +70,12 @@
                        'rainbow-delimiters
                        'smex
                        'tagedit))
-                  (l2 (append (when (zerop (shell-command "type -p java"))
+                  (l2 (append (when has-java
                                 (list 'cider
                                       'clojure-mode
                                       'clojure-mode-extra-font-locking))
                               l1))
-                  (l3 (append (when (zerop (shell-command "type -p erl"))
+                  (l3 (append (when has-erlang
                                 (list 'erlang
                                       'lfe-mode))
                               l2)))
@@ -96,10 +103,8 @@
 	    "elisp-editing.el"
 	    "misc.el"
 	    "navigation.el"
-	    (when (zerop (shell-command "type -p java"))
-	      "setup-clojure.el")
-	    (when (zerop (shell-command "type -p erl"))
-	      "setup-lfe.el")
+	    (when has-java "setup-clojure.el")
+	    (when has-erlang "setup-lfe.el")
 	    "setup-python.el"
 	    "setup-shell.el")) "config/"))
  ;; ^ end of support-package-p
