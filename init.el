@@ -53,10 +53,8 @@
                        'bing-dict
                        'docker
                        'dockerfile-mode
-                       'erlang
                        'exec-path-from-shell
                        'ido-ubiquitous
-                       'lfe-mode
                        'markdown-mode
                        (when (<= 24.4 (string-to-number emacs-version))
                          ;; magit requires the emacs-24.4 package
@@ -69,8 +67,12 @@
                                 (list 'cider
                                       'clojure-mode
                                       'clojure-mode-extra-font-locking))
-                              l1)))
-             l2)))
+                              l1))
+                  (l3 (append (when (zerop (shell-command "-type -p erl"))
+                                (list 'erlang
+                                      'lfe-mode))
+                              l2)))
+             l3)))
    
  (require 'package)
  (package-initialize)
