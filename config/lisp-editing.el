@@ -3,8 +3,8 @@
   `eldoc-mode shows documentation in the minibuffer when writing code.
   http://www.emacswiki.org/emacs/ElDoc"
   `(if (< 24.0 (string-to-number emacs-version))
-      (eldoc-mode)
-    (turn-on-eldoc-mode)))
+       'eldoc-mode
+     'turn-on-eldoc-mode))
 
 ;; Automatically load paredit when editing a lisp file
 ;; More at http://www.emacswiki.org/emacs/ParEdit
@@ -12,7 +12,7 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (package-supported-p (safe-call enable-paredit-mode))
-            (enable-eldoc-mode)
+            (funcall (enable-eldoc-mode))
             (cond ((string= "*scratch*" (buffer-name))
                    (local-set-key (kbd "RET")
                                   (lambda () (interactive)
@@ -24,7 +24,7 @@
 (add-hook 'ielm-mode-hook
           (lambda ()
             (package-supported-p (safe-call enable-paredit-mode))
-            (enable-eldoc-mode)))
+            (funcall (enable-eldoc-mode))))
 
 (package-supported-p
  ;; minibuffer
