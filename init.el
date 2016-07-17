@@ -40,6 +40,9 @@
   "Returns true if b exists in env."
   `(zerop (shell-command (concat "type -p " ,b " 2>&1 >/dev/null"))))
 
+(defmacro safe-call (fn &rest args)
+  `(when (fboundp (quote ,fn)) (apply (quote ,fn) (quote ,args))))
+
 (defconst has-java (bin-exists-p "java"))
 (defconst has-erlang (bin-exists-p "erl"))
 
@@ -100,7 +103,6 @@
    ;; compile and load basic elisp files
    (delete nil
 	   (list
-	    "elisp-editing.el"
 	    "misc.el"
 	    "navigation.el"
 	    (when has-java "setup-clojure.el")
@@ -113,6 +115,7 @@
 (compile-and-load-elisp-files
  ;; compile and load non-package-required elisp files
  '("editing.el"
+   "lisp-editing.el"
    "setup-debugger.el") "config/")
 
 (compile-and-load-elisp-files
