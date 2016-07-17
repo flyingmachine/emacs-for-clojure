@@ -6,21 +6,17 @@
 (add-hook 'shell-mode-hook 'enable-paredit-mode)
 
 ;; Setup shell environment base on OS
-(when (package-installed-p 'exec-path-from-shell)
-  (plateform-supported-p
-   'darwin
-   (exec-path-from-shell-initialize)
-   (compile-and-load-elisp-files
-    '("gud-lldb-patch.el") "config/"))
+
+(plateform-supported-p
+ 'darwin
+ (exec-path-from-shell-initialize))
   
-  (plateform-supported-p
+(plateform-supported-p
    'gnu/linux
-   (when (not (getenv "SHELL"))
+   (unless (getenv "SHELL")
      (setenv "SHELL" "/bin/bash"))
-   (exec-path-from-shell-initialize)
-   (when (zerop (shell-command "type -p lldb"))
-     (compile-and-load-elisp-files
-      '("gud-lldb-patch.el") "config/"))))
+   (exec-path-from-shell-initialize))
+
 
 (plateform-supported-p
  'windows-nt

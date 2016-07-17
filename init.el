@@ -98,7 +98,8 @@
 
 (compile-and-load-elisp-files
  ;; compile and load non-package-required elisp files
- '("editing.el") "config/")
+ '("editing.el"
+   "setup-debugger.el") "config/")
 
 (compile-and-load-elisp-files
  ;; compile and load private non-package-required elisp files
