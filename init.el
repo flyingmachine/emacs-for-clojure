@@ -96,14 +96,13 @@
 
   (compile-and-load-elisp-files
    ;; compile and load basic elisp files
-   (delete nil
-	   (list
-	    "misc.el"
-	    "navigation.el"
-	    (when has-java "setup-clojure.el")
-	    (when has-erlang "setup-lfe.el")
-	    "setup-python.el"
-	    "setup-shell.el")) "config/"))
+   (let* ((basic '("misc.el"
+                   "navigation.el"
+                   "setup-python.el"
+                   "setup-shell.el"))
+          (clojure (when has-java '("setup-clojure.el")))
+          (lfe (when has-erlang '("setup-lfe.el"))))
+     (append clojure lfe basic)) "config/"))
  ;; ^ end of support-package-p
 
 
