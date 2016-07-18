@@ -36,6 +36,10 @@
   `(when (eq system-type ,os)
      (progn ,@body)))
 
+(defmacro version-supported-p (c v &rest body)
+  `(when (,c ,v (string-to-number emacs-version))
+     ,@body))
+
 (defmacro bin-exists-p (b)
   "Returns true if b exists in env."
   `(zerop (shell-command (concat "type -p " ,b " 2>&1 >/dev/null"))))
@@ -57,32 +61,23 @@
          ("melpa-stable" . "http://stable.melpa.org/packages/")))
  ;; guarantee all packages are installed on start
  (defconst installed-packages
-   (delete nil
-           (let* ((l1 (list
-                       'aggressive-indent
-                       'bing-dict
-                       'docker
-                       'dockerfile-mode
-                       'exec-path-from-shell
-                       'ido-ubiquitous
-                       'markdown-mode
-                       (when (<= 24.4 (string-to-number emacs-version))
-                         ;; magit requires the emacs-24.4 package
-                         'magit)
-                       'paredit
-                       'rainbow-delimiters
-                       'smex
-                       'tagedit))
-                  (l2 (append (when has-java
-                                (list 'cider
-                                      'clojure-mode
-                                      'clojure-mode-extra-font-locking))
-                              l1))
-                  (l3 (append (when has-erlang
-                                (list 'erlang
-                                      'lfe-mode))
-                              l2)))
-             l3)))
+   (let* ((basic '(aggressive-indent
+                   bing-dict
+                   exec-path-from-shell
+                   ido-ubiquitous
+                   markdown-mode
+                   paredit
+                   rainbow-delimiters
+                   smex
+                   tagedit))
+	  (java '(cider clojure-mode clojure-mode-extra-font-locking))
+	  (erlang '(erlang lfe-mode))
+	  (docker '(docker dockerfile-mode)))
+     (append (when has-java java)
+	     (when has-erlang erlang)
+	     (version-supported-p <= 24.4 docker)
+	     (version-supported-p <= 24.4 '(magit))
+	     basic)))
    
  (require 'package)
  (package-initialize)
