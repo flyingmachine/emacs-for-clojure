@@ -73,11 +73,11 @@
 	  (java '(cider clojure-mode clojure-mode-extra-font-locking))
 	  (erlang '(erlang lfe-mode))
 	  (docker '(docker dockerfile-mode)))
-     (append (when has-java java)
-	     (when has-erlang erlang)
-	     (version-supported-p <= 24.4 docker)
-	     (version-supported-p <= 24.4 '(magit))
-	     basic)))
+     (append basic
+             (version-supported-p <= 24.4 docker)
+             (version-supported-p <= 24.4 '(magit))
+             (when has-java java)
+	     (when has-erlang erlang))))
    
  (require 'package)
  (package-initialize)
@@ -93,7 +93,6 @@
      (mapcar #'(lambda (i) (package-install i))
              not-installed-packages)))
 
-
   (compile-and-load-elisp-files
    ;; compile and load basic elisp files
    (let* ((basic '("misc.el"
@@ -102,7 +101,8 @@
                    "setup-shell.el"))
           (clojure (when has-java '("setup-clojure.el")))
           (lfe (when has-erlang '("setup-lfe.el"))))
-     (append clojure lfe basic)) "config/"))
+     (append basic clojure lfe)) "config/"))
+  
  ;; ^ end of support-package-p
 
 
