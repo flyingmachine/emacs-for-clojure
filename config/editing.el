@@ -27,7 +27,7 @@
     (set-face-attribute 'default nil
                         :background "gray15")
     (set-face-attribute 'hl-line nil
-                        :foreground nil
+                        ;:foreground nil
                         :background "gray5")))
 
 ;; Interactive search key bindings. By default, C-s runs
