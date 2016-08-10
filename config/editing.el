@@ -21,7 +21,7 @@
 ;; Current line highlight and background #3e4446
 (global-hl-line-mode 1)
 (unless (display-graphic-p)
-  (set-face-background 'hl-line "#393939"))
+  (set-face-background 'hl-line "#3e4446"))
 
 ;; Interactive search key bindings. By default, C-s runs
 ;; isearch-forward, so this swaps the bindings.
