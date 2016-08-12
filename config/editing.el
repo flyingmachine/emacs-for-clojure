@@ -22,13 +22,13 @@
 ;; (face-attribute 'hl-line :background)
 ;; (set-face-background 'hl-line "#3e4446")
 (global-hl-line-mode 1)
-(unless (display-graphic-p)
-  (progn
-    (set-face-attribute 'default nil
-                        :background "gray15")
-    (set-face-attribute 'hl-line nil
-                        ;:foreground nil
-                        :background "gray5")))
+(comment
+ (unless (display-graphic-p)
+   (set-face-attribute 'default nil
+                       :background "gray15")
+   (set-face-attribute 'hl-line nil
+                       ;:foreground nil
+                       :background "gray5")))
 
 ;; Interactive search key bindings. By default, C-s runs
 ;; isearch-forward, so this swaps the bindings.
