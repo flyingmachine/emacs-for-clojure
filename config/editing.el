@@ -21,14 +21,8 @@
 ;; Current line highlight and background #3e4446
 ;; (face-attribute 'hl-line :background)
 ;; (set-face-background 'hl-line "#3e4446")
-(global-hl-line-mode 1)
-(comment
- (unless (display-graphic-p)
-   (set-face-attribute 'default nil
-                       :background "gray15")
-   (set-face-attribute 'hl-line nil
-                       ;:foreground nil
-                       :background "gray5")))
+(unless (display-graphic-p)
+  (version-supported-p <= 24 (global-hl-line-mode 1)))
 
 ;; Interactive search key bindings. By default, C-s runs
 ;; isearch-forward, so this swaps the bindings.
