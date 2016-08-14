@@ -43,7 +43,7 @@
 
 (defmacro bin-exists-p (b)
   "Returns true if b exists in env."
-  `(zerop (shell-command (concat "type -p " ,b " 2>&1 >/dev/null"))))
+  `(zerop (shell-command (concat "type -p " ,b " &>/dev/null"))))
 
 (defmacro safe-call (fn &rest args)
   `(when (fboundp (quote ,fn)) (apply (quote ,fn) (quote ,args))))
