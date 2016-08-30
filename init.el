@@ -52,6 +52,7 @@
 
 (defconst has-java (bin-exists-p "java"))
 (defconst has-erlang (bin-exists-p "erl"))
+(defconst has-rust (bin-exists-p "rustc"))
 
 ;; First to load UI part
 (compile-and-load-elisp-files '("ui.el") "config/")
@@ -75,12 +76,15 @@
                    tagedit))
 	  (java '(cider clojure-mode clojure-mode-extra-font-locking))
 	  (erlang '(erlang lfe-mode))
+          (rust '(rust-mode racer cargo))
 	  (docker '(docker dockerfile-mode)))
      (append basic
              (version-supported-p <= 24.4 docker)
              (version-supported-p <= 24.4 '(magit))
              (when has-java java)
-	     (when has-erlang erlang))))
+	     (when has-erlang erlang)
+             ;(when has-rust rust)
+	     )))
    
  (require 'package)
  (package-initialize)
