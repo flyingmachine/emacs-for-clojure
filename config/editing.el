@@ -81,4 +81,8 @@
 (when (boundp 'electric-indent-mode)
   (setq electric-indent-mode nil))
 
+;; Enable column number mode
+(when (boundp 'column-number-mode)
+  (setq column-number-mode t))
+
 
