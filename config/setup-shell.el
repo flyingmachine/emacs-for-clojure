@@ -2,6 +2,12 @@
 ;; Shell
 ;;;;
 
+;; tab-width for shell script mode
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (when (boundp 'tab-width)
+              (setq tab-width 2))))
+
 ;; Enable paredit for shell script
 (add-hook 'shell-mode-hook 'enable-paredit-mode)
 
