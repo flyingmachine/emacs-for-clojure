@@ -6,6 +6,12 @@
 
 ;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
+;; Turn off the tool bar at the top of each frame because it's even more distracting
+(tool-bar-mode -1)
+
+(when window-system
+  (set-frame-position (selected-frame) 0 0)
+  (set-frame-size (selected-frame) 91 63))
 
 ;; Show line numbers
 (global-linum-mode)
@@ -29,7 +35,7 @@
 (load-theme 'tomorrow-night-bright t)
 
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 80)
 
 ;; Uncomment the lines below by removing semicolons and play with the
 ;; values in order to set the width (in characters wide) and height
