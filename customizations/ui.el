@@ -6,6 +6,7 @@
 
 ;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
+;; Turn off the tool bar at the top of each frame because it's even more distracting
 (tool-bar-mode -1)
 
 (when window-system
