@@ -45,7 +45,7 @@
   "Returns true if b exists in env."
   `(if (eq system-type 'windows-nt)
      (zerop (shell-command (concat "where " ,b " >nul 2>&1")))
-     (zerop (shell-command (concat "type -p " ,b " &>/dev/null")))))
+     (zerop (shell-command (concat "hash " ,b " &>/dev/null")))))
 
 (defmacro safe-call (fn &rest args)
   `(when (fboundp (quote ,fn)) (apply (quote ,fn) (quote ,args))))
@@ -53,6 +53,8 @@
 (defconst has-java (bin-exists-p "java"))
 (defconst has-erlang (bin-exists-p "erl"))
 (defconst has-rust (bin-exists-p "rustc"))
+(defconst has-racket (bin-exists-p "racket"))
+
 
 ;; First to load UI part
 (compile-and-load-elisp-files '("ui.el") "config/")
@@ -77,10 +79,12 @@
 	  (java '(cider clojure-mode clojure-mode-extra-font-locking))
 	  (erlang '(erlang lfe-mode))
           (rust '(rust-mode racer cargo))
-	  (docker '(docker dockerfile-mode)))
+	  (docker '(docker dockerfile-mode))
+          (racket '(geiser)))
      (append basic
              (version-supported-p <= 24.4 docker)
              (version-supported-p <= 24.4 '(magit))
+             (version-supported-p <= 23.2 (when has-racket racket))
              (when has-java java)
 	     (when has-erlang erlang)
              ;(when has-rust rust)
