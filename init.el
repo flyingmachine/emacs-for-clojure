@@ -50,9 +50,12 @@
 (defmacro safe-call (fn &rest args)
   `(when (fboundp (quote ,fn)) (apply (quote ,fn) (quote ,args))))
 
+(message "PATH=%s" (getenv "PATH"))
 (defconst has-java (bin-exists-p "java"))
 (defconst has-erlang (bin-exists-p "erl"))
 (defconst has-rust (bin-exists-p "rustc"))
+
+;; Note: failed on Darwin because PATH
 (defconst has-racket (bin-exists-p "racket"))
 
 
