@@ -16,7 +16,7 @@
 
 ;; run-python on Windows has bugs if u met run-python-nt insdeed
 
-(plateform-supported-p
+(platform-supported-p
  'windows-nt
  (progn
    (require 'python)

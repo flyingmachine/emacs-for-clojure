@@ -13,18 +13,18 @@
 
 ;; Setup shell environment base on OS
 
-(plateform-supported-p
+(platform-supported-p
  'darwin
  (exec-path-from-shell-initialize))
   
-(plateform-supported-p
+(platform-supported-p
    'gnu/linux
    (unless (getenv "SHELL")
      (setenv "SHELL" "/bin/bash"))
    (exec-path-from-shell-initialize))
 
 
-(plateform-supported-p
+(platform-supported-p
  'windows-nt
  (let* ((win-bash "C:/Program Files/Git/usr/bin/bash.exe")
         (win-bash-path (file-name-directory win-bash)))

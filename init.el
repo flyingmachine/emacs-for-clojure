@@ -31,8 +31,8 @@
   `(when (>= emacs-major-version 24)
      (progn ,@body)))
 
-(defmacro plateform-supported-p (os &rest body)
-  "Run body code if the Emacs on specified OS plateform."
+(defmacro platform-supported-p (os &rest body)
+  "Run body code if the Emacs on specified OS platform."
   `(when (eq system-type ,os)
      (progn ,@body)))
 
@@ -56,8 +56,13 @@
 (defconst has-rust (bin-exists-p "rustc"))
 
 ;; Note: failed on Darwin because PATH
-(defconst has-racket (bin-exists-p "racket"))
-
+(defconst has-racket
+  (if (bin-exists-p "racket")
+      t
+    (when (eq system-type 'darwin)
+        (let ((racket-dir (directory-files "/Applications" nil "Racket v[0-9]\.[0-9][0-9]*")))
+          (and racket-dir
+               (file-exists-p (concat "/Applications/" (car racket-dir) "/bin/racket")))))))
 
 ;; First to load UI part
 (compile-and-load-elisp-files '("ui.el") "config/")

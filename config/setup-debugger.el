@@ -3,13 +3,13 @@
 ;;
 
 ;; lldb on darwin
-(plateform-supported-p
+(platform-supported-p
    'darwin
    (compile-and-load-elisp-files
     '("gud-lldb-patch.el") "config/"))
 
 ;; lldb on linux
-(plateform-supported-p
+(platform-supported-p
    'gnu/linux
    (when (bin-exists-p "lldb")
      (compile-and-load-elisp-files
