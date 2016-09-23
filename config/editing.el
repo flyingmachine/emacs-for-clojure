@@ -86,3 +86,22 @@
   (setq column-number-mode t))
 
 
+;; Default tab-width
+(setq-default tab-width 4)
+
+ ;; cc mode indent level
+ (add-hook 'c-mode-common-hook
+           (lambda ()
+             (when (boundp 'indent-tabs-mode) (setq indent-tabs-mode nil))
+             (when (boundp 'c-basic-offset) (setq c-basic-offset 4))))
+
+;; shell script mode tab-width
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (when (boundp 'tab-width) (setq tab-width 2))))
+
+(comment
+ ;; Makefile tab-width
+ (add-hook 'makefile-mode-hook
+           (lambda ()
+             (when (boundp 'tab-width) (setq tab-width 4)))))
