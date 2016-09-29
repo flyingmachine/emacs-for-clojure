@@ -52,6 +52,13 @@
 (when (boundp 'cider-repl-wrap-history)
   (setq cider-repl-wrap-history t))
 
+;; Enable Figwheel REPL: cider-jack-in-clojurescript
+(setq cider-cljs-lein-repl
+      "(do (require 'figwheel-sidecar.repl-api)
+             (figwheel-sidecar.repl-api/start-figwheel!)
+             (figwheel-sidecar.repl-api/cljs-repl))")
+
+
 ;; enable paredit in your REPL
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
@@ -94,3 +101,5 @@
      (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
      (when (boundp 'cider-mode-map)
        (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns))))
+
+
