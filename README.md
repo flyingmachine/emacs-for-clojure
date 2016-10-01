@@ -1,17 +1,19 @@
 Emacs for Everyday Use
 =======
 
+I'm a nerd with Emacs, it's awesome if I can [Learn Emacs in less then Ten Years](http://edward.oconnor.cx/2009/07/learn-emacs-in-ten-years). So, I decided to start from Level One not the Level Zero after read Emacs' tutorial (C-h t). Emacs is the most powerful editor on the world there is no **one of**, it's programmable, elegant and **self-documenting**, so you can start from Level Zero if you had time may be less than 10 years to read and try Emacs.
+
+After falling in love with [Clojure](http://clojure.org/), I know it's the time to make Emacs being a part of my body and mind, not just open a file, navigating, editing, and save it. The Level One of mine start from [this is a Clojure-friendly emacs config](https://github.com/flyingmachine/emacs-for-clojure), and [A reasonalbe Emacs config](https://github.com/purcell/emacs.d). But, those ones neither can suit for my daily use on different machines.
+
+The adaptive Emacs which I need is more stable, more smaller, more faster and more flexible which can be run on anywhere where Emacs can run. So, I decide to build a new one.
+
+
 * [Features](#features)
 * [Requirements](#requirements)
 * [Install](#install)
 * [Where](#where)
 * [What](#what)
 
-I'm a nerd with Emacs, it's awesome if I can [Learn Emacs in less then Ten Years](http://edward.oconnor.cx/2009/07/learn-emacs-in-ten-years). So, I decided to start from Level One not the Level Zero after read Emacs' tutorial (C-h t). Emacs is the most powerful editor on the world there is no **one of**, it's programmable, elegant and **self-documenting**, so you can start from Level Zero if you had time may be less than 10 years to read and try Emacs.
-
-After falling in love with [Clojure](http://clojure.org/), I know it's the time to make Emacs being a part of my body and mind, not just open a file, navigating, editing, and save it. The Level One of mine start from [this is a Clojure-friendly emacs config](https://github.com/flyingmachine/emacs-for-clojure), and [A reasonalbe Emacs config](https://github.com/purcell/emacs.d). But, those ones neither can suit for my daily use on different machines.
-
-The adaptive Emacs which I need is more stable, more smaller, more faster and more flexible which can be run on anywhere where Emacs can run. So, I decide to build a new one.
 
 Now, let's start from the Level Two. And one more thing: tech youself some little Elisp (M-x info).
 
