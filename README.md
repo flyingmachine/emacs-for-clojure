@@ -18,10 +18,10 @@ The adaptive Emacs which I need is more stable, more smaller, more faster and mo
 Now, let's start from the Level Two. And one more thing: tech youself some little Elisp (M-x info).
 
 ## Features
-* Carefully designed package manager: just load what's your have and what's your need, so it is very stable, and fast, the loading time less than 1s on most machines.
-* Adaptive: Can run on any OS, GUI or Terminal, recent Emacs's versions or lower versions.
-* Consistent: Whereever you can play with Emacs always behaves in the same way.
-* Awesome style
+* __Carefully designed package manager__: just load what's your have and what's your need, so it is very stable, and fast, the loading time less than 1s on most machines.
+* __Adaptive__: Can run on any OS, GUI or Terminal, recent Emacs's versions or lower versions.
+* __Consistent__: Whereever you can play with Emacs always behaves in the same way.
+* __Awesome style__
 
 ## Requirements
 * Emacs installation, the version 24+ is more suitable;
