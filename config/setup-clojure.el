@@ -2,17 +2,16 @@
 ;; Clojure
 ;;;;
 
-;; Enable paredit for Clojure
+;; enable paredit for Clojure
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
 
-;; This is useful for working with camel-case tokens, like names of
-;; Java classes (e.g. JavaClassName)
+;; useful for working with camel-case tokens,
+;; like names of Java classes (e.g. JavaClassName)
 (add-hook 'clojure-mode-hook #'subword-mode)
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 
 ;; syntax hilighting for midje
-(require 'clojure-mode-extra-font-locking)
 (add-hook 'clojure-mode-hook
           (lambda ()
             (when (boundp 'inferior-lisp-program)
@@ -26,6 +25,12 @@
             (define-clojure-indent (fact 1))
             (define-clojure-indent (facts 1))))
 
+;; use clojure mode for other extensions
+(add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
+(add-to-list 'magic-mode-alist '(".* boot" . clojure-mode))
+
+
 ;;;;
 ;; Cider
 ;;;;
@@ -38,34 +43,23 @@
 (when (boundp 'cider-repl-pop-to-buffer-on-connect)
   (setq cider-repl-pop-to-buffer-on-connect t))
 
-;; When there's a cider error, show its buffer and switch to it
+;; when there's a cider error, show its buffer and switch to it
 (when (boundp 'cider-show-error-buffer)
   (setq cider-show-error-buffer t))
 (when (boundp 'cider-auto-select-error-buffer)
   (setq cider-auto-select-error-buffer t))
 
-;; Where to store the cider history.
+;; where to store the cider history.
 (when (boundp 'cider-repl-history-file)
   (setq cider-repl-history-file "~/.emacs.d/cider-history"))
 
-;; Wrap when navigating history.
+;; wrap when navigating history.
 (when (boundp 'cider-repl-wrap-history)
   (setq cider-repl-wrap-history t))
 
-;; Enable Figwheel REPL: cider-jack-in-clojurescript
-(setq cider-cljs-lein-repl
-      "(do (require 'figwheel-sidecar.repl-api)
-             (figwheel-sidecar.repl-api/start-figwheel!)
-             (figwheel-sidecar.repl-api/cljs-repl))")
-
-
-;; enable paredit in your REPL
+;; enable paredit for Cider
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
-;; Use clojure mode for other extensions
-(add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
-(add-to-list 'magic-mode-alist '(".* boot" . clojure-mode))
 
 ;; key bindings
 ;; these help me out with the way I usually develop web apps
@@ -100,6 +94,11 @@
      (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh)
      (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
      (when (boundp 'cider-mode-map)
-       (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns))))
+       (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns))
+     ;; enable Figwheel: cider-jack-in-clojurescript
+     (setq cider-cljs-lein-repl
+      "(do (require 'figwheel-sidecar.repl-api)
+             (figwheel-sidecar.repl-api/start-figwheel!)
+             (figwheel-sidecar.repl-api/cljs-repl))")))
 
 
