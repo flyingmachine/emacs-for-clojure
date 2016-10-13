@@ -106,6 +106,11 @@
            (lambda ()
              (when (boundp 'tab-width) (setq tab-width 4)))))
 
+
+;; prefer utf8
+(prefer-coding-system 'utf-8)
+
+
 ;; latin letters
 (global-set-key (kbd "M-g a") "α")
 (global-set-key (kbd "M-g b") "β")
