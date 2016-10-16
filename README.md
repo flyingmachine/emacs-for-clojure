@@ -21,7 +21,7 @@ Now, let's start from the Level Two. And one more thing: tech youself some littl
 * __Carefully designed package manager__: just load what's your have and what's your need, so it is very stable, and fast, the loading time less than 1s on most machines.
 * __Adaptive__: Can run on any OS, GUI or Terminal, recent Emacs's versions or lower versions.
 * __Consistent__: Whereever you can play with Emacs always behaves in the same way.
-* __Awesome style__
+* __Awesome style__: See it yourself.
 
 ## Requirements
 * Emacs installation, the version 24+ is more suitable;
@@ -55,3 +55,39 @@ $ HAS_EMACS=1 bash <(curl https://raw.githubusercontent.com/junjiemars/kit/maste
 * Bash on Windows, ...
 * Emacs can do ...
 
+## How
+
+### Emacs's Documents
+It's **self-documenting** and great, keep reading it frequently.
+
+* Tutorial: ```C-h-t```
+* Info: ```M-h```, switch the current buffer and *Info* via ```C-h-i```
+* Module: ```C-h-m```
+* Function: ```C-h-f```
+* Variable: ```C-h-v```
+* Keybinding: ```C-h-k```
+
+### Interative
+
+* \*scratch\* buffer
+* via Elisp: ```M-:```
+* via Shell Command: ```M-!```, see *Info>Emacs>Shell*
+
+### Editing
+
+### Case Conversion
+*Info>Emacs>Text>Case*
+
+
+### Remote
+
+* non-sudo: ```C-x C-f /ssh:<remote-id>:/path/to/file RET```,
+*<remote-id>* such as *x@y.z* or *xyz* in .ssh/config entries.
+* sudo: ```C-x C-f /ssh:<remote-id>|sudo:<remote-host>:/path/to/file```, *<remote-host>*
+such as *x@localhost* or *localhost* if the user *x* is a sudoer.
+
+### Shell
+
+* EShell: ```M-x eshell```
+* Shell: ```M-x shell```
+* Ansi-Term: ```M-x ansi-term```
