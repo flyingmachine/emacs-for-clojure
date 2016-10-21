@@ -2,28 +2,21 @@
 ;; Clojure
 ;;;;
 
-;; enable paredit for Clojure
-(add-hook 'clojure-mode-hook 'enable-paredit-mode)
 
-;; useful for working with camel-case tokens,
-;; like names of Java classes (e.g. JavaClassName)
-(add-hook 'clojure-mode-hook #'subword-mode)
-(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
-
-;; syntax hilighting for midje
+;; clojure mode hooks
 (add-hook 'clojure-mode-hook
           (lambda ()
             (when (boundp 'inferior-lisp-program)
               (setq inferior-lisp-program "boot repl"))
-            (font-lock-add-keywords
-             nil
-             '(("(\\(facts?\\)"
-                (1 font-lock-keyword-face))
-               ("(\\(background?\\)"
-                (1 font-lock-keyword-face))))
-            (define-clojure-indent (fact 1))
-            (define-clojure-indent (facts 1))))
+            ;; enable paredit 
+            (enable-paredit-mode)
+            ;; enable camel case support for editing commands
+            (subword-mode)
+            ;; hilighting parentheses,brackets,and braces in minor mode
+            (rainbow-delimiters-mode)
+            ;; enable automatically adjust the identation of code
+            (aggressive-indent-mode)))
+
 
 ;; use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
@@ -58,7 +51,7 @@
   (setq cider-repl-wrap-history t))
 
 ;; enable paredit for Cider
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
+(add-hook 'cider-repl-mode-hook #'paredit-mode)
 
 
 ;; key bindings
@@ -90,9 +83,9 @@
 
 (eval-after-load 'cider
   '(progn
-     (define-key clojure-mode-map (kbd "C-c C-v") 'cider-start-http-server)
-     (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh)
-     (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
+     (when (boundp 'clojure-mode-map)
+       (define-key clojure-mode-map (kbd "C-c C-v") 'cider-start-http-server)
+       (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh))
      (when (boundp 'cider-mode-map)
        (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns))
      ;; enable Figwheel: cider-jack-in-clojurescript
@@ -100,5 +93,3 @@
       "(do (require 'figwheel-sidecar.repl-api)
              (figwheel-sidecar.repl-api/start-figwheel!)
              (figwheel-sidecar.repl-api/cljs-repl))")))
-
-
