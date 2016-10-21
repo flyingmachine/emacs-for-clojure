@@ -23,7 +23,7 @@
                   "\.el$" "\.elc" from)))
         (when (or (not (file-exists-p to))
                   (file-newer-than-file-p from to))
-          (setq compiled (byte-compile-file from)))
+          (byte-compile-file from))
         (load to)))))
 
 (defmacro package-supported-p (&rest body)
@@ -50,22 +50,28 @@
 (defmacro safe-call (fn &rest args)
   `(when (fboundp (quote ,fn)) (apply (quote ,fn) (quote ,args))))
 
+
 (message "PATH=%s" (getenv "PATH"))
+
 (defconst has-java (bin-exists-p "java"))
 (defconst has-erlang (bin-exists-p "erl"))
 (defconst has-rust (bin-exists-p "rustc"))
-
-;; Note: failed on Darwin because PATH
+;; Note: failed on Darwin because PATH, so
 (defconst has-racket
   (if (bin-exists-p "racket")
       t
     (when (eq system-type 'darwin)
-        (let ((racket-dir (directory-files "/Applications" nil "Racket v[0-9]\.[0-9][0-9]*")))
+        (let ((racket-dir (directory-files "/Applications"
+                                           nil
+                                           "Racket v[0-9]\.[0-9][0-9]*")))
           (and racket-dir
-               (file-exists-p (concat "/Applications/" (car racket-dir) "/bin/racket")))))))
+               (file-exists-p (concat "/Applications/"
+                                      (car racket-dir)
+                                      "/bin/racket")))))))
 
 ;; First to load UI part
 (compile-and-load-elisp-files '("ui.el") "config/")
+
 
 ;; Start loading ...
 (package-supported-p
