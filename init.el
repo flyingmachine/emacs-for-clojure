@@ -53,21 +53,21 @@
 
 (message "PATH=%s" (getenv "PATH"))
 
+(defconst has-latex (bin-exists-p "pdflatex"))
 (defconst has-java (bin-exists-p "java"))
 (defconst has-erlang (bin-exists-p "erl"))
-(defconst has-rust (bin-exists-p "rustc"))
-;; Note: failed on Darwin because PATH, so
 (defconst has-racket
+  ;; Note: failed on Darwin because PATH, so
   (if (bin-exists-p "racket")
       t
     (when (eq system-type 'darwin)
-        (let ((racket-dir (directory-files "/Applications"
-                                           nil
-                                           "Racket v[0-9]\.[0-9][0-9]*")))
-          (and racket-dir
-               (file-exists-p (concat "/Applications/"
-                                      (car racket-dir)
-                                      "/bin/racket")))))))
+      (let ((racket-dir (directory-files "/Applications"
+                                         nil
+                                         "Racket v[0-9]\.[0-9][0-9]*")))
+        (and racket-dir
+             (file-exists-p (concat "/Applications/"
+                                    (car racket-dir)
+                                    "/bin/racket")))))))
 
 ;; First to load UI part
 (compile-and-load-elisp-files '("ui.el") "config/")
@@ -90,18 +90,18 @@
                    rainbow-delimiters
                    smex
                    tagedit))
-	  (java '(cider clojure-mode clojure-mode-extra-font-locking))
-	  (erlang '(erlang lfe-mode))
-          (rust '(rust-mode racer cargo))
-	  (docker '(docker dockerfile-mode))
+          (latex '(auctex))
+          (docker '(docker dockerfile-mode))
+          (erlang '(erlang lfe-mode))
+          (java '(cider clojure-mode clojure-mode-extra-font-locking))
           (racket '(geiser)))
      (append basic
              (version-supported-p <= 24.4 docker)
              (version-supported-p <= 24.4 '(magit))
              (version-supported-p <= 23.2 (when has-racket racket))
+             (when has-latex latex)
              (when has-java java)
-	     (when has-erlang erlang)
-             ;(when has-rust rust)
+             (when has-erlang erlang)
 	     )))
    
  (require 'package)
