@@ -53,7 +53,7 @@
 
 (message "PATH=%s" (getenv "PATH"))
 
-(defconst has-latex (bin-exists-p "pdflatex"))
+(defconst has-docker (bin-exists-p "docker"))
 (defconst has-java (bin-exists-p "java"))
 (defconst has-erlang (bin-exists-p "erl"))
 (defconst has-racket
@@ -90,16 +90,14 @@
                    rainbow-delimiters
                    smex
                    tagedit))
-          (latex '(auctex))
-          (docker '(docker dockerfile-mode))
+          (docker '(dockerfile-mode))
           (erlang '(erlang lfe-mode))
           (java '(cider clojure-mode clojure-mode-extra-font-locking))
           (racket '(geiser)))
      (append basic
-             (version-supported-p <= 24.4 docker)
+             (version-supported-p <= 24.4 (when has-docker  docker))
              (version-supported-p <= 24.4 '(magit))
              (version-supported-p <= 23.2 (when has-racket racket))
-             (when has-latex latex)
              (when has-java java)
              (when has-erlang erlang)
 	     )))
