@@ -75,18 +75,16 @@
 ;; fix weird os x kill error
 (defun ns-get-pasteboard ()
   "Returns the value of the pasteboard, or nil for unsupported formats."
-  (when (fboundp 'ns-get-selection-internal)
-    (condition-case nil
-        (ns-get-selection-internal 'CLIPBOARD)
-      (quit nil))))
+  (safe-do ns-get-selection-internal
+           (condition-case nil
+               (ns-get-selection-internal 'CLIPBOARD)
+             (quit nil))))
 
 ;; Disable electric indent mode 
-(when (boundp 'electric-indent-mode)
-  (setq electric-indent-mode nil))
+(safe-set! electric-indent-mode nil)
 
 ;; Enable column number mode
-(when (boundp 'column-number-mode)
-  (setq column-number-mode t))
+(safe-set! column-number-mode t)
 
 
 ;; Default tab-width
@@ -95,19 +93,15 @@
  ;; cc mode indent level
  (add-hook 'c-mode-common-hook
            (lambda ()
-             (when (boundp 'indent-tabs-mode) (setq indent-tabs-mode nil))
-             (when (boundp 'c-basic-offset) (setq c-basic-offset 4))))
+             (safe-set! indent-tabs-mode nil)
+             (safe-set! c-basic-offset 4)))
 
 ;; shell script mode tab-width
-(add-hook 'sh-mode-hook
-          (lambda ()
-            (when (boundp 'tab-width) (setq tab-width 2))))
+(add-hook 'sh-mode-hook (lambda () (safe-set! tab-width 2)))
 
 (comment
  ;; Makefile tab-width
- (add-hook 'makefile-mode-hook
-           (lambda ()
-             (when (boundp 'tab-width) (setq tab-width 4)))))
+ (add-hook 'makefile-mode-hook (lambda () (safe-set! tab-width 4))))
 
 
 ;; prefer utf8

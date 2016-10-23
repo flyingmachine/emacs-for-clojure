@@ -28,18 +28,15 @@
 
 (defmacro package-supported-p (&rest body)
   "Run body code if the Emacs supports package."
-  `(when (>= emacs-major-version 24)
-     (progn ,@body)))
+  `(when (>= emacs-major-version 24) ,@body))
 
 (defmacro platform-supported-p (os &rest body)
   "Run body code if the Emacs on specified OS platform."
-  `(when (eq system-type ,os)
-     (progn ,@body)))
+  `(when (eq system-type ,os) ,@body))
 
 (defmacro version-supported-p (c v &rest body)
   "Run body code if the Emacs on specified version."
-  `(when (,c ,v (string-to-number emacs-version))
-     ,@body))
+  `(when (,c ,v (string-to-number emacs-version)) ,@body))
 
 (defmacro bin-exists-p (b)
   "Returns true if b exists in env."
@@ -48,8 +45,20 @@
      (zerop (shell-command (concat "hash " ,b " &>/dev/null")))))
 
 (defmacro safe-call (fn &rest args)
+  "Call fn with args when fn is bound"
   `(when (fboundp (quote ,fn)) (apply (quote ,fn) (quote ,args))))
 
+(defmacro safe-do (fn &rest body)
+  "Do body when fn is bound"
+  `(when (fboundp (quote ,fn)) ,@body))
+
+(defmacro safe-set! (x val)
+  "Set x when x is bound"
+  `(when (boundp (quote ,x)) (setq ,x ,val)))
+
+(defmacro safe-do! (x &rest body)
+  "Do body when x is bound"
+  `(when (boundp (quote ,x)) ,@body))
 
 (message "PATH=%s" (getenv "PATH"))
 

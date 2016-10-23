@@ -31,7 +31,6 @@
      (setenv "PATH" (concat win-bash-path (getenv "PATH")))
      (setq shell-file-name "bash")
      (setenv "SHELL" shell-file-name)
-     (when (boundp 'explicit-shell-file-name)
-       (setq explicit-shell-file-name shell-file-name))
+     (safe-set! explicit-shell-file-name shell-file-name)
      (add-hook
       'comint-output-filter-function 'comint-strip-ctrl-m))))

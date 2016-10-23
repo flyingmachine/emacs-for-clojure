@@ -14,12 +14,11 @@
 
 ;; Turn on recent file mode so that you can more easily switch to
 ;; recently edited files when you first start emacs
-(when (boundp 'recentf-save-file)
-  (setq recentf-save-file
-        (concat user-emacs-directory ".recentf")))
+(safe-set! recentf-save-file
+           (concat user-emacs-directory ".recentf"))
 (require 'recentf)
 (recentf-mode 1)
-(setq recentf-max-menu-items 40)
+(safe-set! recentf-max-menu-items 40)
 
 
 ;; ido-mode allows you to more easily navigate choices. For example,
@@ -31,22 +30,18 @@
 (ido-mode t)
 
 ;; This allows partial matches, e.g. "tl" will match "Tyrion Lannister"
-(when (boundp 'ido-enable-flex-matching)
-  (setq ido-enable-flex-matching t))
+(safe-set! ido-enable-flex-matching t)
 
 ;; Turn this behavior off because it's annoying
-(when (boundp 'ido-use-filename-at-point)
-  (setq ido-use-filename-at-point nil))
+(safe-set! ido-use-filename-at-point nil)
 
 ;; Don't try to match file across all "work" directories; only match files
 ;; in the current directory displayed in the minibuffer
-(when (boundp 'ido-auto-merge-work-directories-length)
-  (setq ido-auto-merge-work-directories-length -1))
+(safe-set! ido-auto-merge-work-directories-length -1)
 
 ;; Includes buffer names of recently open files, even if they're not
 ;; open now
-(when (boundp 'ido-use-virtual-buffers)
-  (setq ido-use-virtual-buffers t))
+(safe-set! ido-use-virtual-buffers t)
 
 ;; This enables ido in all contexts where it could be useful, not just
 ;; for selecting buffer and file names
@@ -59,9 +54,7 @@
 ;; Enhances M-x to allow easier execution of commands. Provides
 ;; a filterable list of possible commands in the minibuffer
 ;; http://www.emacswiki.org/emacs/Smex
-(when (boundp 'smex-save-file)
-  (setq smex-save-file
-        (concat user-emacs-directory ".smex-items")))
+(safe-set! smex-save-file (concat user-emacs-directory ".smex-items"))
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 
