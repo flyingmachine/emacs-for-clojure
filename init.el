@@ -62,21 +62,6 @@
 
 (message "PATH=%s" (getenv "PATH"))
 
-(defconst has-docker (bin-exists-p "docker"))
-(defconst has-java (bin-exists-p "java"))
-(defconst has-erlang (bin-exists-p "erl"))
-(defconst has-racket
-  ;; Note: failed on Darwin because PATH, so
-  (if (bin-exists-p "racket")
-      t
-    (when (eq system-type 'darwin)
-      (let ((racket-dir (directory-files "/Applications"
-                                         nil
-                                         "Racket v[0-9]\.[0-9][0-9]*")))
-        (and racket-dir
-             (file-exists-p (concat "/Applications/"
-                                    (car racket-dir)
-                                    "/bin/racket")))))))
 
 ;; First to load UI part
 (compile-and-load-elisp-files '("ui.el") "config/")
@@ -88,11 +73,28 @@
  (setq package-archives 
        '(("gnu" . "http://elpa.gnu.org/packages/")
          ("melpa-stable" . "http://stable.melpa.org/packages/")))
+   
+ (require 'package)
+ (package-initialize)
+
+ ;; install exec-path-from-shell for PATH loading
+ (when (not (package-installed-p 'exec-path-from-shell))
+   (package-refresh-contents)
+   (package-install 'exec-path-from-shell))
+ (compile-and-load-elisp-files '("setup-shell.el") "config/")
+ (message "PATH=%s" (getenv "PATH"))
+
+  ;; packages based on existings
+ (defconst has-docker (bin-exists-p "docker"))
+ (defconst has-erlang (bin-exists-p "erl"))
+ (defconst has-latex (bin-exists-p "latex"))
+ (defconst has-java (bin-exists-p "java"))
+ (defconst has-racket (bin-exists-p "racket"))
+
  ;; guarantee all packages are installed on start
  (defconst installed-packages
    (let* ((basic '(aggressive-indent
                    bing-dict
-                   exec-path-from-shell
                    ido-ubiquitous
                    markdown-mode
                    paredit
@@ -101,18 +103,17 @@
                    tagedit))
           (docker '(dockerfile-mode))
           (erlang '(erlang lfe-mode))
+          (latex '(auctex))
           (java '(cider clojure-mode clojure-mode-extra-font-locking))
           (racket '(geiser)))
      (append basic
-             (version-supported-p <= 24.4 (when has-docker  docker))
+             (version-supported-p <= 24.4 (when has-docker docker))
              (version-supported-p <= 24.4 '(magit))
              (version-supported-p <= 23.2 (when has-racket racket))
-             (when has-java java)
              (when has-erlang erlang)
+             (when has-latex latex)
+             (when has-java java)
 	     )))
-   
- (require 'package)
- (package-initialize)
 
  (let ((not-installed-packages
         (delete t (mapcar #'(lambda (p) (if (package-installed-p p) t p))
@@ -129,8 +130,7 @@
    ;; compile and load basic elisp files
    (let* ((basic '("misc.el"
                    "navigation.el"
-                   "setup-python.el"
-                   "setup-shell.el"))
+                   "setup-python.el"))
           (clojure (when has-java '("setup-clojure.el")))
           (lfe (when has-erlang '("setup-lfe.el"))))
      (append basic clojure lfe)) "config/"))
