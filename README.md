@@ -13,7 +13,7 @@ The adaptive Emacs which I need is more stable, more smaller, more faster and mo
 * [Install](#install)
 * [Where](#where)
 * [What](#what)
-
+* [How](#how)
 
 Now, let's start from the Level Two. And one more thing: tech youself some little Elisp (M-x info).
 
@@ -62,6 +62,7 @@ It's **self-documenting** and great, keep reading it frequently.
 
 * Tutorial: ```C-h-t```
 * Info: ```M-h```, switch the current buffer and *Info* via ```C-h-i```
+* Info of Moduel: ```C-h i d m <x>``` *<x>* is the module
 * Module: ```C-h-m```
 * Function: ```C-h-f```
 * Variable: ```C-h-v```
