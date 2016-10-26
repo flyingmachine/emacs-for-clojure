@@ -9,34 +9,33 @@
 ;; Automatically load paredit when editing a lisp file
 ;; More at http://www.emacswiki.org/emacs/ParEdit
 
+;; *scratch* 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-            (package-supported-p (safe-call enable-paredit-mode))
             (funcall (enable-eldoc-mode))
+            (package-supported-p (safe-call enable-paredit-mode))
+            (package-supported-p (aggressive-indent-mode))
+            (package-supported-p (rainbow-delimiters-mode))
+            (local-set-key (kbd "TAB") #'complete-symbol)
             (cond ((string= "*scratch*" (buffer-name))
                    (local-set-key (kbd "RET")
                                   (lambda () (interactive)
                                     (eval-print-last-sexp)
-                                    (newline)))
-                   (local-set-key (kbd "TAB")
-                                  #'complete-symbol)))))
+                                    (newline)))))))
 
+;; Interactive Elisp mode
 (add-hook 'ielm-mode-hook
           (lambda ()
             (package-supported-p (safe-call enable-paredit-mode))
             (funcall (enable-eldoc-mode))))
 
+
+;; Enable paredit in minibuffer
 (package-supported-p
- ;; minibuffer
  (cond
   ((eq system-type 'gnu/linux)
    (add-hook 'minibuffer-setup-hook
              #'enable-paredit-mode t))
   (t (add-hook 'eval-expression-minibuffer-setup-hook
-               #'enable-paredit-mode)))
- ;; lisp mode
- (comment
-  (add-hook 'lisp-mode-hook
-            #'enable-paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook
-            #'enable-paredit-mode)))
+               #'enable-paredit-mode))))
+
