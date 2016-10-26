@@ -120,7 +120,7 @@
 ;; Turn on recent file mode so that you can more easily switch to
 ;; recently edited files when you first start emacs
 (safe-set! recentf-save-file
-           (concat user-emacs-directory ".recentf"))
+           (concat "~/.emacs.d/" ".recentf"))
 (require 'recentf)
 (recentf-mode 1)
 (safe-set! recentf-max-menu-items 40)

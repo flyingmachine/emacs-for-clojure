@@ -16,14 +16,17 @@
 
 (defun compile-and-load-elisp-files (files subdir)
   "Compile and load the elisp files under the subdir."
-  (let ((d (concat "~/.emacs.d/" subdir)))
+  (let* ((d (concat "~/.emacs.d/" subdir))
+         (v (concat d emacs-version "/")))
+    (when (not (file-exists-p v)) (make-directory v t))
     (dolist (f files)
       (let* ((from (concat d f))
-             (to (replace-regexp-in-string
-                  "\.el$" "\.elc" from)))
+             (c (replace-regexp-in-string "\.el$" "\.elc" f))
+             (to (concat v c)))
         (when (or (not (file-exists-p to))
                   (file-newer-than-file-p from to))
-          (byte-compile-file from))
+          (byte-compile-file from)
+          (rename-file (concat d c) to t))
         (load to)))))
 
 (defmacro package-supported-p (&rest body)
@@ -41,7 +44,7 @@
 (defmacro bin-exists-p (b)
   "Returns true if b exists in env."
   `(if (eq system-type 'windows-nt)
-     (zerop (shell-command (concat "where " ,b " >nul 2>&1")))
+       (zerop (shell-command (concat "where " ,b " >nul 2>&1")))
      (zerop (shell-command (concat "hash " ,b " &>/dev/null")))))
 
 (defmacro safe-call (fn &rest args)

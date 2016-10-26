@@ -13,9 +13,10 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (funcall (enable-eldoc-mode))
-            (package-supported-p (safe-call enable-paredit-mode))
-            (package-supported-p (aggressive-indent-mode))
-            (package-supported-p (rainbow-delimiters-mode))
+            (package-supported-p
+              (safe-call enable-paredit-mode)
+              (aggressive-indent-mode)
+              (rainbow-delimiters-mode))
             (local-set-key (kbd "TAB") #'complete-symbol)
             (cond ((string= "*scratch*" (buffer-name))
                    (local-set-key (kbd "RET")
@@ -38,4 +39,3 @@
              #'enable-paredit-mode t))
   (t (add-hook 'eval-expression-minibuffer-setup-hook
                #'enable-paredit-mode))))
-
