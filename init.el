@@ -14,20 +14,20 @@
 (defconst loading-start-time
   (current-time) "The start time at loading init.el")
 
-(defun compile-and-load-elisp-files (files subdir)
+(defmacro compile-and-load-elisp-files (files subdir)
   "Compile and load the elisp files under the subdir."
-  (let* ((d (concat "~/.emacs.d/" subdir))
-         (v (concat d emacs-version "/")))
-    (when (not (file-exists-p v)) (make-directory v t))
-    (dolist (f files)
-      (let* ((from (concat d f))
-             (c (replace-regexp-in-string "\.el$" "\.elc" f))
-             (to (concat v c)))
-        (when (or (not (file-exists-p to))
-                  (file-newer-than-file-p from to))
-          (byte-compile-file from)
-          (rename-file (concat d c) to t))
-        (load to)))))
+  `(let* ((d (concat "~/.emacs.d/" ,subdir))
+          (v (concat d emacs-version "/")))
+     (when (not (file-exists-p v)) (make-directory v t))
+     (dolist (f ,files)
+       (let* ((from (concat d f))
+              (c (replace-regexp-in-string "\.el$" "\.elc" f))
+              (to (concat v c)))
+         (when (or (not (file-exists-p to))
+                   (file-newer-than-file-p from to))
+           (byte-compile-file from)
+           (rename-file (concat d c) to t))
+         (load to)))))
 
 (defmacro package-supported-p (&rest body)
   "Run body code if the Emacs supports package."
