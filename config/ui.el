@@ -19,10 +19,11 @@
 (cond
  ((eq system-type 'windows-nt)
   (set-frame-font "Consolas-12")
-  (dolist (c '(han kana cjk-misc))
-    (set-fontset-font (frame-parameter nil 'font)
-                      c (font-spec :family "Microsoft Yahei"
-                                   :size 12))))
+  (safe-do set-fontset-font
+           (dolist (c '(han kana cjk-misc))
+             (set-fontset-font (frame-parameter nil 'font)
+                               c (font-spec :family "Microsoft Yahei"
+                                            :size 12)))))
  ((eq system-type 'darwin) (set-frame-font "Monaco-13"))
  ((eq system-type 'gnu/linux) (set-frame-font "DejaVu Sans Mono-12")))
 
