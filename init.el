@@ -41,6 +41,11 @@
   "Run body code if the Emacs on specified version."
   `(when (,c ,v (string-to-number emacs-version)) ,@body))
 
+(defmacro version-supported-if (c v true false)
+  `(if (,c ,v ,(string-to-number emacs-version))
+       ',true
+     ',false))
+
 (defmacro graphic-supported-p (&rest body)
   "Run body code if the Emacs on graphic mode."
   `(when (display-graphic-p) ,@body))
@@ -168,4 +173,3 @@
   (message "#Loading init.el ... done (%.3fs)" elapsed))
 
 (put 'upcase-region 'disabled nil)
-

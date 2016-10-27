@@ -32,7 +32,9 @@
  (let ((themes-dir "~/.emacs.d/themes"))
    (add-to-list 'custom-theme-load-path themes-dir)
    (add-to-list 'load-path themes-dir)
-   (load-theme 'tomorrow-night-eighties t)
+   (version-supported-if >= 24.1
+                         (load-theme 'tomorrow-night-eighties)
+                         (load-theme 'tomorrow-night-eighties t))
    ;; don't pop up font menu
    (global-set-key (kbd "s-t") '(lambda () (interactive)))
    (desktop-save-mode 1))

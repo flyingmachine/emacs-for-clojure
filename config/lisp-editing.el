@@ -2,9 +2,7 @@
   "After Emacs 24.4 `turn-on-eldoc-mode is obsoleted, use `eldoc-mode indeed.
   `eldoc-mode shows documentation in the minibuffer when writing code.
   http://www.emacswiki.org/emacs/ElDoc"
-  `(if (< 24.0 (string-to-number emacs-version))
-       'eldoc-mode
-     'turn-on-eldoc-mode))
+  `(version-supported-if < 24.0 eldoc-mode turn-on-eldoc-mode))
 
 ;; Automatically load paredit when editing a lisp file
 ;; More at http://www.emacswiki.org/emacs/ParEdit
@@ -15,8 +13,8 @@
             (funcall (enable-eldoc-mode))
             (package-supported-p
               (safe-call enable-paredit-mode)
-              (aggressive-indent-mode)
-              (rainbow-delimiters-mode))
+              (safe-call aggressive-indent-mode)
+              (safe-call rainbow-delimiters-mode))
             (local-set-key (kbd "TAB") #'complete-symbol)
             (cond ((string= "*scratch*" (buffer-name))
                    (local-set-key (kbd "RET")
