@@ -41,6 +41,14 @@
   "Run body code if the Emacs on specified version."
   `(when (,c ,v (string-to-number emacs-version)) ,@body))
 
+(defmacro graphic-supported-p (&rest body)
+  "Run body code if the Emacs on graphic mode."
+  `(when (display-graphic-p) ,@body))
+
+(defmacro terminal-supported-p (&rest body)
+  "Run body code if the Emacs on terminal mode."
+  `(unless (display-graphic-p) ,@body))
+
 (defmacro bin-exists-p (b)
   "Returns true if b exists in env."
   `(if (eq system-type 'windows-nt)
@@ -76,7 +84,7 @@
  (setq package-archives 
        '(("gnu" . "http://elpa.gnu.org/packages/")
          ("melpa-stable" . "http://stable.melpa.org/packages/")))
-   
+ 
  (require 'package)
  (package-initialize)
 
@@ -87,7 +95,7 @@
  (compile-and-load-elisp-files '("setup-shell.el") "config/")
  (message "PATH=%s" (getenv "PATH"))
 
-  ;; packages based on existings
+ ;; packages based on existings
  (defconst has-docker (bin-exists-p "docker"))
  (defconst has-erlang (bin-exists-p "erl"))
  (defconst has-latex (bin-exists-p "latex"))
@@ -116,10 +124,11 @@
              (when has-erlang erlang)
              (when has-latex latex)
              (when has-java java)
-	     )))
+             )))
 
  (let ((not-installed-packages
-        (delete t (mapcar #'(lambda (p) (if (package-installed-p p) t p))
+        (delete t (mapcar #'(lambda (p)
+                              (if (package-installed-p p) t p))
                           installed-packages))))
    (when not-installed-packages
      (package-refresh-contents)
@@ -129,14 +138,14 @@
      (mapcar #'(lambda (i) (package-install i))
              not-installed-packages)))
 
-  (compile-and-load-elisp-files
-   ;; compile and load basic elisp files
-   (let* ((basic '("misc.el"
-                   "navigation.el"
-                   "setup-python.el"))
-          (clojure (when has-java '("setup-clojure.el")))
-          (lfe (when has-erlang '("setup-lfe.el"))))
-     (append basic clojure lfe)) "config/"))
+ (compile-and-load-elisp-files
+  ;; compile and load basic elisp files
+  (let* ((basic '("misc.el"
+                  "navigation.el"
+                  "setup-python.el"))
+         (clojure (when has-java '("setup-clojure.el")))
+         (lfe (when has-erlang '("setup-lfe.el"))))
+    (append basic clojure lfe)) "config/"))
   
  ;; ^ end of support-package-p
 

@@ -15,23 +15,29 @@
 ;; Disable scroll bar
 (safe-call scroll-bar-mode -1)
 
+;; Set font based on platform
 (cond
-  ((eq system-type 'windows-nt) (set-frame-font "Consolas-12"))
-  ((eq system-type 'darwin) (set-frame-font "Monaco-13"))
-  ((eq system-type 'gnu/linux) (set-frame-font "DejaVu Sans Mono-12")))
+ ((eq system-type 'windows-nt)
+  (set-frame-font "Consolas-12")
+  (dolist (c '(han kana cjk-misc))
+    (set-fontset-font (frame-parameter nil 'font)
+                      c (font-spec :family "Microsoft Yahei"
+                                   :size 12))))
+ ((eq system-type 'darwin) (set-frame-font "Monaco-13"))
+ ((eq system-type 'gnu/linux) (set-frame-font "DejaVu Sans Mono-12")))
 
-(if (display-graphic-p)
-    (let ((themes-dir "~/.emacs.d/themes"))
-      (add-to-list 'custom-theme-load-path themes-dir)
-      (add-to-list 'load-path themes-dir)
-      (load-theme 'tomorrow-night-eighties t)
-      ;(set-frame-size-via-resolution)
-      ;; don't pop up font menu
-      (global-set-key (kbd "s-t") '(lambda () (interactive)))
-      (desktop-save-mode 1))
-  (safe-set! linum-format "%d "))
+;; Load themes based on gui/terminal mode
+(graphic-supported-p
+ (let ((themes-dir "~/.emacs.d/themes"))
+   (add-to-list 'custom-theme-load-path themes-dir)
+   (add-to-list 'load-path themes-dir)
+   (load-theme 'tomorrow-night-eighties t)
+   ;; don't pop up font menu
+   (global-set-key (kbd "s-t") '(lambda () (interactive)))
+   (desktop-save-mode 1))
+ (safe-set! linum-format "%d "))
 
-;; These settings relate to how emacs interacts with your operating system
+;; These settings relate to how emacs interacts with your platform
 
 ;; makes killing/yanking interact with the clipboard
 (safe-set! x-select-enable-clipboard t)
