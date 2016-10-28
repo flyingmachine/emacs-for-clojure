@@ -44,10 +44,10 @@
   (when (funcall c v (string-to-number emacs-version))
     `(progn ,@body)))
 
-(defmacro version-supported-if (c v true false)
-  `(if (,c ,v ,(string-to-number emacs-version))
-       ',true
-     ',false))
+(defmacro version-supported-if (c v then &optional else)
+  (if (funcall c v (string-to-number emacs-version))
+      `,then
+    `,else))
 
 (defmacro graphic-supported-p (&rest body)
   "Run body code if the Emacs on graphic mode."
