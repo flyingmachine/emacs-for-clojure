@@ -9,23 +9,23 @@
 ;; Setup shell environment base on OS
 
 (platform-supported-p
- 'darwin
+ darwin
  (exec-path-from-shell-initialize))
 
 
 (platform-supported-p
-   'gnu/linux
-   (unless (getenv "SHELL")
-     (setenv "SHELL" "/bin/bash")
-     (exec-path-from-shell-initialize)))
+ gnu/linux
+ (unless (getenv "SHELL")
+   (setenv "SHELL" "/bin/bash")
+   (exec-path-from-shell-initialize)))
 
 
 (platform-supported-p
- 'windows-nt
+ windows-nt
  (when (bin-exists-p "bash")
    (unless (file-exists-p "~/.emacs_bash")
-        (copy-file "~/.emacs.d/config/.emacs_bash"
-                   "~/.emacs_bash"))
+     (copy-file "~/.emacs.d/config/.emacs_bash"
+                "~/.emacs_bash"))
    (setq shell-file-name "bash")
    (setenv "SHELL" shell-file-name)
    (safe-set! explicit-shell-file-name shell-file-name)))
