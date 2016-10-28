@@ -31,7 +31,8 @@
 
 (defmacro package-supported-p (&rest body)
   "Run body code if the Emacs supports package."
-  `(when (>= emacs-major-version 24) ,@body))
+  (when (>= emacs-major-version 24)
+    `(progn ,@body)))
 
 (defmacro platform-supported-p (os &rest body)
   "Run body code if the Emacs on specified OS platform."
