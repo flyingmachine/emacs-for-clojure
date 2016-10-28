@@ -41,7 +41,8 @@
 
 (defmacro version-supported-p (c v &rest body)
   "Run body code if the Emacs on specified version."
-  `(when (,c ,v (string-to-number emacs-version)) ,@body))
+  (when (funcall c v (string-to-number emacs-version))
+    `(progn ,@body)))
 
 (defmacro version-supported-if (c v true false)
   `(if (,c ,v ,(string-to-number emacs-version))
