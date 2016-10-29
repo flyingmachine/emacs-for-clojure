@@ -45,8 +45,12 @@
                          (load-theme 'tomorrow-night-eighties t))
    ;; don't pop up font menu
    (global-set-key (kbd "s-t") '(lambda () (interactive)))
-   (desktop-save-mode 1))
- (safe-set! linum-format "%d "))
+   (desktop-save-mode 1)))
+
+;; Line number format on Terminal
+(terminal-supported-p
+ (safe-set! linum-format "%2d "))
+
 
 ;; These settings relate to how emacs interacts with your platform
 
