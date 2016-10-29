@@ -30,6 +30,7 @@
             (enable-eldoc-mode)
             (package-supported-p
              (safe-call enable-paredit-mode)
+             (safe-call aggressive-indent-mode)
              (safe-call rainbow-delimiters-mode))))
 
 
