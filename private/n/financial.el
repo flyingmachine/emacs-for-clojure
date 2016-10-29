@@ -2,7 +2,7 @@
 
 (defmacro /. (DIVIDEND &rest DIVISORS)
   "Returns first float-point DIVIDEND divided by all the remaining DIVISORS"
-  `(apply #'/ (cons (+ ,DIVIDEND 0.0) ',DIVISORS)))
+  `(/ (+ ,DIVIDEND 0.0) ,@DIVISORS))
 
 (defun rate. (R &optional periods)
   "Returns the rate of R on the spedified periods."
