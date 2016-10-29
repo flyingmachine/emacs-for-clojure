@@ -34,8 +34,6 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
-;; Don't use hard tabs
-(setq-default indent-tabs-mode nil)
 
 ;; When you visit a file, point goes to the last place where it
 ;; was when you previously visited the same file.
@@ -80,6 +78,15 @@
                (ns-get-selection-internal 'CLIPBOARD)
              (quit nil))))
 
+
+;; No need for ~ files when editing
+(setq create-lockfiles nil)
+
+
+;; Don't use hard tabs
+(setq-default indent-tabs-mode nil)
+
+
 ;; Disable electric indent mode 
 (safe-set! electric-indent-mode nil)
 
@@ -123,12 +130,21 @@
 ;; recently edited files when you first start emacs
 (safe-set! recentf-save-file
            (concat "~/.emacs.d/" ".recentf"))
-(require 'recentf)
 (recentf-mode 1)
 (safe-set! recentf-max-menu-items 40)
 
 
-;; latin letters
+;; shell scripts
+(setq-default sh-basic-offset 2)
+(setq-default sh-indentation 2)
+
+
+;; c/c++
+(setq-default c-basic-offset 2)
+(setq-default c-indentation 2)
+
+
+;; Latin letters
 (global-set-key (kbd "M-g a") "α")
 (global-set-key (kbd "M-g b") "β")
 (global-set-key (kbd "M-g g") "γ")

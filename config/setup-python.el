@@ -26,6 +26,8 @@
               (executable-find python-shell-interpreter)
               python-shell-interpreter-args))))
 
+;; ?: need to transform run-python definition to run-python-nt
+;; (fset 'run-python 'run-python-nt)
 (platform-supported-p
  windows-nt
  (defun run-python-nt (cmd &optional dedicated show)

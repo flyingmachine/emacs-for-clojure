@@ -3,6 +3,9 @@
 ;;
 
 
+;; Go straight to scratch buffer on startup
+(safe-set! inhibit-startup-message t)
+
 ;; Disable menu bar
 (safe-call menu-bar-mode -1)
 
@@ -14,6 +17,9 @@
 
 ;; Disable scroll bar
 (safe-call scroll-bar-mode -1)
+
+;; Changes all yes/no questions to y/n type
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Set font based on platform
 

@@ -70,19 +70,19 @@
 
 (defmacro safe-call (fn &rest args)
   "Call fn with args when fn is bound"
-  `(when (fboundp (quote ,fn)) (apply (quote ,fn) (quote ,args))))
+  `(when (fboundp ',fn) (apply ',fn ',args)))
 
 (defmacro safe-do (fn &rest body)
   "Do body when fn is bound"
-  `(when (fboundp (quote ,fn)) ,@body))
+  `(when (fboundp ',fn) ,@body))
 
 (defmacro safe-set! (x val)
   "Set x when x is bound"
-  `(when (boundp (quote ,x)) (setq ,x ,val)))
+  `(when (boundp ',x) (setq ,x ,val)))
 
 (defmacro safe-do! (x &rest body)
   "Do body when x is bound"
-  `(when (boundp (quote ,x)) ,@body))
+  `(when (boundp ',x) ,@body))
 
 (message "PATH=%s" (getenv "PATH"))
 
