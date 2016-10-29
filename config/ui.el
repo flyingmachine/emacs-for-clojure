@@ -35,7 +35,7 @@
  (set-frame-font "DejaVu Sans Mono-12"))
 
 
-;; Load themes based on gui/terminal mode
+;; Load themes on graphic mode
 (graphic-supported-p
  (let ((themes-dir "~/.emacs.d/themes"))
    (add-to-list 'custom-theme-load-path themes-dir)

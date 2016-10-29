@@ -12,7 +12,5 @@
                   t)))
     (when (and saved (zerop (shell-command "type -p svn")))
       (let* ((clone (format "svn export %s %s" url dir))
-             (done (zerop (shell-command clone))))
-        (when done
-          (compile-and-load-elisp-files
-           (directory-files dir nil ".*.el") "themes/"))))))
+             (done (if (zerop (shell-command clone)) "done" "failed")))
+        (message "Clone themes ... %s" done)))))
