@@ -39,6 +39,11 @@
   (when (eq system-type os)
     `(progn ,@body)))
 
+(defmacro platform-supported-unless (os &rest body)
+  "Run body code if the Emacs on specified unless OS platforms"
+  (unless (eq system-type os)
+    `(progn ,@body)))
+
 (defmacro version-supported-p (c v &rest body)
   "Run body code if the Emacs on specified version."
   (when (funcall c v (string-to-number emacs-version))
