@@ -16,16 +16,24 @@
 (safe-call scroll-bar-mode -1)
 
 ;; Set font based on platform
-(cond
- ((eq system-type 'windows-nt)
-  (set-frame-font "Consolas-12")
-  (safe-do set-fontset-font
-           (dolist (c '(han kana cjk-misc))
-             (set-fontset-font (frame-parameter nil 'font)
-                               c (font-spec :family "Microsoft Yahei"
-                                            :size 12)))))
- ((eq system-type 'darwin) (set-frame-font "Monaco-13"))
- ((eq system-type 'gnu/linux) (set-frame-font "DejaVu Sans Mono-12")))
+
+(platform-supported-p
+ windows-nt
+ (set-frame-font "Consolas-12")
+ (safe-do set-fontset-font
+          (dolist (c '(han kana cjk-misc))
+            (set-fontset-font (frame-parameter nil 'font)
+                              c (font-spec :family "Microsoft Yahei"
+                                           :size 12)))))
+
+(platform-supported-p
+ darwin
+ (set-frame-font "Monaco-13"))
+
+(platform-supported-p
+ gnu/linux
+ (set-frame-font "DejaVu Sans Mono-12"))
+
 
 ;; Load themes based on gui/terminal mode
 (graphic-supported-p
