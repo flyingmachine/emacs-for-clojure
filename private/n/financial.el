@@ -4,10 +4,11 @@
   "Returns first float-point DIVIDEND divided by all the remaining DIVISORS"
   `(/ (+ ,DIVIDEND 0.0) ,@DIVISORS))
 
-(defun rate. (R &optional periods)
+(defmacro rate. (R &optional periods)
   "Returns the rate of R on the spedified periods."
-  (let ((rt (if periods periods 1)))
-    (/. R rt)))
+  (let ((rt (make-symbol "rt")))
+    `(let ((,rt (if ,periods ,periods 1)))
+       (/. ,R ,rt))))
 
 (defun interest (P R T &optional periods)
   "Return the earned simple interest, P is the principal, R is the 

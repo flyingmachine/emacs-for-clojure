@@ -27,8 +27,10 @@
 ;; Interactive Elisp mode
 (add-hook 'ielm-mode-hook
           (lambda ()
-            (package-supported-p (safe-call enable-paredit-mode))
-            (enable-eldoc-mode)))
+            (enable-eldoc-mode)
+            (package-supported-p
+             (safe-call enable-paredit-mode)
+             (safe-call rainbow-delimiters-mode))))
 
 
 ;; Enable paredit in minibuffer
