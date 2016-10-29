@@ -29,6 +29,7 @@
            (rename-file (concat d c) to t))
          (load to)))))
 
+
 (defmacro package-supported-p (&rest body)
   "Run body code if the Emacs supports package."
   (when (>= emacs-major-version 24)
@@ -70,7 +71,7 @@
 
 (defmacro safe-call (fn &rest args)
   "Call fn with args when fn is bound"
-  `(when (fboundp ',fn) (apply ',fn ',args)))
+  `(when (fboundp ',fn) (funcall ',fn ,@args)))
 
 (defmacro safe-do (fn &rest body)
   "Do body when fn is bound"
@@ -153,8 +154,7 @@
 
  (compile-and-load-elisp-files
   ;; compile and load basic elisp files
-  (let* ((basic '("misc.el"
-                  "navigation.el"
+  (let* ((basic '("navigation.el"
                   "setup-python.el"))
          (clojure (when has-java '("setup-clojure.el")))
          (lfe (when has-erlang '("setup-lfe.el"))))
@@ -167,6 +167,7 @@
  ;; compile and load non-package-required elisp files
  '("editing.el"
    "lisp-editing.el"
+   "misc.el"
    "setup-debugger.el") "config/")
 
 (compile-and-load-elisp-files

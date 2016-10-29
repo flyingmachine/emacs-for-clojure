@@ -80,7 +80,7 @@
 
 
 ;; No need for ~ files when editing
-(setq create-lockfiles nil)
+(safe-set! create-lockfiles nil)
 
 
 ;; Don't use hard tabs

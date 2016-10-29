@@ -4,7 +4,8 @@
 
 
 ;; Go straight to scratch buffer on startup
-(safe-set! inhibit-startup-message t)
+(graphic-supported-p
+ (safe-set! inhibit-startup-message t))
 
 ;; Disable menu bar
 (safe-call menu-bar-mode -1)
