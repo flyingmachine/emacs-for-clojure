@@ -25,7 +25,8 @@
  ;; (set-face-background `hl-line' "#3e4446")
  (version-supported-p <= 24 (global-hl-line-mode 1))
  ;; backspace may be a `c-h-' key
- (normal-erase-is-backspace-mode))
+ ;;(normal-erase-is-backspace-mode)
+ )
 
 ;; Interactive search key bindings. By default, C-s runs
 ;; isearch-forward, so this swaps the bindings.
