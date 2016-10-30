@@ -23,7 +23,7 @@
  ;; current line highlight and background #3e4446
  ;; (face-attribute `hl-line' :background)
  ;; (set-face-background `hl-line' "#3e4446")
- (version-supported-p <= 24 (global-hl-line-mode 1))
+ ;; (version-supported-p <= 24 (global-hl-line-mode 1))
  ;; backspace may be a `c-h-' key
  ;;(normal-erase-is-backspace-mode)
  )
