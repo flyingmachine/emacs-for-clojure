@@ -15,14 +15,14 @@
          (private (concat home "private/" emacs-version "/")))
     (dolist (d (list config private))
       (dolist (f (directory-files d nil "\\.elc$"))
-        (message "deleting file: %s" f)
+        (message "#Clean compiled file: %s" f)
         (delete-file (concat d f))))))
 
 (defun clean-saved-desktop ()
   "Clean saved desktop, then you need restart Emacs."
   (let ((d "~/.emacs.d/.emacs.desktop"))
     (when (file-exists-p d)
-      (message "delete file: %s" d)
+      (message "#Clean desktop file: %s" d)
       (delete-file d))))
 
 (defun clean-all ()

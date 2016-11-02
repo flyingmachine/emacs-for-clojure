@@ -53,6 +53,7 @@
     `(progn ,@body)))
 
 (defmacro version-supported-if (c v then &optional else)
+  "Do else if test yields nil, if true do then"
   (if (funcall c v (string-to-number emacs-version))
       `,then
     `,else))

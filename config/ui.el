@@ -1,6 +1,6 @@
-;;
+;;;;
 ;; UI related configurations.
-;;
+;;;;
 
 
 ;; Go straight to scratch buffer on startup
