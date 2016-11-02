@@ -11,3 +11,15 @@
   (defconst private-linux-font "White Rabbit-12"
     "default font-size for gnu/linux")
   ))
+
+(comment
+ (platform-supported-p
+  darwin
+  (defconst private-darwin-font "Monaco-13"
+    "default font-size for darwin")))
+
+(comment
+ (platform-supported-p
+  windows-nt
+  (defconst private-nt-font "Consolas-13"
+    "default font-size for windows nt")))

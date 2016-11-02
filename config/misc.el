@@ -25,6 +25,11 @@
       (message "delete file: %s" d)
       (delete-file d))))
 
+(defun clean-all ()
+  "Clean all"
+  (clean-compiled-files)
+  (clean-saved-desktop))
+
 (defun clone-themes ()
   "Clone themes from github, call it in elisp env."
   (let* ((url "https://github.com/chriskempson/tomorrow-theme/trunk/GNU%20Emacs")

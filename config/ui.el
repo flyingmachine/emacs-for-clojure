@@ -24,26 +24,36 @@
 
 ;; Set font based on platform
 
+(defmacro set-default-font! (font)
+  `(progn
+     (add-to-list 'default-frame-alist (cons 'font  ,font))
+     (set-face-attribute 'default t :font ,font)
+     (set-face-attribute 'default nil :font ,font)
+     (set-frame-font ,font nil t)))
+
 (platform-supported-p
  windows-nt
- (set-frame-font "Consolas-12")
  (safe-do set-fontset-font
           (dolist (c '(han kana cjk-misc))
             (set-fontset-font (frame-parameter nil 'font)
                               c (font-spec :family "Microsoft Yahei"
-                                           :size 12)))))
+                                           :size 12))))
+ (safe-do! private-nt-font
+           ;; "Consolas-12"
+           (set-default-font! private-nt-font)))
 
 (platform-supported-p
  darwin
- (set-frame-font "Monaco-13"))
+ (safe-do! private-darwin-font
+           ;; "Monaco-13"
+           (set-default-font! private-darwin-font)))
 
 (platform-supported-p
  gnu/linux
  (safe-do! private-linux-font
-           (add-to-list 'default-frame-alist (cons 'font  private-linux-font))
-           (set-face-attribute 'default t :font private-linux-font)
-           (set-face-attribute 'default nil :font private-linux-font)
-           (set-frame-font private-linux-font nil t)))
+           ;; "DejaVu Sans Mono-12"
+           (set-default-font! private-linux-font)))
+
 
 ;; Load themes on graphic mode
 (graphic-supported-p
