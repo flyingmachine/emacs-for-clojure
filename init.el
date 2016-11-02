@@ -88,7 +88,8 @@
 (message "PATH=%s" (getenv "PATH"))
 
 
-;; First to load UI part
+;; First to load self and ui parts
+(compile-and-load-elisp-files '("self.el") "private/")
 (compile-and-load-elisp-files '("ui.el") "config/")
 
 
@@ -173,7 +174,7 @@
 (compile-and-load-elisp-files
  ;; compile and load private non-package-required elisp files
  '("financial.el"
-   "utils.el") "private/n/")
+   "utils.el") "private/")
 
 ;; After loaded ...
 (let ((elapsed

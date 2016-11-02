@@ -39,8 +39,11 @@
 
 (platform-supported-p
  gnu/linux
- (set-frame-font "DejaVu Sans Mono-12"))
-
+ (safe-do! private-linux-font
+           (add-to-list 'default-frame-alist (cons 'font  private-linux-font))
+           (set-face-attribute 'default t :font private-linux-font)
+           (set-face-attribute 'default nil :font private-linux-font)
+           (set-frame-font private-linux-font nil t)))
 
 ;; Load themes on graphic mode
 (graphic-supported-p
