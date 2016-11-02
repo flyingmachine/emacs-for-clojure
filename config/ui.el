@@ -29,7 +29,9 @@
      (add-to-list 'default-frame-alist (cons 'font  ,font))
      (set-face-attribute 'default t :font ,font)
      (set-face-attribute 'default nil :font ,font)
-     (set-frame-font ,font nil t)))
+     (version-supported-if <= 24.0
+                           (set-frame-font ,font nil t)
+                           (set-frame-font ,font))))
 
 (platform-supported-p
  windows-nt
