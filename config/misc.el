@@ -9,7 +9,7 @@
 
 
 (defun clean-compiled-files ()
-  "Clean all compiled files, then you need restart emacs"
+  "Clean all compiled files, then you need restart Emacs."
   (let* ((home "~/.emacs.d/")
          (config (concat home "config/" emacs-version "/"))
          (private (concat home "private/" emacs-version "/")))
@@ -17,6 +17,13 @@
       (dolist (f (directory-files d nil "\\.elc$"))
         (message "deleting file: %s" f)
         (delete-file (concat d f))))))
+
+(defun clean-saved-desktop ()
+  "Clean saved desktop, then you need restart Emacs."
+  (let ((d "~/.emacs.d/.emacs.desktop"))
+    (when (file-exists-p d)
+      (message "delete file: %s" d)
+      (delete-file d))))
 
 (defun clone-themes ()
   "Clone themes from github, call it in elisp env."
