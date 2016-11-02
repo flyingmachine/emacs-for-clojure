@@ -26,13 +26,14 @@
       (delete-file d))))
 
 (defun clean-all ()
-  "Clean all"
+  "Clean all compiled file and desktop, then you need restart Emacs."
   (clean-compiled-files)
-  (clean-saved-desktop))
+  (graphic-supported-p (clean-saved-desktop)))
 
 (defun clone-themes ()
   "Clone themes from github, call it in elisp env."
-  (let* ((url "https://github.com/chriskempson/tomorrow-theme/trunk/GNU%20Emacs")
+  (let* ((url
+          "https://github.com/chriskempson/tomorrow-theme/trunk/GNU%20Emacs")
          (dir "~/.emacs.d/themes")
          (saved (if (file-exists-p dir)
                     (let ((mv (format "mv %s %s.b0" dir dir)))
