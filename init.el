@@ -79,8 +79,8 @@
      (zerop (shell-command (concat "hash " ,b " &>/dev/null")))))
 
 (defmacro safe-call (fn &rest args)
-  "Call fn with args when fn is bound"
-  `(when (fboundp ',fn) (funcall ',fn ,@args)))
+  "Call fn with args when fn has been bound"
+  `(when (fboundp ',fn) (,fn ,@args)))
 
 (defmacro safe-do (fn &rest body)
   "Do body when fn is bound"
