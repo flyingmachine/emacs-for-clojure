@@ -6,7 +6,7 @@
 ;; clojure mode hooks
 (add-hook 'clojure-mode-hook
           (lambda ()
-            (safe-set! inferior-lisp-program "boot repl")
+            (safe-setq inferior-lisp-program "boot repl")
             ;; enable paredit 
             (enable-paredit-mode)
             ;; enable camel case support for editing commands
@@ -33,17 +33,18 @@
 (add-hook 'cider-repl-mode-hook #'eldoc-mode)
 
 ;; Go right to the REPL buffer when it's finished connecting
-(safe-set! cider-repl-pop-to-buffer-on-connect t)
+(safe-setq cider-repl-pop-to-buffer-on-connect t)
 
 ;; When there's a cider error, show its buffer and switch to it
-(safe-set! cider-show-error-buffer t)
-(safe-set! cider-auto-select-error-buffer t)
+(safe-setq cider-show-error-buffer t)
+(safe-setq cider-auto-select-error-buffer t)
 
 ;; Where to store the cider history.
-(safe-set! cider-repl-history-file "~/.emacs.d/cider-history")
+(safe-setq cider-repl-history-file
+ "~/.emacs.d/cider-history")
 
 ;; Wrap when navigating history.
-(safe-set! cider-repl-wrap-history t)
+(safe-setq cider-repl-wrap-history t)
 
 ;; enable paredit for Cider
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
@@ -77,12 +78,10 @@
 
 (eval-after-load 'cider
   '(progn
-     (safe-setq*
-      'clojure-mode-map
+     (safe-setq* 'clojure-mode-map
       (define-key clojure-mode-map (kbd "C-c C-v") 'cider-start-http-server)
       (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh))
-     (safe-setq*
-      'cider-mode-map
+     (safe-setq* 'cider-mode-map
       (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns))
      ;; enable Figwheel: cider-jack-in-clojurescript
      (setq cider-cljs-lein-repl

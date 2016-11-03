@@ -28,5 +28,5 @@
                 "~/.emacs_bash"))
    (setq shell-file-name "bash")
    (setenv "SHELL" shell-file-name)
-   (safe-set! explicit-shell-file-name shell-file-name)))
+   (safe-setq explicit-shell-file-name shell-file-name)))
 

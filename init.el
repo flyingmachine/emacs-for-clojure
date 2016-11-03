@@ -86,8 +86,8 @@
   "Do body when fn is bound"
   `(when (fboundp ',fn) ,@body))
 
-(defmacro safe-set! (x val)
-  "Set x when x is bound"
+(defmacro safe-setq (x val)
+  "Set x when x has been bound"
   `(when (boundp ',x) (setq ,x ,val)))
 
 (defmacro safe-setq* (x &rest body)

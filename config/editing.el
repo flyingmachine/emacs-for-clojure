@@ -81,7 +81,7 @@
 
 
 ;; No need for ~ files when editing
-(safe-set! create-lockfiles nil)
+(safe-setq create-lockfiles nil)
 
 
 ;; Don't use hard tabs
@@ -89,27 +89,27 @@
 
 
 ;; Disable electric indent mode 
-(safe-set! electric-indent-mode nil)
+(safe-setq electric-indent-mode nil)
 
 ;; Enable column number mode
-(safe-set! column-number-mode t)
+(safe-setq column-number-mode t)
 
 
 ;; Default tab-width
 (setq-default tab-width 4)
 
- ;; cc mode indent level
- (add-hook 'c-mode-common-hook
-           (lambda ()
-             (safe-set! indent-tabs-mode nil)
-             (safe-set! c-basic-offset 4)))
+;; cc mode indent level
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (safe-setq indent-tabs-mode nil)
+            (safe-setq c-basic-offset 4)))
 
 ;; shell script mode tab-width
-(add-hook 'sh-mode-hook (lambda () (safe-set! tab-width 2)))
+(add-hook 'sh-mode-hook (lambda () (safe-setq tab-width 2)))
 
 (comment
  ;; Makefile tab-width
- (add-hook 'makefile-mode-hook (lambda () (safe-set! tab-width 4))))
+ (add-hook 'makefile-mode-hook (lambda () (safe-setq tab-width 4))))
 
 
 ;; prefer utf8
@@ -129,10 +129,10 @@
 
 ;; Turn on recent file mode so that you can more easily switch to
 ;; recently edited files when you first start emacs
-(safe-set! recentf-save-file
+(safe-setq recentf-save-file
            (concat "~/.emacs.d/" ".recentf"))
 (recentf-mode 1)
-(safe-set! recentf-max-menu-items 40)
+(safe-setq recentf-max-menu-items 40)
 
 
 ;; shell scripts
