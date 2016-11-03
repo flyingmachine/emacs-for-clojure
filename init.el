@@ -14,10 +14,14 @@
 (defconst loading-start-time
   (current-time) "The start time at loading init.el")
 
+(defconst g-or-t? (if (display-graphic-p) "g_" "t_")
+  "g_ or t_ prefix for compiled directory")
+
+
 (defmacro compile-and-load-elisp-files (files subdir)
   "Compile and load the elisp files under the subdir."
   `(let* ((d (concat "~/.emacs.d/" ,subdir))
-          (v (concat d emacs-version "/")))
+          (v (concat d g-or-t? emacs-version "/")))
      (when (not (file-exists-p v)) (make-directory v t))
      (dolist (f ,files)
        (let ((from (concat d f)))
@@ -60,11 +64,13 @@
 
 (defmacro graphic-supported-p (&rest body)
   "Run body code if the Emacs on graphic mode."
-  `(when (display-graphic-p) ,@body))
+  (when (display-graphic-p)
+    `(progn ,@body)))
 
 (defmacro terminal-supported-p (&rest body)
   "Run body code if the Emacs on terminal mode."
-  `(unless (display-graphic-p) ,@body))
+  (unless (display-graphic-p)
+    `(progn ,@body)))
 
 (defmacro bin-exists-p (b)
   "Returns true if b exists in env."
@@ -91,8 +97,10 @@
 (defmacro clean-compiled-files ()
   "Clean all compiled files, need restart Emacs."
   `(let* ((home "~/.emacs.d/")
-          (config (concat home "config/" emacs-version "/"))
-          (private (concat home "private/" emacs-version "/")))
+          (config (concat home "config/"
+                          g-or-t? emacs-version "/"))
+          (private (concat home "private/"
+                           g-or-t? emacs-version "/")))
      (dolist (d (list config private))
        (dolist (f (directory-files d nil "\\.elc$"))
          (message "#Clean compiled file: %s" f)
