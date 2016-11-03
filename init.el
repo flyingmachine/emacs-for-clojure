@@ -90,9 +90,9 @@
   "Set x when x is bound"
   `(when (boundp ',x) (setq ,x ,val)))
 
-(defmacro safe-do! (x &rest body)
+(defmacro safe-setq* (x &rest body)
   "Do body when x is bound"
-  `(when (boundp ',x) ,@body))
+  `(when (boundp ,x) ,@body))
 
 (defmacro clean-compiled-files ()
   "Clean all compiled files, need restart Emacs."

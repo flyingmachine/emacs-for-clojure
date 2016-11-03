@@ -10,9 +10,9 @@
             (subword-mode)))
 
 ;; Using IPython as the Python shell
-(safe-do! python-shell-interpreter
-          (setq python-shell-interpreter "ipython"
-                python-shell-interpreter "-i"))
+(safe-setq* 'python-shell-interpreter
+            (setq python-shell-interpreter "ipython"
+                  python-shell-interpreter "-i"))
 
 ;; run-python on Windows has bugs if u met run-python-nt insdeed
 (platform-supported-p

@@ -50,29 +50,15 @@
                             c (font-spec :family name
                                          :size size)))))))
 
-
-(platform-supported-p
- windows-nt
- (safe-do! private-nt-font
-           ;; "Consolas-12"
-           (set-default-font! private-nt-font))
- (safe-do! private-nt-cjk-font
-           ;; "Microsoft Yahei-12"
-           (set-cjk-font! private-nt-cjk-font)))
-
-(platform-supported-p
- darwin
- (safe-do! private-darwin-font
-           ;; "Monaco-13"
-           (set-default-font! private-darwin-font)))
-
-(platform-supported-p
- gnu/linux
- (safe-do! private-linux-font
-           ;; "DejaVu Sans Mono-12"
-           (set-default-font! private-linux-font))
- (safe-do! private-linux-cjk-font
-           (set-cjk-font! private-linux-cjk-font)))
+(version-supported-p
+ <= 24.0 
+ (let* ((os system-type)
+        (d (intern (format "private-%s-font" os)))
+        (cjk (intern (format "private-%s-cjk-font" os))))
+   (safe-setq* d
+               (set-default-font! (symbol-value d)))
+   (safe-setq* cjk
+               (set-cjk-font! (symbol-value cjk)))))
 
 
 ;; Load themes on graphic mode
@@ -122,7 +108,9 @@
 (safe-call blink-cursor-mode 0)
 
 ;; full path in title bar
-(safe-do! frame-title-format (setq-default frame-title-format "%b (%f)"))
+(safe-setq*
+ 'frame-title-format
+ (setq-default frame-title-format "%b (%f)"))
 
 ;; Ignore ring bell
 (safe-set! ring-bell-function 'ignore)
