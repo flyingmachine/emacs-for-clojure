@@ -22,10 +22,16 @@
 ;; Changes all yes/no questions to y/n type
 (fset 'yes-or-no-p 'y-or-n-p)
 
+
 ;; Set font based on platform
 
+(defmacro font-exists-p (font)
+  "Return t if font exists"
+  `(when (find-font (font-spec :name ,font))
+     t))
+
 (defmacro set-default-font! (font)
-  `(progn
+  `(when (font-exists-p ,font)
      (add-to-list 'default-frame-alist (cons 'font  ,font))
      (set-face-attribute 'default t :font ,font)
      (set-face-attribute 'default nil :font ,font)
@@ -33,16 +39,26 @@
                            (set-frame-font ,font nil t)
                            (set-frame-font ,font))))
 
+(defmacro set-cjk-font! (font)
+  `(let ((name (car ,font))
+         (size (cdr ,font)))
+     (when (font-exists-p name)
+       (safe-do
+        set-fontset-font
+        (dolist (c '(han kana cjk-misc))
+          (set-fontset-font (frame-parameter nil 'font)
+                            c (font-spec :family name
+                                         :size size)))))))
+
+
 (platform-supported-p
  windows-nt
- (safe-do set-fontset-font
-          (dolist (c '(han kana cjk-misc))
-            (set-fontset-font (frame-parameter nil 'font)
-                              c (font-spec :family "Microsoft Yahei"
-                                           :size 12))))
  (safe-do! private-nt-font
            ;; "Consolas-12"
-           (set-default-font! private-nt-font)))
+           (set-default-font! private-nt-font))
+ (safe-do! private-nt-cjk-font
+           ;; "Microsoft Yahei-12"
+           (set-cjk-font! private-nt-cjk-font)))
 
 (platform-supported-p
  darwin
@@ -54,7 +70,9 @@
  gnu/linux
  (safe-do! private-linux-font
            ;; "DejaVu Sans Mono-12"
-           (set-default-font! private-linux-font)))
+           (set-default-font! private-linux-font))
+ (safe-do! private-linux-cjk-font
+           (set-cjk-font! private-linux-cjk-font)))
 
 
 ;; Load themes on graphic mode
@@ -68,6 +86,7 @@
    ;; don't pop up font menu
    (global-set-key (kbd "s-t") '(lambda () (interactive)))
    (desktop-save-mode 1)))
+
 
 ;; Line number format on Terminal
 (terminal-supported-p
