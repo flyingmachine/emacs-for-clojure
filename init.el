@@ -88,6 +88,30 @@
   "Do body when x is bound"
   `(when (boundp ',x) ,@body))
 
+(defmacro clean-compiled-files ()
+  "Clean all compiled files, need restart Emacs."
+  `(let* ((home "~/.emacs.d/")
+          (config (concat home "config/" emacs-version "/"))
+          (private (concat home "private/" emacs-version "/")))
+     (dolist (d (list config private))
+       (dolist (f (directory-files d nil "\\.elc$"))
+         (message "#Clean compiled file: %s" f)
+         (delete-file (concat d f))))))
+
+(defmacro clean-saved-desktop ()
+  "Clean saved desktop, need restart Emacs."
+  `(let ((d "~/.emacs.d/.emacs.desktop"))
+     (when (file-exists-p d)
+       (message "#Clean desktop file: %s" d)
+       (delete-file d))))
+
+(defmacro reset-emacs ()
+  "Clean all compiled file and desktop, then restart Emacs."
+  `(progn
+     (clean-compiled-files)
+     (graphic-supported-p (clean-saved-desktop))
+     (kill-emacs 0)))
+
 (message "PATH=%s" (getenv "PATH"))
 
 
