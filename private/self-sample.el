@@ -8,9 +8,9 @@
 (comment
  (platform-supported-p
   gnu/linux
-  (defconst private-linux-font "White Rabbit-12"
+  (defconst private-gnu/linux-font "White Rabbit-12"
     "default font-size for gnu/linux")
-  (defconst private-linux-cjk-font (cons "Microsoft Yahei" 12)
+  (defconst private-gnu/linux-cjk-font (cons "Microsoft Yahei" 12)
     "default cjk font for gnu/linux")))
 
 (comment
@@ -22,6 +22,6 @@
 (comment
  (platform-supported-p
   windows-nt
-  (defconst private-nt-font "Consolas-13"
+  (defconst private-windows-nt-font "Consolas-13"
     "default font-size for windows nt")
-  (defconst private-nt-cjk-font (cons "Microsoft Yahei" 12))))
+  (defconst private-windows-nt-cjk-font (cons "Microsoft Yahei" 12))))

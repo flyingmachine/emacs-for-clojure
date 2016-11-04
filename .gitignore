@@ -29,3 +29,7 @@ recentf
 games/
 private/self.el
 *.swp
+nul
+null
+private/nul
+server/
