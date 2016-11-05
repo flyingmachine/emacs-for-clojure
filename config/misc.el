@@ -4,8 +4,10 @@
 
 
 
-;; Pretty printed a Lisp FORM in current buffer
-(safe-do cl-prettyprint (fset 'pprint 'cl-prettyprint))
+;; "Pretty printed a Lisp FORM in current buffer"
+(safe-do
+ cl-prettyexpand
+ (fset 'pprint 'cl-prettyexpand))
 
 
 (defun clone-themes ()

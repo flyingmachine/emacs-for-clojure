@@ -216,6 +216,12 @@
  '("financial.el"
    "utils.el") "private/")
 
+
+;; Self post do ...
+(let ((ss (self-symbol "post-do")))
+  (safe-setq* ss (funcall (symbol-value ss))))
+
+
 ;; After loaded ...
 (let ((elapsed
        (float-time
