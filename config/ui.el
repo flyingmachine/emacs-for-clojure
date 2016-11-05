@@ -52,22 +52,26 @@
 
 (version-supported-p
  <= 24.0 
- (let ((d (self-symbol "font"))
-        (cjk (self-symbol "cjk-font")))
-   (safe-setq* d
-               (set-default-font! (symbol-value d)))
+ (let ((font (self-symbol "font"))
+       (cjk (self-symbol "cjk-font")))
+   (safe-setq* font
+               (set-default-font! (symbol-value font)))
    (safe-setq* cjk
                (set-cjk-font! (symbol-value cjk)))))
 
 
 ;; Load themes on graphic mode
 (graphic-supported-p
- (let ((themes-dir "~/.emacs.d/themes"))
+ (let* ((themes-dir "~/.emacs.d/themes")
+        (self-theme (self-symbol "theme"))
+        (theme (if (boundp self-theme)
+                   (symbol-value self-theme)
+                 'tomorrow-night-eighties)))
    (add-to-list 'custom-theme-load-path themes-dir)
    (add-to-list 'load-path themes-dir)
    (version-supported-if >= 24.1
-                         (load-theme 'tomorrow-night-eighties)
-                         (load-theme 'tomorrow-night-eighties t))
+                         (load-theme theme)
+                         (load-theme theme t))
    ;; don't pop up font menu
    (global-set-key (kbd "s-t") '(lambda () (interactive)))
    (desktop-save-mode 1)))

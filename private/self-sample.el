@@ -17,7 +17,9 @@
  (platform-supported-p
   darwin
   (defconst self-darwin-font "Monaco-13"
-    "default font-size for darwin")))
+    "default font-size for darwin")
+  (defconst self-darwin-theme 'tomorrow-night-eighties
+    "default theme for darwin")))
 
 (comment
  (platform-supported-p
