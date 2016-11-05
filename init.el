@@ -32,7 +32,7 @@
                          (file-newer-than-file-p from to))
                  (byte-compile-file from)
                  (rename-file (concat d c) to t))
-               (load to))
+               (time (load to)))
            (message "#Skip compile and load %s.done" from))))))
 
 
