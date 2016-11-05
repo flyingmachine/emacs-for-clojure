@@ -52,9 +52,8 @@
 
 (version-supported-p
  <= 24.0 
- (let* ((os system-type)
-        (d (intern (format "private-%s-font" os)))
-        (cjk (intern (format "private-%s-cjk-font" os))))
+ (let ((d (self-symbol "font"))
+        (cjk (self-symbol "cjk-font")))
    (safe-setq* d
                (set-default-font! (symbol-value d)))
    (safe-setq* cjk

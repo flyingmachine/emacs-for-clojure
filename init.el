@@ -94,6 +94,9 @@
   "Do body when x is bound"
   `(when (boundp ,x) ,@body))
 
+(defmacro self-symbol (name)
+  `(intern (format "self-%s-%s" system-type ,name)))
+
 (defmacro clean-compiled-files ()
   "Clean all compiled files, need restart Emacs."
   `(let* ((home "~/.emacs.d/")
