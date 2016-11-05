@@ -3,9 +3,9 @@
 ;;;;
 
 
-(defun pprint (form)
-  "Pretty printed a Lisp FORM in current buffer"
-  (safe-call cl-prettyprint form))
+
+;; Pretty printed a Lisp FORM in current buffer
+(safe-do cl-prettyprint (fset 'pprint 'cl-prettyprint))
 
 
 (defun clone-themes ()
@@ -15,9 +15,9 @@
          (dir "~/.emacs.d/themes")
          (saved (if (file-exists-p dir)
                     (let ((mv (format "mv %s %s.b0" dir dir)))
-                      (zerop (shell-command mv)))
+                      (bin-exists-p mv))
                   t)))
-    (when (and saved (zerop (shell-command "type -p svn")))
+    (when (and saved (bin-exists-p "svn"))
       (let* ((clone (format "svn export %s %s" url dir))
-             (done (if (zerop (shell-command clone)) "done" "failed")))
-        (message "Clone themes ... %s" done)))))
+             (done (if (bin-exists-p clone) "done" "failed")))
+        (message "#Clone themes ... %s" done)))))
