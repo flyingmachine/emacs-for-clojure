@@ -169,7 +169,9 @@
           (erlang '(erlang lfe-mode))
           (latex '(auctex))
           (java '(cider clojure-mode clojure-mode-extra-font-locking))
-          (racket '(geiser)))
+          (racket '(geiser))
+          (self (let ((ss (self-symbol "packages")))
+                  (safe-setq* ss (symbol-value ss)))))
      (append basic
              (version-supported-p <= 24.4 (when has-docker docker))
              (version-supported-p <= 24.4 '(magit))
@@ -177,7 +179,7 @@
              (when has-erlang erlang)
              (when has-latex latex)
              (when has-java java)
-             )))
+             (when self self))))
 
  (let ((not-installed-packages
         (delete t (mapcar #'(lambda (p)

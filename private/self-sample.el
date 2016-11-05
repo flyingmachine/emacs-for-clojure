@@ -19,7 +19,9 @@
   (defconst self-darwin-font "Monaco-13"
     "default font-size for darwin")
   (defconst self-darwin-theme 'tomorrow-night-eighties
-    "default theme for darwin")))
+    "default theme for darwin")
+  (defconst self-darwin-packages '(geiser clojure lfe)
+    "default packages for darwin")))
 
 (comment
  (platform-supported-p
