@@ -72,8 +72,6 @@
    (version-supported-if >= 24.1
                          (load-theme theme)
                          (load-theme theme t))
-   ;; don't pop up font menu
-   (global-set-key (kbd "s-t") '(lambda () (interactive)))
    (desktop-save-mode 1)))
 
 
