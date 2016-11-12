@@ -3,19 +3,18 @@
 ;;;;
 
 
-(defun start-socks (&optional server &optional port)
-  (safe-setq url-gateway-method 'socks)
-  (safe-setq socks-server
-             '("Default server"
-               (if server server "127.0.0.1")
-               (if port port 32000)
-               5)))
+(defmacro start-socks (&optional port server version)
+  `(progn
+     (setq url-gateway-method 'socks)
+     (setq socks-server
+           (list "Default server"
+                 (if ,server ,server "127.0.0.1")
+                 (if ,port ,port 32000)
+                 (if ,version ,version 5)))))
 
-(defun stop-socks (&optional method)
-  (safe-setq url-gateway-method
-             (if method
-                 method
-               'native)))
+(defmacro stop-socks (&optional method)
+  `(setq url-gateway-method
+         (if ,method  ,method 'native)))
 
 ;; "Pretty printed a Lisp FORM in current buffer"
 (safe-do
