@@ -9,29 +9,36 @@
 ;; Automatically load paredit when editing a lisp file
 ;; More at http://www.emacswiki.org/emacs/ParEdit
 
+(defmacro add-lisp-mode-hook (hook &rest body)
+  (declare (indent 1) (debug t))
+  `(add-hook ,hook
+             (lambda ()
+               (package-supported-p
+                (safe-call enable-paredit-mode)
+                (safe-call aggressive-indent-mode)
+                (safe-call rainbow-delimiters-mode))
+               ,@body)))
+
+
+
 ;; *scratch* 
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (enable-eldoc-mode)
-            (package-supported-p
-             (safe-call enable-paredit-mode)
-             (safe-call aggressive-indent-mode)
-             (safe-call rainbow-delimiters-mode))
-            (local-set-key (kbd "TAB") #'complete-symbol)
-            (cond ((string= "*scratch*" (buffer-name))
-                   (local-set-key (kbd "RET")
-                                  (lambda () (interactive)
-                                    (eval-print-last-sexp)
-                                    (newline)))))))
+(add-lisp-mode-hook 'emacs-lisp-mode-hook
+  (progn
+    (enable-eldoc-mode)
+    (local-set-key (kbd "TAB") #'complete-symbol)
+    (cond ((string= "*scratch*" (buffer-name))
+           (local-set-key (kbd "RET")
+                          (lambda () (interactive)
+                            (eval-print-last-sexp)
+                            (newline)))))))
+
 
 ;; Interactive Elisp mode
-(add-hook 'ielm-mode-hook
-          (lambda ()
-            (enable-eldoc-mode)
-            (package-supported-p
-             (safe-call enable-paredit-mode)
-             (safe-call aggressive-indent-mode)
-             (safe-call rainbow-delimiters-mode))))
+(add-lisp-mode-hook 'ielm-mode-hook (enable-eldoc-mode))
+
+
+;; Enable paredit for scheme
+(add-lisp-mode-hook 'scheme-mode-hook)
 
 
 ;; Enable paredit in minibuffer on gnu/linux platform
@@ -45,4 +52,3 @@
  gnu/linux
  (add-hook 'eval-expression-minibuffer-setup-hook
            #'enable-paredit-mode))
-
