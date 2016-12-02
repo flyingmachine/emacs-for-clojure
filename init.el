@@ -135,8 +135,18 @@
 (package-supported-p
  ;; define package repositories
  (setq package-archives 
-       '(("gnu" . "http://elpa.gnu.org/packages/")
-         ("melpa-stable" . "http://stable.melpa.org/packages/")))
+       (list '("gnu" . "http://elpa.gnu.org/packages/")
+             '("melpa-stable" . "http://stable.melpa.org/packages/")
+             (version-supported-p
+              <= 25.1
+              '("melpa" . "http://melpa.org/packages/"))))
+
+ (version-supported-p
+  <= 25.1
+  (safe-setq package-archive-priorities
+             (list '("gnu" . 10)
+                   '("melpa-stable" . 80)
+                   '("melpa" . 0))))
  
  (require 'package)
  (package-initialize)
@@ -180,6 +190,10 @@
              (when has-latex latex)
              (when has-java java)
              (when self self))))
+
+ (version-supported-p
+  <= 25.1
+  (safe-setq package-selected-packages installed-packages))
 
  (let ((not-installed-packages
         (delete t (mapcar #'(lambda (p)
@@ -227,5 +241,3 @@
        (float-time
         (time-subtract (current-time) loading-start-time))))
   (message "#Loading init.el ... done (%.3fs)" elapsed))
-
-(put 'upcase-region 'disabled nil)
