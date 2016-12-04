@@ -136,10 +136,10 @@
  ;; define package repositories
  (setq package-archives
        (append (list '("gnu" . "http://elpa.gnu.org/packages/")
-		     '("melpa-stable" . "http://stable.melpa.org/packages/"))
-	       (version-supported-p
-		<= 25.1
-		'("melpa" . "http://melpa.org/packages/"))))
+                     '("melpa-stable" . "http://stable.melpa.org/packages/"))
+               (version-supported-p
+                <= 25.1
+                (list '("melpa" . "http://melpa.org/packages/")))))
 
  (version-supported-p
   <= 25.1
@@ -185,7 +185,7 @@
      (append basic
              (version-supported-p <= 24.4 (when has-docker docker))
              (version-supported-p <= 24.4 '(magit))
-	     (version-supported-p <= 24.4 (when has-java java))
+             (version-supported-p <= 24.4 (when has-java java))
              (version-supported-p <= 23.2 (when has-racket racket))
              (when has-erlang erlang)
              (when has-latex latex)
