@@ -12,10 +12,10 @@
                     (if ,what (concat " <- " ,what " .") ".")))
      return))
 
-(defconst loading-start-time
+(defvar loading-start-time
   (current-time) "The start time at loading init.el")
 
-(defconst g-or-t? (if (display-graphic-p) "g_" "t_")
+(defvar g-or-t? (if (display-graphic-p) "g_" "t_")
   "g_ or t_ prefix for compiled directory")
 
 
@@ -33,7 +33,7 @@
                          (file-newer-than-file-p from to))
                  (byte-compile-file from)
                  (rename-file (concat d c) to t))
-               (load to))
+               (time (load to)) to)
            (message "#Skip compile and load %s.done" from))))))
 
 
@@ -160,14 +160,14 @@
  (message "PATH=%s" (getenv "PATH"))
 
  ;; packages based on existings
- (defconst has-docker (bin-exists-p "docker"))
- (defconst has-erlang (bin-exists-p "erl"))
- (defconst has-latex (bin-exists-p "latex"))
- (defconst has-java (bin-exists-p "java"))
- (defconst has-racket (bin-exists-p "racket"))
+ (defvar has-docker (bin-exists-p "docker"))
+ (defvar has-erlang (bin-exists-p "erl"))
+ (defvar has-latex (bin-exists-p "latex"))
+ (defvar has-java (bin-exists-p "java"))
+ (defvar has-racket (bin-exists-p "racket"))
 
  ;; guarantee all packages are installed on start
- (defconst installed-packages
+ (defvar installed-packages
    (let* ((basic '(aggressive-indent
                    bing-dict
                    ido-ubiquitous
