@@ -79,6 +79,12 @@
        (zerop (shell-command (concat "where " ,b " >nul 2>&1")))
      (zerop (shell-command (concat "hash " ,b " &>/dev/null")))))
 
+(defmacro bin-path (b)
+  "Returns the path of b in env."
+  `(if (eq system-type 'windows-nt)
+       (shell-command-to-string (concat "where " ,b))
+     (shell-command-to-string (concat "type -P " ,b))))
+
 (defmacro safe-call (fn &rest args)
   "Call fn with args when fn has been bound"
   `(when (fboundp ',fn) (,fn ,@args)))
@@ -165,6 +171,7 @@
  (defvar has-latex (bin-exists-p "latex"))
  (defvar has-java (bin-exists-p "java"))
  (defvar has-racket (bin-exists-p "racket"))
+ (defvar has-sbcl (bin-exists-p "sbcl"))
 
  ;; guarantee all packages are installed on start
  (defvar installed-packages
@@ -181,6 +188,7 @@
           (latex '(auctex))
           (java '(cider clojure-mode clojure-mode-extra-font-locking))
           (racket '(geiser))
+          (sbcl '(slime))
           (self (let ((ss (self-symbol "packages")))
                   (safe-setq* ss (symbol-value ss)))))
      (append basic
@@ -190,6 +198,7 @@
              (version-supported-p <= 23.2 (when has-racket racket))
              (when has-erlang erlang)
              (when has-latex latex)
+             (when has-sbcl sbcl)
              (when self self))))
 
  (version-supported-p
@@ -213,8 +222,10 @@
   (let* ((basic '("navigation.el"
                   "setup-python.el"))
          (clojure (when has-java '("setup-clojure.el")))
-         (lfe (when has-erlang '("setup-lfe.el"))))
-    (append basic clojure lfe)) "config/"))
+         (lfe (when has-erlang '("setup-lfe.el")))
+         (sbcl (when has-sbcl '("setup-sbcl.el"))))
+    (append basic clojure lfe sbcl))
+  "config/"))
   
  ;; ^ end of support-package-p
 
@@ -242,3 +253,17 @@
        (float-time
         (time-subtract (current-time) loading-start-time))))
   (message "#Loading init.el ... done (%.3fs)" elapsed))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (aggressive-indent bing-dict ido-ubiquitous markdown-mode paredit rainbow-delimiters smex tagedit dockerfile-mode magit cider clojure-mode clojure-mode-extra-font-locking geiser erlang lfe-mode auctex))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
