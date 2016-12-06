@@ -19,3 +19,6 @@
 
 ;; contribs
 (safe-setq slime-contribs '(slime-fancy))
+
+;; disable linum-mode on sbcl debugger buffer
+(add-hook 'sldb-hook (lambda () (linum-mode -1)))
