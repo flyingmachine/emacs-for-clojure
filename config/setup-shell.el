@@ -30,3 +30,7 @@
    (setenv "SHELL" shell-file-name)
    (safe-setq explicit-shell-file-name shell-file-name)))
 
+(platform-supported-unless
+ windows-nt
+ (add-hook 'term-mode-hook (lambda () (linum-mode -1)))
+ (add-hook 'shell-mode-hook (lambda () (linum-mode -1))))
