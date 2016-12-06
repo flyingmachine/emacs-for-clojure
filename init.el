@@ -75,15 +75,15 @@
 
 (defmacro bin-exists-p (b)
   "Returns true if b exists in env."
-  `(if (eq system-type 'windows-nt)
-       (zerop (shell-command (concat "where " ,b " >nul 2>&1")))
-     (zerop (shell-command (concat "hash " ,b " &>/dev/null")))))
+  (if (eq system-type 'windows-nt)
+      `(zerop (shell-command (concat "where " ,b " >nul 2>&1")))
+    `(zerop (shell-command (concat "hash " ,b " &>/dev/null")))))
 
 (defmacro bin-path (b)
   "Returns the path of b in env."
-  `(if (eq system-type 'windows-nt)
-       (shell-command-to-string (concat "where " ,b))
-     (shell-command-to-string (concat "type -P " ,b))))
+  (if (eq system-type 'windows-nt)
+      `(shell-command-to-string (concat "where " ,b))
+    `(shell-command-to-string (concat "type -P " ,b))))
 
 (defmacro windows-nt-path (p)
   "Return the path that windows-nt can recoganized."
