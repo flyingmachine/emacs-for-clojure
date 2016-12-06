@@ -85,6 +85,10 @@
        (shell-command-to-string (concat "where " ,b))
      (shell-command-to-string (concat "type -P " ,b))))
 
+(defmacro windows-nt-path (p)
+  "Return the path that windows-nt can recoganized."
+  `(replace-regexp-in-string "\\\\" "/" ,p))
+
 (defmacro safe-call (fn &rest args)
   "Call fn with args when fn has been bound"
   `(when (fboundp ',fn) (,fn ,@args)))
