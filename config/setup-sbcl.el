@@ -19,5 +19,8 @@
 ;; disable linum-mode on sbcl debugger buffer
 (add-hook 'sldb-hook (lambda () (linum-mode -1)))
 
+;; disable linum-mode on slime repl
+(add-hook 'slime-repl-mode-hook (lambda () (linum-mode -1)))
+
 ;; setup
 (slime-setup '(slime-fancy slime-asdf))
