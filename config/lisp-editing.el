@@ -52,3 +52,10 @@
  gnu/linux
  (add-hook 'eval-expression-minibuffer-setup-hook
            #'enable-paredit-mode))
+
+;; Default web browser: eww `C-d C-d h'
+(when (eq browse-url-browser-function
+          'browse-url-default-browser)
+  (safe-do eww-browse-url
+           (setq browse-url-browser-function 'eww-browse-url)
+           (add-hook 'eww-mode-hook (lambda () (linum-mode -1)))))
