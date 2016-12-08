@@ -257,17 +257,3 @@
        (float-time
         (time-subtract (current-time) loading-start-time))))
   (message "#Loading init.el ... done (%.3fs)" elapsed))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (aggressive-indent bing-dict ido-ubiquitous markdown-mode paredit rainbow-delimiters smex tagedit dockerfile-mode magit cider clojure-mode clojure-mode-extra-font-locking geiser erlang lfe-mode auctex))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
