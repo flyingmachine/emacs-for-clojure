@@ -257,3 +257,4 @@
        (float-time
         (time-subtract (current-time) loading-start-time))))
   (message "#Loading init.el ... done (%.3fs)" elapsed))
+

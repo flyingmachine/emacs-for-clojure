@@ -30,6 +30,8 @@
    (setenv "SHELL" shell-file-name)
    (safe-setq explicit-shell-file-name shell-file-name)))
 
-;; disable linum on term/shell
+;; disable linum on term/shell/eshell
 (add-hook 'term-mode-hook (lambda () (linum-mode -1)))
 (add-hook 'shell-mode-hook (lambda () (linum-mode -1)))
+(add-hook 'eshell-mode-hook (lambda () (linum-mode -1)))
+
