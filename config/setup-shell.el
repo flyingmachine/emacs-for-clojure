@@ -26,9 +26,11 @@
    (unless (file-exists-p "~/.emacs_bash")
      (copy-file "~/.emacs.d/config/.emacs_bash"
                 "~/.emacs_bash"))
+   (add-to-list 'exec-path
+                (file-name-directory
+                 (windows-nt-path (bin-path "bash"))))
    (setq shell-file-name "bash")
-   (setenv "SHELL" shell-file-name)
-   (safe-setq explicit-shell-file-name shell-file-name)))
+   (setenv "SHELL" (shell-command-to-string "type -P bash"))))
 
 ;; disable linum on term/shell/eshell
 (add-hook 'term-mode-hook (lambda () (linum-mode -1)))
