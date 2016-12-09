@@ -19,10 +19,11 @@
 
 ;; setup sbcl, it's slow process so be adviced
 (defadvice slime (before slime-before compile)
-  ;; disable linum-mode on sbcl debugger buffer
   (add-hook 'sldb-hook (lambda () (linum-mode -1)))
-  ;; disable linum-mode on slime repl
-  (add-hook 'slime-repl-mode-hook (lambda () (linum-mode -1)))
-  ;; setup
+  (add-hook
+   'slime-repl-mode-hook
+   (lambda ()
+     (linum-mode -1)
+     (local-set-key (kbd "<f12>") 'slime-selector)))
   (slime-setup '(slime-fancy slime-asdf)))
 
