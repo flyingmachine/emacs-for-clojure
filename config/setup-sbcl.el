@@ -24,7 +24,9 @@
    'slime-repl-mode-hook
    (lambda ()
      (linum-mode -1)
-     (local-set-key (kbd "<f12>") 'slime-selector)
-     (local-set-key (kbd "C-c C-]") 'slime-close-all-parens-in-sexp)))
+     (safe-do slime-selector 
+              (local-set-key (kbd "<f12>") 'slime-selector))
+     (safe-do slime-close-all-parens-in-sexp
+              (local-set-key (kbd "C-c C-]") 'slime-close-all-parens-in-sexp))))
   (slime-setup '(slime-fancy slime-asdf)))
 
