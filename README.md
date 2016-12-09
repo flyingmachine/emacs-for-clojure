@@ -75,10 +75,10 @@ It's **self-documenting** and great, keep reading it frequently.
 * via Shell Command: ```M-!```, see *Info>Emacs>Shell*
 
 ### Editing
+*etags|tags-table-list*
 
 ### Case Conversion
 *Info>Emacs>Text>Case*
-
 
 ### Remote
 
