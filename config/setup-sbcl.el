@@ -16,11 +16,13 @@
  windows-nt
  (setq inferior-lisp-program (bin-path "sbcl")))
 
-;; disable linum-mode on sbcl debugger buffer
-(add-hook 'sldb-hook (lambda () (linum-mode -1)))
 
-;; disable linum-mode on slime repl
-(add-hook 'slime-repl-mode-hook (lambda () (linum-mode -1)))
+;; setup sbcl, it's slow process so be adviced
+(defadvice slime (before slime-before compile)
+  ;; disable linum-mode on sbcl debugger buffer
+  (add-hook 'sldb-hook (lambda () (linum-mode -1)))
+  ;; disable linum-mode on slime repl
+  (add-hook 'slime-repl-mode-hook (lambda () (linum-mode -1)))
+  ;; setup
+  (slime-setup '(slime-fancy slime-asdf)))
 
-;; setup
-(slime-setup '(slime-fancy slime-asdf))
