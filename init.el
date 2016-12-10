@@ -258,3 +258,4 @@
         (time-subtract (current-time) loading-start-time))))
   (message "#Loading init.el ... done (%.3fs)" elapsed))
 
+;; ^ End of init.el
