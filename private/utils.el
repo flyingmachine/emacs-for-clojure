@@ -2,16 +2,25 @@
 ;; Utils
 ;;;;
 
-;; take, in Elisp use `number-sequence' instead range
+
 (safe-do
  cl-labels
  (defun take (n seq)
-   "Take n elements from seq."
+   "Returns a sequence of the first n itmes in seq, or all items if
+   there are fewer than n."
    (cl-labels ((iter (n seq acc)
                      (if (or (<= n 0) (null seq))
                          acc
                        (iter (1- n) (cdr seq) (cons (car seq) acc)))))
      (nreverse (iter n seq nil)))))
+
+(safe-do
+ number-sequence
+ (fset 'range 'number-sequence))
+
+(safe-do
+ cl-prettyexpand
+ (fset 'pprint 'cl-prettyexpand))
 
 
 (defun int-to-binary-string (i)

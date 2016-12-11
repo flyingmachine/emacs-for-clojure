@@ -16,11 +16,6 @@
   `(setq url-gateway-method
          (if ,method  ,method 'native)))
 
-;; "Pretty printed a Lisp FORM in current buffer"
-(safe-do
- cl-prettyexpand
- (fset 'pprint 'cl-prettyexpand))
-
 
 (defun clone-themes ()
   "Clone themes from github, call it in elisp env."
