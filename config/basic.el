@@ -44,4 +44,7 @@
                             (eval-print-last-sexp)
                             (newline)))))))
 
-
+;; Disable linum mode in Man mode
+(add-hook 'Man-mode-hook
+          (lambda () (interactive)
+            (linum-mode -1)))
