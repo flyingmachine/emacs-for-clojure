@@ -33,7 +33,7 @@
                          (file-newer-than-file-p from to))
                  (byte-compile-file from)
                  (rename-file (concat d c) to t))
-               (load to))
+               (time (load to) to))
            (message "#Skip compile and load %s.done" from))))))
 
 
@@ -134,13 +134,15 @@
      (graphic-supported-p (clean-saved-desktop))
      (kill-emacs 0)))
 
+
+
 (message "PATH=%s" (getenv "PATH"))
 
-
-;; First to load self and ui parts
+;; First to load self, env parts
 (compile-and-load-elisp-files '("self.el") "private/")
-(compile-and-load-elisp-files '("ui.el" "basic.el") "config/")
+(compile-and-load-elisp-files '("ui.el" "basic.el" "setup-shell.el") "config/")
 
+(message "PATH=%s" (getenv "PATH"))
 
 ;; Start loading ...
 (package-supported-p
@@ -161,13 +163,6 @@
  
  (require 'package)
  (package-initialize)
-
- ;; install exec-path-from-shell for PATH loading
- (when (not (package-installed-p 'exec-path-from-shell))
-   (package-refresh-contents)
-   (package-install 'exec-path-from-shell))
- (compile-and-load-elisp-files '("setup-shell.el") "config/")
- (message "PATH=%s" (getenv "PATH"))
 
  ;; packages based on existings
  (defvar has-docker (bin-exists-p "docker"))

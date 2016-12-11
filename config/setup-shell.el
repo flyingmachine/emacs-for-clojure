@@ -3,32 +3,28 @@
 ;;;;
 
 
-;; Disable paredit for shell script: some strange issues when using ()
-;; (add-hook 'shell-mode-hook 'enable-paredit-mode)
-
 ;; Setup shell environment base on OS
 
 
-(defmacro safe-init-exec-path-from-shell ()
-  "The variables: checkdoc-minor-mode and mangle-whitespace be mark unsafe,
-  just mark these vars safe and don't touch `enable-local-variables'"
-  `(progn
-     (put 'checkdoc-minor-mode 'safe-local-variable (lambda (x) t))
-     (put 'mangle-whitespace 'safe-local-variable (lambda (x) t))
-     (exec-path-from-shell-initialize)))
+(defmacro set-path-env ()
+  "Set PATH and exec-path in Emacs.
+  `TODO': other shell, duplicated path"
+  `(let* ((p (shell-command-to-string ". ~/.bashrc; echo -n $PATH"))
+          (x (split-string-and-unquote p ":")))
+     (setenv "PATH" p)
+     (setq exec-path (append exec-path x))))
 
+;; set PATH on darwin
+(platform-supported-p darwin (set-path-env))
 
-(platform-supported-p
- darwin
- (safe-init-exec-path-from-shell))
-
-
+;; set PATH on Linux
 (platform-supported-p
  gnu/linux
  (unless (getenv "SHELL")
    (setenv "SHELL" "/bin/bash")
-   (safe-init-exec-path-from-shell)))
+   (set-path-env)))
 
+;; set PATH on Windows
 (platform-supported-p
  windows-nt
  (defadvice shell (before shell-before compile)
