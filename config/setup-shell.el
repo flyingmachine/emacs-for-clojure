@@ -14,7 +14,8 @@
   just mark these vars safe and don't touch `enable-local-variables'"
   `(progn
      (put 'checkdoc-minor-mode 'safe-local-variable (lambda (x) t))
-     (put 'mangle-whitespace 'safe-local-variable (lambda (x) t))))
+     (put 'mangle-whitespace 'safe-local-variable (lambda (x) t))
+     (exec-path-from-shell-initialize)))
 
 
 (platform-supported-p
