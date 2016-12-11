@@ -63,14 +63,6 @@
 ;; yay rainbows!
 ;; (global-rainbow-delimiters-mode t)
 
-;; use 2 spaces for tabs
-(defun die-tabs ()
-  (interactive)
-  (set-variable 'tab-width 2)
-  (mark-whole-buffer)
-  (untabify (region-beginning) (region-end))
-  (keyboard-quit))
-
 ;; fix weird os x kill error
 (defun ns-get-pasteboard ()
   "Returns the value of the pasteboard, or nil for unsupported formats."
@@ -121,7 +113,7 @@
 (safe-setq recentf-save-file (concat "~/.emacs.d/" ".recentf"))
 (safe-setq recentf-max-menu-items 40)
 ;; manually: (recentf-cleanup), view list: recentf-list
-(setq recentf-auto-cleanup 'never)
+(setq-default recentf-auto-cleanup 'never)
 (recentf-mode 1)
 
 ;; shell scripts

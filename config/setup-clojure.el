@@ -6,7 +6,7 @@
 ;; clojure mode hooks
 (add-hook 'clojure-mode-hook
           (lambda ()
-            (safe-setq inferior-lisp-program "boot repl")
+            ;; (safe-setq inferior-lisp-program "boot repl")
             ;; enable paredit 
             (enable-paredit-mode)
             ;; enable camel case support for editing commands
@@ -81,10 +81,10 @@
 
 (defmacro figwheel-after-load-cider ()
   "Enable Figwheel: cider-jack-in-clojurescript"
-  `(setq cider-cljs-lein-repl
-         "(do (require 'figwheel-sidecar.repl-api)
-             (figwheel-sidecar.repl-api/start-figwheel!)
-             (figwheel-sidecar.repl-api/cljs-repl))"))
+  `(safe-setq cider-cljs-lein-repl
+              "(do (require 'figwheel-sidecar.repl-api)
+                 (figwheel-sidecar.repl-api/start-figwheel!)
+                 (figwheel-sidecar.repl-api/cljs-repl))"))
 
 (eval-after-load 'cider
   '(progn

@@ -10,11 +10,11 @@
                (file-name-directory
                 (if home home (bin-path "sbcl"))))))
    (add-to-list 'exec-path path)
-   (setq inferior-lisp-program "sbcl")))
+   (safe-setq-inferior-lisp-program "sbcl" t)))
 
 (platform-supported-unless
  windows-nt
- (setq inferior-lisp-program (bin-path "sbcl")))
+ (safe-setq-inferior-lisp-program (bin-path "sbcl") t))
 
 
 ;; setup sbcl, it's slow process so be adviced

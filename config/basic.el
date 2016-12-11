@@ -45,6 +45,14 @@
                             (newline)))))))
 
 ;; Disable linum mode in Man mode
-(add-hook 'Man-mode-hook
-          (lambda () (interactive)
-            (linum-mode -1)))
+(add-hook 'Man-mode-hook (lambda () (interactive) (linum-mode -1)))
+
+(defmacro safe-setq-inferior-lisp-program (lisp &optional force)
+  "Safe set inferior-lisp-program var, it must be set before slime start."
+  `(if (boundp 'inferior-lisp-program)
+       (if ,force
+           (setq inferior-lisp-program ,lisp)
+         (when (or (not (string= ,lisp inferior-lisp-program))
+                   (string= "lisp" inferior-lisp-program))
+           (setq inferior-lisp-program ,lisp)))
+     (setq-default inferior-lisp-program ,lisp)))
