@@ -40,7 +40,7 @@
 
 
 ;; disable linum on term/shell/eshell
-(add-hook 'term-mode-hook (lambda () (linum-mode -1)))
-(add-hook 'shell-mode-hook (lambda () (linum-mode -1)))
-(add-hook 'eshell-mode-hook (lambda () (linum-mode -1)))
+(add-hook 'term-mode-hook (lambda () (toggle-linum-mode -1)))
+(add-hook 'shell-mode-hook (lambda () (toggle-linum-mode -1)))
+(add-hook 'eshell-mode-hook (lambda () (toggle-linum-mode -1)))
 

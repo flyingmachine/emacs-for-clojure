@@ -10,8 +10,6 @@
 ;; Disable menu bar
 (safe-call menu-bar-mode -1)
 
-;; Enable linum mode
-(safe-call global-linum-mode)
 
 ;; Disable tool bar
 (safe-call tool-bar-mode -1)

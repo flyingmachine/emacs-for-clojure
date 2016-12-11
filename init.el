@@ -140,7 +140,10 @@
 
 ;; First to load self, env parts
 (compile-and-load-elisp-files '("self.el") "private/")
-(compile-and-load-elisp-files '("ui.el" "basic.el" "setup-shell.el") "config/")
+(compile-and-load-elisp-files '("ui.el"
+                                "basic.el"
+                                "setup-shell.el")
+                              "config/")
 
 (message "PATH=%s" (getenv "PATH"))
 

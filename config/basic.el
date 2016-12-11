@@ -11,12 +11,27 @@
                          (eldoc-mode)
                          (turn-on-eldoc-mode)))
 
+
+(defmacro linum-mode-supported-p ()
+  "Check Emacs version supports linum mode. "
+  `(version-supported-p <= 23.1 t))
+
+(defmacro toggle-linum-mode (&optional option)
+  "Toggle linum-mode based on option."
+  `(when (linum-mode-supported-p) (linum-mode ,option)))
+
+(defmacro enable-global-linum-mode ()
+  "Eanble global linum mode."
+  `(when (linum-mode-supported-p) (global-linum-mode)))
+
+
 ;; Default web browser: eww `C-d C-d h'
 (when (eq browse-url-browser-function
           'browse-url-default-browser)
   (safe-do eww-browse-url
            (setq browse-url-browser-function 'eww-browse-url)
-           (add-hook 'eww-mode-hook (lambda () (linum-mode -1)))))
+           (add-hook 'eww-mode-hook
+                     (lambda () (toggle-linum-mode -1)))))
 
 
 (defmacro add-lisp-mode-hook (hook &rest body)
@@ -31,8 +46,6 @@
                 (safe-call rainbow-delimiters-mode))
                ,@body)))
 
-
-
 ;; *scratch* 
 (add-lisp-mode-hook 'emacs-lisp-mode-hook
   (progn
@@ -44,8 +57,11 @@
                             (eval-print-last-sexp)
                             (newline)))))))
 
+
+
 ;; Disable linum mode in Man mode
-(add-hook 'Man-mode-hook (lambda () (interactive) (linum-mode -1)))
+(add-hook 'Man-mode-hook (lambda () (interactive) (toggle-linum-mode -1)))
+
 
 (defmacro safe-setq-inferior-lisp-program (lisp &optional force)
   "Safe set inferior-lisp-program var, it must be set before slime start."
@@ -56,3 +72,5 @@
                    (string= "lisp" inferior-lisp-program))
            (setq inferior-lisp-program ,lisp)))
      (setq-default inferior-lisp-program ,lisp)))
+
+
