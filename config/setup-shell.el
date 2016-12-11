@@ -10,7 +10,7 @@
   "Set PATH and exec-path in Emacs.
   `TODO': other shell, duplicated path"
   `(let* ((p (shell-command-to-string ". ~/.bashrc; echo -n $PATH"))
-          (x (split-string-and-unquote p ":")))
+          (x (split-string p ":")))
      (setenv "PATH" p)
      (setq exec-path (append exec-path x))))
 
