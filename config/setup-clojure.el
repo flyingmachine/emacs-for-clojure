@@ -30,7 +30,10 @@
 
 ;; Provides minibuffer documentation for the code you're typing into the repl
 (add-hook 'cider-mode-hook #'eldoc-mode)
-(add-hook 'cider-repl-mode-hook #'eldoc-mode)
+(add-hook 'cider-repl-mode-hook
+          (lambda ()
+            (enable-eldoc-mode)
+            (linum-mode -1)))
 
 ;; Go right to the REPL buffer when it's finished connecting
 (safe-setq cider-repl-pop-to-buffer-on-connect t)

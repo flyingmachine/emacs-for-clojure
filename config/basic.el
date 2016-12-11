@@ -1,3 +1,8 @@
+;;;;
+;; Basic
+;;;;
+
+
 (defmacro enable-eldoc-mode ()
   "After Emacs 24.4 `turn-on-eldoc-mode is obsoleted, use `eldoc-mode indeed.
   `eldoc-mode shows documentation in the minibuffer when writing code.
@@ -6,10 +11,17 @@
                          (eldoc-mode)
                          (turn-on-eldoc-mode)))
 
-;; Automatically load paredit when editing a lisp file
-;; More at http://www.emacswiki.org/emacs/ParEdit
+;; Default web browser: eww `C-d C-d h'
+(when (eq browse-url-browser-function
+          'browse-url-default-browser)
+  (safe-do eww-browse-url
+           (setq browse-url-browser-function 'eww-browse-url)
+           (add-hook 'eww-mode-hook (lambda () (linum-mode -1)))))
+
 
 (defmacro add-lisp-mode-hook (hook &rest body)
+  "Enable basic modes for lisp editing, 
+  (reset-emacs) after packages had been installed."
   (declare (indent 1) (debug t))
   `(add-hook ,hook
              (lambda ()
@@ -33,29 +45,3 @@
                             (newline)))))))
 
 
-;; Interactive Elisp mode
-(add-lisp-mode-hook 'ielm-mode-hook (enable-eldoc-mode))
-
-
-;; Enable paredit for scheme
-(add-lisp-mode-hook 'scheme-mode-hook)
-
-
-;; Enable paredit in minibuffer on gnu/linux platform
-(platform-supported-p
- gnu/linux
- (add-hook 'minibuffer-setup-hook
-           #'enable-paredit-mode t))
-
-;; Enable paredit in minbuffer on windows/darwin platform
-(platform-supported-unless
- gnu/linux
- (add-hook 'eval-expression-minibuffer-setup-hook
-           #'enable-paredit-mode))
-
-;; Default web browser: eww `C-d C-d h'
-(when (eq browse-url-browser-function
-          'browse-url-default-browser)
-  (safe-do eww-browse-url
-           (setq browse-url-browser-function 'eww-browse-url)
-           (add-hook 'eww-mode-hook (lambda () (linum-mode -1)))))

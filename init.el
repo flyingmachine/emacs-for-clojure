@@ -139,7 +139,7 @@
 
 ;; First to load self and ui parts
 (compile-and-load-elisp-files '("self.el") "private/")
-(compile-and-load-elisp-files '("ui.el") "config/")
+(compile-and-load-elisp-files '("ui.el" "basic.el") "config/")
 
 
 ;; Start loading ...
@@ -223,12 +223,14 @@
 
  (compile-and-load-elisp-files
   ;; compile and load basic elisp files
-  (let* ((basic '("navigation.el"
+  (let* ((basic '("lisp.el"
+                  "navigation.el"
                   "setup-python.el"))
-         (clojure (when has-java '("setup-clojure.el")))
          (lfe (when has-erlang '("setup-lfe.el")))
+         (clojure (when has-java '("setup-clojure.el")))
+         (racket (when has-racket '("setup-racket.el")))
          (sbcl (when has-sbcl '("setup-sbcl.el"))))
-    (append basic clojure lfe sbcl))
+    (append basic lfe clojure racket sbcl))
   "config/"))
   
  ;; ^ end of support-package-p
@@ -237,7 +239,6 @@
 (compile-and-load-elisp-files
  ;; compile and load non-package-required elisp files
  '("editing.el"
-   "lisp-editing.el"
    "misc.el"
    "setup-debugger.el") "config/")
 
