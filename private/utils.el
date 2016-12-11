@@ -3,16 +3,14 @@
 ;;;;
 
 
-(safe-do
- cl-labels
- (defun take (n seq)
-   "Returns a sequence of the first n itmes in seq, or all items if
+(defun take (n seq)
+  "Returns a sequence of the first n itmes in seq, or all items if
    there are fewer than n."
-   (cl-labels ((iter (n seq acc)
-                     (if (or (<= n 0) (null seq))
-                         acc
-                       (iter (1- n) (cdr seq) (cons (car seq) acc)))))
-     (nreverse (iter n seq nil)))))
+  (let ((acc nil) (n1 n) (s1 seq))
+    (while (and (> n1 0) s1)
+      (setq acc (cons (car s1) acc))
+      (setq n1 (1- n1) s1 (cdr s1)))
+    (nreverse acc)))
 
 (safe-do
  number-sequence
