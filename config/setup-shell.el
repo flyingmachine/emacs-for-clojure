@@ -8,16 +8,25 @@
 
 ;; Setup shell environment base on OS
 
+
+(defmacro safe-init-exec-path-from-shell ()
+  "The variables: checkdoc-minor-mode and mangle-whitespace be mark unsafe,
+  just mark these vars safe and don't touch `enable-local-variables'"
+  `(progn
+     (put 'checkdoc-minor-mode 'safe-local-variable (lambda (x) t))
+     (put 'mangle-whitespace 'safe-local-variable (lambda (x) t))))
+
+
 (platform-supported-p
  darwin
- (exec-path-from-shell-initialize))
+ (safe-init-exec-path-from-shell))
 
 
 (platform-supported-p
  gnu/linux
  (unless (getenv "SHELL")
    (setenv "SHELL" "/bin/bash")
-   (exec-path-from-shell-initialize)))
+   (safe-init-exec-path-from-shell)))
 
 (platform-supported-p
  windows-nt
