@@ -61,6 +61,7 @@
 
 ;; Disable linum mode in Man mode
 (add-hook 'Man-mode-hook (lambda () (interactive) (toggle-linum-mode -1)))
+(add-hook 'help-mode-hook (lambda () (interactive) (toggle-linum-mode -1)))
 
 
 (defmacro safe-setq-inferior-lisp-program (lisp &optional force)
