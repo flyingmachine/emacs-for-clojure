@@ -11,7 +11,9 @@
   (defvar self-gnu/linux-font "White Rabbit-12"
     "default font-size for gnu/linux")
   (defvar self-gnu/linux-cjk-font (cons "Microsoft Yahei" 12)
-    "default cjk font for gnu/linux")))
+    "default cjk font for gnu/linux")
+  (defvar self-gnu/linux-theme 'tomorrow-night-eighties
+    "default theme for linux")))
 
 (comment
  (platform-supported-p
