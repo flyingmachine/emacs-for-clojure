@@ -16,7 +16,7 @@
   "Check Emacs version supports linum mode. "
   `(version-supported-p <= 23.1 t))
 
-(defmacro toggle-linum-mode (&optional option)
+(defmacro toggle-linum-mode (option)
   "Toggle linum-mode based on option."
   `(when (linum-mode-supported-p) (linum-mode ,option)))
 
@@ -59,9 +59,11 @@
 
 
 
-;; Disable linum mode in Man mode
-(add-hook 'Man-mode-hook (lambda () (interactive) (toggle-linum-mode -1)))
-(add-hook 'help-mode-hook (lambda () (interactive) (toggle-linum-mode -1)))
+;; Disable linum mode
+(add-hook 'Man-mode-hook (lambda () (toggle-linum-mode -1)))
+(add-hook 'help-mode-hook (lambda () (toggle-linum-mode -1)))
+(add-hook 'completion-list-mode-hook (lambda () (toggle-linum-mode -1)))
+(add-hook 'Info-mode-hook (lambda () (toggle-linum-mode -1)))
 
 
 (defmacro safe-setq-inferior-lisp-program (lisp &optional force)
