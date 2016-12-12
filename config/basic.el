@@ -64,6 +64,7 @@
 (add-hook 'help-mode-hook (lambda () (toggle-linum-mode -1)))
 (add-hook 'completion-list-mode-hook (lambda () (toggle-linum-mode -1)))
 (add-hook 'Info-mode-hook (lambda () (toggle-linum-mode -1)))
+(add-hook 'ibuffer-mode-hook (lambda () (toggle-linum-mode -1)))
 
 
 (defmacro safe-setq-inferior-lisp-program (lisp &optional force)
