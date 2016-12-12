@@ -5,7 +5,9 @@
 
 
 ;; Interactive Elisp mode
-(add-lisp-mode-hook 'ielm-mode-hook (enable-eldoc-mode))
+(add-lisp-mode-hook 'ielm-mode-hook
+  (enable-eldoc-mode)
+  (toggle-linum-mode -1))
 
 
 ;; Enable paredit in minibuffer on gnu/linux platform
