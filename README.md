@@ -15,7 +15,7 @@ The adaptive Emacs which I need is more stable, more smaller, more faster and mo
 * [What](#what)
 * [How](#how)
 
-Now, let's start from the Level Two. And one more thing: tech youself some little Elisp (M-x info).
+Now, let's start from the Level Two. And one more thing: teach youself some little Elisp (M-x info).
 
 ## Features
 * __Carefully designed package manager__: just load what's your have and what's your need, so it is very stable, and fast, the loading time less than 1s on most machines.
