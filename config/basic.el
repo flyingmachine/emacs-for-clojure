@@ -54,6 +54,7 @@
     (cond ((string= "*scratch*" (buffer-name))
            (local-set-key (kbd "RET")
                           (lambda () (interactive)
+                            (enable-eldoc-mode)
                             (eval-print-last-sexp)
                             (newline)))))))
 
