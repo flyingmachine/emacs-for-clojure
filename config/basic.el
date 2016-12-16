@@ -46,6 +46,9 @@
                 (safe-call rainbow-delimiters-mode))
                ,@body)))
 
+;; Enable linum mode
+(enable-global-linum-mode)
+
 ;; *scratch* 
 (add-lisp-mode-hook 'emacs-lisp-mode-hook
   (progn
@@ -54,19 +57,10 @@
     (cond ((string= "*scratch*" (buffer-name))
            (local-set-key (kbd "RET")
                           (lambda () (interactive)
+                            (toggle-linum-mode -1)
                             (enable-eldoc-mode)
                             (eval-print-last-sexp)
                             (newline)))))))
-
-
-
-;; Disable linum mode
-(add-hook 'Man-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'help-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'completion-list-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'Info-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'ibuffer-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'gud-mode-hook (lambda () (toggle-linum-mode -1)))
 
 
 (defmacro safe-setq-inferior-lisp-program (lisp &optional force)
@@ -78,5 +72,13 @@
                    (string= "lisp" inferior-lisp-program))
            (setq inferior-lisp-program ,lisp)))
      (setq-default inferior-lisp-program ,lisp)))
+
+;; Disable linum mode
+(add-hook 'Man-mode-hook (lambda () (toggle-linum-mode -1)))
+(add-hook 'help-mode-hook (lambda () (toggle-linum-mode -1)))
+(add-hook 'completion-list-mode-hook (lambda () (toggle-linum-mode -1)))
+(add-hook 'Info-mode-hook (lambda () (toggle-linum-mode -1)))
+(add-hook 'ibuffer-mode-hook (lambda () (toggle-linum-mode -1)))
+(add-hook 'gud-mode-hook (lambda () (toggle-linum-mode -1)))
 
 
