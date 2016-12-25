@@ -18,7 +18,8 @@
 
 (defmacro toggle-linum-mode (option)
   "Toggle linum-mode based on option."
-  `(when (linum-mode-supported-p) (linum-mode ,option)))
+  (when (linum-mode-supported-p)
+    `(linum-mode ,option)))
 
 (defmacro enable-global-linum-mode ()
   "Eanble global linum mode."
