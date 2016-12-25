@@ -32,8 +32,7 @@
 (add-hook 'cider-mode-hook #'eldoc-mode)
 (add-hook 'cider-repl-mode-hook
           (lambda ()
-            (enable-eldoc-mode)
-            (toggle-linum-mode -1)))
+            (enable-eldoc-mode)))
 
 ;; Go right to the REPL buffer when it's finished connecting
 (safe-setq cider-repl-pop-to-buffer-on-connect t)

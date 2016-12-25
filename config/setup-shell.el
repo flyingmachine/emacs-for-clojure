@@ -38,9 +38,3 @@
      (setq shell-file-name "bash")
      (setenv "SHELL" (shell-command-to-string "type -P bash")))))
 
-
-;; disable linum on term/shell/eshell
-(add-hook 'term-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'shell-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'eshell-mode-hook (lambda () (toggle-linum-mode -1)))
-

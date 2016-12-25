@@ -16,10 +16,13 @@
   "Check Emacs version supports linum mode. "
   `(version-supported-p <= 23.1 t))
 
-(defmacro toggle-linum-mode (option)
-  "Toggle linum-mode based on option."
+(defmacro toggle-linum-mode ()
+  "Toggle linum-mode."
   (when (linum-mode-supported-p)
-    `(linum-mode ,option)))
+    `(if (or (not (boundp 'linum-mode))
+             (null linum-mode))
+         (linum-mode t)
+       (linum-mode -1))))
 
 (defmacro enable-global-linum-mode ()
   "Eanble global linum mode."
@@ -31,9 +34,7 @@
 (when (eq browse-url-browser-function
           'browse-url-default-browser)
   (safe-do eww-browse-url
-           (setq browse-url-browser-function 'eww-browse-url)
-           (add-hook 'eww-mode-hook
-                     (lambda () (toggle-linum-mode -1)))))
+           (setq browse-url-browser-function 'eww-browse-url)))
 
 
 (defmacro add-lisp-mode-hook (hook &rest body)
@@ -49,7 +50,7 @@
                ,@body)))
 
 ;; Enable linum mode
-(enable-global-linum-mode)
+;; (enable-global-linum-mode)
 
 ;; *scratch* 
 (add-lisp-mode-hook 'emacs-lisp-mode-hook
@@ -59,7 +60,6 @@
     (cond ((string= "*scratch*" (buffer-name))
            (local-set-key (kbd "RET")
                           (lambda () (interactive)
-                            (toggle-linum-mode -1)
                             (enable-eldoc-mode)
                             (eval-print-last-sexp)
                             (newline)))))))
@@ -74,13 +74,5 @@
                    (string= "lisp" inferior-lisp-program))
            (setq inferior-lisp-program ,lisp)))
      (setq-default inferior-lisp-program ,lisp)))
-
-;; Disable linum mode
-(add-hook 'Man-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'help-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'completion-list-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'Info-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'ibuffer-mode-hook (lambda () (toggle-linum-mode -1)))
-(add-hook 'gud-mode-hook (lambda () (toggle-linum-mode -1)))
 
 

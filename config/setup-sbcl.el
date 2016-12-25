@@ -19,18 +19,14 @@
 
 ;; setup sbcl, it's slow process so be adviced
 (defadvice slime (before slime-before compile)
-  (add-hook 'sldb-hook (lambda () (toggle-linum-mode -1)))
   (add-hook
    'slime-repl-mode-hook
    (lambda ()
-     (toggle-linum-mode -1)
      (safe-do slime-selector 
               (local-set-key (kbd "<f12>")
                              'slime-selector))
      (safe-do slime-close-all-parens-in-sexp
               (local-set-key (kbd "C-c C-]")
                              'slime-close-all-parens-in-sexp))))
-  (add-hook 'slime-inspector-mode-hook
-            (lambda () (toggle-linum-mode -1)))
   (slime-setup '(slime-fancy slime-asdf)))
 

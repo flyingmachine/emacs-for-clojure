@@ -9,6 +9,3 @@
             ;; Working with camel-case tokens
             (subword-mode)))
 
-(add-hook 'inferior-python-mode-hook
-          (lambda () (toggle-linum-mode -1)))
-
