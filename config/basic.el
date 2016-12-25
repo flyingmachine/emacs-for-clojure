@@ -23,7 +23,8 @@
 
 (defmacro enable-global-linum-mode ()
   "Eanble global linum mode."
-  `(when (linum-mode-supported-p) (global-linum-mode)))
+  (when (linum-mode-supported-p)
+    `(global-linum-mode)))
 
 
 ;; Default web browser: eww `C-d C-d h'
