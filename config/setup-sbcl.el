@@ -23,8 +23,8 @@
    'slime-repl-mode-hook
    (lambda ()
      (safe-do slime-selector 
-              (local-set-key (kbd "<f12>")
-                             'slime-selector))
+              (global-set-key (kbd "C-c s")
+                              'slime-selector))
      (safe-do slime-close-all-parens-in-sexp
               (local-set-key (kbd "C-c C-]")
                              'slime-close-all-parens-in-sexp))))
