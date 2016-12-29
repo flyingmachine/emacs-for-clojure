@@ -237,7 +237,6 @@
 (compile-and-load-elisp-files
  ;; compile and load non-package-required elisp files
  '("editing.el"
-   "misc.el"
    "setup-debugger.el") "config/")
 
 (compile-and-load-elisp-files

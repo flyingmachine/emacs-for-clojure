@@ -52,7 +52,7 @@
 ;; Enable linum mode
 ;; (enable-global-linum-mode)
 
-;; *scratch* 
+;; *scratch*
 (add-lisp-mode-hook 'emacs-lisp-mode-hook
   (progn
     (enable-eldoc-mode)
