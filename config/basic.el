@@ -56,13 +56,13 @@
 (add-lisp-mode-hook 'emacs-lisp-mode-hook
   (progn
     (enable-eldoc-mode)
-    (local-set-key (kbd "TAB") #'complete-symbol)
-    (cond ((string= "*scratch*" (buffer-name))
-           (local-set-key (kbd "RET")
-                          (lambda () (interactive)
-                            (enable-eldoc-mode)
-                            (eval-print-last-sexp)
-                            (newline)))))))
+    (package-supported-p
+     (local-set-key (kbd "TAB") #'complete-symbol)
+     (cond ((string= "*scratch*" (buffer-name))
+            (local-set-key (kbd "RET")
+                           (lambda () (interactive)
+                             (eval-print-last-sexp)
+                             (newline))))))))
 
 
 (defmacro safe-setq-inferior-lisp-program (lisp &optional force)
