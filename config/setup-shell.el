@@ -5,7 +5,7 @@
 
 ;; Setup shell environment base on OS
 
-
+;; set PATH on Windows
 (defmacro set-path-env ()
   "Set PATH and exec-path in Emacs.
   `TODO': other shell, duplicated path"
@@ -24,7 +24,7 @@
    (setenv "SHELL" "/bin/bash")
    (set-path-env)))
 
-;; set PATH on Windows
+;; set shell on Windows
 (platform-supported-p
  windows-nt
  (defadvice shell (before shell-before compile)
