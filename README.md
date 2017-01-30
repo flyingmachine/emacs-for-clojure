@@ -61,12 +61,20 @@ $ HAS_EMACS=1 bash <(curl https://raw.githubusercontent.com/junjiemars/kit/maste
 It's **self-documenting** and great, keep reading it frequently.
 
 * Tutorial: ```C-h-t```
-* Info: ```M-h```, switch the current buffer and *Info* via ```C-h-i```
-* Info of Moduel: ```C-h i d m <x>``` *<x>* is the module
-* Module: ```C-h-m```
-* Function: ```C-h-f```
-* Variable: ```C-h-v```
-* Keybinding: ```C-h-k```
+* Help for Help: ```C-h C-h```
+* Emacs manual: ```C-h r```
+* Info: ```C-h i```
+* Info of mode: ```C-h i d m <x>``` *<x>* is the mode
+* Mode: ```C-h-m``` see all the key bindings and documentation of current buffer
+* Where is command: ```C-h w``` which keystrokes binding to a given command
+* Function: ```C-h-f``` display documentation of the given function
+* Variable: ```C-h-v``` display documentation of the given variable
+* Keybinding: ```C-h-k``` display documentation of the function invoked by the given keystrokes
+* Prefix keybindings: ```<prefix> C-h``` see all key bindings for given prefix keystrokes
+* Keybinding briefly: ```C-h c```, which command for given keystroke
+* Message: ```C-h e``` see the logging of echo area message
+* Man: ```M-x man``` view UNIX manual page
+* Woman: ```M-x woman``` view UNIX manual page without ```man``` program
 
 ### Interative
 
