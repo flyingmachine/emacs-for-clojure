@@ -16,13 +16,6 @@
   "Check Emacs version supports linum mode. "
   `(version-supported-p <= 23.1 t))
 
-(defmacro toggle-linum-mode ()
-  "Toggle linum-mode."
-  (when (linum-mode-supported-p)
-    `(if (or (not (boundp 'linum-mode))
-             (null linum-mode))
-         (linum-mode t)
-       (linum-mode -1))))
 
 (defmacro enable-global-linum-mode ()
   "Eanble global linum mode."
@@ -49,8 +42,16 @@
                 (safe-call rainbow-delimiters-mode))
                ,@body)))
 
-;; Enable linum mode
-;; (enable-global-linum-mode)
+
+(when (linum-mode-supported-p)
+  (defun toggle-linum-mode ()
+    "Toggle linum-mode."
+    (interactive)
+    (if (or (not (boundp 'linum-mode))
+            (null linum-mode))
+        (linum-mode t)
+      (linum-mode -1))))
+
 
 ;; *scratch*
 (add-lisp-mode-hook 'emacs-lisp-mode-hook
