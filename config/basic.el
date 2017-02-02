@@ -77,3 +77,13 @@
      (setq-default inferior-lisp-program ,lisp)))
 
 
+;; ido-mode allows you to more easily navigate choices. For example,
+;; when you want to switch buffers, ido presents you with a list
+;; of buffers in the the mini-buffer. As you start to type a buffer's
+;; name, ido will narrow down the list of buffers to match the text
+;; you've typed in
+;; http://www.emacswiki.org/emacs/InteractivelyDoThings
+(ido-mode t)
+
+;; Shows a list of buffers
+(global-set-key (kbd "C-x C-b") #'ibuffer)
