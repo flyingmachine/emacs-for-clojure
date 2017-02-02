@@ -17,12 +17,6 @@
   `(version-supported-p <= 23.1 t))
 
 
-(defmacro enable-global-linum-mode ()
-  "Eanble global linum mode."
-  (when (linum-mode-supported-p)
-    `(global-linum-mode)))
-
-
 ;; Default web browser: eww `C-d C-d h'
 (when (eq browse-url-browser-function
           'browse-url-default-browser)
