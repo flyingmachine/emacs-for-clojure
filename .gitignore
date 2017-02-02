@@ -35,3 +35,5 @@ private/nul
 server/
 TAGS
 config/.nrepl-history
+**/g_*/
+**/t_*/
