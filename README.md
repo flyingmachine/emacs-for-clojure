@@ -81,17 +81,22 @@ It's **self-documenting** and great, keep reading it frequently.
 * \*scratch\* buffer
 * via Elisp: ```M-:```
 * via Shell Command: ```M-!```, see *Info>Emacs>Shell*
+* in Dired mode: ```!```, do shell command
 
 ### Editing
-*etags|tags-table-list*
+* ```kill-whole-line```: ```C-S-DEL```
+* kill all spaces at point: ```M-\```
+* kill all spaces except one at point: ```M-SPC```
 
-### Case Conversion
-*Info>Emacs>Text>Case*
+### Basic sexp commands
+* ```forward-sexp```: ```C-M-f```
+* ```backward-sexp```: ```C-M-b```
+* ```kill-sexp```: ```C-M-k```
+* ```transpose-sexp```: ```C-M-t```
 
 ### Remote
 
-* non-sudo: ```C-x C-f /ssh:<remote-id>:/path/to/file RET```,
-*<remote-id>* such as *x@y.z* or *xyz* in .ssh/config entries.
+* non-sudo: ```C-x C-f /ssh:<remote-id>:/path/to/file RET```, *<remote-id>* such as *x@y.z* or *xyz* in .ssh/config entries.
 * sudo: ```C-x C-f /ssh:<remote-id>|sudo:<remote-host>:/path/to/file```, *<remote-host>*
 such as *x@localhost* or *localhost* if the user *x* is a sudoer.
 
