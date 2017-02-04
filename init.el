@@ -40,21 +40,25 @@
 
 (defmacro package-supported-p (&rest body)
   "Run body code if the Emacs supports package."
+  (declare (indent 0))
   (when (>= emacs-major-version 24)
     `(progn ,@body)))
 
 (defmacro platform-supported-p (os &rest body)
   "Run body code if the Emacs on specified OS platform."
+  (declare (indent 1))
   (when (eq system-type os)
     `(progn ,@body)))
 
 (defmacro platform-supported-unless (os &rest body)
   "Run body code if the Emacs on specified unless OS platforms"
+  (declare (indent 1))
   (unless (eq system-type os)
     `(progn ,@body)))
 
 (defmacro version-supported-p (c v &rest body)
   "Run body code if the Emacs on specified version."
+  (declare (indent 2))
   (when (funcall c v (string-to-number emacs-version))
     `(progn ,@body)))
 
@@ -66,11 +70,13 @@
 
 (defmacro graphic-supported-p (&rest body)
   "Run body code if the Emacs on graphic mode."
+  (declare (indent 0))
   (when (display-graphic-p)
     `(progn ,@body)))
 
 (defmacro terminal-supported-p (&rest body)
   "Run body code if the Emacs on terminal mode."
+  (declare (indent 0))
   (unless (display-graphic-p)
     `(progn ,@body)))
 
@@ -92,10 +98,12 @@
 
 (defmacro safe-call (fn &rest args)
   "Call fn with args when fn has been bound"
+  (declare (indent 1))
   `(when (fboundp ',fn) (,fn ,@args)))
 
 (defmacro safe-do (fn &rest body)
   "Do body when fn is bound"
+  (declare (indent 1))
   `(when (fboundp ',fn) ,@body))
 
 (defmacro safe-setq (x val)
@@ -104,6 +112,7 @@
 
 (defmacro safe-setq* (x &rest body)
   "Do body when x is bound"
+  (declare (indent 1))
   `(when (boundp ,x) ,@body))
 
 (defmacro self-symbol (name)

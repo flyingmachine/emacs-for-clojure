@@ -2,6 +2,7 @@
 
 (defmacro /. (DIVIDEND &rest DIVISORS)
   "Returns first float-point DIVIDEND divided by all the remaining DIVISORS"
+  (declare (indent 1))
   `(/ (+ ,DIVIDEND 0.0) ,@DIVISORS))
 
 (defmacro rate. (R &optional periods)
