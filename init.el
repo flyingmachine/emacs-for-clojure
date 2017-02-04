@@ -227,9 +227,8 @@
                   "setup-python.el"))
          (lfe (when has-erlang '("setup-lfe.el")))
          (clojure (when has-java '("setup-clojure.el")))
-         (racket (when has-racket '("setup-racket.el")))
          (sbcl (when has-sbcl '("setup-sbcl.el"))))
-    (append basic lfe clojure racket sbcl))
+    (append basic lfe clojure sbcl))
   "config/"))
   
  ;; ^ end of support-package-p

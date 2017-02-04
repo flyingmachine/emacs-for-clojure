@@ -20,6 +20,34 @@
             (rainbow-delimiters-mode)))
 
 
+
+;; Enable lisp mode for scheme
+(add-hook 'scheme-mode-hook
+          (lambda ()
+            (enable-eldoc-mode)
+            (enable-paredit-mode)
+            (aggressive-indent-mode)
+            (rainbow-delimiters-mode)))
+
+
+;; Enable lisp mode for scheme
+(add-hook 'lisp-mode-hook
+          (lambda ()
+            (enable-eldoc-mode)
+            (enable-paredit-mode)
+            (aggressive-indent-mode)
+            (rainbow-delimiters-mode)))
+
+
+;; Enable lisp mode for scheme
+(add-hook 'lisp-interaction-mode-hook
+          (lambda ()
+            (enable-eldoc-mode)
+            (enable-paredit-mode)
+            (aggressive-indent-mode)
+            (rainbow-delimiters-mode)))
+
+
 ;; Enable paredit in minibuffer on gnu/linux platform
 (platform-supported-p
  gnu/linux
@@ -32,3 +60,5 @@
  gnu/linux
  (add-hook 'eval-expression-minibuffer-setup-hook
            #'enable-paredit-mode))
+
+
