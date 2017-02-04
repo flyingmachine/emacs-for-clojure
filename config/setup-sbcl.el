@@ -18,17 +18,17 @@
  (safe-setq-inferior-lisp-program (bin-path "sbcl") t))
 
 
-;; Stop SLIME's REPL from grabbing DEL,
-;; which is annoying when backspacing over a '('
-
-(defun override-slime-repl-bindings-with-paredit ()
-  (enable-paredit-mode)
-  (aggressive-indent-mode)
-  (rainbow-delimiters-mode)
-  (when (and (boundp 'slime-repl-mode-map)
-             (boundp 'paredit-backward-delete-key))
-    (define-key slime-repl-mode-map
-      (read-kbd-macro paredit-backward-delete-key) nil)))
+(comment
+ ;; Stop SLIME's REPL from grabbing DEL,
+ ;; which is annoying when backspacing over a '('
+ (defun override-slime-repl-bindings-with-paredit ()
+   (enable-paredit-mode)
+   (aggressive-indent-mode)
+   (rainbow-delimiters-mode)
+   (when (and (boundp 'slime-repl-mode-map)
+              (boundp 'paredit-backward-delete-key))
+     (define-key slime-repl-mode-map
+       (read-kbd-macro paredit-backward-delete-key) nil))))
 
 
 ;; setup sbcl, it's slow process so be adviced
@@ -36,14 +36,14 @@
   (add-hook
    'slime-repl-mode-hook
    (lambda ()
-     (comment
-      (safe-do slime-close-all-parens-in-sexp
-               (local-set-key (kbd "C-c C-]")
-                              'slime-close-all-parens-in-sexp)))
+     (safe-do slime-close-all-parens-in-sexp
+              (local-set-key (kbd "C-c C-]")
+                             'slime-close-all-parens-in-sexp))
      (safe-do slime-selector 
               (global-set-key (kbd "C-c s")
                               'slime-selector))
-     (override-slime-repl-bindings-with-paredit)))
+     (comment
+      (override-slime-repl-bindings-with-paredit))))
   (slime-setup '(slime-fancy slime-asdf)))
 
 
