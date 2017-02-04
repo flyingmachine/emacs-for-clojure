@@ -87,6 +87,7 @@ It's **self-documenting** and great, keep reading it frequently.
 * ```kill-whole-line```: ```C-S-DEL```
 * kill all spaces at point: ```M-\```
 * kill all spaces except one at point: ```M-SPC```
+* dynamic abbreviation: ```M-/```
 
 ### Basic sexp commands
 * ```forward-sexp```: ```C-M-f```
