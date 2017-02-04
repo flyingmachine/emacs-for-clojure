@@ -4,9 +4,20 @@
 
 
 
+;; *scratch*
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (enable-paredit-mode)
+            (aggressive-indent-mode)
+            (rainbow-delimiters-mode)))
+
+
 ;; Interactive Elisp mode
-(add-lisp-mode-hook 'ielm-mode-hook
-  (enable-eldoc-mode))
+(add-hook 'ielm-mode-hook
+          (lambda ()
+            (enable-paredit-mode)
+            (aggressive-indent-mode)
+            (rainbow-delimiters-mode)))
 
 
 ;; Enable paredit in minibuffer on gnu/linux platform

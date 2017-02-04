@@ -24,19 +24,7 @@
            (setq browse-url-browser-function 'eww-browse-url)))
 
 
-(defmacro add-lisp-mode-hook (hook &rest body)
-  "Enable basic modes for lisp editing, 
-  (reset-emacs) after packages had been installed."
-  (declare (indent 1) (debug t))
-  `(add-hook ,hook
-             (lambda ()
-               (package-supported-p
-                (safe-call enable-paredit-mode)
-                (safe-call aggressive-indent-mode)
-                (safe-call rainbow-delimiters-mode))
-               ,@body)))
-
-
+;; Toggle linum mode 
 (when (linum-mode-supported-p)
   (defun toggle-linum-mode ()
     "Toggle linum-mode."
@@ -47,17 +35,23 @@
       (linum-mode -1))))
 
 
-;; *scratch*
-(add-lisp-mode-hook 'emacs-lisp-mode-hook
-  (progn
-    (enable-eldoc-mode)
-    (package-supported-p
-     (local-set-key (kbd "TAB") #'complete-symbol)
-     (cond ((string= "*scratch*" (buffer-name))
-            (local-set-key (kbd "RET")
-                           (lambda () (interactive)
-                             (eval-print-last-sexp)
-                             (newline))))))))
+;; elisp basic setting
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (enable-eldoc-mode)
+            (local-set-key (kbd "TAB") #'complete-symbol)
+            (cond
+             ((string= "*scratch*" (buffer-name))
+              (local-set-key (kbd "RET")
+                             (lambda ()
+                               (interactive)
+                               (eval-print-last-sexp)
+                               (newline)))))))
+
+
+;; ielm 
+(add-hook 'ielm-mode-hook
+          (lambda () (enable-eldoc-mode)))
 
 
 (defmacro safe-setq-inferior-lisp-program (lisp &optional force)
