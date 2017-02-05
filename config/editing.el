@@ -86,11 +86,13 @@
 ;; Default tab-width
 (setq-default tab-width 4)
 
+
 ;; cc mode indent level
 (add-hook 'c-mode-common-hook
           (lambda ()
             (safe-setq indent-tabs-mode nil)
             (safe-setq c-basic-offset 4)))
+
 
 ;; shell script mode tab-width
 (add-hook 'sh-mode-hook (lambda () (safe-setq tab-width 2)))
@@ -118,11 +120,6 @@
 (setq-default sh-indentation 2)
 
 
-;; c/c++
-(setq-default c-basic-offset 2)
-(setq-default c-indentation 2)
-
-
 ;; bing dict
 (safe-do bing-dict-brief
   (global-set-key (kbd "C-c d") 'bing-dict-brief))
@@ -130,3 +127,8 @@
 
 ;; Greek letters C-x 8 <RET> greek small letter lambda
 ;; (global-set-key (kbd "C-c l") "λ")
+
+
+;; magit
+(safe-do magit-status
+  (global-set-key (kbd "C-c s") 'magit-status))

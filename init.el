@@ -159,86 +159,87 @@
 
 ;; Start loading ...
 (package-supported-p
- ;; define package repositories
- (setq package-archives
-       (append (list '("gnu" . "http://elpa.gnu.org/packages/")
-                     '("melpa-stable" . "http://stable.melpa.org/packages/"))
-               (version-supported-p
-                <= 25.1
-                (list '("melpa" . "http://melpa.org/packages/")))))
+  ;; define package repositories
+  (setq package-archives
+        (append (list '("gnu" . "http://elpa.gnu.org/packages/")
+                      '("melpa-stable" . "http://stable.melpa.org/packages/"))
+                (version-supported-p
+                    <= 25.1
+                  (list '("melpa" . "http://melpa.org/packages/")))))
 
- (version-supported-p
-  <= 25.1
-  (safe-setq package-archive-priorities
-             (list '("gnu" . 10)
-                   '("melpa-stable" . 80)
-                   '("melpa" . 0))))
- 
- (require 'package)
- (package-initialize)
+  (version-supported-p
+      <= 25.1
+    (safe-setq package-archive-priorities
+               (list '("gnu" . 10)
+                     '("melpa-stable" . 80)
+                     '("melpa" . 0))))
+  
+  (require 'package)
+  (package-initialize)
 
- ;; packages based on existings
- (defvar has-docker (bin-exists-p "docker"))
- (defvar has-erlang (bin-exists-p "erl"))
- (defvar has-latex (bin-exists-p "latex"))
- (defvar has-java (bin-exists-p "java"))
- (defvar has-racket (bin-exists-p "racket"))
- (defvar has-sbcl (bin-exists-p "sbcl"))
+  ;; packages based on existings
+  (defvar has-docker (bin-exists-p "docker"))
+  (defvar has-erlang (bin-exists-p "erl"))
+  (defvar has-latex (bin-exists-p "latex"))
+  (defvar has-java (bin-exists-p "java"))
+  (defvar has-racket (bin-exists-p "racket"))
+  (defvar has-sbcl (bin-exists-p "sbcl"))
 
- ;; guarantee all packages are installed on start
- (defvar installed-packages
-   (let* ((basic '(aggressive-indent
-                   bing-dict
-                   ido-ubiquitous
-                   markdown-mode
-                   paredit
-                   rainbow-delimiters
-                   smex
-                   tagedit))
-          (docker '(dockerfile-mode docker-tramp))
-          (erlang '(erlang lfe-mode))
-          (latex '(auctex))
-          (java '(cider clojure-mode clojure-mode-extra-font-locking))
-          (racket '(geiser))
-          (sbcl '(slime))
-          (self (let ((ss (self-symbol "packages")))
-                  (safe-setq* ss (symbol-value ss)))))
-     (append basic
-             (version-supported-p <= 24.4 (when has-docker docker))
-             (version-supported-p <= 24.4 '(magit))
-             (version-supported-p <= 24.4 (when has-java java))
-             (version-supported-p <= 23.2 (when has-racket racket))
-             (when has-erlang erlang)
-             (when has-latex latex)
-             (when has-sbcl sbcl)
-             (when self self))))
+  ;; guarantee all packages are installed on start
+  (defvar installed-packages
+    (let* ((basic '(aggressive-indent
+                    bing-dict
+                    ido-ubiquitous
+                    ereader
+                    markdown-mode
+                    paredit
+                    rainbow-delimiters
+                    smex
+                    tagedit))
+           (docker '(dockerfile-mode docker-tramp))
+           (erlang '(erlang lfe-mode))
+           (latex '(auctex))
+           (java '(cider clojure-mode clojure-mode-extra-font-locking))
+           (racket '(geiser))
+           (sbcl '(slime))
+           (self (let ((ss (self-symbol "packages")))
+                   (safe-setq* ss (symbol-value ss)))))
+      (append basic
+              (version-supported-p <= 24.4 (when has-docker docker))
+              (version-supported-p <= 24.4 '(magit))
+              (version-supported-p <= 24.4 (when has-java java))
+              (version-supported-p <= 23.2 (when has-racket racket))
+              (when has-erlang erlang)
+              (when has-latex latex)
+              (when has-sbcl sbcl)
+              (when self self))))
 
- (version-supported-p
-  <= 25.1
-  (safe-setq package-selected-packages installed-packages))
+  (version-supported-p
+      <= 25.1
+    (safe-setq package-selected-packages installed-packages))
 
- (let ((not-installed-packages
-        (delete t (mapcar #'(lambda (p)
-                              (if (package-installed-p p) t p))
-                          installed-packages))))
-   (when not-installed-packages
-     (package-refresh-contents)
-     (message "#Installing the missing %d packages: %s"
-              (length not-installed-packages)
-              not-installed-packages)
-     (mapcar #'(lambda (i) (package-install i))
-             not-installed-packages)))
+  (let ((not-installed-packages
+         (delete t (mapcar #'(lambda (p)
+                               (if (package-installed-p p) t p))
+                           installed-packages))))
+    (when not-installed-packages
+      (package-refresh-contents)
+      (message "#Installing the missing %d packages: %s"
+               (length not-installed-packages)
+               not-installed-packages)
+      (mapcar #'(lambda (i) (package-install i))
+              not-installed-packages)))
 
- (compile-and-load-elisp-files
-  ;; compile and load basic elisp files
-  (let* ((basic '("lisp.el"
-                  "navigation.el"
-                  "setup-python.el"))
-         (lfe (when has-erlang '("setup-lfe.el")))
-         (clojure (when has-java '("setup-clojure.el")))
-         (sbcl (when has-sbcl '("setup-sbcl.el"))))
-    (append basic lfe clojure sbcl))
-  "config/"))
+  (compile-and-load-elisp-files
+   ;; compile and load basic elisp files
+   (let* ((basic '("lisp.el"
+                   "navigation.el"
+                   "setup-python.el"))
+          (lfe (when has-erlang '("setup-lfe.el")))
+          (clojure (when has-java '("setup-clojure.el")))
+          (sbcl (when has-sbcl '("setup-sbcl.el"))))
+     (append basic lfe clojure sbcl))
+   "config/"))
   
  ;; ^ end of support-package-p
 

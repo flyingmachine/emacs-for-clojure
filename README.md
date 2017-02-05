@@ -76,18 +76,23 @@ It's **self-documenting** and great, keep reading it frequently.
 * Man: ```M-x man``` view UNIX manual page
 * Woman: ```M-x woman``` view UNIX manual page without ```man``` program
 
-### Interative
+### Motion
+* goto line: ```M-g g```
+* goto nth char: ```M-g c```
 
+### Interaction
 * \*scratch\* buffer
 * via Elisp: ```M-:```
 * via Shell Command: ```M-!```, see *Info>Emacs>Shell*
 * in Dired mode: ```!```, do shell command
+* insert shell output: ```C-u M-!```
 
 ### Editing
 * ```kill-whole-line```: ```C-S-DEL```
 * kill all spaces at point: ```M-\```
 * kill all spaces except one at point: ```M-SPC```
 * dynamic abbreviation: ```M-/```
+* query replace: ```M-%```
 
 ### Basic sexp commands
 * ```forward-sexp```: ```C-M-f```
@@ -95,14 +100,41 @@ It's **self-documenting** and great, keep reading it frequently.
 * ```kill-sexp```: ```C-M-k```
 * ```transpose-sexp```: ```C-M-t```
 
-### Remote
+### Window
+* dired other window: ```C-x 4 d```
+* find file in other window: ```C-x 4 C-f```, or ```C-x 4 f```
+* display buffer: ```C-x 4 C-o```, display the buffer in another window
+* find tag other window: ```C-x 4 .```
+* kill buffer and window: ```C-x 4 0```, just like ```C-x 0``` except kill the buffer
+* switch to buffer other window: ```C-x 4 b```
+* clone indirect buffer other window: ```C-x 4 c```, clone the buffer in another window
 
+### Frame
+* find file other frame: ```C-x 5 C-f```, or ```C-x 5 f```
+* display buffer other frame: ```C-x 5 C-o```, or ```C-x 5 b```
+* find tag other frame: ```C-x 5 .```
+* delete frame: ```C-x 5 0```
+* delete other frames: ```C-x 5 1```
+* make frame command: ```C-x 5 2```
+* dired to other frame: ```C-x 5 d```
+* other frame: ```C-x 5 o```
+* find file read only other frame: ```C-x 5 r```
+
+
+### Register
+It can not accross sessions
+* window configuration to register: ```C-x r w <REG>```, <REG> is single character
+* frame configuration to register: ```C-x r f <REG>```
+* jump to register: ```C-x r j <REG>```
+
+
+### Remote
+It's the duty of [TRAMP](https://www.gnu.org/software/tramp/)
 * non-sudo: ```C-x C-f /ssh:<remote-id>:/path/to/file RET```, *<remote-id>* such as *x@y.z* or *xyz* in .ssh/config entries.
 * sudo: ```C-x C-f /ssh:<remote-id>|sudo:<remote-host>:/path/to/file```, *<remote-host>*
 such as *x@localhost* or *localhost* if the user *x* is a sudoer.
 
 ### Shell
-
 * EShell: ```M-x eshell```
 * Shell: ```M-x shell```
 * Ansi-Term: ```M-x ansi-term```
