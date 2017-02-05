@@ -190,7 +190,6 @@
     (let* ((basic '(aggressive-indent
                     bing-dict
                     ido-ubiquitous
-                    ereader
                     markdown-mode
                     paredit
                     rainbow-delimiters
@@ -205,6 +204,7 @@
            (self (let ((ss (self-symbol "packages")))
                    (safe-setq* ss (symbol-value ss)))))
       (append basic
+              (version-supported-p <= 25.1 '(ereader))
               (version-supported-p <= 24.4 (when has-docker docker))
               (version-supported-p <= 24.4 '(magit))
               (version-supported-p <= 24.4 (when has-java java))
