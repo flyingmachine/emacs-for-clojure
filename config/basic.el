@@ -32,7 +32,8 @@
     (if (or (not (boundp 'linum-mode))
             (null linum-mode))
         (linum-mode t)
-      (linum-mode -1))))
+      (linum-mode -1)))
+  (global-set-key (kbd "C-c l") 'toggle-linum-mode))
 
 
 ;; elisp basic setting

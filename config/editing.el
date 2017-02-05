@@ -7,6 +7,7 @@
 ;; http://www.emacswiki.org/emacs/HippieExpand
 (global-set-key (kbd "M-/") 'hippie-expand)
 
+
 ;; Lisp-friendly hippie expand
 (setq hippie-expand-try-functions-list
       '(try-expand-dabbrev
@@ -15,18 +16,9 @@
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
 
+
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
-
-;; Under Terminal mode
-(terminal-supported-p
- ;; current line highlight and background #3e4446
- ;; (face-attribute `hl-line' :background)
- ;; (set-face-background `hl-line' "#3e4446")
- ;; (version-supported-p <= 24 (global-hl-line-mode 1))
- ;; backspace may be a `c-h-' key
- ;;(normal-erase-is-backspace-mode)
- )
 
 
 ;; Interactive search key bindings.
@@ -65,16 +57,14 @@
                                (line-end-position)))
 (global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
-;; yay rainbows!
-;; (global-rainbow-delimiters-mode t)
 
 ;; fix weird os x kill error
 (defun ns-get-pasteboard ()
   "Returns the value of the pasteboard, or nil for unsupported formats."
   (safe-do ns-get-selection-internal
-           (condition-case nil
-               (ns-get-selection-internal 'CLIPBOARD)
-             (quit nil))))
+    (condition-case nil
+        (ns-get-selection-internal 'CLIPBOARD)
+      (quit nil))))
 
 
 ;; No need for ~ files when editing
@@ -87,6 +77,7 @@
 
 ;; Disable electric indent mode 
 (safe-setq electric-indent-mode nil)
+
 
 ;; Enable column number mode
 (safe-setq column-number-mode t)
@@ -121,6 +112,7 @@
 (setq-default recentf-auto-cleanup 'never)
 (recentf-mode 1)
 
+
 ;; shell scripts
 (setq-default sh-basic-offset 2)
 (setq-default sh-indentation 2)
@@ -131,4 +123,10 @@
 (setq-default c-indentation 2)
 
 
+;; bing dict
+(safe-do bing-dict-brief
+  (global-set-key (kbd "C-c d") 'bing-dict-brief))
+
+
 ;; Greek letters C-x 8 <RET> greek small letter lambda
+;; (global-set-key (kbd "C-c l") "λ")
