@@ -206,8 +206,8 @@
       (append basic
               (version-supported-p <= 25.1 '(ereader))
               (version-supported-p <= 24.4 (when has-docker docker))
-              (version-supported-p <= 24.4 '(magit))
               (version-supported-p <= 24.4 (when has-java java))
+              (version-supported-p <= 24.4 '(magit))
               (version-supported-p <= 23.2 (when has-racket racket))
               (when has-erlang erlang)
               (when has-latex latex)

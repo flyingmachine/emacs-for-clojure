@@ -126,6 +126,21 @@ It can not accross sessions
 * window configuration to register: ```C-x r w <REG>```, <REG> is single character
 * frame configuration to register: ```C-x r f <REG>```
 * jump to register: ```C-x r j <REG>```
+* copy to register: ```C-x r s <REG>```
+* insert register: ```C-x r i <REG>```
+
+
+### Keyboard Macro
+* start recording macro: ```C-x (```
+* stop recording macro: ```C-x )```
+* playback macro: ```C-x e```
+* apply macro to region lines: ```C-x C-k r```
+
+
+### Shell
+* EShell: ```M-x eshell```
+* Shell: ```M-x shell```
+* Ansi-Term: ```M-x ansi-term```
 
 
 ### Remote
@@ -133,8 +148,4 @@ It's the duty of [TRAMP](https://www.gnu.org/software/tramp/)
 * non-sudo: ```C-x C-f /ssh:<remote-id>:/path/to/file RET```, *<remote-id>* such as *x@y.z* or *xyz* in .ssh/config entries.
 * sudo: ```C-x C-f /ssh:<remote-id>|sudo:<remote-host>:/path/to/file```, *<remote-host>*
 such as *x@localhost* or *localhost* if the user *x* is a sudoer.
-
-### Shell
-* EShell: ```M-x eshell```
-* Shell: ```M-x shell```
-* Ansi-Term: ```M-x ansi-term```
+* eshell remote: ```cd /ssh:<user>@<remote>:<dir>```
