@@ -132,3 +132,5 @@
 ;; magit
 (safe-do magit-status
   (global-set-key (kbd "C-c s") 'magit-status))
+(safe-do magit-pull
+  (global-set-key (kbd "C-c p") 'magit-pull))
