@@ -86,11 +86,14 @@
       `(zerop (shell-command (concat "where " ,b " >nul 2>&1")))
     `(zerop (shell-command (concat "hash " ,b " &>/dev/null")))))
 
+(defmacro shell-command-to-string-no-newline (c)
+  `(replace-regexp-in-string "\n$" "" (shell-command-to-string ,c)))
+
 (defmacro bin-path (b)
   "Returns the path of b in env."
   (if (eq system-type 'windows-nt)
-      `(shell-command-to-string (concat "where " ,b))
-    `(shell-command-to-string (concat "type -P " ,b))))
+      `(shell-command-to-string-no-newline (concat "where " ,b))
+    `(shell-command-to-string-no-newline (concat "type -P " ,b))))
 
 (defmacro windows-nt-path (p)
   "Return the path that windows-nt can recoganized."
