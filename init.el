@@ -184,6 +184,7 @@
   (defvar has-java (bin-exists-p "java"))
   (defvar has-racket (bin-exists-p "racket"))
   (defvar has-sbcl (bin-exists-p "sbcl"))
+  (defvar has-ecl (bin-exists-p "ecl"))
 
   ;; guarantee all packages are installed on start
   (defvar installed-packages
@@ -200,7 +201,7 @@
            (latex '(auctex))
            (java '(cider clojure-mode clojure-mode-extra-font-locking))
            (racket '(geiser))
-           (sbcl '(slime))
+           (common-lisp '(slime))
            (self (let ((ss (self-symbol "packages")))
                    (safe-setq* ss (symbol-value ss)))))
       (append basic
@@ -211,7 +212,7 @@
               (version-supported-p <= 23.2 (when has-racket racket))
               (when has-erlang erlang)
               (when has-latex latex)
-              (when has-sbcl sbcl)
+              (when (or has-sbcl has-ecl) common-lisp)
               (when self self))))
 
   (version-supported-p
@@ -237,7 +238,7 @@
                    "setup-python.el"))
           (lfe (when has-erlang '("setup-lfe.el")))
           (clojure (when has-java '("setup-clojure.el")))
-          (sbcl (when has-sbcl '("setup-sbcl.el"))))
+          (sbcl (when has-sbcl '("setup-slime.el"))))
      (append basic lfe clojure sbcl))
    "config/"))
   
