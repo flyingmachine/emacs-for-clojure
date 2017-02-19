@@ -18,8 +18,8 @@
   "Returns a list of common-lisp implementations."
   (let ((ecl (when has-ecl (bin-path "ecl")))
         (sbcl (when has-sbcl (bin-path "sbcl"))))
-    (remove nil (list (when ecl (list 'ecl (list ecl)))
-                      (when sbcl (list 'sbcl (list sbcl)))))))
+    (remove nil (list (when sbcl (list 'sbcl (list sbcl)))
+                      (when ecl (list 'ecl (list ecl)))))))
 
 
 
