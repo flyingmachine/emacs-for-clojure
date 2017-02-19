@@ -93,6 +93,7 @@ It's **self-documenting** and great, keep reading it frequently.
 * kill all spaces except one at point: ```M-SPC```
 * dynamic abbreviation: ```M-/```
 * query replace: ```M-%```
+* what cursor position: ```C-x =```
 
 ### Basic sexp commands
 * ```forward-sexp```: ```C-M-f```
