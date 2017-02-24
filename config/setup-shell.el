@@ -19,22 +19,29 @@
 
 ;; set PATH on Linux
 (platform-supported-p
- gnu/linux
- (unless (getenv "SHELL")
-   (setenv "SHELL" "/bin/bash")
-   (set-path-env)))
+    gnu/linux
+  (let ((bash "/bin/bash")
+        (rbash "\/bash$"))
+    (when (or (null (getenv "SHELL"))
+              (not (string-match rbash (getenv "SHELL"))))
+      (setenv "SHELL" bash))
+    (when (or (null shell-file-name)
+              (not (string-match rbash shell-file-name)))
+      (setq shell-file-name bash))
+    (set-path-env)))
+
 
 ;; set shell on Windows
 (platform-supported-p
- windows-nt
- (defadvice shell (before shell-before compile)
-   (when (bin-exists-p "bash")
-     (unless (file-exists-p "~/.emacs_bash")
-       (copy-file "~/.emacs.d/config/.emacs_bash"
-                  "~/.emacs_bash"))
-     (add-to-list 'exec-path
-                  (file-name-directory
-                   (windows-nt-path (bin-path "bash"))))
-     (setq shell-file-name "bash")
-     (setenv "SHELL" (shell-command-to-string "type -P bash")))))
+    windows-nt
+  (defadvice shell (before shell-before compile)
+    (when (bin-exists-p "bash")
+      (unless (file-exists-p "~/.emacs_bash")
+        (copy-file "~/.emacs.d/config/.emacs_bash"
+                   "~/.emacs_bash"))
+      (add-to-list 'exec-path
+                   (file-name-directory
+                    (windows-nt-path (bin-path "bash"))))
+      (setq shell-file-name "bash")
+      (setenv "SHELL" (bin-path "bash")))))
 
