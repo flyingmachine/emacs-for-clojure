@@ -5,14 +5,18 @@
 
 ;; Setup shell environment base on OS
 
+
 ;; set PATH on Windows
 (defmacro set-path-env ()
-  "Set PATH and exec-path in Emacs.
-  `TODO': other shell, duplicated path"
+  "Set PATH and exec-path in Emacs."
   `(let* ((p (shell-command-to-string ". ~/.bashrc; echo -n $PATH"))
           (x (split-string p ":")))
      (setenv "PATH" p)
-     (setq exec-path (append exec-path x))))
+     (while (car x)
+       (when (not (member (car x) exec-path))
+         (add-to-list 'exec-path (car x) t))
+       (setq x (cdr x)))))
+
 
 ;; set PATH on darwin
 (platform-supported-p darwin (set-path-env))
