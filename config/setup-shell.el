@@ -6,10 +6,21 @@
 ;; Setup shell environment base on OS
 
 
-;; set PATH on Windows
+(defmacro set-default-shell (shell rshell)
+  "Set default SHELL"
+  `(progn
+     (when (or (null (getenv "SHELL"))
+               (not (string-match ,rshell (getenv "SHELL"))))
+       (setenv "SHELL" ,shell))
+     (when (or (null shell-file-name)
+               (not (string-match ,rshell shell-file-name)))
+       (setq shell-file-name ,shell))))
+
+
 (defmacro set-path-env ()
   "Set PATH and exec-path in Emacs."
-  `(let* ((p (shell-command-to-string ". ~/.bashrc; echo -n $PATH"))
+  `(let* ((p (shell-command-to-string
+              "$SHELL -i -c 'echo -n $PATH' 2>/dev/null"))
           (x (split-string p ":")))
      (setenv "PATH" p)
      (while (car x)
@@ -24,15 +35,8 @@
 ;; set PATH on Linux
 (platform-supported-p
     gnu/linux
-  (let ((bash "/bin/bash")
-        (rbash "\/bash$"))
-    (when (or (null (getenv "SHELL"))
-              (not (string-match rbash (getenv "SHELL"))))
-      (setenv "SHELL" bash))
-    (when (or (null shell-file-name)
-              (not (string-match rbash shell-file-name)))
-      (setq shell-file-name bash))
-    (set-path-env)))
+  (set-default-shell "/bin/bash" "\/bash$")
+  (set-path-env))
 
 
 ;; set shell on Windows
