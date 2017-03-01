@@ -15,14 +15,14 @@
 (defvar loading-start-time
   (current-time) "The start time at loading init.el")
 
-(defvar g-or-t? (if (display-graphic-p) "g_" "t_")
-  "g_ or t_ prefix for compiled directory")
-
+(defvar v-dir (concat (if (display-graphic-p) "g_" "t_")
+                      emacs-version)
+  "virtualized dir based on grahpic/terminal mode and Emacs's version")
 
 (defmacro compile-and-load-elisp-files (files subdir)
   "Compile and load the elisp files under the subdir."
   `(let* ((d (concat "~/.emacs.d/" ,subdir))
-          (v (concat d g-or-t? emacs-version "/")))
+          (v (concat d v-dir "/")))
      (when (not (file-exists-p v)) (make-directory v t))
      (dolist (f ,files)
        (let ((from (concat d f)))
@@ -142,10 +142,8 @@
 (defmacro clean-compiled-files ()
   "Clean all compiled files, need restart Emacs."
   `(let* ((home "~/.emacs.d/")
-          (config (concat home "config/"
-                          g-or-t? emacs-version "/"))
-          (private (concat home "private/"
-                           g-or-t? emacs-version "/")))
+          (config (concat home "config/" v-dir "/"))
+          (private (concat home "private/" v-dir "/")))
      (dolist (d (list config private))
        (dolist (f (directory-files d nil "\\.elc$"))
          (message "#Clean compiled file: %s" f)
@@ -180,6 +178,8 @@
 
 ;; Start loading ...
 (package-supported-p
+  ;; define package user dir
+  (setq package-user-dir (concat user-emacs-directory "elpa/" v-dir))
   ;; define package repositories
   (setq package-archives
         (append (list '("gnu" . "http://elpa.gnu.org/packages/")
