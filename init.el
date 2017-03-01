@@ -121,6 +121,24 @@
 (defmacro self-symbol (name)
   `(intern (format "self-%s-%s" system-type ,name)))
 
+(defmacro start-socks (&optional port server version)
+  "Switch on url-gateway to socks"
+  `(version-supported-p < 22
+     (require 'url)
+     (setq url-gateway-method 'socks)
+     (set-default 'socks-server
+                  (list "Default server"
+                        (if ,server ,server "127.0.0.1")
+                        (if ,port ,port 32000)
+                        (if ,version ,version 5)))))
+
+(defmacro stop-socks (&optional method)
+  "Switch off url-gateway to native."
+  `(version-supported-p < 22
+     (require 'url)
+     (setq url-gateway-method
+           (if ,method  ,method 'native))))
+
 (defmacro clean-compiled-files ()
   "Clean all compiled files, need restart Emacs."
   `(let* ((home "~/.emacs.d/")

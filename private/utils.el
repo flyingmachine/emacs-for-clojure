@@ -17,24 +17,9 @@
  (fset 'range 'number-sequence))
 
 (safe-do
- cl-prettyexpand
- (fset 'pprint 'cl-prettyexpand))
+    cl-prettyexpand
+  (fset 'pprint 'cl-prettyexpand))
 
-
-(defmacro start-socks (&optional port server version)
-  "Switch on url-gateway to socks, u should start socks proxy server outside Emacs."
-  `(progn
-     (setq url-gateway-method 'socks)
-     (setq socks-server
-           (list "Default server"
-                 (if ,server ,server "127.0.0.1")
-                 (if ,port ,port 32000)
-                 (if ,version ,version 5)))))
-
-(defmacro stop-socks (&optional method)
-  "Switch off url-gateway to native."
-  `(setq url-gateway-method
-         (if ,method  ,method 'native)))
 
 
 (defun int-to-binary-string (i)
