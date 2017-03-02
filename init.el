@@ -80,6 +80,12 @@
   (unless (display-graphic-p)
     `(progn ,@body)))
 
+(defmacro graphic-supported-if (then &rest else)
+  (declare (indent 1))
+  (if (display-graphic-p)
+      `,then
+    `(progn ,@else)))
+
 (defmacro bin-exists-p (b)
   "Returns true if b exists in env."
   (if (eq system-type 'windows-nt)

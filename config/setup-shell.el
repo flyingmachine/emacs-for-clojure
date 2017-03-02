@@ -35,7 +35,6 @@
 ;; set PATH on Linux
 (platform-supported-p
     gnu/linux
-  ;; (graphic-supported-p)
   (set-default-shell "/bin/bash" "\/bash$")
   (set-path-env))
 
