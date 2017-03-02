@@ -35,11 +35,9 @@
 ;; set PATH on Linux
 (platform-supported-p
     gnu/linux
-  (graphic-supported-p
-    (set-default-shell "/bin/bash" "\/bash$")
-    (set-path-env))
-  (when (not (getenv "PS1"))
-    (setenv "PS1" "\\u@\\h:\\w$ ")))
+  ;; (graphic-supported-p)
+  (set-default-shell "/bin/bash" "\/bash$")
+  (set-path-env))
 
 
 ;; set shell on Windows
