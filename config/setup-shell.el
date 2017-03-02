@@ -37,7 +37,9 @@
     gnu/linux
   (graphic-supported-p
     (set-default-shell "/bin/bash" "\/bash$")
-    (set-path-env)))
+    (set-path-env))
+  (when (not (getenv "PS1"))
+    (setenv "PS1" "\\u@\\h:\\w$ ")))
 
 
 ;; set shell on Windows
