@@ -55,10 +55,10 @@
   (interactive)
   (comment-or-uncomment-region (line-beginning-position)
                                (line-end-position)))
-(graphic-supported-p
-  (global-set-key (kbd "C-;") 'toggle-comment-on-line))
-(terminal-supported-p
-  (global-set-key (kbd "C-c ;") 'toggle-comment-on-line))
+(global-set-key (graphic-supported-if
+                    (kbd "C-;")
+                  (kbd "C-c ;"))
+                'toggle-comment-on-line)
 
 
 ;; fix weird os x kill error
