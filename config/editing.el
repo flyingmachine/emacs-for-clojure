@@ -50,15 +50,22 @@
 
 
 ;; comments
-(defun toggle-comment-on-line ()
-  "comment or uncomment current line"
+(defun toggle-comment ()
+  "Comment or uncomment current line"
   (interactive)
-  (comment-or-uncomment-region (line-beginning-position)
-                               (line-end-position)))
+  (let (beg end)
+    (if (region-active-p)
+        (setq beg (region-beginning)
+              end (region-end))
+      (setq beg (line-beginning-position)
+            end (line-end-position)))
+    (comment-or-uncomment-region beg end)
+    (next-logical-line)))
+
 (global-set-key (graphic-supported-if
                     (kbd "C-;")
                   (kbd "C-c ;"))
-                'toggle-comment-on-line)
+                'toggle-comment)
 
 
 ;; fix weird os x kill error
