@@ -222,6 +222,7 @@
                     paredit
                     rainbow-delimiters
                     smex
+                    sx
                     tagedit))
            (docker '(dockerfile-mode docker-tramp))
            (erlang '(erlang lfe-mode))

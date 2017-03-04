@@ -40,3 +40,4 @@ config/.nrepl-history
 semanticdb/
 image-dired/
 eww-bookmarks
+.sx/
