@@ -35,6 +35,15 @@
             (aggressive-indent-mode)))
 
 
+(defadvice inf-clojure (before inf-clojure-before compile)
+  (platform-supported-p
+      windows-nt
+    ;; Fix returning nothing in Windows
+    (let ((jlinerc "~/.jline.rc"))
+      (when (not (file-exists-p jlinerc))
+        (write-region "jline.terminal=unsupported" "" jlinerc)))))
+
+
 ;;;;
 ;; Cider
 ;;;;
@@ -69,16 +78,16 @@
   (interactive)
   (safe-call cider-load-current-buffer)
   (safe-do cider-current-ns
-           (let ((ns (cider-current-ns)))
-             (safe-call cider-repl-set-ns ns)
-             (safe-do
-              cider-interactive-eval
-              (cider-interactive-eval
-               (format "(println '(def server (%s/start))) (println 'server)"
-                       ns))
-              (cider-interactive-eval
-               (format "(def server (%s/start)) (println server)"
-                       ns))))))
+    (let ((ns (cider-current-ns)))
+      (safe-call cider-repl-set-ns ns)
+      (safe-do
+          cider-interactive-eval
+        (cider-interactive-eval
+         (format "(println '(def server (%s/start))) (println 'server)"
+                 ns))
+        (cider-interactive-eval
+         (format "(def server (%s/start)) (println server)"
+                 ns))))))
 
 
 (defun cider-refresh ()
