@@ -227,7 +227,7 @@
            (docker '(dockerfile-mode docker-tramp))
            (erlang '(erlang lfe-mode))
            (latex '(auctex))
-           (java '(cider clojure-mode clojure-mode-extra-font-locking))
+           (java '(cider clojure-mode clojure-mode-extra-font-locking inf-clojure))
            (racket '(geiser))
            (common-lisp '(slime))
            (self (let ((ss (self-symbol "packages")))

@@ -7,14 +7,12 @@
 (add-hook 'clojure-mode-hook
           (lambda ()
             ;; (safe-setq inferior-lisp-program "boot repl")
-            ;; enable paredit 
+            (enable-eldoc-mode)
             (enable-paredit-mode)
-            ;; enable camel case support for editing commands
             (subword-mode)
-            ;; hilighting parentheses,brackets,and braces in minor mode
             (rainbow-delimiters-mode)
-            ;; enable automatically adjust the identation of code
-            (aggressive-indent-mode)))
+            (aggressive-indent-mode)
+            (inf-clojure-minor-mode)))
 
 
 ;; use clojure mode for other extensions
@@ -24,15 +22,23 @@
 
 
 ;;;;
+;; inferior
+;;;;
+
+;; minor modes for inf-clojure
+(add-hook 'inf-clojure-mode-hook
+          (lambda ()
+            (enable-eldoc-mode)
+            (enable-paredit-mode)
+            (subword-mode)
+            (rainbow-delimiters-mode)
+            (aggressive-indent-mode)))
+
+
+;;;;
 ;; Cider
 ;;;;
 
-
-;; Provides minibuffer documentation for the code you're typing into the repl
-(add-hook 'cider-mode-hook #'eldoc-mode)
-(add-hook 'cider-repl-mode-hook
-          (lambda ()
-            (enable-eldoc-mode)))
 
 ;; Go right to the REPL buffer when it's finished connecting
 (safe-setq cider-repl-pop-to-buffer-on-connect t)
@@ -48,8 +54,13 @@
 ;; Wrap when navigating history.
 (safe-setq cider-repl-wrap-history t)
 
-;; enable paredit for Cider
-(add-hook 'cider-repl-mode-hook #'paredit-mode)
+;; minor modes for cider
+(add-hook 'cider-repl-mode-hook
+          (lambda ()
+            (enable-eldoc-mode)
+            (enable-paredit-mode)
+            (rainbow-delimiters-mode)
+            (aggressive-indent-mode)))
 
 
 ;; key bindings
@@ -77,6 +88,12 @@
 (defun cider-user-ns ()
   (interactive)
   (safe-call cider-repl-set-ns "user"))
+
+
+;;;;
+;; Figwheel
+;;;;
+
 
 (defmacro figwheel-after-load-cider ()
   "Enable Figwheel: cider-jack-in-clojurescript"
