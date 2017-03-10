@@ -39,17 +39,22 @@
   (set-path-env))
 
 
-;; set shell on Windows
+;; set shell/ansi-term on Windows
 (platform-supported-p
     windows-nt
   (defadvice shell (before shell-before compile)
     (when (bin-exists-p "bash")
-      (unless (file-exists-p "~/.emacs_bash")
-        (copy-file "~/.emacs.d/config/.emacs_bash"
-                   "~/.emacs_bash"))
+      (let ((prompt "~/.emacs_bash"))
+        (unless (file-exists-p prompt)
+          (copy-file "~/.emacs.d/config/.emacs_bash" prompt)))
       (add-to-list 'exec-path
                    (file-name-directory
                     (windows-nt-path (bin-path "bash"))))
       (setq shell-file-name "bash")
-      (setenv "SHELL" (bin-path "bash")))))
+      (setenv "SHELL" (bin-path "bash"))))
+  (defadvice ansi-term (around ansi-term-around compile)
+    (let ((b (get-buffer-create "*cmd*")))
+      (apply 'make-comint-in-buffer "cmd" b "cmd" nil nil)
+      (set-window-buffer (selected-window) b))))
+
 
