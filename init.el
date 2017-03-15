@@ -171,7 +171,7 @@
 
 
 
-(message "PATH=%s" (getenv "PATH"))
+;; (message "PATH=%s" (getenv "PATH"))
 
 ;; First to load self, env parts
 (compile-and-load-elisp-files '("self.el") "private/")
@@ -180,7 +180,10 @@
                                 "setup-shell.el")
                               "config/")
 
-(message "PATH=%s" (getenv "PATH"))
+;; Self do prelogue ...
+(let ((ss (self-symbol "prelogue")))
+  (safe-setq* ss (funcall (symbol-value ss))))
+
 
 ;; Start loading ...
 (package-supported-p
@@ -284,8 +287,8 @@
    "utils.el") "private/")
 
 
-;; Self post do ...
-(let ((ss (self-symbol "post-do")))
+;; Self do epilogue ...
+(let ((ss (self-symbol "epilogue")))
   (safe-setq* ss (funcall (symbol-value ss))))
 
 
