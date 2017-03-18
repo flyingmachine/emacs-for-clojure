@@ -200,21 +200,17 @@
   (version-supported-p
       <= 25.1
     (safe-setq package-archive-priorities
-               (list '("gnu" . 10)
-                     '("melpa-stable" . 80)
-                     '("melpa" . 0))))
+               (list '("melpa-stable" . 10)
+                     '("melpa" . 5)
+                     '("gnu" . 0))))
   
   (require 'package)
   (package-initialize)
 
-  ;; packages based on existings
-  (defvar has-docker (bin-exists-p "docker"))
-  (defvar has-erlang (bin-exists-p "erl"))
-  (defvar has-latex (bin-exists-p "latex"))
-  (defvar has-java (bin-exists-p "java"))
-  (defvar has-racket (bin-exists-p "racket"))
-  (defvar has-sbcl (bin-exists-p "sbcl"))
-  (defvar has-ecl (bin-exists-p "ecl"))
+  ;; load self packages spec
+  (setf (symbol-value (self-symbol "packages"))
+        (when (fboundp 'self-package-spec)
+          (self-package-spec)))
 
   ;; guarantee all packages are installed on start
   (defvar installed-packages
@@ -227,24 +223,9 @@
                     smex
                     sx
                     tagedit))
-           (docker '(dockerfile-mode docker-tramp))
-           (erlang '(erlang lfe-mode))
-           (latex '(auctex))
-           (java '(cider clojure-mode clojure-mode-extra-font-locking inf-clojure))
-           (racket '(geiser))
-           (common-lisp '(slime))
            (self (let ((ss (self-symbol "packages")))
                    (safe-setq* ss (symbol-value ss)))))
-      (append basic
-              (version-supported-p <= 25.1 '(ereader))
-              (version-supported-p <= 24.4 (when has-docker docker))
-              (version-supported-p <= 24.4 (when has-java java))
-              (version-supported-p <= 24.4 '(magit))
-              (version-supported-p <= 23.2 (when has-racket racket))
-              (when has-erlang erlang)
-              (when has-latex latex)
-              (when (or has-sbcl has-ecl) common-lisp)
-              (when self self))))
+      (append basic (when self self))))
 
   (version-supported-p
       <= 25.1
@@ -267,10 +248,9 @@
    (let* ((basic '("lisp.el"
                    "navigation.el"
                    "setup-python.el"))
-          (lfe (when has-erlang '("setup-lfe.el")))
-          (clojure (when has-java '("setup-clojure.el")))
-          (sbcl (when has-sbcl '("setup-slime.el"))))
-     (append basic lfe clojure sbcl))
+          (self (let ((ss (self-symbol "packages-setup")))
+                  (safe-setq* ss (symbol-value ss)))))
+     (append basic self))
    "config/"))
   
  ;; ^ end of support-package-p
