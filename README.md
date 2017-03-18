@@ -79,6 +79,7 @@ It's **self-documenting** and great, keep reading it frequently.
 ### Motion
 * goto line: ```M-g g```
 * goto nth char: ```M-g c```
+* pop global mark: ```C-x C-@```
 
 ### Interaction
 * \*scratch\* buffer
