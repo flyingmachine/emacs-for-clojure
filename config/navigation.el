@@ -7,19 +7,6 @@
 ;; switch buffers, and choose options from the minibuffer.
 
 
-;; This allows partial matches, e.g. "tl" will match "Tyrion Lannister"
-(safe-setq ido-enable-flex-matching t)
-
-;; Turn this behavior off because it's annoying
-(safe-setq ido-use-filename-at-point nil)
-
-;; Don't try to match file across all "work" directories; only match files
-;; in the current directory displayed in the minibuffer
-(safe-setq ido-auto-merge-work-directories-length -1)
-
-;; Includes buffer names of recently open files, even if they're not
-;; open now
-(safe-setq ido-use-virtual-buffers t)
 
 ;; This enables ido in all contexts where it could be useful, not just
 ;; for selecting buffer and file names
