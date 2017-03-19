@@ -18,8 +18,8 @@ The adaptive Emacs which I need is more stable, more smaller, more faster and mo
 Now, let's start from the Level Two. And one more thing: teach youself some little Elisp (M-x info).
 
 ## Features
-* __Carefully designed package manager__: just load what's your have and what's your need, so it is very stable, and fast, the loading time less than 1s on most machines.
-* __Adaptive__: Can run on any OS, GUI or Terminal, recent Emacs's versions or lower versions.
+* __Carefully designed package manager__: just load what's your need, so it is very stable, and fast, the loading time less than 1s on most machines.
+* __Adaptive__: Can run on any OS, GUI or Terminal, from most recent Emacs's versions to ancient ones.
 * __Consistent__: Whereever you can play with Emacs always behaves in the same way.
 * __Awesome style__: See it yourself.
 
@@ -89,7 +89,7 @@ It's **self-documenting** and great, keep reading it frequently.
 * insert shell output: ```C-u M-!```
 
 ### Editing
-* ```kill-whole-line```: ```C-S-DEL```
+* kill whole line: ```C-S-DEL```
 * kill all spaces at point: ```M-\```
 * kill all spaces except one at point: ```M-SPC```
 * dynamic abbreviation: ```M-/```
@@ -132,6 +132,8 @@ It's **self-documenting** and great, keep reading it frequently.
 * insert register: ```C-x r i <REG>```
 * view register
 
+### Region
+
 
 ### Keyboard Macro
 * start recording macro: ```C-x (```
@@ -152,3 +154,8 @@ It's the duty of [TRAMP](https://www.gnu.org/software/tramp/)
 * sudo: ```C-x C-f /ssh:<remote-id>|sudo:<remote-host>:/path/to/file```, *<remote-host>*
 such as *x@localhost* or *localhost* if the user *x* is a sudoer.
 * eshell remote: ```cd /ssh:<user>@<remote>:<dir>```
+
+### Cook
+* copy __private/self-sample.el__ to __private/self.el__
+* cooking
+
