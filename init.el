@@ -176,8 +176,8 @@
 ;; First to load self, env parts
 (compile-and-load-elisp-files '("self.el") "private/")
 (compile-and-load-elisp-files '("ui.el"
-                                "basic.el"
-                                "setup-shell.el")
+                                "setup-shell.el"
+                                "basic.el")
                               "config/")
 
 ;; Self do prelogue ...

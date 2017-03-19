@@ -126,6 +126,7 @@ It's **self-documenting** and great, keep reading it frequently.
 ### Register
 * window configuration to register: ```C-x r w <REG>```, <REG> is single character, it can not accross sessions.
 * frame configuration to register: ```C-x r f <REG>```
+* point to register: ```C-x r <SPC> <REG>```
 * jump to register: ```C-x r j <REG>```
 * copy to register: ```C-x r s <REG>```
 * insert register: ```C-x r i <REG>```

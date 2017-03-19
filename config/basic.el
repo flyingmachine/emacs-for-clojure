@@ -92,3 +92,11 @@
 ;; open now
 (safe-setq ido-use-virtual-buffers t)
 
+
+
+;; on Drawin: ls does not support --dired;
+;; see `dired-use-ls-dired' for more defails
+(platform-supported-p
+    darwin
+  (setq-default ls-lisp-use-insert-directory-program nil)
+  (require 'ls-lisp))
