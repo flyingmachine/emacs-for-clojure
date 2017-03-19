@@ -199,10 +199,10 @@
 
   (version-supported-p
       <= 25.1
-    (safe-setq package-archive-priorities
-               (list '("melpa-stable" . 10)
-                     '("melpa" . 5)
-                     '("gnu" . 0))))
+    (setq-default package-archive-priorities
+                  (list '("melpa-stable" . 10)
+                        '("melpa" . 5)
+                        '("gnu" . 0))))
   
   (require 'package)
   (package-initialize)
