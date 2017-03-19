@@ -20,7 +20,7 @@
 (defmacro set-path-env ()
   "Set PATH and exec-path in Emacs."
   `(let* ((p (shell-command-to-string
-              "$SHELL -i -c 'echo -n $PATH' 2>/dev/null"))
+              "$SHELL -l -c 'echo -n $PATH' 2>/dev/null"))
           (x (split-string p ":")))
      (setenv "PATH" p)
      (while (car x)
