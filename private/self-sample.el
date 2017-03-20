@@ -53,10 +53,10 @@
    (defvar self-gnu/linux-theme 'tomorrow-night-eighties
      "default theme for linux")
    
-   (defvar self-gnul/linux-prelogue
+   (defvar self-gnu/linux-prelogue
      (lambda () (message "#self prelogue ...")))
 
-   (defvar self-gnul/linux-epilogue
+   (defvar self-gnu/linux-epilogue
      (lambda ()
        ;;(start-socks)
        (message "#self epilogue ...")))))
