@@ -47,7 +47,12 @@
                              (lambda ()
                                (interactive)
                                (eval-print-last-sexp)
-                               (newline)))))))
+                               (newline)))
+              (version-supported-p > 24
+                (local-set-key (kbd "C-j")
+                               (lambda ()
+                                 (interactive)
+                                 (newline-and-indent))))))))
 
 
 ;; ielm 
