@@ -95,12 +95,19 @@ It's **self-documenting** and great, keep reading it frequently.
 * dynamic abbreviation: ```M-/```
 * query replace: ```M-%```
 * what cursor position: ```C-x =```
+* transpose characters: ```C-t```
+* transpose words: ```M-t```
+* insert parentheses: ```M-(```, wrap selection in parentheses
 
 ### Basic sexp commands
 * ```forward-sexp```: ```C-M-f```
 * ```backward-sexp```: ```C-M-b```
-* ```kill-sexp```: ```C-M-k```
+* ```kill-sexp```: ```C-M-k```, delete forward one sexp
 * ```transpose-sexp```: ```C-M-t```
+* ```backward-up-list```: ```C-M-u```, move up out of an sexp
+* ```down-list```: ```C-M-d```, move down into a nested sexp
+* ```backward-list```: ```C-M-p```, match parentheses backward
+
 
 ### Window
 * dired other window: ```C-x 4 d```
@@ -124,7 +131,8 @@ It's **self-documenting** and great, keep reading it frequently.
 
 
 ### Register
-* window configuration to register: ```C-x r w <REG>```, <REG> is single character, it can not accross sessions.
+* window configuration to register: ```C-x r w <REG>```, <REG> is single character, 
+it can not accross sessions.
 * frame configuration to register: ```C-x r f <REG>```
 * point to register: ```C-x r <SPC> <REG>```
 * jump to register: ```C-x r j <REG>```

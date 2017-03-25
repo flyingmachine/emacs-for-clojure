@@ -75,7 +75,10 @@
 
 ;; Line number format on Terminal
 (terminal-supported-p
- (safe-setq linum-format "%2d "))
+  (safe-setq linum-format "%2d ")
+  (transient-mark-mode)
+  (set-face-background 'region "white")
+  (set-face-foreground 'region "black"))
 
 
 ;; These settings relate to how emacs interacts with your platform
