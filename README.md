@@ -19,7 +19,7 @@ Now, let's start from the Level Two. And one more thing: teach youself some litt
 
 ## Features
 * __Carefully designed package manager__: just load what's your need, so it is very stable, and fast, the loading time less than 1s on most machines.
-* __Adaptive__: Can run on any OS, GUI or Terminal, from most recent Emacs's versions to ancient ones.
+* __Adaptive__: Can run on any OS, GUI or Terminal, from most recent Emacs's versions to ancient ones, and one Emacs's configuration suit for all coexisting Emacs on the same machine.
 * __Consistent__: Whereever you can play with Emacs always behaves in the same way.
 * __Awesome style__: See it yourself.
 
@@ -164,7 +164,11 @@ It's the duty of [TRAMP](https://www.gnu.org/software/tramp/)
 such as *x@localhost* or *localhost* if the user *x* is a sudoer.
 * eshell remote: ```cd /ssh:<user>@<remote>:<dir>```
 
-### Cook
+### Cooking
 * copy __private/self-sample.el__ to __private/self.el__
-* cooking
+* cook the font via __self-<platform>-font__
+* cook packages via __self-package-spec__ macro
+* cook the process before loading/install Emacs's packages, via __sefl-<platform>-prelogue__
+* cook the processing after Emacs' loading, via __self-<platform>-epilogure__
+
 

@@ -5,11 +5,11 @@
 
 (comment
  (defmacro self-package-spec ()
+   "Returns a list of packages that you want to install, and set a variable 
+    `self-<platform>-package-setup' used to the package related setup."
    `(let ((ss (self-symbol "packages-setup")))
       (setf (symbol-value ss) 'nil)
       (append
-       (when (bin-exists-p "latex")
-         '(auctex))
        (when (bin-exists-p "docker")
          (version-supported-p <= 24.4
            '(dockerfile-mode
@@ -33,6 +33,8 @@
              clojure-mode
              clojure-mode-extra-font-locking
              inf-clojure)))
+       (when (bin-exists-p "latex")
+         '(auctex))
        (when (bin-exists-p "racket")
          (version-supported-p <= 23.2
            '(geiser)))
