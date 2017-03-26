@@ -115,6 +115,13 @@
   (declare (indent 1))
   `(when (fboundp ',fn) ,@body))
 
+(defmacro safe-do-if (fn then &rest else)
+  "Do body when fn is bound"
+  (declare (indent 2))
+  (if (fboundp fn)
+      `,then
+    `(progn ,@else)))
+
 (defmacro safe-setq (x val)
   "Set x when x has been bound"
   `(when (boundp ',x) (setq ,x ,val)))
