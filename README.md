@@ -24,7 +24,7 @@ Now, let's start from the Level Two. And one more thing: teach youself some litt
 * __Awesome style__: See it yourself.
 
 ## Requirements
-* Emacs installation, the version 24+ is more suitable;
+* Emacs installation, the version 24+ is more suitable, but version 24- is ok;
 * Any keyboard, not mouse;
 
 ## Install
