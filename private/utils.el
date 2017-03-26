@@ -14,6 +14,7 @@
 
 (safe-do-when number-sequence (fset 'range 'number-sequence))
 
+;; use `pp-eval-expression' or `pp-eval-last-sexp'
 (safe-do-when cl-prettyexpand (fset 'pprint 'cl-prettyexpand))
 
 

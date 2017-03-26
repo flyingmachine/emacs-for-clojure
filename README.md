@@ -107,6 +107,7 @@ It's **self-documenting** and great, keep reading it frequently.
 * ```backward-up-list```: ```C-M-u```, move up out of an sexp
 * ```down-list```: ```C-M-d```, move down into a nested sexp
 * ```backward-list```: ```C-M-p```, match parentheses backward
+* ```pp-eval-last-sexp```: pretty print
 
 
 ### Window
