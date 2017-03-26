@@ -110,7 +110,7 @@
   (declare (indent 1))
   `(when (fboundp ',fn) (,fn ,@args)))
 
-(defmacro safe-do (fn &rest body)
+(defmacro safe-do-when (fn &rest body)
   "Do body when fn is bound"
   (declare (indent 1))
   `(when (fboundp ',fn) ,@body))

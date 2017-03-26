@@ -20,8 +20,8 @@
 ;; Default web browser: eww `C-d C-d h'
 (when (eq browse-url-browser-function
           'browse-url-default-browser)
-  (safe-do eww-browse-url
-           (setq browse-url-browser-function 'eww-browse-url)))
+  (safe-do-when eww-browse-url
+    (setq browse-url-browser-function 'eww-browse-url)))
 
 
 ;; Toggle linum mode 

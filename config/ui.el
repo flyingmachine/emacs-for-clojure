@@ -41,12 +41,11 @@
   `(let ((name (car ,font))
          (size (cdr ,font)))
      (when (font-exists-p name)
-       (safe-do
-        set-fontset-font
-        (dolist (c '(han kana cjk-misc))
-          (set-fontset-font (frame-parameter nil 'font)
-                            c (font-spec :family name
-                                         :size size)))))))
+       (safe-do-when set-fontset-font
+         (dolist (c '(han kana cjk-misc))
+           (set-fontset-font (frame-parameter nil 'font)
+                             c (font-spec :family name
+                                          :size size)))))))
 
 (version-supported-p
  <= 24.0 

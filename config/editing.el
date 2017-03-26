@@ -77,7 +77,7 @@
 ;; fix weird os x kill error
 (defun ns-get-pasteboard ()
   "Returns the value of the pasteboard, or nil for unsupported formats."
-  (safe-do ns-get-selection-internal
+  (safe-do-when ns-get-selection-internal
     (condition-case nil
         (ns-get-selection-internal 'CLIPBOARD)
       (quit nil))))
@@ -137,7 +137,7 @@
 
 
 ;; bing dict
-(safe-do bing-dict-brief
+(safe-do-when bing-dict-brief
   (global-set-key (kbd "C-c d") 'bing-dict-brief))
 
 
@@ -146,11 +146,11 @@
 
 
 ;; magit
-(safe-do magit-status
+(safe-do-when magit-status
   (global-set-key (kbd "C-c g s") 'magit-status))
-(safe-do magit-pull
+(safe-do-when magit-pull
   (global-set-key (kbd "C-c g p") 'magit-pull))
-(safe-do magit-log
+(safe-do-when magit-log
   (global-set-key (kbd "C-c g l") 'magit-log))
-(safe-do magit-log-buffer-file
+(safe-do-when magit-log-buffer-file
   (global-set-key (kbd "C-c g b") 'magit-log-buffer-file))
