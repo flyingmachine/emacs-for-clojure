@@ -40,7 +40,7 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (enable-eldoc-mode)
-            (local-set-key (kbd "TAB") #'complete-symbol)
+            (local-set-key (kbd "TAB") #'lisp-complete-symbol)
             (cond
              ((string= "*scratch*" (buffer-name))
               (local-set-key (kbd "RET")
