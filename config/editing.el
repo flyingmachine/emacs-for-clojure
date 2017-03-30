@@ -177,5 +177,11 @@
 ;; put all backups in ~/.emacs.d/backups. More info:
 ;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Backup-Files.html
 (let ((d (make-vdir ".backup/")))
-  (setq backup-directory-alist `(("." . ,d)))
-  (setq auto-save-default nil))
+  (setq backup-directory-alist `(("." . ,d))))
+
+
+;; Auto-save
+(let ((d (make-vdir ".auto-save/")))
+  (setq auto-save-default nil)
+  (setq auto-save-list-file-prefix (concat d "saves-")))
+
