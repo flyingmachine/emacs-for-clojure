@@ -86,6 +86,11 @@
 ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
 (ido-mode t)
 
+
+;; Where to save ido.last
+(let ((d (make-vdir ".ido/")))
+  (setq-default ido-save-directory-list-file (concat d "ido.last")))
+
 ;; This allows partial matches, e.g. "tl" will match "Tyrion Lannister"
 (safe-setq ido-enable-flex-matching t)
 
