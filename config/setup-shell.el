@@ -53,8 +53,9 @@
       (setq shell-file-name "bash")
       (setenv "SHELL" (bin-path "bash"))))
   (defadvice ansi-term (around ansi-term-around compile)
-    (let ((b (get-buffer-create "*cmd*")))
-      (apply 'make-comint-in-buffer "cmd" b "cmd" nil nil)
+    (let* ((n "*ansi-term*")
+           (b (get-buffer-create n)))
+      (apply 'make-comint-in-buffer n b "cmd" nil nil)
       (set-window-buffer (selected-window) b))))
 
 
