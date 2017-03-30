@@ -188,4 +188,7 @@
 
 ;; Bookmarks
 (let ((d (make-vdir ".bookmarks/")))
-  (setq-default eww-bookmarks-directory d))
+  (setq-default eww-bookmarks-directory d)
+  (setq-default bookmark-default-file (concat d "emacs.bmk")))
+
+
