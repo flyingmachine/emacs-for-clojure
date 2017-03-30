@@ -3,13 +3,9 @@
 ;;;;
 
 
-;; Go straight to scratch buffer on startup
-(graphic-supported-p
- (safe-setq inhibit-startup-message t))
 
 ;; Disable menu bar
 (safe-call menu-bar-mode -1)
-
 
 ;; Disable tool bar
 (safe-call tool-bar-mode -1)
@@ -17,8 +13,6 @@
 ;; Disable scroll bar
 (safe-call scroll-bar-mode -1)
 
-;; Changes all yes/no questions to y/n type
-(fset 'yes-or-no-p 'y-or-n-p)
 
 
 ;; Set font based on platform
@@ -47,33 +41,23 @@
                              c (font-spec :family name
                                           :size size)))))))
 
-(version-supported-p
- <= 24.0 
- (let ((font (self-symbol "font"))
-       (cjk (self-symbol "cjk-font")))
-   (safe-setq* font
-               (set-default-font! (symbol-value font)))
-   (safe-setq* cjk
-               (set-cjk-font! (symbol-value cjk)))))
-
-
-;; Load themes on graphic mode
-(graphic-supported-p
-  (let* ((themes-dir "~/.emacs.d/themes")
-         (self-theme (self-symbol "theme"))
-         (theme (if (boundp self-theme)
-                    (symbol-value self-theme)
-                  'tomorrow-night-eighties)))
-    (add-to-list 'custom-theme-load-path themes-dir)
-    (add-to-list 'load-path themes-dir)
-    (version-supported-if >= 24.1
-                          (load-theme theme)
-                          (load-theme theme t))
-    (desktop-save-mode 1)))
-
-
-;; Terminal mode 
-(terminal-supported-p
+;; Graphic / Terminal
+(graphic-supported-if
+    (progn
+      ;; load themes on graphic mode
+      (let* ((themes-dir "~/.emacs.d/themes")
+             (self-theme (self-symbol "theme"))
+             (theme (if (boundp self-theme)
+                        (symbol-value self-theme)
+                      'tomorrow-night-eighties)))
+        (add-to-list 'custom-theme-load-path themes-dir)
+        (add-to-list 'load-path themes-dir)
+        (version-supported-if >= 24.1
+                              (load-theme theme)
+                              (load-theme theme t))
+        (desktop-save-mode 1))
+      ;; go straight to scratch buffer on startup
+      (safe-setq inhibit-startup-message t))
   ;; line number format on Terminal
   (safe-setq linum-format "%2d ")
   ;;above version 23 transient-mark-mode is enabled by default
@@ -82,25 +66,26 @@
   (set-face-foreground 'region "black"))
 
 
+;; Fonts
+(version-supported-p
+    <= 24.0 
+  (let ((font (self-symbol "font"))
+        (cjk (self-symbol "cjk-font")))
+    (safe-setq* font
+      (set-default-font! (symbol-value font)))
+    (safe-setq* cjk
+      (set-cjk-font! (symbol-value cjk)))))
+
+
+
 ;; These settings relate to how emacs interacts with your platform
 
-;; makes killing/yanking interact with the clipboard
-(safe-setq x-select-enable-clipboard t)
 
-;; I'm actually not sure what this does but it's recommended?
-;; http://emacswiki.org/emacs/CopyAndPaste
-(safe-setq x-select-enable-primary t)
+;; Changes all yes/no questions to y/n type
+(fset 'yes-or-no-p 'y-or-n-p)
 
-;; Save clipboard strings into kill ring before replacing them.
-;; When one selects something in another program to paste it into Emacs,
-;; but kills something in Emacs before actually pasting it,
-;; this selection is gone unless this variable is non-nil
-(safe-setq x-select-enable-clipboard t)
-
-(safe-setq save-interprogram-paste-before-kill t)
-
-;; Mouse yank commands yank at point instead of at click.
-(safe-setq mouse-yank-at-point t)
+;; Highlights matching parenthesis
+(show-paren-mode 1)
 
 ;; Shows all options when running apropos. For more info,
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Apropos.html

@@ -2,6 +2,24 @@
 ;; Editing buffer that related to configurations.
 ;;
 
+;; Makes killing/yanking interact with the clipboard
+(safe-setq x-select-enable-clipboard t)
+
+;; I'm actually not sure what this does but it's recommended?
+;; http://emacswiki.org/emacs/CopyAndPaste
+(safe-setq x-select-enable-primary t)
+
+;; Save clipboard strings into kill ring before replacing them.
+;; When one selects something in another program to paste it into Emacs,
+;; but kills something in Emacs before actually pasting it,
+;; this selection is gone unless this variable is non-nil
+(safe-setq x-select-enable-clipboard t)
+
+(safe-setq save-interprogram-paste-before-kill t)
+
+;; Mouse yank commands yank at point instead of at click.
+(safe-setq mouse-yank-at-point t)
+
 
 ;; Key binding to use "hippie expand" for text autocompletion
 ;; http://www.emacswiki.org/emacs/HippieExpand
@@ -16,9 +34,6 @@
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
 
-
-;; Highlights matching parenthesis
-(show-paren-mode 1)
 
 
 ;; Interactive search key bindings.
