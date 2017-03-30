@@ -185,3 +185,7 @@
   (setq auto-save-default nil)
   (setq auto-save-list-file-prefix (concat d "saves-")))
 
+
+;; Bookmarks
+(let ((d (make-vdir ".bookmarks/")))
+  (setq-default eww-bookmarks-directory d))
