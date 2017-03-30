@@ -4,6 +4,7 @@
 
 
 
+
 ;; Disable menu bar
 (safe-call menu-bar-mode -1)
 
@@ -12,7 +13,6 @@
 
 ;; Disable scroll bar
 (safe-call scroll-bar-mode -1)
-
 
 
 ;; Set font based on platform
@@ -54,16 +54,14 @@
         (add-to-list 'load-path themes-dir)
         (version-supported-if >= 24.1
                               (load-theme theme)
-                              (load-theme theme t))
-        (desktop-save-mode 1))
-      ;; go straight to scratch buffer on startup
-      (safe-setq inhibit-startup-message t))
+                              (load-theme theme t))))
   ;; line number format on Terminal
   (safe-setq linum-format "%2d ")
   ;;above version 23 transient-mark-mode is enabled by default
   (version-supported-p > 23 (transient-mark-mode t))
   (set-face-background 'region "white")
   (set-face-foreground 'region "black"))
+
 
 
 ;; Fonts
@@ -75,6 +73,10 @@
       (set-default-font! (symbol-value font)))
     (safe-setq* cjk
       (set-cjk-font! (symbol-value cjk)))))
+
+
+;; Go straight to scratch buffer on startup
+(setq inhibit-splash-screen t)
 
 
 

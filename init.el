@@ -19,6 +19,14 @@
                       emacs-version)
   "virtualized dir based on grahpic/terminal mode and Emacs's version")
 
+(defmacro make-vdir (subdir)
+  "Make the virtualized subdir under ~/.emacs.d and returns it. "
+  (let ((_vdir_ (concat "~/.emacs.d/" subdir v-dir "/")))
+    `(progn
+       (when (not (file-exists-p ,_vdir_))
+         (make-directory ,_vdir_ t))
+       ,_vdir_)))
+
 (defmacro compile-and-load-elisp-files (files subdir)
   "Compile and load the elisp files under the subdir."
   `(let* ((d (concat "~/.emacs.d/" ,subdir))

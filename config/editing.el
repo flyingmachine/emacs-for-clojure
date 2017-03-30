@@ -48,21 +48,6 @@
 (global-set-key (kbd "C-M-%") 'query-replace-regexp)
 
 
-;; When you visit a file, point goes to the last place where it
-;; was when you previously visited the same file.
-;; http://www.emacswiki.org/emacs/SavePlace
-(require 'saveplace)
-(setq-default save-place t)
-;; keep track of saved places in ~/.emacs.d/places
-(setq save-place-file (concat "~/.emacs.d" "places"))
-
-;; Emacs can automatically create backup files. This tells Emacs to
-;; put all backups in ~/.emacs.d/backups. More info:
-;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Backup-Files.html
-(setq backup-directory-alist
-      `(("." . ,(concat "~/.emacs.d" "backups"))))
-(setq auto-save-default nil)
-
 
 ;; comments
 (defun toggle-comment ()
@@ -137,14 +122,6 @@
 (prefer-coding-system 'utf-8)
 
 
-;; Turn on recent file mode so that you can more easily switch to
-;; recently edited files when you first start emacs
-(safe-setq recentf-save-file (concat "~/.emacs.d/" ".recentf"))
-(safe-setq recentf-max-menu-items 40)
-;; manually: (recentf-cleanup), view list: recentf-list
-(setq-default recentf-auto-cleanup 'never)
-(recentf-mode 1)
-
 
 ;; shell scripts
 (setq-default sh-basic-offset 2)
@@ -169,3 +146,36 @@
   (global-set-key (kbd "C-c g l") 'magit-log))
 (safe-do-when magit-log-buffer-file
   (global-set-key (kbd "C-c g b") 'magit-log-buffer-file))
+
+
+;; When you visit a file, point goes to the last place where it
+;; was when you previously visited the same file.
+;; http://www.emacswiki.org/emacs/SavePlace
+(let ((d (make-vdir ".places/")))
+  (require 'saveplace)
+  (setq-default save-place t)
+  (setq-default save-place-file (concat d "places")))
+
+
+;; Save desktop
+(let ((d (make-vdir ".desktop/")))
+  (setq-default desktop-path (list d))
+  (desktop-save-mode 1))
+
+
+;; Turn on recent file mode so that you can more easily switch to
+;; recently edited files when you first start emacs
+(let ((d (make-vdir ".recentf/")))
+  (safe-setq recentf-save-file (concat d ".recentf"))
+  (safe-setq recentf-max-menu-items 40)
+  ;; manually: (recentf-cleanup), view list: recentf-list
+  (setq-default recentf-auto-cleanup 'never)
+  (recentf-mode 1))
+
+
+;; Emacs can automatically create backup files. This tells Emacs to
+;; put all backups in ~/.emacs.d/backups. More info:
+;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Backup-Files.html
+(let ((d (make-vdir ".backup/")))
+  (setq backup-directory-alist `(("." . ,d)))
+  (setq auto-save-default nil))
