@@ -59,23 +59,25 @@
 
 ;; Load themes on graphic mode
 (graphic-supported-p
- (let* ((themes-dir "~/.emacs.d/themes")
-        (self-theme (self-symbol "theme"))
-        (theme (if (boundp self-theme)
-                   (symbol-value self-theme)
-                 'tomorrow-night-eighties)))
-   (add-to-list 'custom-theme-load-path themes-dir)
-   (add-to-list 'load-path themes-dir)
-   (version-supported-if >= 24.1
-                         (load-theme theme)
-                         (load-theme theme t))
-   (desktop-save-mode 1)))
+  (let* ((themes-dir "~/.emacs.d/themes")
+         (self-theme (self-symbol "theme"))
+         (theme (if (boundp self-theme)
+                    (symbol-value self-theme)
+                  'tomorrow-night-eighties)))
+    (add-to-list 'custom-theme-load-path themes-dir)
+    (add-to-list 'load-path themes-dir)
+    (version-supported-if >= 24.1
+                          (load-theme theme)
+                          (load-theme theme t))
+    (desktop-save-mode 1)))
 
 
-;; Line number format on Terminal
+;; Terminal mode 
 (terminal-supported-p
+  ;; line number format on Terminal
   (safe-setq linum-format "%2d ")
-  (transient-mark-mode)
+  ;;above version 23 transient-mark-mode is enabled by default
+  (version-supported-p > 23 (transient-mark-mode t))
   (set-face-background 'region "white")
   (set-face-foreground 'region "black"))
 
