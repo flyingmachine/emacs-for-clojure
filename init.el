@@ -170,16 +170,16 @@
 
 (defmacro clean-saved-desktop ()
   "Clean saved desktop, need restart Emacs."
-  `(let ((d "~/.emacs.d/.emacs.desktop"))
-     (when (file-exists-p d)
-       (message "#Clean desktop file: %s" d)
-       (delete-file d))))
+  `(let ((f (concat (make-vdir ".desktop/") ".emacs.desktop")))
+     (when (file-exists-p f)
+       (message "#Clean desktop file: %s" f)
+       (delete-file f))))
 
 (defmacro reset-emacs ()
   "Clean all compiled file and desktop, then restart Emacs."
   `(progn
      (clean-compiled-files)
-     (graphic-supported-p (clean-saved-desktop))
+     (clean-saved-desktop)
      (kill-emacs 0)))
 
 
