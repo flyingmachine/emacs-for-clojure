@@ -71,7 +71,9 @@
       (next-line))))
 
 ;; toggle comment key strike
-(global-set-key (graphic-supported-if (kbd "C-;") (kbd "C-c ;")) 'toggle-comment)
+(global-set-key
+ (graphic-supported-if (kbd "C-;") (kbd "C-c ;"))
+ 'toggle-comment)
 
 
 ;; fix weird os x kill error
@@ -191,3 +193,7 @@
   (setq-default bookmark-default-file (concat d "emacs.bmk")))
 
 
+;; smex
+(package-supported-p
+  (let ((d (make-vdir ".smex/")))
+    (setq-default smex-save-file (concat d ".smex-items"))))

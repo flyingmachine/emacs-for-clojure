@@ -29,9 +29,8 @@
 
 (defmacro compile-and-load-elisp-files (files subdir)
   "Compile and load the elisp files under the subdir."
-  `(let* ((d (concat "~/.emacs.d/" ,subdir))
-          (v (concat d v-dir "/")))
-     (when (not (file-exists-p v)) (make-directory v t))
+  `(let ((d (concat "~/.emacs.d/" ,subdir))
+         (v (make-vdir ,subdir)))
      (dolist (f ,files)
        (let ((from (concat d f)))
          (if (file-exists-p from)
@@ -162,9 +161,8 @@
 
 (defmacro clean-compiled-files ()
   "Clean all compiled files, need restart Emacs."
-  `(let* ((home "~/.emacs.d/")
-          (config (concat home "config/" v-dir "/"))
-          (private (concat home "private/" v-dir "/")))
+  `(let* ((config (make-vdir "config/"))
+          (private (make-vdir "private/")))
      (dolist (d (list config private))
        (dolist (f (directory-files d nil "\\.elc$"))
          (message "#Clean compiled file: %s" f)
