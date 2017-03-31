@@ -189,7 +189,7 @@
 ;; First to load self, env parts
 (compile-and-load-elisp-files '("self.el") "private/")
 (compile-and-load-elisp-files '("ui.el"
-                                "setup-shell.el"
+                                "shell.el"
                                 "basic.el")
                               "config/")
 
@@ -258,8 +258,8 @@
 
   (compile-and-load-elisp-files
    ;; compile and load basic elisp files
-   (let* ((basic '("lisp.el"
-                   "navigation.el"
+   (let* ((basic '("setup-lisp.el"
+                   "setup-navigation.el"
                    "setup-python.el"))
           (self (let ((ss (self-symbol "packages-setup")))
                   (safe-setq* ss (symbol-value ss)))))
@@ -272,7 +272,7 @@
 (compile-and-load-elisp-files
  ;; compile and load non-package-required elisp files
  '("editing.el"
-   "setup-debugger.el") "config/")
+   "debugger.el") "config/")
 
 (compile-and-load-elisp-files
  ;; compile and load private non-package-required elisp files
