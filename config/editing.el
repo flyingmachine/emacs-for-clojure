@@ -166,8 +166,7 @@
 ;; Turn on recent file mode so that you can more easily switch to
 ;; recently edited files when you first start emacs
 (let ((d (make-vdir ".recentf/")))
-  (safe-setq recentf-save-file (concat d ".recentf"))
-  (safe-setq recentf-max-menu-items 40)
+  (setq-default recentf-save-file (concat d ".recentf"))
   ;; manually: (recentf-cleanup), view list: recentf-list
   (setq-default recentf-auto-cleanup 'never)
   (recentf-mode 1))
