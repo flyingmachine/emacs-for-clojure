@@ -98,6 +98,7 @@ It's **self-documenting** and great, keep reading it frequently.
 * transpose characters: ```C-t```
 * transpose words: ```M-t```
 * insert parentheses: ```M-(```, wrap selection in parentheses
+* toggle read-only mode: ```C-x C-q```
 
 ### Basic sexp commands
 * ```forward-sexp```: ```C-M-f```
