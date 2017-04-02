@@ -76,7 +76,10 @@
 
 
 ;; Go straight to scratch buffer on startup
-(setq inhibit-splash-screen t)
+(version-supported-p
+    <= 24
+  (setq inhibit-splash-screen t))
+
 
 
 
