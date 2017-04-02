@@ -146,11 +146,11 @@
   `(version-supported-p < 22
      (require 'url)
      (setq url-gateway-method 'socks)
-     (set-default 'socks-server
-                  (list "Default server"
-                        (if ,server ,server "127.0.0.1")
-                        (if ,port ,port 32000)
-                        (if ,version ,version 5)))))
+     (setq-default socks-server
+                   (list "Default server"
+                         (if ,server ,server "127.0.0.1")
+                         (if ,port ,port 32000)
+                         (if ,version ,version 5)))))
 
 (defmacro stop-socks (&optional method)
   "Switch off url-gateway to native."
