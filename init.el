@@ -168,18 +168,25 @@
          (message "#Clean compiled file: %s" f)
          (delete-file (concat d f))))))
 
-(defmacro clean-saved-desktop ()
+(defmacro clean-saved-user-files ()
   "Clean saved desktop, need restart Emacs."
-  `(let ((f (concat (make-vdir ".desktop/") ".emacs.desktop")))
-     (when (file-exists-p f)
-       (message "#Clean desktop file: %s" f)
-       (delete-file f))))
+  `(let ((dirs (list (make-vdir ".auto-save/")
+                     (make-vdir ".desktop/")
+                     (make-vdir ".bookmarks/")
+                     (make-vdir ".ido/")
+                     (make-vdir ".places/")
+                     (make-vdir ".recentf/"))))
+     (dolist (d dirs)
+       (when (file-exists-p d)
+         (dolist (f (directory-files d nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))
+           (message "#Clean saved user file: %s" (concat d f))
+           (delete-file (concat d f)))))))
 
 (defmacro reset-emacs ()
   "Clean all compiled file and desktop, then restart Emacs."
   `(progn
      (clean-compiled-files)
-     (clean-saved-desktop)
+     (clean-saved-user-files)
      (kill-emacs 0)))
 
 
