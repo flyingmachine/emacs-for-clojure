@@ -209,3 +209,8 @@
 (package-supported-p
   (let ((d (make-vdir ".smex/")))
     (setq-default smex-save-file (concat d ".smex-items"))))
+
+;; semantic db
+(package-supported-p
+  (let ((d (make-vdir ".semanticdb/")))
+    (setq-default semanticdb-default-system-save-directory d)))
