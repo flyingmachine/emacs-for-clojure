@@ -17,6 +17,27 @@
   `(version-supported-p <= 23.1 t))
 
 
+
+;; Toggle recentf-mode
+(defmacro toggle-recentf-mode (&optional disable)
+  "Toggle recentf-mode, `disable' recentf-mode unconditional."
+  (setq-default recentf-save-file
+                (concat (make-vdir ".recentf/") ".recentf"))
+  `(cond (,disable (recentf-mode -1))
+         ((or (not (boundp 'recentf-mode))
+              (null recentf-mode))
+
+          ;; (setq-default recentf-auto-cleanup 'never)
+          ;; recentf-list
+          (setq-default recentf-max-saved-items 8)
+          (recentf-mode 1))
+         (t (recentf-mode -1))))
+
+;; toggle recentf-mode based on menu-bar-mode
+(toggle-recentf-mode menu-bar-mode)
+
+
+
 ;; Default web browser: eww `C-d C-d h'
 (when (eq browse-url-browser-function
           'browse-url-default-browser)

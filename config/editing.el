@@ -165,27 +165,6 @@
   (desktop-save-mode 1))
 
 
-;; Turn on recent file mode so that you can more easily switch to
-;; recently edited files when you first start emacs
-;; Note: useless?
-(defun toggle-recentf-mode (&optional disable)
-  "Toggle recentf-mode, `disable' recentf-mode unconditional."
-  (interactive)
-  (setq-default recentf-save-file
-                (concat (make-vdir ".recentf/") ".recentf"))
-  (cond (disable (recentf-mode -1))
-        ((or (not (boundp 'recentf-mode))
-             (null recentf-mode))
-         ;; recentf-list
-         (setq-default recentf-max-saved-items 8)
-         (recentf-mode 1))
-        (t (recentf-mode -1))))
-
-;; Disable recentf-mode
-(toggle-recentf-mode -1)
-
-
-
 ;; Emacs can automatically create backup files. This tells Emacs to
 ;; put all backups in ~/.emacs.d/backups. More info:
 ;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Backup-Files.html
