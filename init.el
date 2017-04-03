@@ -20,7 +20,7 @@
   "virtualized dir based on grahpic/terminal mode and Emacs's version")
 
 (defmacro make-vdir (subdir)
-  "Make the virtualized subdir under ~/.emacs.d and returns it. "
+  "Make the versionized subdir under ~/.emacs.d and returns it. "
   (let ((_vdir_ (concat "~/.emacs.d/" subdir v-dir "/")))
     `(progn
        (when (not (file-exists-p ,_vdir_))
@@ -198,6 +198,8 @@
 ;; (message "PATH=%s" (getenv "PATH"))
 
 ;; First to load self, env parts
+(setq-default recentf-save-file
+              (concat (make-vdir ".recentf/") "recentf"))
 (compile-and-load-elisp-files '("self.el") "private/")
 (compile-and-load-elisp-files '("ui.el"
                                 "shell.el"

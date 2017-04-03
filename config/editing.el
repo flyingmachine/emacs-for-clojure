@@ -198,9 +198,6 @@
 ;; Toggle recentf-mode
 (defmacro toggle-recentf-mode (&optional disable)
   "Toggle recentf-mode, disable recentf-mode unconditional when `disable' is non-nil."
-  (comment
-   (setq-default recentf-save-file
-                 (concat (make-vdir ".recentf/") "recentf")))
   `(cond (,disable (recentf-mode -1))
          ((or (not (boundp 'recentf-mode))
               (null recentf-mode))
@@ -209,9 +206,3 @@
           (setq-default recentf-max-saved-items 8)
           (recentf-mode 1))
          (t (recentf-mode -1))))
-
-(comment
- ;; toggle recentf-mode based on menu-bar-mode
- (graphic-supported-if
-     (toggle-recentf-mode menu-bar-mode)
-   (toggle-recentf-mode -1)))
