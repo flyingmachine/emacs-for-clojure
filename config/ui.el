@@ -89,11 +89,6 @@
 ;; Highlights matching parenthesis
 (show-paren-mode 1)
 
-;; Shows all options when running apropos. For more info,
-;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Apropos.html
-;;apropos-do-all t
-(safe-setq apropos-do-all t)
-
 ;; No cursor blinking, it's distracting
 (safe-call blink-cursor-mode 0)
 

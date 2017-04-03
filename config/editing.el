@@ -2,6 +2,12 @@
 ;; Editing buffer that related to configurations.
 ;;
 
+
+;; Shows all options when running apropos. For more info,
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Apropos.html
+;;apropos-do-all t
+(safe-setq apropos-do-all t)
+
 ;; Makes killing/yanking interact with the clipboard
 (safe-setq x-select-enable-clipboard t)
 
