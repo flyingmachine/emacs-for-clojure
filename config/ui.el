@@ -3,8 +3,6 @@
 ;;;;
 
 
-
-
 ;; Disable menu bar
 (safe-call menu-bar-mode -1)
 
@@ -43,13 +41,12 @@
 
 ;; Graphic / Terminal
 (graphic-supported-if
-    (progn
-      ;; load themes on graphic mode
-      (let* ((themes-dir "~/.emacs.d/themes")
-             (self-theme (self-symbol "theme"))
-             (theme (if (boundp self-theme)
-                        (symbol-value self-theme)
-                      'tomorrow-night-eighties)))
+    ;; load themes on graphic mode
+    (let ((themes-dir "~/.emacs.d/themes")
+          (self-theme (self-symbol "theme")))
+      (let ((theme (if (boundp self-theme)
+                       (symbol-value self-theme)
+                     'tomorrow-night-eighties)))
         (add-to-list 'custom-theme-load-path themes-dir)
         (add-to-list 'load-path themes-dir)
         (version-supported-if >= 24.1
