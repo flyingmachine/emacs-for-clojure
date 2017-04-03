@@ -145,8 +145,15 @@ it can not accross sessions.
 * insert register: ```C-x r i <REG>```
 * view register
 
-### Region
-
+### Region and Rectangle
+* kill-rectangle: ```C-x r k```
+* delete-rectangle: ```C-x r d```
+* yank-rectangle: ```C-x r y```
+* open-rectangle: ```C-x r o```, insert blank space to fill the space of the region-rectangle
+* clear-rectangle: ```C-x r c```
+* string-rectangle: ```C-x r t STRING <RET>```, replace rectangle contents with STRING on each line
+* ```M-x delete-whitespace-rectangle```
+* ```M-x string-insert-rectangle <RET> STRING <RET>```
 
 ### Keyboard Macro
 * start recording macro: ```C-x (```
