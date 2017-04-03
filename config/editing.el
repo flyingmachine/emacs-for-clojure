@@ -168,22 +168,22 @@
 ;; Turn on recent file mode so that you can more easily switch to
 ;; recently edited files when you first start emacs
 ;; Note: useless?
-(comment
- (let ((d (make-vdir ".recentf/")))
-   (setq-default recentf-save-file (concat d ".recentf"))
-   (recentf-mode 1))
+(defun toggle-recentf-mode (&optional disable)
+  "Toggle recentf-mode, `disable' recentf-mode unconditional."
+  (interactive)
+  (setq-default recentf-save-file
+                (concat (make-vdir ".recentf/") ".recentf"))
+  (cond (disable (recentf-mode -1))
+        ((or (not (boundp 'recentf-mode))
+             (null recentf-mode))
+         ;; recentf-list
+         (setq-default recentf-max-saved-items 8)
+         (recentf-mode 1))
+        (t (recentf-mode -1))))
 
- ;; recentf: (recentf-cleanup), view list: recentf-list)
- (setq-default recentf-auto-cleanup 'never)
- ;; recentf: max items
- (setq-default recentf-max-saved-items 32)
+;; Disable recentf-mode
+(toggle-recentf-mode -1)
 
- (defun recentf-ido-find-file ()
-   (interactive)
-   (let ((f (ido-completing-read "Choose recent file: "
-                                 recentf-list nil t)))
-     (when f (find-file f))))
- (global-set-key (kbd "C-c f") 'recentf-ido-find-file))
 
 
 ;; Emacs can automatically create backup files. This tells Emacs to

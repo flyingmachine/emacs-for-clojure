@@ -174,6 +174,7 @@
                      (make-vdir ".desktop/")
                      (make-vdir ".bookmarks/")
                      (make-vdir ".ido/")
+                     (make-vdir ".recentf/")
                      (make-vdir ".places/"))))
      (dolist (d dirs)
        (when (file-exists-p d)
