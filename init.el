@@ -199,6 +199,7 @@
 
 ;; First to load self, env parts
 (setq-default recentf-save-file (concat (make-vdir ".recentf/") "recentf"))
+(setq-default savehist-file (concat (make-vdir ".minibuffer/") "history"))
 (compile-and-load-elisp-files '("self.el") "private/")
 (compile-and-load-elisp-files '("ui.el"
                                 "shell.el"

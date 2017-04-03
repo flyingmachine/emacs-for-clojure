@@ -206,3 +206,7 @@
           (setq-default recentf-max-saved-items 8)
           (recentf-mode 1))
          (t (recentf-mode -1))))
+
+
+;; Enable save minibuffer history
+(savehist-mode)
