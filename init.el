@@ -180,7 +180,11 @@
        (when (file-exists-p d)
          (dolist (f (directory-files d nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))
            (message "#Clean saved user file: %s" (concat d f))
-           (delete-file (concat d f)))))))
+           (delete-file (concat d f)))))
+     (dolist (f (directory-files "~/.emacs.d/" nil "^recentf*"))
+       (when (file-exists-p f)
+         (message "#Clean saved user file: %s" f)
+         (delete-file f)))))
 
 (defmacro reset-emacs ()
   "Clean all compiled file and desktop, then restart Emacs."
