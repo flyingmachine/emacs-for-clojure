@@ -17,7 +17,7 @@
 
 (defvar v-dir (concat (if (display-graphic-p) "g_" "t_")
                       emacs-version)
-  "virtualized dir based on grahpic/terminal mode and Emacs's version")
+  "versionized dir based on grahpic/terminal mode and Emacs's version")
 
 (defmacro make-vdir (subdir)
   "Make the versionized subdir under ~/.emacs.d and returns it. "
@@ -198,8 +198,7 @@
 ;; (message "PATH=%s" (getenv "PATH"))
 
 ;; First to load self, env parts
-(setq-default recentf-save-file
-              (concat (make-vdir ".recentf/") "recentf"))
+(setq-default recentf-save-file (concat (make-vdir ".recentf/") "recentf"))
 (compile-and-load-elisp-files '("self.el") "private/")
 (compile-and-load-elisp-files '("ui.el"
                                 "shell.el"
