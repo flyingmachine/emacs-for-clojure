@@ -209,4 +209,8 @@
 
 
 ;; Enable save minibuffer history
-(savehist-mode)
+(version-supported-if
+ <= 24
+ (savehist-mode)
+ (savehist-mode t))
+
