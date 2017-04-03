@@ -28,7 +28,7 @@ first time.
 3. Download the Emacs
    [configuration zip file](https://github.com/flyingmachine/emacs-for-clojure/archive/book1.zip)
    and unzip it. Its contents should be a folder,
-   `emacs-for-clojure-book1`. Run `mv path/to/emacs-for-clojure-book1
+   `emacs-for-clojure-book1`. Run `mv path/to/emacs-for-clojure-book1/*
    ~/.emacs.d`.
 4. Create the file `~/.lein/profiles.clj` (Windows users, this is
    probably `C:\Users\your_user_name\.lein\profiles.clj`) and add this
