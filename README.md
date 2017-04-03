@@ -75,6 +75,9 @@ It's **self-documenting** and great, keep reading it frequently.
 * Message: ```C-h e``` see the logging of echo area message
 * Man: ```M-x man``` view UNIX manual page
 * Woman: ```M-x woman``` view UNIX manual page without ```man``` program
+* Colors: ```M-x list-colors-display``` display names of defined colors and show what
+they look like
+
 
 ### Motion
 * goto line: ```M-g g```
@@ -164,6 +167,7 @@ It's the duty of [TRAMP](https://www.gnu.org/software/tramp/)
 * sudo: ```C-x C-f /ssh:<remote-id>|sudo:<remote-host>:/path/to/file```, *<remote-host>*
 such as *x@localhost* or *localhost* if the user *x* is a sudoer.
 * eshell remote: ```cd /ssh:<user>@<remote>:<dir>```
+
 
 ### Cooking
 * copy __private/self-sample.el__ to __private/self.el__
