@@ -159,12 +159,11 @@
 
 (defmacro clean-compiled-files ()
   "Clean all compiled files, need restart Emacs."
-  `(let* ((config (make-vdir "config/"))
-          (private (make-vdir "private/")))
-     (dolist (d (list config private))
-       (dolist (f (directory-files d nil "\\.elc$"))
-         (message "#Clean compiled file: %s" f)
-         (delete-file (concat d f))))))
+  `(dolist (d (list (make-vdir "config/")
+                    (make-vdir "private/")))
+     (dolist (f (directory-files d nil "\\.elc$"))
+       (message "#Clean compiled file: %s" f)
+       (delete-file (concat d f)))))
 
 (defmacro clean-saved-user-files ()
   "Clean saved desktop, need restart Emacs."
@@ -172,6 +171,7 @@
                      (make-vdir ".desktop/")
                      (make-vdir ".bookmarks/")
                      (make-vdir ".ido/")
+                     (make-vdir ".minibuffer/")
                      (make-vdir ".recentf/")
                      (make-vdir ".places/"))))
      (dolist (d dirs)
@@ -195,9 +195,12 @@
 
 ;; (message "PATH=%s" (getenv "PATH"))
 
-;; First to load self, env parts
+
+;; versionized dirs
 (setq-default recentf-save-file (concat (make-vdir ".recentf/") "recentf"))
 (setq-default savehist-file (concat (make-vdir ".minibuffer/") "history"))
+
+;; First to load self, env parts
 (compile-and-load-elisp-files '("self.el") "private/")
 (compile-and-load-elisp-files '("ui.el"
                                 "shell.el"
