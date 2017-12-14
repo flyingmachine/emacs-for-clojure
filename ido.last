@@ -1,0 +1,166 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/root/rockit_access/" . "test_materials/")
+ ("/Users/treeherder/projects/droid/events/src/clojure/org/stuff/" . "events/")
+ ("/Users/treeherder/projects/droid/events/src/clojure/org/" . "stuff/")
+ ("/Users/treeherder/projects/droid/events/src/clojure/" . "org/")
+ ("/Users/treeherder/projects/droid/events/src/" . "clojure/")
+ ("/Users/treeherder/projects/droid/events/" . "src/")
+ ("/Users/treeherder/projects/droid/clojuroid/src/java/org/stuff/" . "clojuroid/")
+ ("/Users/treeherder/projects/droid/clojuroid/src/java/org/" . "stuff/")
+ ("/Users/treeherder/projects/droid/clojuroid/src/java/" . "org/")
+ ("/Users/treeherder/projects/rockit/rockit_access/" . "test_materials/")
+ ("/Users/" . "treeherder/")
+ ("/" . "Users/")
+ ("/Users/treeherder/projects/rockit/" . "rockit_access/")
+ ("/Users/treeherder/projects/web-clj/src/" . "web_clj/")
+ ("/Users/treeherder/projects/web-clj/" . "src/")
+ ("/Users/treeherder/projects/clj/arduino-sandbox/src/" . "arduino_sandbox/")
+ ("/Users/treeherder/projects/clj/arduino-sandbox/" . "src/")
+ ("/Users/treeherder/projects/clj/serial-port/" . "src/")
+ ("/Users/treeherder/projects/clj/" . "arduino-sandbox/")
+ ("/Users/treeherder/" . "projects/")
+ ("/Users/treeherder/projects/droid/clojuroid/src/clojure/org/stuff/" . "clojuroid/")
+ ("/Users/treeherder/projects/droid/clojuroid/src/clojure/org/" . "stuff/")
+ ("/Users/treeherder/projects/droid/clojuroid/src/clojure/" . "org/")
+ ("/Users/treeherder/projects/droid/clojuroid/src/" . "java/")
+ ("/Users/treeherder/projects/droid/clojuroid/" . "src/")
+ ("/Users/treeherder/projects/" . "droid/")
+ ("/Users/treeherder/projects/droid/" . "events/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/root/rockit_access/"
+ "/Users/treeherder/projects/rockit/rockit_access/"
+ "/Users/treeherder/projects/droid/events/src/clojure/org/stuff/events/"
+ "/Users/treeherder/.lein/"
+ "/Users/treeherder/projects/droid/events/"
+ "/Users/treeherder/projects/droid/clojuroid/src/java/org/stuff/clojuroid/"
+ "/Users/treeherder/projects/droid/clojuroid/src/clojure/org/stuff/clojuroid/"
+ "/Users/treeherder/projects/web-clj/src/web_clj/"
+ "/Users/treeherder/projects/clj/arduino-sandbox/src/arduino_sandbox/"
+ "/Users/treeherder/projects/clj/serial-port/src/"
+ "/Users/treeherder/projects/clj/serial-port/"
+ "/Users/treeherder/projects/droid/clojuroid/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "test.py"
+ "engine.py"
+ "eb_api_handler.py"
+ "eb_api_handler.pyc"
+ "main.clj"
+ "repl-history"
+ "profiles.clj"
+ "project.clj"
+ "SplashActivity.java"
+ "engine.pyc"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/root/rockit_access/" (21713 42223 397587 0) "eb_api_handler.pyc" "a_secret.py" "test_materials/" "eb_api_handler.py" "./" "engine.py" "secret.pyc" "README.md" "secret.py" ".gitignore" "test.py" "../" "engine.pyc" ".git/" "notes.txt" "#test.py#")
+
+ ("/root/" (21713 41015 349587 2000) ".bashrc" ".aptitude/" ".cask/" ".ssh/" ".nano_history" "./" ".gnupg/" ".Xauthority" "build/" ".profile" ".bash_history" "rockit_access/" ".emacs.d/" "../" "eventbrite-client-py/" "pycurl/" ".dbshell" ".pip/")
+
+ ("/root/rockit_access/test_materials/" (21711 18663 932063 319000) "./" "code" "../" "dumpfile" "upload.doc")
+
+ ("/Users/treeherder/projects/rockit/rockit_access/" (21712 26534 0 0) "test_materials/" "test.py" "secret.pyc" "secret.py" "README.md" "notes.txt" "engine.pyc" "engine.py" "eb_api_handler.pyc" "eb_api_handler.py" "a_secret.py" ".gitignore" ".git/" ".DS_Store" "#test.py#" "../" "./")
+
+ ("/Users/treeherder/projects/droid/events/src/clojure/org/stuff/events/" (21711 16391 0 0) "main.clj" "../" "./")
+
+ ("/Users/treeherder/projects/droid/events/src/clojure/org/stuff/" (21710 57397 0 0) "events/" "../" "./")
+
+ ("/Users/treeherder/projects/droid/events/src/clojure/org/" (21710 57397 0 0) "stuff/" "../" "./")
+
+ ("/Users/treeherder/projects/droid/events/src/clojure/" (21710 57397 0 0) "org/" "../" "./")
+
+ ("/Users/treeherder/projects/droid/events/src/" (21710 57397 0 0) "java/" "clojure/" "../" "./")
+
+ ("/Users/treeherder/projects/droid/events/" (21710 65082 0 0) "target/" "src/" "res/" "project.clj" "LICENSE" "assets/" "AndroidManifest.template.xml" ".nrepl-port" ".gitignore" "../" "./")
+
+ ("/Users/treeherder/" (21711 157 0 0) "Things/" "testerer/" "test_project/" "test/" "sketchbook/" "safe-h2o/" "RXTX/" "Public/" "projects/" "printrun/" "Pictures/" "opt/" "om-tut/" "nltk_data/" "Music/" "Movies/" "matplotlib/" "libusb/" "Library/" "libfreenect/" "kijani/" "eventbrite-client-py/" "Downloads/" "Documents/" "Desktop/" "clodiuno/" "bin/" "Arduino/" "Applications/" "ADXL345_Eval/" "a01/" ".Xauthority" ".vimrc" ".viminfo" ".vim_runtime/" ".vim_mru_files" ".vim/" ".Trash/" ".subversion/" ".ssh/" ".serverauth.38475" ".rnd" ".pronsolerc~bak" ".pronsolerc" ".profile~" ".profile" ".pip/" ".mongorc.js" ".matplotlib/" ".m2/" ".lein/" ".jline-reply.history" ".irssi/" ".gitconfig" ".emacs.forest.d/" ".emacs.d.good/" ".emacs.d/" ".emacs.brave.d/" ".DS_Store" ".dbshell" ".config/" ".CFUserTextEncoding" ".cache/" ".bash_profile" ".bash_history" ".android/" "../" "./")
+
+ ("/Users/treeherder/.lein/" (21711 8 0 0) "repl-history" "profiles.clj" "../" "./")
+
+ ("/Users/treeherder/projects/droid/" (21710 57397 0 0) "events/" "../" "./")
+
+ ("/Users/treeherder/projects/droid/clojuroid/src/java/org/stuff/clojuroid/" (21702 40006 0 0) "SplashActivity.java" "../" "./")
+
+ ("/Users/treeherder/projects/droid/clojuroid/src/java/org/stuff/" (21702 40006 0 0) "clojuroid/" "../" "./")
+
+ ("/Users/treeherder/projects/droid/clojuroid/src/java/org/" (21702 40006 0 0) "stuff/" "../" "./")
+
+ ("/Users/treeherder/projects/droid/clojuroid/src/java/" (21702 40006 0 0) "org/" "../" "./")
+
+ ("/Users/treeherder/projects/rockit/rockit_access/test_materials/" (21594 34797 0 0) "upload.doc" "dumpfile" "code" "../" "./")
+
+ ("/Users/treeherder/.emacs.d/" (21704 45904 0 0) "var/" "themes/" "README.md" "projectile-bookmarks.eld" "places" "init.el.old" "init.el.new" "init.el" "ido.last" "elpa/" "customizations/" "Cask" "backups/" "auto-save-list/" ".smex-items" ".recentf" ".gitignore" ".git/" ".cask/" "../" "./")
+
+ ("/Users/treeherder/.emacs.d/auto-save-list/" (21704 45904 0 0) ".saves-24991-evermore~" "../" "./")
+
+ ("/Users/treeherder/projects/rockit/" (21586 43365 0 0) "rockit_access/" "../" "./")
+
+ ("/Users/treeherder/projects/web-clj/src/web_clj/" (21663 8847 0 0) "views/" "server.clj" "models/" "client/" "../" "./")
+
+ ("/Users/treeherder/projects/web-clj/src/" (21663 8847 0 0) "web_clj/" "../" "./")
+
+ ("/Users/treeherder/projects/clj/arduino-sandbox/src/arduino_sandbox/" (21635 51434 0 0) "core.clj" "../" "./")
+
+ ("/Users/treeherder/projects/clj/arduino-sandbox/src/" (21635 51434 0 0) "arduino_sandbox/" "../" "./")
+
+ ("/Users/treeherder/projects/clj/arduino-sandbox/" (21635 54691 0 0) "test/" "target/" "src/" "resources/" "README.md" "project.clj" "LICENSE" "librxtxSerial.jnilib" "doc/" ".lein-repl-history" ".gitignore" "../" "./")
+
+ ("/Users/treeherder/projects/clj/serial-port/src/" (21635 49444 0 0) "serial_port.clj" "../" "./")
+
+ ("/Users/treeherder/projects/clj/serial-port/" (21635 49444 0 0) "test/" "src/" "README.md" "project.clj" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/treeherder/projects/clj/" (21662 24797 0 0) "web/" "tut/" "suckbot.clj" "simple-sample/" "serial-test/" "serial-port/" "robots/" "bot.clj" "arduino-sandbox/" ".DS_Store" "../" "./")
+
+ ("/Users/treeherder/projects/web-clj/" (21664 54880 0 0) "target/" "src/" "resources/" "README.md" "project.clj" "externs/" ".lein-repl-history" ".gitignore" "../" "./")
+
+ ("/Users/treeherder/projects/droid/clojuroid/" (21704 41179 0 0) "target/" "src/" "res/" "project.clj" "LICENSE" "assets/" "AndroidManifest.template.xml" ".gitignore" "#project.clj#" "../" "./")
+
+ ("/Users/treeherder/.android/" (21700 49818 0 0) "sites-settings.cfg" "repositories.cfg" "debug.keystore" "cache/" "avd/" "androidwin.cfg" "adbkey.pub" "adbkey" "adb_usb.ini" "../" "./")
+
+ ("/Applications/" (21704 22955 0 0) "Xcode.app/" "VLC.app/" "Utilities/" "treeherder" "Time Machine.app/" "TextEdit.app/" "System Preferences.app/" "Sublime Text 2.app/" "StuffIt Expander.app/" "Stickies.app/" "Slic3r.app/" "Save/" "Safari.app/" "Reminders.app/" "QuickTime Player.app/" "Printrun-Mac-05Nov2013.app/" "Preview.app/" "Photo Booth.app/" "OpenSCAD.app/" "Notes.app/" "Mupen64-PR1.app/" "Mission Control.app/" "Microsoft Silverlight/" "Messages.app/" "Maps.app/" "Mail.app/" "Logic.app/" "Launchpad.app/" "iTunes.app/" "Install OS X Yosemite.app/" "Image Capture.app/" "iBooks.app/" "hunspell-1.3.2/" "Google Earth.app/" "GitHub.app/" "Game Center.app/" "Font Book.app/" "Firefox.app/" "FaceTime.app/" "espeak/" "Emacs.app/" "DVD Player.app/" "Dictionary.app/" "Dashboard.app/" "Contacts.app/" "Chess.app/" "Calendar.app/" "Calculator.app/" "Automator.app/" "Arduino.app/" "Arduino 2.app/" "App Store.app/" "ActiveState ActiveTcl/" "22mm_vertical_bearing.stl" ".localized" ".DS_Store" "../" "./")
+
+ ("/Applications/Emacs.app/" (21573 44565 0 0) "Contents/" "../" "./")
+
+ ("/Applications/Emacs.app/Contents/" (21573 45592 0 0) "Resources/" "PkgInfo" "MacOS/" "Info.plist" "_CodeSignature/" "../" "./")
+
+ ("/Applications/Emacs.app/Contents/Resources/" (21573 44959 0 0) "var/" "site-lisp/" "man/" "lisp/" "info/" "etc/" "English.lproj/" "Emacs.icns" "document.icns" "Credits.html" "../" "./")
+
+ ("/Applications/Emacs.app/Contents/Resources/etc/" (21573 44957 0 0) "yow.lines" "WHY-FREE" "tutorials/" "TODO" "themes/" "THE-GNU-PROJECT" "TERMS" "srecode/" "spook.lines" "ses-example.ses" "schema/" "rgb.txt" "refcards/" "README" "publicsuffix.txt" "ps-prin1.ps" "ps-prin0.ps" "PROBLEMS" "package-keyring.gpg" "ORG-NEWS" "org/" "ORDERS" "NXML-NEWS" "nxml/" "NEXTSTEP" "NEWS.23" "NEWS.22" "NEWS.21" "NEWS.20" "NEWS.19" "NEWS.18" "NEWS.1-17" "NEWS" "MORE.STUFF" "MH-E-NEWS" "MACHINES" "LINUX-GNU" "JOKES" "images/" "HELLO" "grep.txt" "gnus-tut.txt" "GNUS-NEWS" "gnus/" "GNU" "future-bug" "FTP" "forms/" "ETAGS.README" "ETAGS.EBNF" "ERC-NEWS" "enriched.txt" "emacs.icon" "emacs.desktop" "emacs.appdata.xml" "emacs-buffer.gdb" "edt-user.el" "e/" "DOC" "DISTRIB" "DEVEL.HUMOR" "DEBUG" "COPYING" "CONTRIBUTE" "compilation.txt" "charsets/" "CENSORSHIP" "CALC-NEWS" "AUTHORS" "../" "./")
+
+ ("/Users/treeherder/.emacs.d/.cask/" (21704 39920 0 0) "24.4.1/" "../" "./")
+
+ ("/Users/treeherder/.emacs.d/.cask/24.4.1/" (21704 39931 0 0) "elpa/" "bootstrap/" "../" "./")
+
+ ("/Users/treeherder/.emacs.d/.cask/24.4.1/elpa/" (21704 40001 0 0) "yasnippet-20141223.303/" "web-mode-20150127.1216/" "use-package-20150118.722/" "tagedit-20141021.2139/" "smex-20141210.1422/" "smartparens-20150126.2318/" "shut-up-20140904.44/" "s-20140910.334/" "rainbow-mode-0.10/" "rainbow-delimiters-20141221.925/" "queue-0.1.1/" "projectile-20150126.131/" "prodigy-20141109.252/" "popwin-20141227.2351/" "pkg-info-20140610.630/" "paredit-20150126.155/" "pallet-20150120.212/" "package-build-20150120.2215/" "nyan-mode-20140801.1329/" "multiple-cursors-20150101.1431/" "magit-20150124.930/" "let-alist-1.0.3/" "ido-ubiquitous-20141210.1353/" "idle-highlight-mode-20120920.948/" "htmlize-20130207.1202/" "git-rebase-mode-20150122.1114/" "git-commit-mode-20141014.1634/" "flycheck-cask-20141217.537/" "flycheck-20150125.601/" "f-20150113.24/" "expand-region-20141223.1328/" "exec-path-from-shell-20141212.846/" "epl-20140823.609/" "drag-stuff-20140121.723/" "diminish-20091203.1012/" "dash-20141220.1452/" "clojure-mode-extra-font-locking-20150110.505/" "clojure-mode-20150113.1048/" "cider-20150126.1253/" "cask-20150109.621/" "bind-key-20150102.1532/" "archives/" "../" "./")
+
+ ("/Users/treeherder/.emacs.d/.cask/24.4.1/elpa/rainbow-mode-0.10/" (21704 40856 0 0) "rainbow-mode.elc" "rainbow-mode.el" "rainbow-mode-pkg.elc" "rainbow-mode-pkg.el" "rainbow-mode-autoloads.el~" "rainbow-mode-autoloads.el" ".#rainbow-mode-autoloads.el" "../" "./")
+
+ ("/Users/treeherder/projects/droid/clojuroid/src/clojure/org/stuff/clojuroid/" (21702 40006 0 0) "main.clj" "../" "./")
+
+ ("/Users/treeherder/projects/droid/clojuroid/src/clojure/org/stuff/" (21702 40006 0 0) "clojuroid/" "../" "./")
+
+ ("/Users/treeherder/projects/droid/clojuroid/src/clojure/org/" (21702 40006 0 0) "stuff/" "../" "./")
+
+ ("/Users/treeherder/projects/droid/clojuroid/src/clojure/" (21702 40006 0 0) "org/" "../" "./")
+
+ ("/Users/treeherder/projects/droid/clojuroid/src/" (21702 40006 0 0) "java/" "clojure/" "../" "./")
+
+ ("/Users/treeherder/projects/accelerometer/" (21257 56331 0 0) "ypr.cpp" "ypr" "test" "stats.txt" "setup-i2c.sh" "README.md" "MPU6050_6Axis_MotionApps20.h" "MPU6050.o" "MPU6050.h" "MPU6050.cpp" "Makefile" "main_3d.o" "main_3d.cpp" "I2Cdev.o" "I2Cdev.h" "I2Cdev.cpp" "helper_3dmath.h" "demo_raw.o" "demo_raw.cpp" "demo_raw" "demo_dmp.o" "demo_dmp.cpp" "demo_dmp" "demo_3d.o" "demo_3d.h" "demo_3d.cpp" "demo_3d" "acl.cpp" "acl" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/treeherder/projects/" (21703 63996 0 0) "yasnac/" "web-clj/" "waluigi_TT/" "treeherder.github.io/" "test_app/" "spectrum/" "rockit/" "robox/" "robotarm.md" "relical/" "quad/" "organization/" "my-project/" "maker/" "magnitudeio/" "ipa/" "instruction/" "evokr/" "droid/" "clj/" "chassis/" "arduino_sketches/" "aquafarm/" "android/" "accelerometer/" ".DS_Store" "../" "./")
+
+ ("/Users/" (21102 53289 0 0) "treeherder/" "Shared/" ".localized" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
