@@ -19,6 +19,7 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 40)
 
+(require 'ido-completing-read+)
 
 ;; ido-mode allows you to more easily navigate choices. For example,
 ;; when you want to switch buffers, ido presents you with a list
@@ -26,7 +27,13 @@
 ;; name, ido will narrow down the list of buffers to match the text
 ;; you've typed in
 ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
-(ido-mode t)
+
+;; This enables ido in all contexts where it could be useful, not just
+;; for selecting buffer and file names
+(ido-ubiquitous-mode 1)
+
+(ido-mode 1)
+(ido-everywhere 1)
 
 ;; This allows partial matches, e.g. "tl" will match "Tyrion Lannister"
 (setq ido-enable-flex-matching t)
@@ -42,20 +49,21 @@
 ;; open now
 (setq ido-use-virtual-buffers t)
 
-;; This enables ido in all contexts where it could be useful, not just
-;; for selecting buffer and file names
-(ido-ubiquitous-mode 1)
 
 ;; Shows a list of buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-
 ;; Enhances M-x to allow easier execution of commands. Provides
 ;; a filterable list of possible commands in the minibuffer
 ;; http://www.emacswiki.org/emacs/Smex
-(setq smex-save-file (concat user-emacs-directory ".smex-items"))
-(smex-initialize)
+
+(require 'smex) ; Not needed if you use package.el
+(smex-initialize) ; Can be omitted. This might cause a (minimal) delay
+                  ; when Smex is auto-initialized on its first run.
 (global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
 
 ;; projectile everywhere!
 (projectile-global-mode)
+

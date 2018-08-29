@@ -9,6 +9,10 @@
 ;; Java classes (e.g. JavaClassName)
 (add-hook 'clojure-mode-hook 'subword-mode)
 
+;; enable rainbow delimiters
+(require 'rainbow-delimiters)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+
 ;; A little more syntax highlighting
 (require 'clojure-mode-extra-font-locking)
 
@@ -30,10 +34,16 @@
 ;;;;
 
 ;; provides minibuffer documentation for the code you're typing into the repl
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook 'eldoc-mode)
 
 ;; go right to the REPL buffer when it's finished connecting
 (setq cider-repl-pop-to-buffer-on-connect t)
+
+;; remove banner from showing up after each command
+(setq cider-repl-display-help-banner nil)
+
+;; include pretty printing for each evaluation
+(setq cider-repl-use-pretty-printing t)
 
 ;; When there's a cider error, show its buffer and switch to it
 (setq cider-show-error-buffer t)
@@ -70,9 +80,9 @@
   (interactive)
   (cider-interactive-eval (format "(user/reset)")))
 
-(defun cider-user-ns ()
-  (interactive)
-  (cider-repl-set-ns "user"))
+;;  (defun cider-user-ns ()
+;;    (interactive)
+;;    (cider-repl-set-ns "user"))
 
 (eval-after-load 'cider
   '(progn
