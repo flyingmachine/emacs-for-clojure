@@ -10,3 +10,4 @@ auto-save-list
 backups
 melpa-stable
 archive-contents
+*.elc
