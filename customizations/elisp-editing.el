@@ -13,3 +13,6 @@
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+
+;; Load rainbow mode in most programming modes (Emacs 24 and above)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
