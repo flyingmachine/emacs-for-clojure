@@ -7,28 +7,28 @@
 	      ((:url . "https://github.com/abo-abo/ace-window")
 	       (:keywords "window" "location"))])
  (ack .
-      [(1 5)
+      [(1 8)
        nil "interface to ack-like tools" tar
        ((:keywords "tools" "processes" "convenience")
 	(:url . "https://github.com/leoliu/ack-el"))])
  (ada-mode .
-	   [(5 3 1)
+	   [(6 1 0)
 	    ((wisi
-	      (1 1 6))
+	      (2 1 0))
 	     (cl-lib
-	      (0 4))
+	      (1 0))
 	     (emacs
-	      (24 3)))
+	      (25 0)))
 	    "major-mode for editing Ada sources" tar
 	    ((:keywords "languages" "ada")
 	     (:url . "http://www.nongnu.org/ada-mode/"))])
  (ada-ref-man .
-	      [(2012 3)
+	      [(2012 5)
 	       nil "Ada Reference Manual 2012" tar
 	       ((:keywords "languages" "ada")
 		(:url . "http://stephe-leake.org/ada/arm.html"))])
  (adaptive-wrap .
-		[(0 5 2)
+		[(0 7)
 		 nil "Smart line-wrapping with wrap-prefix" single
 		 ((:url . "http://elpa.gnu.org/packages/adaptive-wrap.html")
 		  (:keywords))])
@@ -63,7 +63,7 @@
 	((:url . "http://elpa.gnu.org/packages/ampc.html")
 	 (:keywords "ampc" "mpc" "mpd"))])
  (arbitools .
-	    [(0 95)
+	    [(0 97)
 	     ((cl-lib
 	       (0 5)))
 	     "Package for chess tournaments administration" single
@@ -80,9 +80,14 @@
 	 ((:keywords "async")
 	  (:url . "http://elpa.gnu.org/packages/async.html"))])
  (auctex .
-	 [(12 1 1)
-	  nil "Integrated environment for *TeX*" tar
-	  ((:url . "http://www.gnu.org/software/auctex/"))])
+	 [(12 1 2)
+	  ((emacs
+	    (24 1))
+	   (cl-lib
+	    (0 5)))
+	  "Integrated environment for *TeX*" tar
+	  ((:keywords "tex" "latex" "texinfo" "context" "doctex" "preview-latex")
+	   (:url . "http://www.gnu.org/software/auctex/"))])
  (aumix-mode .
 	     [(7)
 	      nil "run the aumix program in a buffer" single
@@ -121,10 +126,19 @@
 	  ((:url . "https://github.com/Malabarba/beacon")
 	   (:keywords "convenience"))])
  (brief .
-	[(5 85)
-	 nil "Brief Editor Emulator" single
-	 ((:url . "http://elpa.gnu.org/packages/brief.html")
-	  (:keywords "brief" "emulations" "crisp"))])
+	[(5 87)
+	 nil "Brief Editor Emulator (Brief Mode)" tar
+	 ((:keywords "brief" "emulations" "crisp")
+	  (:url . "http://elpa.gnu.org/packages/brief.html"))])
+ (buffer-expose .
+		[(0 4 1)
+		 ((emacs
+		   (25))
+		  (cl-lib
+		   (0 5)))
+		 "Visual buffer switching using a window grid" single
+		 ((:url . "https://github.com/clemera/buffer-expose")
+		  (:keywords "convenience"))])
  (bug-hunter .
 	     [(1 3 1)
 	      ((seq
@@ -168,6 +182,13 @@
 	    "CL-style generic printing" single
 	    ((:url . "http://elpa.gnu.org/packages/cl-print.html")
 	     (:keywords))])
+ (clipboard-collector .
+		      [(0 2)
+		       ((emacs
+			 (25)))
+		       "Collect clipboard entries according to regex rules" single
+		       ((:url . "https://github.com/clemera/clipboard-collector")
+			(:keywords "convenience"))])
  (cobol-mode .
 	     [(1 0 0)
 	      ((cl-lib
@@ -186,14 +207,14 @@
 		      ((:url . "https://github.com/cpitclaudel/compact-docstrings")
 		       (:keywords "convenience" "faces" "lisp" "maint" "c"))])
  (company .
-	  [(0 9 6)
+	  [(0 9 9)
 	   ((emacs
 	     (24 3)))
 	   "Modular text completion framework" tar
 	   ((:keywords "abbrev" "convenience" "matching")
 	    (:url . "http://company-mode.github.io/"))])
  (company-ebdb .
-	       [(1)
+	       [(1 1)
 		((company
 		  (0 9 4))
 		 (ebdb
@@ -226,17 +247,8 @@
 		    "Highlight by scope" tar
 		    ((:keywords "convenience" "faces" "tools")
 		     (:url . "https://github.com/jacksonrayhamilton/context-coloring"))])
- (counsel-ebdb .
-	       [(1)
-		((ivy
-		  (0 8 0))
-		 (ebdb
-		  (0 2)))
-		"Counsel integration for EBDB" single
-		((:url . "http://elpa.gnu.org/packages/counsel-ebdb.html")
-		 (:keywords))])
  (crisp .
-	[(1 3 4)
+	[(1 3 6)
 	 nil "CRiSP/Brief Emacs emulator" single
 	 ((:url . "http://elpa.gnu.org/packages/crisp.html")
 	  (:keywords "emulations" "brief" "crisp"))])
@@ -251,7 +263,7 @@
 		((:keywords "convenience")
 		 (:url . "http://elpa.gnu.org/packages/cycle-quotes.html"))])
  (darkroom .
-	   [(0 1)
+	   [(0 2)
 	    ((cl-lib
 	      (0 5)))
 	    "Remove visual distractions and focus on writing" single
@@ -270,9 +282,11 @@
 		((:url . "http://elpa.gnu.org/packages/dbus-codegen.html")
 		 (:keywords "comm" "dbus" "convenience"))])
  (debbugs .
-	  [(0 15)
-	   ((soap-client
-	     (3 1 1))
+	  [(0 17)
+	   ((emacs
+	     (25 1))
+	    (soap-client
+	     (3 1 5))
 	    (cl-lib
 	     (0 5)))
 	   "SOAP library to access debbugs servers" tar
@@ -295,9 +309,11 @@
 	     ((:url . "http://www.dr-qubit.org/emacs.php")
 	      (:keywords "extensions" "matching" "data structures trie" "tree" "dictionary" "completion" "regexp"))])
  (diff-hl .
-	  [(1 8 4)
+	  [(1 8 6)
 	   ((cl-lib
-	     (0 2)))
+	     (0 2))
+	    (emacs
+	     (24 3)))
 	   "Highlight uncommitted changes using VC" tar
 	   ((:keywords "vc" "diff")
 	    (:url . "https://github.com/dgutov/diff-hl"))])
@@ -307,7 +323,7 @@
 	    ((:url . "https://github.com/mgalgs/diffview-mode")
 	     (:keywords "convenience" "diff"))])
  (dired-du .
-	   [(0 5)
+	   [(0 5 2)
 	    ((emacs
 	      (24 4))
 	     (cl-lib
@@ -315,6 +331,20 @@
 	    "Dired with recursive directory sizes" tar
 	    ((:keywords "files" "unix" "convenience")
 	     (:url . "http://elpa.gnu.org/packages/dired-du.html"))])
+ (dired-git-info .
+		 [(0 2)
+		  ((emacs
+		    (25)))
+		  "Show git info in dired" single
+		  ((:url . "https://github.com/clemera/dired-git-info")
+		   (:keywords "dired" "files"))])
+ (disk-usage .
+	     [(1 3 1)
+	      ((emacs
+		(26 1)))
+	      "Sort and browse disk usage listings" single
+	      ((:url . "https://gitlab.com/Ambrevar/emacs-disk-usage")
+	       (:keywords "files" "convenience" "tools"))])
  (dismal .
 	 [(1 5)
 	  ((cl-lib
@@ -322,7 +352,7 @@
 	  "Dis Mode Ain't Lotus: Spreadsheet program Emacs" tar
 	  ((:url . "http://elpa.gnu.org/packages/dismal.html"))])
  (djvu .
-       [(0 5)
+       [(1 0 1)
 	nil "Edit and view Djvu files via djvused" single
 	((:url . "http://elpa.gnu.org/packages/djvu.html")
 	 (:keywords "files" "wp"))])
@@ -346,7 +376,7 @@
 	     ((:keywords "killing" "convenience")
 	      (:url . "https://github.com/leoliu/easy-kill"))])
  (ebdb .
-       [(0 6)
+       [(0 6 6)
 	((emacs
 	  (25 1))
 	 (cl-lib
@@ -380,16 +410,18 @@
 	     ((:url . "http://elpa.gnu.org/packages/ediprolog.html")
 	      (:keywords "languages" "processes"))])
  (eglot .
-	[(1 1)
+	[(1 4)
 	 ((emacs
 	   (26 1))
 	  (jsonrpc
-	   (1 0 0)))
+	   (1 0 7))
+	  (flymake
+	   (1 0 2)))
 	 "Client for Language Server Protocol (LSP) servers" tar
 	 ((:keywords "convenience" "languages")
 	  (:url . "https://github.com/joaotavora/eglot"))])
  (el-search .
-	    [(1 7 9)
+	    [(1 11 4)
 	     ((emacs
 	       (25))
 	      (stream
@@ -448,9 +480,9 @@
 	       ((:keywords "calendar")
 		(:url . "http://elpa.gnu.org/packages/excorporate.html"))])
  (exwm .
-       [(0 19)
+       [(0 22 1)
 	((xelb
-	  (0 15)))
+	  (0 16)))
 	"Emacs X Window Manager" tar
 	((:keywords "unix")
 	 (:url . "https://github.com/ch11ng/exwm"))])
@@ -475,11 +507,36 @@
 	   "Color unbalanced parentheses and parentheses inconsistent with indentation" single
 	   ((:url . "http://elpa.gnu.org/packages/flylisp.html")
 	    (:keywords))])
+ (flymake .
+	  [(1 0 5)
+	   ((emacs
+	     (26 1)))
+	   "A universal on-the-fly syntax checker" single
+	   ((:url . "http://elpa.gnu.org/packages/flymake.html")
+	    (:keywords "c" "languages" "tools"))])
+ (fountain-mode .
+		[(2 6 2)
+		 ((emacs
+		   (24 5)))
+		 "Major mode for screenwriting in Fountain markup" single
+		 ((:url . "http://elpa.gnu.org/packages/fountain-mode.html")
+		  (:keywords "wp" "text"))])
  (frame-tabs .
 	     [(1 1)
 	      nil "show buffer tabs in side window" single
 	      ((:url . "http://elpa.gnu.org/packages/frame-tabs.html")
 	       (:keywords "frames" "tabs"))])
+ (frog-menu .
+	    [(0 2 2)
+	     ((emacs
+	       (26))
+	      (avy
+	       (0 4))
+	      (posframe
+	       (0 4)))
+	     "Quickly pick items from ad hoc menus" single
+	     ((:url . "https://github.com/clemera/frog-menu")
+	      (:keywords "convenience"))])
  (fsm .
       [(0 2 1)
        ((emacs
@@ -520,7 +577,7 @@
 		 ((:keywords "gnome" "c" "coding style")
 		  (:url . "http://elpa.gnu.org/packages/gnome-c-style.html"))])
  (gnorb .
-	[(1 5 5)
+	[(1 6 1)
 	 ((cl-lib
 	   (0 5)))
 	 "Glue code between Gnus, Org, and BBDB" tar
@@ -537,22 +594,42 @@
 	 "play GNU Go in a buffer" tar
 	 ((:keywords "games" "processes")
 	  (:url . "http://www.gnuvola.org/software/gnugo/"))])
+ (gnus-mock .
+	    [(0 4 0)
+	     nil "Mock Gnus installation for testing" tar
+	     ((:url . "http://elpa.gnu.org/packages/gnus-mock.html"))])
+ (gpastel .
+	  [(0 5 0)
+	   ((emacs
+	     (25 1)))
+	   "Integrates GPaste with the kill-ring" single
+	   ((:url . "https://gitlab.petton.fr/DamienCassou/desktop-environment")
+	    (:keywords "tools"))])
+ (greader .
+	  [(0 1)
+	   ((emacs
+	     (25)))
+	   "gnamù reader, a reader with espeak tts" tar
+	   ((:keywords "tools" "accessibility")
+	    (:url . "http://elpa.gnu.org/packages/greader.html"))])
+ (guess-language .
+		 [(0 0 1)
+		  ((cl-lib
+		    (0 5))
+		   (emacs
+		    (24))
+		   (advice
+		    (0 1)))
+		  "Robust automatic language detection" single
+		  ((:url . "https://github.com/tmalsburg/guess-language.el")
+		   (:keywords))])
  (heap .
        [(0 5)
 	nil "Heap (a.k.a. priority queue) data structure" single
 	((:url . "http://www.dr-qubit.org/emacs.php")
 	 (:keywords "extensions" "data structures" "heap" "priority queue"))])
- (helm-ebdb .
-	    [(1)
-	     ((helm
-	       (1 0))
-	      (ebdb
-	       (0 2)))
-	     "Helm integration for EBDB" single
-	     ((:url . "http://elpa.gnu.org/packages/helm-ebdb.html")
-	      (:keywords "mail" "convenience"))])
  (highlight-escape-sequences .
-			     [(0 3)
+			     [(0 4)
 			      nil "Highlight escape sequences" single
 			      ((:url . "https://github.com/dgutov/highlight-escape-sequences")
 			       (:keywords "convenience"))])
@@ -601,8 +678,17 @@
        "Incremental Vertical completYon" tar
        ((:keywords "matching")
 	(:url . "https://github.com/abo-abo/swiper"))])
+ (ivy-explorer .
+	       [(0 3 2)
+		((emacs
+		  (25))
+		 (ivy
+		  (0 10 0)))
+		"Dynamic file browsing grid using ivy" single
+		((:url . "https://github.com/clemera/ivy-explorer")
+		 (:keywords "convenience" "files" "matching"))])
  (javaimp .
-	  [(0 6)
+	  [(0 6 1)
 	   nil "Add and reorder Java import statements in Maven projects" tar
 	   ((:keywords "java" "maven" "programming")
 	    (:url . "http://elpa.gnu.org/packages/javaimp.html"))])
@@ -614,7 +700,7 @@
 	       ((:url . "http://elpa.gnu.org/packages/jgraph-mode.html")
 		(:keywords "tex" "wp"))])
  (js2-mode .
-	   [(20180301)
+	   [(20190219)
 	    ((emacs
 	      (24 1))
 	     (cl-lib
@@ -630,7 +716,7 @@
 	     ((:url . "http://elpa.gnu.org/packages/json-mode.html")
 	      (:keywords "data"))])
  (jsonrpc .
-	  [(1 0 6)
+	  [(1 0 7)
 	   ((emacs
 	     (25 2)))
 	   "JSON-RPC library" single
@@ -697,8 +783,15 @@
 	  "Perform an occur-like folding in current buffer" single
 	  ((:url . "https://github.com/fourier/loccur")
 	   (:keywords "matching"))])
+ (map .
+      [(2 0)
+       ((emacs
+	 (25)))
+       "Map manipulation functions" single
+       ((:url . "http://elpa.gnu.org/packages/map.html")
+	(:keywords "convenience" "map" "hash-table" "alist" "array"))])
  (markchars .
-	    [(0 2 0)
+	    [(0 2 1)
 	     nil "Mark chars fitting certain characteristics" single
 	     ((:url . "http://elpa.gnu.org/packages/markchars.html")
 	      (:keywords))])
@@ -795,7 +888,7 @@
 	 ((:keywords "extensions" "lisp")
 	  (:url . "https://github.com/Malabarba/names"))])
  (nhexl-mode .
-	     [(0 9)
+	     [(1 2)
 	      ((emacs
 		(24 4))
 	       (cl-lib
@@ -804,7 +897,7 @@
 	      ((:url . "http://elpa.gnu.org/packages/nhexl-mode.html")
 	       (:keywords "data"))])
  (nlinum .
-	 [(1 8 1)
+	 [(1 9)
 	  nil "Show line numbers in the margin" single
 	  ((:url . "http://elpa.gnu.org/packages/nlinum.html")
 	   (:keywords "convenience"))])
@@ -827,6 +920,15 @@
 	  nil "OAuth 2.0 Authorization Protocol" single
 	  ((:url . "http://elpa.gnu.org/packages/oauth2.html")
 	   (:keywords "comm"))])
+ (objed .
+	[(0 8 1)
+	 ((emacs
+	   (25))
+	  (cl-lib
+	   (0 5)))
+	 "Navigate and edit text objects." tar
+	 ((:keywords "convenience")
+	  (:url . "https://github.com/clemera/objed"))])
  (omn-mode .
 	   [(1 2)
 	    nil "Support for OWL Manchester Notation" single
@@ -840,12 +942,12 @@
 	     ((:url . "https://github.com/michael-heerdegen/on-screen.el")
 	      (:keywords "convenience"))])
  (org .
-      [(9 1 14)
+      [(9 2 3)
        nil "Outline-based notes management and organizer" tar
        ((:keywords "outlines" "hypermedia" "calendar" "wp")
 	(:url . "http://elpa.gnu.org/packages/org.html"))])
  (org-edna .
-	   [(1 0 -2 6)
+	   [(1 0 2)
 	    ((emacs
 	      (25 1))
 	     (seq
@@ -897,6 +999,12 @@
 	  "Parser combinator library" tar
 	  ((:keywords "extensions")
 	   (:url . "https://github.com/cute-jumper/parsec.el"))])
+ (peg .
+      [(1 0)
+       ((emacs
+	 (25)))
+       "Parsing Expression Grammars in Emacs Lisp" tar
+       ((:url . "http://elpa.gnu.org/packages/peg.html"))])
  (pinentry .
 	   [(0 1)
 	    nil "GnuPG Pinentry server implementation" single
@@ -908,7 +1016,7 @@
 	 ((:url . "http://elpa.gnu.org/packages/poker.html")
 	  (:keywords "games"))])
  (posframe .
-	   [(0 3 0)
+	   [(0 4 3)
 	    ((emacs
 	      (26)))
 	    "Pop a posframe (just a frame) at point" single
@@ -980,6 +1088,13 @@
 		 nil "Interactively list/edit registers" single
 		 ((:url . "http://elpa.gnu.org/packages/register-list.html")
 		  (:keywords "register"))])
+ (relint .
+	 [(1 6)
+	  ((xr
+	    (1 10)))
+	  "Elisp regexp mistake finder" single
+	  ((:url . "https://github.com/mattiase/relint")
+	   (:keywords "lisp" "maint" "regexps"))])
  (rich-minority .
 		[(1 0 1)
 		 ((cl-lib
@@ -1038,7 +1153,7 @@
 	      ((:url . "http://elpa.gnu.org/packages/smart-yank.html")
 	       (:keywords "convenience"))])
  (sml-mode .
-	   [(6 8)
+	   [(6 9)
 	    ((emacs
 	      (24))
 	     (cl-lib
@@ -1047,16 +1162,18 @@
 	    ((:url . "http://elpa.gnu.org/packages/sml-mode.html")
 	     (:keywords "sml"))])
  (soap-client .
-	      [(3 1 4)
+	      [(3 1 5)
 	       ((cl-lib
 		 (0 6 1)))
 	       "Access SOAP web services" tar
 	       ((:keywords "soap" "web-services" "comm" "hypermedia")
 		(:url . "http://elpa.gnu.org/packages/soap-client.html"))])
  (sokoban .
-	  [(1 4 6)
+	  [(1 4 8)
 	   ((emacs
-	     (23 1)))
+	     (23 1))
+	    (cl-lib
+	     (0 5)))
 	   "Implementation of Sokoban for Emacs." tar
 	   ((:keywords "games")
 	    (:url . "http://elpa.gnu.org/packages/sokoban.html"))])
@@ -1073,12 +1190,19 @@
 	   ((:url . "https://github.com/Malabarba/spinner.el")
 	    (:keywords "processes" "mode-line"))])
  (sql-indent .
-	     [(1 2)
+	     [(1 3)
 	      ((cl-lib
 		(0 5)))
 	      "Support for indenting code in SQL files." tar
 	      ((:keywords "languages" "sql")
 	       (:url . "http://elpa.gnu.org/packages/sql-indent.html"))])
+ (ssh-deploy .
+	     [(3 0)
+	      ((emacs
+		(24)))
+	      "Deployment via TRAMP, global or per directory." tar
+	      ((:keywords "tools" "convenience")
+	       (:url . "https://github.com/cjohansson/emacs-ssh-deploy"))])
  (stream .
 	 [(2 2 4)
 	  ((emacs
@@ -1087,7 +1211,7 @@
 	  ((:keywords "stream" "laziness" "sequences")
 	   (:url . "http://elpa.gnu.org/packages/stream.html"))])
  (svg .
-      [(0 1)
+      [(0 2)
        ((emacs
 	 (25)))
        "svg image creation functions" single
@@ -1102,6 +1226,12 @@
 	     "Analog clock using Scalable Vector Graphics" single
 	     ((:url . "http://elpa.gnu.org/packages/svg-clock.html")
 	      (:keywords "demo" "svg" "clock"))])
+ (system-packages .
+		  [(1 0 10)
+		   ((emacs
+		     (24 3)))
+		   "functions to manage system packages" tar
+		   ((:url . "https://gitlab.com/jabranham/system-packages"))])
  (tNFA .
        [(0 1 1)
 	((queue
@@ -1185,6 +1315,11 @@
 	    "Schema validation for Emacs-lisp" single
 	    ((:url . "http://elpa.gnu.org/packages/validate.html")
 	     (:keywords "lisp"))])
+ (vcl-mode .
+	   [(1 1)
+	    nil "Major mode for Varnish Configuration Language" single
+	    ((:url . "http://elpa.gnu.org/packages/vcl-mode.html")
+	     (:keywords "varnish" "vcl"))])
  (vdiff .
 	[(0 2 3)
 	 ((emacs
@@ -1201,6 +1336,18 @@
 	    "Run a vigenere cipher on a block of text ;" single
 	    ((:url . "https://elpa.gnu.org/packages/vigenere.html")
 	     (:keywords "data" "vigenere" "cipher"))])
+ (visual-filename-abbrev .
+			 [(1 0)
+			  ((emacs
+			    (26 1)))
+			  "Visually abbreviate filenames" single
+			  ((:url . "http://elpa.gnu.org/packages/visual-filename-abbrev.html")
+			   (:keywords "tools"))])
+ (visual-fill .
+	      [(0 1)
+	       nil "Auto-refill paragraphs without modifying the buffer" single
+	       ((:url . "http://elpa.gnu.org/packages/visual-fill.html")
+		(:keywords))])
  (vlf .
       [(1 7 1)
        nil "View Large Files" tar
@@ -1230,6 +1377,13 @@
 	      "Emacs Web Server" tar
 	      ((:keywords "http" "server" "network")
 	       (:url . "https://github.com/eschulte/emacs-web-server"))])
+ (webfeeder .
+	    [(1 0 0)
+	     ((emacs
+	       (25 1)))
+	     "Build RSS and Atom webfeeds from HTML files" tar
+	     ((:keywords "news" "hypermedia" "blog" "feed" "rss" "atom")
+	      (:url . "https://gitlab.com/Ambrevar/emacs-webfeeder"))])
  (websocket .
 	    [(1 8)
 	     ((cl-lib
@@ -1249,26 +1403,28 @@
 	      ((:url . "http://elpa.gnu.org/packages/windresize.html")
 	       (:keywords "window"))])
  (wisi .
-       [(1 1 6)
+       [(2 1 0)
 	((cl-lib
-	  (0 4))
+	  (1 0))
 	 (emacs
-	  (24 3)))
+	  (25 0))
+	 (seq
+	  (2 20)))
 	"Utilities for implementing an indentation/navigation engine using a generalized LALR parser" tar
 	((:keywords "parser" "indentation" "navigation")
-	 (:url . "http://www.nongnu.org/ada-mode/wisi/wisi.html"))])
+	 (:url . "http://stephe-leake.org/ada/wisitoken.html"))])
  (wpuzzle .
 	  [(1 1)
 	   nil "find as many word in a given time" single
 	   ((:url . "http://elpa.gnu.org/packages/wpuzzle.html")
 	    (:keywords))])
  (xclip .
-	[(1 4)
+	[(1 8)
 	 nil "Copy&paste GUI clipboard from text terminal" single
 	 ((:url . "http://elpa.gnu.org/packages/xclip.html")
 	  (:keywords "convenience" "tools"))])
  (xelb .
-       [(0 15)
+       [(0 17)
 	((emacs
 	  (24 4))
 	 (cl-generic
@@ -1281,6 +1437,11 @@
        nil "edit XPM images" tar
        ((:keywords "multimedia" "xpm")
 	(:url . "http://www.gnuvola.org/software/xpm/"))])
+ (xr .
+     [(1 10)
+      nil "Convert string regexp to rx notation" tar
+      ((:keywords "lisp" "maint" "regexps")
+       (:url . "https://github.com/mattiase/xr"))])
  (yasnippet .
 	    [(0 13 0)
 	     ((cl-lib
@@ -1295,6 +1456,11 @@
 			      "\"Classic\" yasnippet snippets" tar
 			      ((:keywords "snippets")
 			       (:url . "http://elpa.gnu.org/packages/yasnippet-classic-snippets.html"))])
+ (zones .
+	[(2018 12 28)
+	 nil "Zones of text - like multiple regions" single
+	 ((:url . "https://elpa.gnu.org/packages/zones.html")
+	  (:keywords "narrow" "restriction" "widen" "region" "zone"))])
  (ztree .
 	[(1 0 5)
 	 ((cl-lib

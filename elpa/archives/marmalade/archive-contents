@@ -523,7 +523,7 @@
 	    [(2012 4 7)
 	     nil "replace a word with a synonym looked up in a web service." single])
  (theme-looper .
-	       [(20170330 1829)
+	       [(20190330 2359)
 		((cl-lib
 		  (0 5)))
 		"Loop thru the available color-themes" single])
@@ -1335,6 +1335,13 @@
  (prolog .
 	 [(1 22)
 	  nil "major mode for editing and running Prolog (and Mercury) code" single])
+ (projectile-extras .
+		    [(20190101 2353)
+		     ((emacs
+		       (24))
+		      (cl-lib
+		       (0 5)))
+		     "A few extra functions for projectile" single])
  (projectile .
 	     [(0 10 0)
 	      ((s
@@ -1589,7 +1596,7 @@
 	      (0 4)))
 	    "Ert-runner Integration Into Emacs." single])
  (overcast-theme .
-		 [(20180315 1825)
+		 [(20190326 1825)
 		  ((emacs
 		    (24)))
 		  "A dark but vibrant color theme for Emacs" single])
@@ -1863,7 +1870,7 @@
 	  [(20071215)
 	   nil "mode for Notation 3" single])
  (myterminal-controls .
-		      [(20160119 2030)
+		      [(20190331 2315)
 		       ((emacs
 			 (24))
 			(cl-lib
@@ -3597,12 +3604,12 @@
 		  (20160725 724)))
 		"Sound effects for Emacs" single])
  (emacs-new-buffer .
-		   [(20171026 1922)
+		   [(20190128 1912)
 		    ((emacs
 		      (24)))
 		    "Quickly create new buffers to take notes and more" single])
  (emacs-home .
-	     [(20170911 1835)
+	     [(20190306 1942)
 	      ((emacs
 		(24))
 	       (cl-lib

@@ -15,4 +15,4 @@
 (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 
 ;; Load rainbow mode in most programming modes (Emacs 24 and above)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+;; (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
