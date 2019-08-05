@@ -5,11 +5,9 @@
 		  (24)))
 		"A zone program inspired from the old DOS game" single])
  (zone-quotes .
-	      [(20170919 1825)
+	      [(20190425 2325)
 	       ((emacs
-		 (24))
-		(cl-lib
-		 (0 5)))
+		 (24)))
 	       "A zone program to display quotes from a specific collection" single])
  (zone-nyan .
 	    [(0 2 2)
@@ -160,7 +158,7 @@
       (2 12 1)))
     "Use the Emacsclient as $EDITOR" tar])
  (wisp-mode .
-	    [(0 2 3)
+	    [(0 2 5)
 	     nil "Tools for wisp: the Whitespace-to-Lisp preprocessor" single])
  (wisp .
        [(0 1 4)
@@ -523,8 +521,10 @@
 	    [(2012 4 7)
 	     nil "replace a word with a synonym looked up in a web service." single])
  (theme-looper .
-	       [(20190330 2359)
-		((cl-lib
+	       [(20190430 2029)
+		((emacs
+		  (24))
+		 (cl-lib
 		  (0 5)))
 		"Loop thru the available color-themes" single])
  (theme-changer .
@@ -1332,11 +1332,16 @@
  (protobuf-mode .
 		[(0 3)
 		 nil "major mode for editing protocol buffers." single])
+ (prompt-you .
+	     [(20190425 2315)
+	      ((emacs
+		(24)))
+	      "A simple library to prompt user to select from a list of options" single])
  (prolog .
 	 [(1 22)
 	  nil "major mode for editing and running Prolog (and Mercury) code" single])
  (projectile-extras .
-		    [(20190101 2353)
+		    [(20190428 1049)
 		     ((emacs
 		       (24))
 		      (cl-lib
@@ -1870,11 +1875,9 @@
 	  [(20071215)
 	   nil "mode for Notation 3" single])
  (myterminal-controls .
-		      [(20190331 2315)
+		      [(20190425 2319)
 		       ((emacs
-			 (24))
-			(cl-lib
-			 (0 5)))
+			 (24)))
 		       "Quick toggle controls at a key-stroke" single])
  (my-packages .
 	      [(0 1 0)
@@ -3598,32 +3601,40 @@
 	      ((json
 		(1 4)))
 	      "View xkcd from Emacs" single])
+ (emacs-visual-notifications .
+			     [(20190425 2235)
+			      ((emacs
+				(24)))
+			      "A utility to create visual notifications in emacs" single])
  (emacs-sounds .
 	       [(20171017 1215)
 		((sound-wav
 		  (20160725 724)))
 		"Sound effects for Emacs" single])
+ (emacs-profiles .
+		 [(20190425 2255)
+		  ((emacs
+		    (24))
+		   (prompt-you
+		    (20170620 2315)))
+		  "Configuration profiles for Emacs" single])
  (emacs-new-buffer .
 		   [(20190128 1912)
 		    ((emacs
 		      (24)))
 		    "Quickly create new buffers to take notes and more" single])
  (emacs-home .
-	     [(20190306 1942)
+	     [(20190425 2315)
 	      ((emacs
-		(24))
-	       (cl-lib
-		(0 5)))
+		(24)))
 	      "A home-screen for Emacs" single])
  (emacs-droid .
 	      [(0 0 0)
 	       nil "Android application development tools for Emacs" single])
  (emacs-daily-events .
-		     [(20180707 2135)
+		     [(20190425 2259)
 		      ((emacs
 			(24))
-		       (cl-lib
-			(0 5))
 		       (emacs-visual-notifications
 			(20180707 2135)))
 		      "An Emacs package to notify you on specified daily occurring events" single])
