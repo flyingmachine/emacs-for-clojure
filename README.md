@@ -25,6 +25,8 @@ Then open Emacs.
 Before upgrading, ensure that your `.emacs.d` directory is under
 version control so that you can always revert to a known good state.
 
+When you need to run a Emacs command in the sections below, [`M-` means for you to press `esc`](https://kb.iu.edu/d/acqm).
+
 To upgrade:
 
 1. Edit `.emacs.d/init.el`, adding these lines after line 12:
