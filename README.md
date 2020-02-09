@@ -15,7 +15,7 @@ If you're new to emacs, check out
 3. Download the Emacs
    [configuration zip file](https://github.com/flyingmachine/emacs-for-clojure/archive/book1.zip)
    and unzip it. Its contents should be a folder,
-   `emacs-for-clojure-book1`. Run `mv path/to/emacs-for-clojure-book1
+   `emacs-for-clojure-book1`. Run `mv path/to/emacs-for-clojure-book1/*
    ~/.emacs.d`.
 
 Then open Emacs.
@@ -40,7 +40,7 @@ To upgrade:
 3. Run `rm -Rf .emacs.d/elpa/cider-*`
 4. Open Emacs. You'll probably see some errors and your theme won't
    load. That's ok.
-5. In Emacs, run `M-x package-refresh contents`.
+5. In Emacs, run `M-x package-refresh-contents`.
 6. In Emacs, run `M-x package-install cider`.
 7. Close and re-open Emacs.
 
