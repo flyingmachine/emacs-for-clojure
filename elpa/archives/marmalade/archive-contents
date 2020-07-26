@@ -1,11 +1,11 @@
 (1
  (zone-tunnels .
-	       [(20180309 2155)
+	       [(20200126 1129)
 		((emacs
 		  (24)))
 		"A zone program inspired from the old DOS game" single])
  (zone-quotes .
-	      [(20190425 2325)
+	      [(20200126 1129)
 	       ((emacs
 		 (24)))
 	       "A zone program to display quotes from a specific collection" single])
@@ -175,7 +175,7 @@
 		     [(0 0 5)
 		      nil "Enables winner mode if its available" tar])
  (window-shaper .
-		[(20171218 1222)
+		[(20171218 1224)
 		 nil "A utility to easily resize windows within Emacs" single])
  (window-number .
 		[(1 0 3)
@@ -521,7 +521,7 @@
 	    [(2012 4 7)
 	     nil "replace a word with a synonym looked up in a web service." single])
  (theme-looper .
-	       [(20190430 2029)
+	       [(20190430 2031)
 		((emacs
 		  (24))
 		 (cl-lib
@@ -1333,7 +1333,7 @@
 		[(0 3)
 		 nil "major mode for editing protocol buffers." single])
  (prompt-you .
-	     [(20190425 2315)
+	     [(20190425 2317)
 	      ((emacs
 		(24)))
 	      "A simple library to prompt user to select from a list of options" single])
@@ -1341,7 +1341,7 @@
 	 [(1 22)
 	  nil "major mode for editing and running Prolog (and Mercury) code" single])
  (projectile-extras .
-		    [(20190428 1049)
+		    [(20190428 1051)
 		     ((emacs
 		       (24))
 		      (cl-lib
@@ -1601,7 +1601,7 @@
 	      (0 4)))
 	    "Ert-runner Integration Into Emacs." single])
  (overcast-theme .
-		 [(20190326 1825)
+		 [(20190326 1827)
 		  ((emacs
 		    (24)))
 		  "A dark but vibrant color theme for Emacs" single])
@@ -1609,7 +1609,7 @@
 		      [(1 0 5)
 		       nil "outline-minor-mode settings for emacs lisp" single])
  (outer-spaces .
-	       [(20170825 2025)
+	       [(20170825 2027)
 		nil "A minimalistic minor-mode to highlight redundant spaces" single])
  (otter-mode .
 	     [(1 2)
@@ -1875,7 +1875,7 @@
 	  [(20071215)
 	   nil "mode for Notation 3" single])
  (myterminal-controls .
-		      [(20190425 2319)
+		      [(20190425 2321)
 		       ((emacs
 			 (24)))
 		       "Quick toggle controls at a key-stroke" single])
@@ -3602,29 +3602,31 @@
 		(1 4)))
 	      "View xkcd from Emacs" single])
  (emacs-visual-notifications .
-			     [(20190425 2235)
+			     [(20191120 1744)
 			      ((emacs
-				(24)))
+				(24))
+			       (cl-lib
+				(0 5)))
 			      "A utility to create visual notifications in emacs" single])
  (emacs-sounds .
-	       [(20171017 1215)
+	       [(20171017 1217)
 		((sound-wav
 		  (20160725 724)))
 		"Sound effects for Emacs" single])
  (emacs-profiles .
-		 [(20190425 2255)
+		 [(20190425 2257)
 		  ((emacs
 		    (24))
 		   (prompt-you
 		    (20170620 2315)))
 		  "Configuration profiles for Emacs" single])
  (emacs-new-buffer .
-		   [(20190128 1912)
+		   [(20190128 1913)
 		    ((emacs
 		      (24)))
 		    "Quickly create new buffers to take notes and more" single])
  (emacs-home .
-	     [(20190425 2315)
+	     [(20190425 2317)
 	      ((emacs
 		(24)))
 	      "A home-screen for Emacs" single])
@@ -3632,11 +3634,11 @@
 	      [(0 0 0)
 	       nil "Android application development tools for Emacs" single])
  (emacs-daily-events .
-		     [(20190425 2259)
+		     [(20191120 1744)
 		      ((emacs
 			(24))
 		       (emacs-visual-notifications
-			(20180707 2135)))
+			(20191119 2237)))
 		      "An Emacs package to notify you on specified daily occurring events" single])
  (emacs-cl .
 	   [(0 5)
@@ -3805,7 +3807,7 @@
       [(2 40)
        nil "Emacs Code Browser" tar])
  (eagle-eye .
-	    [(20170823 2205)
+	    [(20170823 2210)
 	     nil "A utility to zoom-in and zoom-out while editing text" single])
  (dynamic-fonts .
 		[(0 6 4)
