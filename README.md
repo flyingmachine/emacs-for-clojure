@@ -40,7 +40,7 @@ To upgrade:
 3. Run `rm -Rf .emacs.d/elpa/cider-*`
 4. Open Emacs. You'll probably see some errors and your theme won't
    load. That's ok.
-5. In Emacs, run `M-x package-refresh contents`.
+5. In Emacs, run `M-x package-refresh-contents`.
 6. In Emacs, run `M-x package-install cider`.
 7. Close and re-open Emacs.
 
