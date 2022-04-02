@@ -1,3 +1,15 @@
+# WARNING this does not work currently
+
+A lot has changed since I last put significant effort into this repo, and as a result this emacs
+config is broken. I hope to get it working again soon (as of 2022-04-02).
+
+If you're completely new to Clojure and emacs, I recommend using [Calva](https://calva.io/), a plugin
+for VSCode, rather than trying to learn both Clojure and Emacs at the same time. Other options:
+
+- [Practicalli Spacemacs](https://practical.li/spacemacs/)
+- [Cursive](https://cursive-ide.com/)
+- [Vim fireplace](https://github.com/tpope/vim-fireplace)
+
 # this is a Clojure-friendly emacs config
 
 If you're new to emacs, check out
