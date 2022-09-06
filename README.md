@@ -1,15 +1,3 @@
-# WARNING this does not work currently
-
-A lot has changed since I last put significant effort into this repo, and as a result this emacs
-config is broken. I hope to get it working again soon (as of 2022-04-02).
-
-If you're completely new to Clojure and emacs, I recommend using [Calva](https://calva.io/), a plugin
-for VSCode, rather than trying to learn both Clojure and Emacs at the same time. Other options:
-
-- [Practicalli Spacemacs](https://practical.li/spacemacs/)
-- [Cursive](https://cursive-ide.com/)
-- [Vim fireplace](https://github.com/tpope/vim-fireplace)
-
 # this is a Clojure-friendly emacs config
 
 If you're new to emacs, check out
@@ -33,30 +21,19 @@ If you're new to emacs, check out
 Then open Emacs.
 
 ## Upgrading
+Each package we use gets updated by its authors, at whatever cadence works for
+them. It's a good idea to stay up-to-date, to get improvements and bug
+fixes. It's analogous to keeping the software up-to-date in your operating
+system.
 
-Before upgrading, ensure that your `.emacs.d` directory is under
-version control so that you can always revert to a known good state.
+When you run `M-x list-packages` it refreshes the cache of all the package
+repositories, and then tells you in the status line whether there are any
+updates to install. Press `U` to mark all upgradeable packages for installation,
+and then press `x` to execute the installation. You will be prompted to confirm,
+and when you press `y` the package updates will be installed. Press `q` to exit
+the package list when it's finished.
 
-To upgrade:
-
-1. Edit `.emacs.d/init.el`, adding these lines after line 12:
-
-   ```elisp
-   (add-to-list 'package-archives
-                '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-   
-   (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
-   ```
-
-2. Close Emacs.
-3. Run `rm -Rf .emacs.d/elpa/cider-*`
-4. Open Emacs. You'll probably see some errors and your theme won't
-   load. That's ok.
-5. In Emacs, run `M-x package-refresh-contents`.
-6. In Emacs, run `M-x package-install cider`.
-7. Close and re-open Emacs.
-
-That should install the latest version. Enjoy!
+If you ever get curious to look, you can find all the installed packages in `~/.emacs.d/elpa`.
 
 ## Organization
 

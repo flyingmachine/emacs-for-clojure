@@ -19,14 +19,24 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-;; Color Themes
-;; Read http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/
-;; for a great explanation of emacs color themes.
-;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Custom-Themes.html
-;; for a more technical explanation.
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'tomorrow-night-bright t)
+;; doom is a whole Emacs distribution unto itself,
+;; but it's got some really nice packages that you
+;; can use a-la-carte. doom-modeline is simply a more
+;; modern and more beautiful modeline.
+
+(setup (:package all-the-icons))
+
+(setup (:package doom-modeline)
+  (doom-modeline-mode t))
+
+;; Lots of great themes, both light ones
+;; and dark ones. Use M-x load-theme to select one.
+;; The first time you load one, it asks for
+;; confirmation. You can see what they all
+;; look like here:
+;; https://github.com/doomemacs/themes/tree/screenshots
+(setup (:package doom-themes)
+  (load-theme 'doom-laserwave t))
 
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
@@ -56,6 +66,10 @@
       ;; Mouse yank commands yank at point instead of at click.
       mouse-yank-at-point t)
 
+(tool-bar-mode -1)
+
+(tooltip-mode -1)
+
 ;; No cursor blinking, it's distracting
 (blink-cursor-mode 0)
 
@@ -67,3 +81,7 @@
 
 ;; no bell
 (setq ring-bell-function 'ignore)
+
+;; initial frame height and width
+(add-to-list 'default-frame-alist '(height . 95))
+(add-to-list 'default-frame-alist '(width . 154))
