@@ -1,3 +1,7 @@
+;; See https://clojure-lsp.io/
+(setup (:package lsp-mode)
+  (:bind "M-<f7>" #'lsp-find-references))
+
 ;; clojure-mode is (naturally) the major mode for editing
 ;; Clojure and ClojureScript. subword-mode allows words
 ;; in camel case to be treated as separate words for
@@ -7,7 +11,8 @@
 ;; like names of Java classes (e.g. JavaClassName)
 (setup (:package clojure-mode)
   (:hook subword-mode
-         paredit-mode)
+         paredit-mode
+         lsp-mode)
   (:bind "C-c C-v" #'cider-start-http-server
          "C-M-r" #'cider-refresh
          "C-c u" #'cider-user-ns))

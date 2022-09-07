@@ -27,6 +27,7 @@
   '("ui.el"
     "navigation.el"
     "projects.el"
+    "filetree.el"
     "editing.el"
     "elisp-editing.el"
     "setup-clojure.el"
