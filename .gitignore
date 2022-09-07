@@ -13,3 +13,4 @@ elpa
 custom.el
 archive-contents
 *.elc
+.cache
