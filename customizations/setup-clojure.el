@@ -1,6 +1,7 @@
 ;; See https://clojure-lsp.io/
-(setup (:package lsp-mode)
-  (:bind "M-<f7>" #'lsp-find-references))
+(when (executable-find "clojure-lsp")
+  (setup (:package lsp-mode)
+    (:bind "M-<f7>" lsp-find-references)))
 
 ;; clojure-mode is (naturally) the major mode for editing
 ;; Clojure and ClojureScript. subword-mode allows words
@@ -12,17 +13,16 @@
 (setup (:package clojure-mode)
   (:hook subword-mode
          paredit-mode
-         lsp-mode)
-  (:bind "C-c C-v" #'cider-start-http-server
-         "C-M-r" #'cider-refresh
-         "C-c u" #'cider-user-ns))
+         lsp)
+  (:bind "C-M-r" cider-refresh
+         "C-c u" cider-user-ns))
 
 ;; CIDER is a whole interactive development environment for
 ;; Clojure. There is a ton of functionality here, so be sure
 ;; to check out the excellent documentation at
 ;; https://docs.cider.mx/cider/index.html
 (setup (:package cider)
-  (:bind "C-c u" #'cider-user-ns)
+  (:bind "C-c u" cider-user-ns)
   (:option cider-show-error-buffer t
            cider-auto-select-error-buffer t
            cider-repl-history-file "~/.emacs.d/cider-history"
@@ -52,17 +52,14 @@
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
 ;; Use clojure mode for other extensions
-(add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
 
-
-;; key bindings
 ;; these help me out with the way I usually develop web apps
 (defun cider-start-http-server ()
   (interactive)
-  (cider-load-current-buffer)
+  (cider-load-buffer)
   (let ((ns (cider-current-ns)))
     (cider-repl-set-ns ns)
     (cider-interactive-eval (format "(println '(def server (%s/start))) (println 'server)" ns))
@@ -75,3 +72,4 @@
 (defun cider-user-ns ()
   (interactive)
   (cider-repl-set-ns "user"))
+

@@ -27,4 +27,8 @@
            "C-x C-b" counsel-switch-buffer
            "M-x" counsel-M-x))
 
-(setup (:package ivy-rich))
+;; ivy-rich-mode adds docstrings and additional metadata
+;; in the ivy picker minibuffer
+;; see screenshots: https://github.com/Yevgnen/ivy-rich/blob/master/screenshots.org
+(setup (:package ivy-rich)
+  (ivy-rich-mode))

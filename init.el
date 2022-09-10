@@ -32,10 +32,9 @@
     "elisp-editing.el"
     "setup-clojure.el"
     "setup-js.el"
+    "setup-org.el"
     "shell-integration.el"
-    "git.el"
-    "markdown.el"
-    "misc.el"))
+    "git.el"))
 
 (dolist (x addons)
   (load x))

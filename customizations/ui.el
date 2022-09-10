@@ -4,26 +4,34 @@
 ;; a matter of preference and may require some fiddling to match your
 ;; preferences
 
-;; Turn off the menu bar at the top of each frame because it's distracting
-(menu-bar-mode -1)
+(tooltip-mode -1)                 ;; disable tooltips
+(tool-bar-mode -1)                ;; the toolbar is pretty ugly
+(scroll-bar-mode -1)              ;; disable visible scrollbar
+(blink-cursor-mode 0)             ;; turn off blinking cursor. distracting!
+(setq create-lockfiles nil)       ;; no need for ~ files when editing
+(fset 'yes-or-no-p 'y-or-n-p)     ;; changes all yes/no questions to y/n type
+(setq inhibit-startup-message t)  ;; go straight to scratch buffer on startup
+(setq ring-bell-function 'ignore) ;; turn off audible bell
 
-;; Show line numbers
-(global-linum-mode)
+;; show full path in title bar
+(setq-default frame-title-format "%b (%f)")
 
-;; You can uncomment this to remove the graphical toolbar at the top. After
-;; awhile, you won't need the toolbar.
-;; (when (fboundp 'tool-bar-mode)
-;;   (tool-bar-mode -1))
+;; initial frame height and width
+(add-to-list 'default-frame-alist '(height . 95))
+(add-to-list 'default-frame-alist '(width . 154))
 
-;; Don't show native OS scroll bars for buffers because they're redundant
-(when (fboundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
+;; increase font size for better readability
+(set-face-attribute 'default nil :height 140)
+
+;; on a Mac, don't pop up font menu
+(when (string-equal system-type "darwin")
+  (global-set-key (kbd "s-t") '(lambda () (interactive))))
 
 ;; doom is a whole Emacs distribution unto itself,
 ;; but it's got some really nice packages that you
 ;; can use a-la-carte. doom-modeline is simply a more
 ;; modern and more beautiful modeline.
-
+;; doom-modeline uses nice icons from all-the-icons
 (setup (:package all-the-icons))
 
 (setup (:package doom-modeline)
@@ -36,15 +44,7 @@
 ;; look like here:
 ;; https://github.com/doomemacs/themes/tree/screenshots
 (setup (:package doom-themes)
-  (load-theme 'doom-laserwave t))
-
-;; increase font size for better readability
-(set-face-attribute 'default nil :height 140)
-
-;; Uncomment the lines below by removing semicolons and play with the
-;; values in order to set the width (in characters wide) and height
-;; (in lines high) Emacs will have whenever you start it
-;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 177) (height . 53)))
+  (load-theme 'doom-dracula t))
 
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
@@ -66,22 +66,14 @@
       ;; Mouse yank commands yank at point instead of at click.
       mouse-yank-at-point t)
 
-(tool-bar-mode -1)
+;; CUSTOMIZE
 
-(tooltip-mode -1)
+;; You can uncomment this to remove the graphical toolbar at the top. After
+;; awhile, you won't need the toolbar.
+;; (tool-bar-mode -1)
 
-;; No cursor blinking, it's distracting
-(blink-cursor-mode 0)
+;; Your choice of font is very personal, and you must have installed it
+;; on your system before you specify it here,
+;; Some font suggestions:  https://www.creativebloq.com/features/the-best-monospace-fonts-for-coding
+;; (set-face-attribute 'default nil :font "Fira Code")
 
-;; full path in title bar
-(setq-default frame-title-format "%b (%f)")
-
-;; don't pop up font menu
-(global-set-key (kbd "s-t") '(lambda () (interactive)))
-
-;; no bell
-(setq ring-bell-function 'ignore)
-
-;; initial frame height and width
-(add-to-list 'default-frame-alist '(height . 95))
-(add-to-list 'default-frame-alist '(width . 154))
