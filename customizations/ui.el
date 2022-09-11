@@ -46,7 +46,8 @@
 ;; look like here:
 ;; https://github.com/doomemacs/themes/tree/screenshots
 (setup (:package doom-themes)
-  (load-theme 'doom-dracula t))
+  (when (not custom-enabled-themes)
+    (load-theme 'doom-dracula t)))
 
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
