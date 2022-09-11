@@ -27,14 +27,14 @@
   '("ui.el"
     "navigation.el"
     "projects.el"
+    "git.el"
     "filetree.el"
     "editing.el"
     "elisp-editing.el"
     "setup-clojure.el"
     "setup-js.el"
     "setup-org.el"
-    "shell-integration.el"
-    "git.el"))
+    "shell-integration.el"))
 
 (dolist (x addons)
   (load x))

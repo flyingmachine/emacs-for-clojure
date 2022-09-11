@@ -17,8 +17,8 @@
 (setq-default frame-title-format "%b (%f)")
 
 ;; initial frame height and width
-(add-to-list 'default-frame-alist '(height . 95))
-(add-to-list 'default-frame-alist '(width . 154))
+(add-to-list 'default-frame-alist '(height . 45))
+(add-to-list 'default-frame-alist '(width . 100))
 
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
@@ -34,8 +34,10 @@
 ;; doom-modeline uses nice icons from all-the-icons
 (setup (:package all-the-icons))
 
-(setup (:package doom-modeline)
-  (doom-modeline-mode t))
+;; for some reason, this crashes Emacs on Windows. Argh!
+(setup (when (not (string-equal system-type "windows-nt"))
+         (:package doom-modeline)
+         (doom-modeline-mode t)))
 
 ;; Lots of great themes, both light ones
 ;; and dark ones. Use M-x load-theme to select one.

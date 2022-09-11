@@ -3,9 +3,9 @@
 ;; notes, plans, ideas, articles, etc. But it goes way beyond that,
 ;; including calendar features, executable code blocks, task statuses,
 ;; and even a pomodoro timer!
-;; See https://orgmode.org/ for _tons_ of information
+;; See https://orgmode.org/ for /tons/ of information
 ;; All of the beautifying configuration comes from https://zzamboni.org/post/beautifying-org-mode-in-emacs/
-;; Tip of the had to Diego Zamboni for that.
+;; Tip of the hat to Diego Zamboni for that.
 (defun efc/org-font-setup ()
   ;; Replace list hyphen with dot
   (font-lock-add-keywords 'org-mode

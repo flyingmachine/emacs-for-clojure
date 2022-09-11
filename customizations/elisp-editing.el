@@ -1,3 +1,5 @@
+;; paredit enables structural editing of just about any lisp
+;; https://www.emacswiki.org/emacs/ParEdit
 (setup (:package paredit)
   (:hook-into emacs-lisp-mode
 	      eval-expression-minibuffer-setup
