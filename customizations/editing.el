@@ -18,6 +18,16 @@
 ;; Highlight current line
 (global-hl-line-mode 1)
 
+;; line numbers
+(global-display-line-numbers-mode 1)
+;; but not everywhere
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                treemacs-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
 ;; Don't use hard tabs
 (setq-default indent-tabs-mode nil)
 
