@@ -48,7 +48,7 @@ across all the files within your project. You can use git for that with the foll
 command: `M-x counsel-git-grep`. This works just fine, with the caveat that it 
 _must_ be in a directory version-controlled with git. There are quite a few
 alternative search utilities, but you'll have to install them separately. In 
-practice, you'll probably settle on one you like and use it exclusively.  gsHere 
+practice, you'll probably settle on one you like and use it exclusively. Here 
 are the links, along with the emacs command to invoke each:
 
 * [ack](https://beyondgrep.com/) `M-x counsel-ack`

@@ -11,10 +11,9 @@
   (which-key-mode)
   (:option which-key-idle-delay 0.3))
 
-;; ivy is the completion framework. This makes M-x much
-;; more usable.
-;; installing counsel brings ivy and swiper as dependencies
-;; swiper is a powerful search-with-a-buffer capability.
+;; ivy is the completion framework. This makes M-x much more usable.
+;; Installing counsel brings ivy and swiper as dependencies
+;; swiper is a powerful search-within-a-buffer capability.
 ;; https://github.com/abo-abo/swiper
 (setup (:package counsel)
   (ivy-mode)
