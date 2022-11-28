@@ -24,7 +24,7 @@
 (set-face-attribute 'default nil :height 140)
 
 ;; on a Mac, don't pop up font menu
-(when (string-equal system-type "darwin")
+(when (string-equal system-type "darwin") 'ok
   (global-set-key (kbd "s-t") '(lambda () (interactive))))
 
 ;; doom is a whole Emacs distribution unto itself,
