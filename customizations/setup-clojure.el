@@ -1,7 +1,8 @@
-;; See https://clojure-lsp.io/
-(when (executable-find "clojure-lsp")
-  (setup (:package lsp-mode)
-    (:bind "M-<f7>" lsp-find-references)))
+;; See:  https://clojure-lsp.io/
+;; also: https://emacs-lsp.github.io/lsp-mode/
+(setup (:package lsp-mode lsp-ui lsp-ivy lsp-treemacs)
+  (:hook lsp-enable-which-key-integration)
+  (:bind "M-<f7>" lsp-find-references))
 
 ;; clojure-mode is (naturally) the major mode for editing
 ;; Clojure and ClojureScript. subword-mode allows words
@@ -13,16 +14,15 @@
 (setup (:package clojure-mode)
   (:hook subword-mode
          paredit-mode
-         lsp)
-  (:bind "C-M-r" cider-refresh
-         "C-c u" cider-user-ns))
+         lsp))
 
 ;; CIDER is a whole interactive development environment for
 ;; Clojure. There is a ton of functionality here, so be sure
 ;; to check out the excellent documentation at
 ;; https://docs.cider.mx/cider/index.html
 (setup (:package cider)
-  (:bind "C-c u" cider-user-ns)
+  (:bind "C-c u" cider-user-ns
+         "C-M-r" cider-refresh)
   (:option cider-show-error-buffer t
            cider-auto-select-error-buffer t
            cider-repl-history-file "~/.emacs.d/cider-history"
@@ -49,7 +49,8 @@
   (:hook-into clojure-mode))
 
 ;; enable paredit in your REPL
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
+(setup cider-repl-mode
+  (:hook paredit-mode))
 
 ;; Use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
