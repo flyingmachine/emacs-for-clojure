@@ -1,15 +1,22 @@
-;; Automatically load paredit when editing a lisp file
-;; More at http://www.emacswiki.org/emacs/ParEdit
-(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+;; paredit enables structural editing of just about any lisp
+;; https://www.emacswiki.org/emacs/ParEdit
+(setup (:package paredit)
+  (:hook-into emacs-lisp-mode
+	      eval-expression-minibuffer-setup
+	      ielm-mode
+	      lisp-mode
+	      lisp-interaction-mode
+	      scheme-mode))
 
-;; eldoc-mode shows documentation in the minibuffer when writing code
-;; http://www.emacswiki.org/emacs/ElDoc
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+(setup turn-on-eldoc-mode
+  (:hook-into emacs-lisp-mode
+	 lisp-interaction-mode
+	 iel-mode))
+
+;; rainbow-delimiters makes nested parentheses easier to
+;; follow by showing each pair in its own color.
+;; Depending on your theme, the colors might be very subtle,
+;; and not very rainbow!
+;; https://github.com/Fanael/rainbow-delimiters
+(setup (:package rainbow-delimiters)
+  (:hook-into prog-mode))

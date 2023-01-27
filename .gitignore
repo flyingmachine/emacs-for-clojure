@@ -9,5 +9,11 @@ projectile.cache
 auto-save-list
 backups
 melpa-stable
+elpa
+custom.el
 archive-contents
 *.elc
+.cache
+recentf
+transient
+network-security.data
