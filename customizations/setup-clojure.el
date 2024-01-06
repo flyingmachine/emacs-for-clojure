@@ -38,8 +38,8 @@
 ;; hydra provides a nice looking menu for commands
 ;; to see what's available, use M-x and the prefix cider-hydra
 ;; https://github.com/clojure-emacs/cider-hydra
-(setup (:package cider-hydra)
-  (:hook-into clojure-mode))
+;; (setup (:package cider-hydra)
+;;   (:hook-into clojure-mode))
 
 ;; additional refactorings for CIDER
 ;; e.g. add missing libspec, extract function, destructure keys
